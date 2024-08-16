@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "362378516740",
+    "project_id": "blubem-c0a17",
+    "storage_bucket": "blubem-c0a17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362378516740:android:bbb1a7a750db987b195851",
+        "android_client_info": {
+          "package_name": "com.blubem.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7mWLkvwevuFVVikqRmiCa8IWQYFeVN-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
