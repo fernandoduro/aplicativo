@@ -57,12 +57,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                   key: _model.formKey,
                   autovalidateMode: AutovalidateMode.disabled,
                   child: Container(
-                    width: 393.0,
+                    width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primary,
                     ),
-                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -102,9 +101,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 40.0, 0.0, 40.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: const BoxConstraints(
-                                maxWidth: 430.0,
-                              ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).info,
                                 borderRadius: const BorderRadius.only(

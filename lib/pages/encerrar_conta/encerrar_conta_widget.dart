@@ -5,47 +5,32 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
-import 'create_site_etapa1_model.dart';
-export 'create_site_etapa1_model.dart';
+import 'encerrar_conta_model.dart';
+export 'encerrar_conta_model.dart';
 
-class CreateSiteEtapa1Widget extends StatefulWidget {
-  const CreateSiteEtapa1Widget({super.key});
+class EncerrarContaWidget extends StatefulWidget {
+  const EncerrarContaWidget({super.key});
 
   @override
-  State<CreateSiteEtapa1Widget> createState() => _CreateSiteEtapa1WidgetState();
+  State<EncerrarContaWidget> createState() => _EncerrarContaWidgetState();
 }
 
-class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
-  late CreateSiteEtapa1Model _model;
+class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
+  late EncerrarContaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateSiteEtapa1Model());
+    _model = createModel(context, () => EncerrarContaModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'CreateSiteEtapa1'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CREATE_SITE_ETAPA1_CreateSiteEtapa1_ON_I');
-      logFirebaseEvent('CreateSiteEtapa1_set_form_field');
-      setState(() {
-        _model.nameTextController?.text = getJsonField(
-          FFAppState().dataSite,
-          r'''$.name''',
-        ).toString().toString();
-        _model.nameTextController?.selection = TextSelection.collapsed(
-            offset: _model.nameTextController!.text.length);
-      });
-    });
-
-    _model.nameTextController ??= TextEditingController();
-    _model.nameFocusNode ??= FocusNode();
+        parameters: {'screen_name': 'EncerrarConta'});
+    _model.motivoTextController ??= TextEditingController();
+    _model.motivoFocusNode ??= FocusNode();
   }
 
   @override
@@ -57,8 +42,6 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -104,7 +87,7 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPA1_Text_dft8oph4_ON_TAP');
+                                        'ENCERRAR_CONTA_PAGE_Text_vsl7y36n_ON_TAP');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -153,32 +136,60 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
-                                      child: Text(
-                                        'Digite a forma que gostaria que seu nome apareça no site?',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Manrope',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              fontSize: 30.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
+                                      child: RichText(
+                                        textScaler:
+                                            MediaQuery.of(context).textScaler,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text:
+                                                  'Por que deseja encerrar sua conta? ',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Manrope',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    fontSize: 30.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                             ),
+                                            TextSpan(
+                                              text: valueOrDefault<String>(
+                                                functions.setEmoji(15),
+                                                '15',
+                                              ),
+                                              style: const TextStyle(),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Manrope',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize: 30.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 15.0, 0.0),
+                                        15.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.nameTextController,
-                                      focusNode: _model.nameFocusNode,
+                                      controller: _model.motivoTextController,
+                                      focusNode: _model.motivoFocusNode,
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Nome',
+                                        labelText: 'Digite aqui...',
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -235,8 +246,10 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                             fontFamily: 'Manrope',
                                             letterSpacing: 0.0,
                                           ),
+                                      maxLines: 5,
+                                      keyboardType: TextInputType.multiline,
                                       validator: _model
-                                          .nameTextControllerValidator
+                                          .motivoTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -256,51 +269,67 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: (_model.nameTextController
+                                        onPressed: (_model.motivoTextController
                                                         .text ==
                                                     '')
                                             ? null
                                             : () async {
                                                 logFirebaseEvent(
-                                                    'CREATE_SITE_ETAPA1_AVANAR_BTN_ON_TAP');
-                                                if (FFAppState().existSite ==
-                                                    true) {
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .updateSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'name': _model
-                                                          .nameTextController
-                                                          .text,
-                                                    },
-                                                  );
-                                                } else {
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .createSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'name': _model
-                                                          .nameTextController
-                                                          .text,
-                                                    },
-                                                  );
-                                                }
+                                                    'ENCERRAR_CONTA_ENCERRAR_CONTA_BTN_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
+                                                _model.apiResultqnl =
+                                                    await APIOficialGroup
+                                                        .encerrarContaCall
+                                                        .call(
+                                                  authToken:
+                                                      currentAuthenticationToken,
+                                                  motive: _model
+                                                      .motivoTextController
+                                                      .text,
+                                                );
 
                                                 logFirebaseEvent(
-                                                    'Button_navigate_to');
+                                                    'Button_show_snack_bar');
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Conta encerrada com sucesso. Te esperamos em uma nova oportunidade.',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
+                                                  ),
+                                                );
+                                                logFirebaseEvent('Button_auth');
+                                                GoRouter.of(context)
+                                                    .prepareAuthEvent();
+                                                await authManager.signOut();
+                                                GoRouter.of(context)
+                                                    .clearRedirectLocation();
 
-                                                context.pushNamed(
-                                                    'CreateSiteEtapa2');
+                                                logFirebaseEvent(
+                                                    'Button_update_app_state');
+                                                FFAppState().firstAccess = true;
+                                                FFAppState().existSite = false;
+                                                setState(() {});
+
+                                                context.goNamedAuth('HomeBalao',
+                                                    context.mounted);
+
+                                                setState(() {});
                                               },
-                                        text: 'Avançar',
+                                        text: 'Encerrar conta',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *

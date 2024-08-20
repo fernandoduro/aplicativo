@@ -28,6 +28,10 @@ class APIOficialGroup {
   static StateCall stateCall = StateCall();
   static CityCall cityCall = CityCall();
   static DomainCheckCall domainCheckCall = DomainCheckCall();
+  static GetUserCall getUserCall = GetUserCall();
+  static UpdateProfessionalCall updateProfessionalCall =
+      UpdateProfessionalCall();
+  static EncerrarContaCall encerrarContaCall = EncerrarContaCall();
 }
 
 class LoginCall {
@@ -76,22 +80,22 @@ class LoginCall {
 class RegisterCall {
   Future<ApiCallResponse> call({
     String? name = '',
-    String? email = '',
     String? password = '',
     String? cPassword = '',
     String? cellphone = '',
     int? categoryId,
+    String? code = '',
   }) async {
     final baseUrl = APIOficialGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "name": "$name",
-  "email": "$email",
   "password": "$password",
   "c_password": "$cPassword",
   "cellphone": "$cellphone",
-  "category_id": $categoryId
+  "category_id": $categoryId,
+  "code": "$code"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Register',
@@ -599,6 +603,109 @@ class DomainCheckCall {
         response,
         r'''$.data.exists''',
       ));
+}
+
+class GetUserCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetUser',
+      apiUrl: '$baseUrl/user',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.id''',
+      ));
+  String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.name''',
+      ));
+  String? cellphone(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.cellphone''',
+      ));
+  String? email(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.email''',
+      ));
+  String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  int? categoryid(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.category_id''',
+      ));
+}
+
+class UpdateProfessionalCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    dynamic bodyJson,
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    final body = _serializeJson(bodyJson);
+    final ffApiRequestBody = body;
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateProfessional',
+      apiUrl: '$baseUrl/professionals',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class EncerrarContaCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? motive = '',
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'EncerrarConta',
+      apiUrl: '$baseUrl/professionals?motive=$motive',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End API Oficial Group Code

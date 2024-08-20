@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'forgot_password_widget.dart' show ForgotPasswordWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
   ///  State fields for stateful widgets in this page.
@@ -9,6 +10,7 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
   // State field(s) for cellphone widget.
   FocusNode? cellphoneFocusNode;
   TextEditingController? cellphoneTextController;
+  final cellphoneMask = MaskTextInputFormatter(mask: '(##) #####-####');
   String? Function(BuildContext, String?)? cellphoneTextControllerValidator;
   String? _cellphoneTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {

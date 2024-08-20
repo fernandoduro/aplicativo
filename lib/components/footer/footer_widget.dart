@@ -146,8 +146,11 @@ class _FooterWidgetState extends State<FooterWidget> {
                             color: FlutterFlowTheme.of(context).primary,
                             size: 24.0,
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent('FOOTER_COMP_sick_ICN_ON_TAP');
+                            logFirebaseEvent('IconButton_navigate_to');
+
+                            context.pushNamed('EditarPerfil');
                           },
                         ),
                       ],

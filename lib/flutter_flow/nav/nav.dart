@@ -185,6 +185,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateSiteEtapa1',
           path: '/createSiteEtapa1',
           builder: (context, params) => const CreateSiteEtapa1Widget(),
+        ),
+        FFRoute(
+          name: 'EditarPerfil',
+          path: '/editarPerfil',
+          builder: (context, params) => const EditarPerfilWidget(),
+        ),
+        FFRoute(
+          name: 'EncerrarConta',
+          path: '/encerrarConta',
+          builder: (context, params) => const EncerrarContaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

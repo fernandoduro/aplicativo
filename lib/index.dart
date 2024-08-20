@@ -36,3 +36,6 @@ export '/pages/create_site_etapa9/create_site_etapa9_widget.dart'
     show CreateSiteEtapa9Widget;
 export '/pages/create_site_etapa1/create_site_etapa1_widget.dart'
     show CreateSiteEtapa1Widget;
+export '/pages/editar_perfil/editar_perfil_widget.dart' show EditarPerfilWidget;
+export '/pages/encerrar_conta/encerrar_conta_widget.dart'
+    show EncerrarContaWidget;

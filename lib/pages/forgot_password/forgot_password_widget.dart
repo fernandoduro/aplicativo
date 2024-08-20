@@ -141,7 +141,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.bold,
+                                                              FontWeight.w500,
                                                         ),
                                               ),
                                             ),
@@ -240,6 +240,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                                 validator: _model
                                                     .cellphoneTextControllerValidator
                                                     .asValidator(context),
+                                                inputFormatters: [
+                                                  _model.cellphoneMask
+                                                ],
                                               ),
                                             ),
                                           ),
@@ -261,6 +264,32 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                                         .validate()) {
                                                   return;
                                                 }
+                                                logFirebaseEvent(
+                                                    'Button_show_snack_bar');
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Senha enviado em seu Whatsapp',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
+                                                  ),
+                                                );
+                                                logFirebaseEvent(
+                                                    'Button_navigate_to');
+
+                                                context.pushNamed('Login');
                                               },
                                               text: 'Recuperar senha',
                                               options: FFButtonOptions(

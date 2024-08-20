@@ -17,10 +17,17 @@ String? categorySelected(
 ) {
   var rest = categories as List;
   var filteredList;
-  filteredList = rest.firstWhere((val) => val["id"].toString() == profselected);
-  if (filteredList == null) {
+
+  if (profselected == null || profselected == "") {
     return "";
   }
+
+  filteredList = rest.firstWhere((val) => val["id"].toString() == profselected);
+
+  if (filteredList == null || filteredList["license_name"] == null) {
+    return "";
+  }
+
   return filteredList["license_name"];
 }
 
@@ -138,4 +145,19 @@ dynamic removeDuplicateDomainSugestionsArray(dynamic lista) {
   var notDuplicate = lista['sugestions'].toSet().toList();
   lista['sugestions'] = notDuplicate;
   return lista;
+}
+
+String? setEmoji(int? index) {
+  // return the character at position inputVal or an empty string if inputVal is null
+  const String emojis = "👍😊🤣🥳💕😍😘💋🤪🔥😇😈🥱🙄😮🙁😠👎";
+  // Ensure the index is not null and within the bounds of the emojis string.
+  if (index == null || index < 0 || index >= emojis.runes.length) {
+    return '';
+  }
+
+  // Convert the emojis string to a list of Runes (unicode scalar values).
+  List<int> emojiRunes = emojis.runes.toList();
+
+  // Return the emoji at the specified index.
+  return String.fromCharCode(emojiRunes[index]);
 }
