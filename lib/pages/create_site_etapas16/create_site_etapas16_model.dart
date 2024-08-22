@@ -1,11 +1,11 @@
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_site_etapas11_widget.dart' show CreateSiteEtapas11Widget;
+import 'create_site_etapas16_widget.dart' show CreateSiteEtapas16Widget;
 import 'package:flutter/material.dart';
 
-class CreateSiteEtapas11Model
-    extends FlutterFlowModel<CreateSiteEtapas11Widget> {
+class CreateSiteEtapas16Model
+    extends FlutterFlowModel<CreateSiteEtapas16Widget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for Header component.

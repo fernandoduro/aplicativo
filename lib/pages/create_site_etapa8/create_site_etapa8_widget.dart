@@ -5,6 +5,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapa8_model.dart';
@@ -30,10 +31,10 @@ class _CreateSiteEtapa8WidgetState extends State<CreateSiteEtapa8Widget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapa8'});
     _model.descricaoTextController ??= TextEditingController(
-        text: getJsonField(
+        text: functions.removeNullString(getJsonField(
       FFAppState().dataSite,
-      r'''$.main_call_to_action''',
-    ).toString().toString());
+      r'''$.short_description''',
+    ).toString().toString()));
     _model.descricaoFocusNode ??= FocusNode();
   }
 
@@ -93,7 +94,7 @@ class _CreateSiteEtapa8WidgetState extends State<CreateSiteEtapa8Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPA8_Text_cno91oz4_ON_TAP');
+                                        'CREATE_SITE_ETAPA8_Text_ne3fe0yx_ON_TAP');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -143,7 +144,7 @@ class _CreateSiteEtapa8WidgetState extends State<CreateSiteEtapa8Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Preencha uma chamada principal para que seus visitantes conheçam seu serviço. \n',
+                                        'Preencha uma breve descrição sobre sua experiência e especialidade.',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -255,36 +256,19 @@ class _CreateSiteEtapa8WidgetState extends State<CreateSiteEtapa8Widget> {
                                             : () async {
                                                 logFirebaseEvent(
                                                     'CREATE_SITE_ETAPA8_AVANAR_BTN_ON_TAP');
-                                                if (FFAppState().existSite ==
-                                                    true) {
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .updateSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'main_call_to_action': _model
-                                                          .descricaoTextController
-                                                          .text,
-                                                    },
-                                                  );
-                                                } else {
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .createSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'main_call_to_action': _model
-                                                          .descricaoTextController
-                                                          .text,
-                                                    },
-                                                  );
-                                                }
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
+                                                await APIOficialGroup
+                                                    .updateSiteCall
+                                                    .call(
+                                                  authToken:
+                                                      currentAuthenticationToken,
+                                                  bodyJson: <String, String?>{
+                                                    'short_description': _model
+                                                        .descricaoTextController
+                                                        .text,
+                                                  },
+                                                );
 
                                                 logFirebaseEvent(
                                                     'Button_navigate_to');

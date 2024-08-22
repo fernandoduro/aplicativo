@@ -62,6 +62,14 @@ dynamic addTwoListsNotLabelDuplicate(
   List<dynamic>? lista1,
   List<dynamic>? lista2,
 ) {
+  if (lista1 == null) {
+    return lista2;
+  }
+
+  if (lista2 == null) {
+    return lista1;
+  }
+
   List duplicates = lista1! + lista2!;
 
   List<dynamic> uniqueItems = []; // uniqueList
@@ -129,6 +137,10 @@ dynamic addStringToJson(
   String? element,
   String? coluna,
 ) {
+  if (element == null || element == "null") {
+    return lista;
+  }
+
   if (lista[coluna] != null) {
     if (!lista[coluna].contains(element)) {
       lista[coluna].add(element);
@@ -138,6 +150,10 @@ dynamic addStringToJson(
 }
 
 String? convertJsonToString(dynamic lista) {
+  if (lista == null) {
+    return "";
+  }
+
   return lista + "";
 }
 
@@ -160,4 +176,11 @@ String? setEmoji(int? index) {
 
   // Return the emoji at the specified index.
   return String.fromCharCode(emojiRunes[index]);
+}
+
+String? removeNullString(String? parameter) {
+  if (parameter == null || parameter == "null") {
+    return "";
+  }
+  return parameter;
 }

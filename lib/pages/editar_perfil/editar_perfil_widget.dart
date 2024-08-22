@@ -163,8 +163,6 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                     ),
                                   ),
                                   Container(
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.67,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,

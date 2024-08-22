@@ -338,36 +338,18 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                               : () async {
                                                   logFirebaseEvent(
                                                       'CREATE_SITE_ETAPA3_PRXIMO_BTN_ON_TAP');
-                                                  if (FFAppState().existSite ==
-                                                      true) {
-                                                    logFirebaseEvent(
-                                                        'Button_backend_call');
-                                                    await APIOficialGroup
-                                                        .updateSiteCall
-                                                        .call(
-                                                      authToken:
-                                                          currentAuthenticationToken,
-                                                      bodyJson: <String,
-                                                          String?>{
-                                                        'logo':
-                                                            FFAppState().base64,
-                                                      },
-                                                    );
-                                                  } else {
-                                                    logFirebaseEvent(
-                                                        'Button_backend_call');
-                                                    await APIOficialGroup
-                                                        .createSiteCall
-                                                        .call(
-                                                      authToken:
-                                                          currentAuthenticationToken,
-                                                      bodyJson: <String,
-                                                          String?>{
-                                                        'logo':
-                                                            FFAppState().base64,
-                                                      },
-                                                    );
-                                                  }
+                                                  logFirebaseEvent(
+                                                      'Button_backend_call');
+                                                  await APIOficialGroup
+                                                      .updateSiteCall
+                                                      .call(
+                                                    authToken:
+                                                        currentAuthenticationToken,
+                                                    bodyJson: <String, String?>{
+                                                      'logo':
+                                                          FFAppState().base64,
+                                                    },
+                                                  );
 
                                                   logFirebaseEvent(
                                                       'Button_navigate_to');

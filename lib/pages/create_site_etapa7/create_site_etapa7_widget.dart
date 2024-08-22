@@ -5,8 +5,6 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -35,32 +33,13 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPA7_CreateSiteEtapa7_ON_I');
-      logFirebaseEvent('CreateSiteEtapa7_backend_call');
-      _model.apiResutServices = await APIOficialGroup.specializationsCall.call(
-        authToken: currentAuthenticationToken,
-      );
-
-      logFirebaseEvent('CreateSiteEtapa7_update_app_state');
-      FFAppState().servicesJson = functions.addTwoListsNotLabelDuplicate(
-          getJsonField(
-            (_model.apiResutServices?.jsonBody ?? ''),
-            r'''$.data''',
-            true,
-          ),
-          getJsonField(
-            FFAppState().dataSite,
-            r'''$.services''',
-            true,
-          ))!;
-      FFAppState().servicesJsonFull = getJsonField(
-        FFAppState().servicesJson,
-        r'''$''',
-      );
+      logFirebaseEvent('CreateSiteEtapa7_update_page_state');
+      _model.colorSelected = getJsonField(
+        FFAppState().dataSite,
+        r'''$.primary_color''',
+      ).toString().toString();
       setState(() {});
     });
-
-    _model.buscaTextController ??= TextEditingController();
-    _model.buscaFocusNode ??= FocusNode();
   }
 
   @override
@@ -74,16 +53,38 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Stack(
-            children: [
-              Column(
+    return FutureBuilder<ApiCallResponse>(
+      future: APIOficialGroup.colorsCall.call(
+        authToken: currentAuthenticationToken,
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+        final createSiteEtapa7ColorsResponse = snapshot.data!;
+
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: SafeArea(
+              top: true,
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
@@ -123,7 +124,7 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         logFirebaseEvent(
-                                            'CREATE_SITE_ETAPA7_Text_aambeuqa_ON_TAP');
+                                            'CREATE_SITE_ETAPA7_Text_xyqtvytp_ON_TAP');
                                         logFirebaseEvent('Text_navigate_back');
                                         context.safePop();
                                       },
@@ -166,342 +167,166 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 0.0, 15.0, 0.0),
-                                          child: Text(
-                                            'Selecione os serviços que presta atualmente:',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Manrope',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  fontSize: 30.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 0.0, 15.0, 0.0),
+                                            child: Text(
+                                              'Selecione abaixo qual cor você gostaria de destacar em seu site',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Manrope',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    fontSize: 30.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Container(
-                                        width: double.infinity,
-                                        height: 60.0,
-                                        decoration: const BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: TextFormField(
-                                            controller:
-                                                _model.buscaTextController,
-                                            focusNode: _model.buscaFocusNode,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.buscaTextController',
-                                              const Duration(milliseconds: 2000),
-                                              () async {
-                                                logFirebaseEvent(
-                                                    'CREATE_SITE_ETAPA7_busca_ON_TEXTFIELD_CH');
-                                                logFirebaseEvent(
-                                                    'busca_update_app_state');
-                                                FFAppState().servicesJson =
-                                                    functions.filterServices(
-                                                        getJsonField(
-                                                          FFAppState()
-                                                              .servicesJsonFull,
-                                                          r'''$''',
-                                                          true,
-                                                        ),
-                                                        _model
-                                                            .buscaTextController
-                                                            .text)!;
-                                                setState(() {});
-                                                if (!functions.existElementList(
-                                                    FFAppState()
-                                                        .servicesJson)!) {
-                                                  logFirebaseEvent(
-                                                      'busca_update_app_state');
-                                                  FFAppState().servicesJson =
-                                                      <String, String?>{
-                                                    'type': 'custom_service',
-                                                    'label': _model
-                                                        .buscaTextController
-                                                        .text,
-                                                    'name': _model
-                                                        .buscaTextController
-                                                        .text,
-                                                  };
-                                                  setState(() {});
-                                                }
-                                              },
-                                            ),
-                                            autofocus: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              labelText: 'Pesquisar',
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Manrope',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                            validator: _model
-                                                .buscaTextControllerValidator
-                                                .asValidator(context),
-                                          ),
-                                        ),
-                                      ),
-                                      Builder(
-                                        builder: (context) {
-                                          final services = functions
-                                                  .clearDuplicates(
-                                                      functions.filterServices(
-                                                          getJsonField(
-                                                            FFAppState()
-                                                                .servicesJson,
-                                                            r'''$''',
-                                                            true,
-                                                          ),
-                                                          _model
-                                                              .buscaTextController
-                                                              .text),
-                                                      'label')
-                                                  ?.toList() ??
-                                              [];
+                                        Builder(
+                                          builder: (context) {
+                                            final colors = getJsonField(
+                                              createSiteEtapa7ColorsResponse
+                                                  .jsonBody,
+                                              r'''$.data''',
+                                            ).toList();
 
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount: services.length,
-                                            itemBuilder:
-                                                (context, servicesIndex) {
-                                              final servicesItem =
-                                                  services[servicesIndex];
-                                              return Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    decoration: const BoxDecoration(),
-                                                    child: Theme(
-                                                      data: ThemeData(
-                                                        checkboxTheme:
-                                                            const CheckboxThemeData(
-                                                          visualDensity:
-                                                              VisualDensity
-                                                                  .compact,
-                                                          materialTapTargetSize:
-                                                              MaterialTapTargetSize
-                                                                  .shrinkWrap,
-                                                          shape: CircleBorder(),
-                                                        ),
-                                                        unselectedWidgetColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                      child: Checkbox(
-                                                        value: _model
-                                                                .checkboxValueMap[
-                                                            servicesItem] ??= functions
-                                                                .searchElementByListAndColumn(
-                                                                    getJsonField(
-                                                                      FFAppState()
-                                                                          .dataSite,
-                                                                      r'''$.services''',
-                                                                      true,
-                                                                    ),
-                                                                    getJsonField(
-                                                                      servicesItem,
-                                                                      r'''$.label''',
-                                                                    ).toString(),
-                                                                    'label') ==
-                                                            true,
-                                                        onChanged:
-                                                            (newValue) async {
-                                                          setState(() => _model
-                                                                      .checkboxValueMap[
-                                                                  servicesItem] =
-                                                              newValue!);
-                                                          if (newValue!) {
-                                                            logFirebaseEvent(
-                                                                'CREATE_SITE_ETAPA7_Checkbox_f8y66n3l_ON_');
-                                                            logFirebaseEvent(
-                                                                'Checkbox_update_app_state');
-                                                            FFAppState().serviceJsonAux = functions
-                                                                .filterServices(
-                                                                    getJsonField(
-                                                                      FFAppState()
-                                                                          .servicesJsonFull,
-                                                                      r'''$''',
-                                                                      true,
-                                                                    ),
-                                                                    _model
-                                                                        .buscaTextController
-                                                                        .text)!;
-                                                            setState(() {});
-                                                            if (!functions
-                                                                .existElementList(
-                                                                    getJsonField(
-                                                              FFAppState()
-                                                                  .serviceJsonAux,
-                                                              r'''$''',
-                                                              true,
-                                                            ))!) {
-                                                              logFirebaseEvent(
-                                                                  'Checkbox_update_app_state');
-                                                              FFAppState()
-                                                                      .servicesJson =
-                                                                  functions.addTwoListsNotLabelDuplicate(
-                                                                      getJsonField(
-                                                                        FFAppState()
-                                                                            .servicesJson,
-                                                                        r'''$''',
-                                                                        true,
-                                                                      ),
-                                                                      getJsonField(
-                                                                        FFAppState()
-                                                                            .servicesJsonFull,
-                                                                        r'''$''',
-                                                                        true,
-                                                                      ))!;
-                                                              FFAppState()
-                                                                      .servicesJsonFull =
-                                                                  jsonDecode(
-                                                                      '[{\"id\":\"\",\"label\":\"\"}]');
-                                                              setState(() {});
-                                                              logFirebaseEvent(
-                                                                  'Checkbox_update_app_state');
-                                                              FFAppState()
-                                                                      .servicesJsonFull =
-                                                                  getJsonField(
-                                                                FFAppState()
-                                                                    .servicesJson,
-                                                                r'''$''',
-                                                              );
-                                                              setState(() {});
-                                                              logFirebaseEvent(
-                                                                  'Checkbox_clear_text_fields_pin_codes');
-                                                              setState(() {
-                                                                _model
-                                                                    .buscaTextController
-                                                                    ?.clear();
-                                                              });
-                                                            }
+                                            return ListView.builder(
+                                              padding: EdgeInsets.zero,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: colors.length,
+                                              itemBuilder:
+                                                  (context, colorsIndex) {
+                                                final colorsItem =
+                                                    colors[colorsIndex];
+                                                return Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(15.0, 10.0,
+                                                          15.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'CREATE_SITE_ETAPA7_Container_v9gjwts4_ON');
+                                                      if (_model
+                                                              .colorSelected ==
+                                                          getJsonField(
+                                                            colorsItem,
+                                                            r'''$.id''',
+                                                          ).toString()) {
+                                                        logFirebaseEvent(
+                                                            'Container_update_page_state');
+                                                        _model.colorSelected =
+                                                            null;
+                                                        setState(() {});
+                                                      } else {
+                                                        logFirebaseEvent(
+                                                            'Container_update_page_state');
+                                                        _model.colorSelected =
+                                                            getJsonField(
+                                                          colorsItem,
+                                                          r'''$.id''',
+                                                        ).toString();
+                                                        setState(() {});
+                                                      }
+                                                    },
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 70.0,
+                                                      decoration: BoxDecoration(
+                                                        color: () {
+                                                          if (_model
+                                                                  .colorSelected ==
+                                                              getJsonField(
+                                                                colorsItem,
+                                                                r'''$.id''',
+                                                              ).toString()) {
+                                                            return colorFromCssString(
+                                                              getJsonField(
+                                                                colorsItem,
+                                                                r'''$.hex''',
+                                                              ).toString(),
+                                                            );
+                                                          } else if (_model
+                                                                      .colorSelected ==
+                                                                  null ||
+                                                              _model.colorSelected ==
+                                                                  '') {
+                                                            return colorFromCssString(
+                                                              getJsonField(
+                                                                colorsItem,
+                                                                r'''$.hex''',
+                                                              ).toString(),
+                                                            );
+                                                          } else if (_model
+                                                                  .colorSelected ==
+                                                              'null') {
+                                                            return colorFromCssString(
+                                                              getJsonField(
+                                                                colorsItem,
+                                                                r'''$.hex''',
+                                                              ).toString(),
+                                                            );
+                                                          } else {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate;
                                                           }
-                                                        },
-                                                        side: BorderSide(
-                                                          width: 2,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
+                                                        }(),
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  5.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  5.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  5.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  5.0),
                                                         ),
-                                                        activeColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        checkColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .info,
                                                       ),
                                                     ),
                                                   ),
-                                                  Text(
-                                                    getJsonField(
-                                                      servicesItem,
-                                                      r'''$.label''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                        },
-                                      ),
-                                    ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 40.0, 0.0, 0.0),
+                                      0.0, 20.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -513,47 +338,34 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                             MainAxisAlignment.end,
                                         children: [
                                           FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'CREATE_SITE_ETAPA7_AVANAR_BTN_ON_TAP');
-                                              if (FFAppState().existSite ==
-                                                  true) {
-                                                logFirebaseEvent(
-                                                    'Button_backend_call');
-                                                await APIOficialGroup
-                                                    .updateSiteCall
-                                                    .call(
-                                                  authToken:
-                                                      currentAuthenticationToken,
-                                                  bodyJson: <String,
-                                                      List<dynamic>?>{
-                                                    'services': _model
-                                                        .checkboxCheckedItems,
-                                                  },
-                                                );
-                                              } else {
-                                                logFirebaseEvent(
-                                                    'Button_backend_call');
-                                                await APIOficialGroup
-                                                    .createSiteCall
-                                                    .call(
-                                                  authToken:
-                                                      currentAuthenticationToken,
-                                                  bodyJson: <String,
-                                                      List<dynamic>?>{
-                                                    'services': _model
-                                                        .checkboxCheckedItems,
-                                                  },
-                                                );
-                                              }
+                                            onPressed: (_model.colorSelected ==
+                                                        null ||
+                                                    _model.colorSelected == '')
+                                                ? null
+                                                : () async {
+                                                    logFirebaseEvent(
+                                                        'CREATE_SITE_ETAPA7_ESCOLHER_ESSA_COR_BTN');
+                                                    logFirebaseEvent(
+                                                        'Button_backend_call');
+                                                    await APIOficialGroup
+                                                        .updateSiteCall
+                                                        .call(
+                                                      authToken:
+                                                          currentAuthenticationToken,
+                                                      bodyJson: <String,
+                                                          String?>{
+                                                        'primary_color': _model
+                                                            .colorSelected,
+                                                      },
+                                                    );
 
-                                              logFirebaseEvent(
-                                                  'Button_navigate_to');
+                                                    logFirebaseEvent(
+                                                        'Button_navigate_to');
 
-                                              context.pushNamed(
-                                                  'CreateSiteEtapa8');
-                                            },
-                                            text: 'Avançar',
+                                                    context.pushNamed(
+                                                        'CreateSiteEtapa8');
+                                                  },
+                                            text: 'Escolher essa cor',
                                             options: FFButtonOptions(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -583,6 +395,9 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
+                                              disabledColor: const Color(0xFFACACAC),
+                                              disabledTextColor:
+                                                  const Color(0xFFD9D9D9),
                                             ),
                                           ),
                                         ],
@@ -614,10 +429,10 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

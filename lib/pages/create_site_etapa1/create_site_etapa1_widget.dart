@@ -5,6 +5,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -33,15 +34,38 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPA1_CreateSiteEtapa1_ON_I');
-      logFirebaseEvent('CreateSiteEtapa1_set_form_field');
-      setState(() {
-        _model.nameTextController?.text = getJsonField(
-          FFAppState().dataSite,
-          r'''$.name''',
-        ).toString().toString();
-        _model.nameTextController?.selection = TextSelection.collapsed(
-            offset: _model.nameTextController!.text.length);
-      });
+      if (getJsonField(
+            FFAppState().dataSite,
+            r'''$.name''',
+          ) !=
+          null) {
+        logFirebaseEvent('CreateSiteEtapa1_set_form_field');
+        setState(() {
+          _model.nameTextController?.text =
+              functions.removeNullString(getJsonField(
+            FFAppState().dataSite,
+            r'''$.name''',
+          ).toString().toString())!;
+          _model.nameTextController?.selection = TextSelection.collapsed(
+              offset: _model.nameTextController!.text.length);
+        });
+      } else {
+        logFirebaseEvent('CreateSiteEtapa1_backend_call');
+        _model.apiResult = await APIOficialGroup.getUserCall.call(
+          authToken: currentAuthenticationToken,
+        );
+
+        logFirebaseEvent('CreateSiteEtapa1_set_form_field');
+        setState(() {
+          _model.nameTextController?.text =
+              functions.removeNullString(getJsonField(
+            (_model.apiResult?.jsonBody ?? ''),
+            r'''$.name''',
+          ).toString().toString())!;
+          _model.nameTextController?.selection = TextSelection.collapsed(
+              offset: _model.nameTextController!.text.length);
+        });
+      }
     });
 
     _model.nameTextController ??= TextEditingController();
@@ -263,36 +287,19 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                             : () async {
                                                 logFirebaseEvent(
                                                     'CREATE_SITE_ETAPA1_AVANAR_BTN_ON_TAP');
-                                                if (FFAppState().existSite ==
-                                                    true) {
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .updateSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'name': _model
-                                                          .nameTextController
-                                                          .text,
-                                                    },
-                                                  );
-                                                } else {
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .createSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'name': _model
-                                                          .nameTextController
-                                                          .text,
-                                                    },
-                                                  );
-                                                }
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
+                                                await APIOficialGroup
+                                                    .updateSiteCall
+                                                    .call(
+                                                  authToken:
+                                                      currentAuthenticationToken,
+                                                  bodyJson: <String, String?>{
+                                                    'name': _model
+                                                        .nameTextController
+                                                        .text,
+                                                  },
+                                                );
 
                                                 logFirebaseEvent(
                                                     'Button_navigate_to');

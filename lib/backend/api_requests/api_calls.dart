@@ -21,7 +21,6 @@ class APIOficialGroup {
   static LayoutsCall layoutsCall = LayoutsCall();
   static SpecializationsCall specializationsCall = SpecializationsCall();
   static GetSiteCall getSiteCall = GetSiteCall();
-  static CreateSiteCall createSiteCall = CreateSiteCall();
   static UpdateSiteCall updateSiteCall = UpdateSiteCall();
   static DomainsCall domainsCall = DomainsCall();
   static CepCall cepCall = CepCall();
@@ -290,48 +289,6 @@ class GetSiteCall {
         'Authorization': 'Bearer $authToken',
       },
       params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  dynamic data(dynamic response) => getJsonField(
-        response,
-        r'''$.data''',
-      );
-  bool? success(dynamic response) => castToType<bool>(getJsonField(
-        response,
-        r'''$.success''',
-      ));
-  String? message(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.message''',
-      ));
-}
-
-class CreateSiteCall {
-  Future<ApiCallResponse> call({
-    String? authToken = '',
-    dynamic bodyJson,
-  }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
-
-    final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
-    return ApiManager.instance.makeApiCall(
-      callName: 'CreateSite',
-      apiUrl: '$baseUrl/site/create',
-      callType: ApiCallType.POST,
-      headers: {
-        'Authorization': 'Bearer $authToken',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

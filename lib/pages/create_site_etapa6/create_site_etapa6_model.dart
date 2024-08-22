@@ -5,14 +5,14 @@ import 'create_site_etapa6_widget.dart' show CreateSiteEtapa6Widget;
 import 'package:flutter/material.dart';
 
 class CreateSiteEtapa6Model extends FlutterFlowModel<CreateSiteEtapa6Widget> {
+  ///  Local state fields for this page.
+
+  int? imageSelected;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for Header component.
   late HeaderModel headerModel;
-  // State field(s) for descricao widget.
-  FocusNode? descricaoFocusNode;
-  TextEditingController? descricaoTextController;
-  String? Function(BuildContext, String?)? descricaoTextControllerValidator;
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -25,9 +25,6 @@ class CreateSiteEtapa6Model extends FlutterFlowModel<CreateSiteEtapa6Widget> {
   @override
   void dispose() {
     headerModel.dispose();
-    descricaoFocusNode?.dispose();
-    descricaoTextController?.dispose();
-
     footerModel.dispose();
   }
 }

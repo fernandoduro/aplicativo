@@ -10,6 +10,10 @@ class CreateSiteEtapas13Model
 
   // Model for Header component.
   late HeaderModel headerModel;
+  // State field(s) for descricao widget.
+  FocusNode? descricaoFocusNode;
+  TextEditingController? descricaoTextController;
+  String? Function(BuildContext, String?)? descricaoTextControllerValidator;
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -22,6 +26,9 @@ class CreateSiteEtapas13Model
   @override
   void dispose() {
     headerModel.dispose();
+    descricaoFocusNode?.dispose();
+    descricaoTextController?.dispose();
+
     footerModel.dispose();
   }
 }

@@ -1,12 +1,13 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'create_site_etapas13_model.dart';
 export 'create_site_etapas13_model.dart';
 
@@ -18,13 +19,10 @@ class CreateSiteEtapas13Widget extends StatefulWidget {
       _CreateSiteEtapas13WidgetState();
 }
 
-class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
-    with TickerProviderStateMixin {
+class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget> {
   late CreateSiteEtapas13Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -33,30 +31,12 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapas13'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CREATE_SITE_ETAPAS13_CreateSiteEtapas13_');
-      logFirebaseEvent('CreateSiteEtapas13_wait__delay');
-      await Future.delayed(const Duration(milliseconds: 5000));
-      logFirebaseEvent('CreateSiteEtapas13_navigate_to');
-
-      context.pushNamed('CreateSiteEtapas14');
-    });
-
-    animationsMap.addAll({
-      'buttonOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ShimmerEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 2000.0.ms,
-            color: FlutterFlowTheme.of(context).secondary,
-            angle: 0.524,
-          ),
-        ],
-      ),
-    });
+    _model.descricaoTextController ??= TextEditingController(
+        text: functions.removeNullString(getJsonField(
+      FFAppState().dataSite,
+      r'''$.open_hours''',
+    ).toString().toString()));
+    _model.descricaoFocusNode ??= FocusNode();
   }
 
   @override
@@ -68,6 +48,8 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -100,6 +82,45 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'CREATE_SITE_ETAPAS13_Text_3ho8b4bx_ON_TA');
+                                    logFirebaseEvent('Text_navigate_back');
+                                    context.safePop();
+                                  },
+                                  child: Text(
+                                    '< Voltar',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Manrope',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.help_sharp,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  size: 36.0,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                       Container(
@@ -118,22 +139,13 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.asset(
-                                      'assets/images/ilustra-3-transparente.png',
-                                      width: 300.0,
-                                      height: 200.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
                                   Align(
                                     alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 30.0, 15.0, 0.0),
+                                          15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Agora deixe a\nmágica com a gente!',
+                                        'Preencha nesse campo abaixo seus horários de atendimento.',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -141,7 +153,7 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              fontSize: 20.0,
+                                              fontSize: 30.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -150,18 +162,76 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 10.0, 15.0, 0.0),
-                                    child: Text(
-                                      'Estamos criando seu site, por favor, não feche o aplicativo enquanto nosso mago encanta seus pacientes.',
+                                        15.0, 0.0, 8.0, 0.0),
+                                    child: TextFormField(
+                                      controller:
+                                          _model.descricaoTextController,
+                                      focusNode: _model.descricaoFocusNode,
+                                      autofocus: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'Digite aqui...',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Manrope',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Manrope',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder:
+                                            UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Manrope',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 14.0,
                                             letterSpacing: 0.0,
                                           ),
+                                      maxLines: 5,
+                                      keyboardType: TextInputType.multiline,
+                                      validator: _model
+                                          .descricaoTextControllerValidator
+                                          .asValidator(context),
                                     ),
                                   ),
                                 ],
@@ -180,12 +250,34 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: true
+                                        onPressed: (_model.descricaoTextController
+                                                        .text ==
+                                                    '')
                                             ? null
-                                            : () {
-                                                print('Button pressed ...');
+                                            : () async {
+                                                logFirebaseEvent(
+                                                    'CREATE_SITE_ETAPAS13_AVANAR_BTN_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
+                                                await APIOficialGroup
+                                                    .updateSiteCall
+                                                    .call(
+                                                  authToken:
+                                                      currentAuthenticationToken,
+                                                  bodyJson: <String, String?>{
+                                                    'open_hours': _model
+                                                        .descricaoTextController
+                                                        .text,
+                                                  },
+                                                );
+
+                                                logFirebaseEvent(
+                                                    'Button_navigate_to');
+
+                                                context.pushNamed(
+                                                    'CreateSiteEtapas14');
                                               },
-                                        text: 'Gerando seu site... ',
+                                        text: 'Avançar',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -215,9 +307,10 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget>
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
+                                          disabledColor: const Color(0xFFACACAC),
+                                          disabledTextColor: const Color(0xFFD9D9D9),
                                         ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'buttonOnPageLoadAnimation']!),
+                                      ),
                                     ],
                                   ),
                                 ],

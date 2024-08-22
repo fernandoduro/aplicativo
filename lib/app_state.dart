@@ -112,6 +112,12 @@ class FFAppState extends ChangeNotifier {
   set allDomains(dynamic value) {
     _allDomains = value;
   }
+
+  String _photoProfessionalEdit = '';
+  String get photoProfessionalEdit => _photoProfessionalEdit;
+  set photoProfessionalEdit(String value) {
+    _photoProfessionalEdit = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

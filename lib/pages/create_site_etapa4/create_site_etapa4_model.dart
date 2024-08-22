@@ -5,10 +5,6 @@ import 'create_site_etapa4_widget.dart' show CreateSiteEtapa4Widget;
 import 'package:flutter/material.dart';
 
 class CreateSiteEtapa4Model extends FlutterFlowModel<CreateSiteEtapa4Widget> {
-  ///  Local state fields for this page.
-
-  int? imageSelected;
-
   ///  State fields for stateful widgets in this page.
 
   // Model for Header component.
