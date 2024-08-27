@@ -34,7 +34,7 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget> {
     _model.descricaoTextController ??= TextEditingController(
         text: functions.removeNullString(getJsonField(
       FFAppState().dataSite,
-      r'''$.open_hours''',
+      r'''$.short_description''',
     ).toString().toString()));
     _model.descricaoFocusNode ??= FocusNode();
   }
@@ -95,7 +95,7 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPAS13_Text_3ho8b4bx_ON_TA');
+                                        'CREATE_SITE_ETAPAS13_Text_ne3fe0yx_ON_TA');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -145,7 +145,7 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Preencha nesse campo abaixo seus horários de atendimento.',
+                                        'Preencha uma breve descrição sobre sua experiência e especialidade.',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -265,7 +265,7 @@ class _CreateSiteEtapas13WidgetState extends State<CreateSiteEtapas13Widget> {
                                                   authToken:
                                                       currentAuthenticationToken,
                                                   bodyJson: <String, String?>{
-                                                    'open_hours': _model
+                                                    'short_description': _model
                                                         .descricaoTextController
                                                         .text,
                                                   },

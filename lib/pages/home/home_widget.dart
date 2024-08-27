@@ -111,6 +111,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(30.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -256,6 +275,23 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         onPressed: () async {
                                                           logFirebaseEvent(
                                                               'HOME_PAGE_CRIAR_GRATUITAMENTE_BTN_ON_TAP');
+                                                          var shouldSetState =
+                                                              false;
+                                                          if (currentAuthenticationToken ==
+                                                                  null ||
+                                                              currentAuthenticationToken ==
+                                                                  '') {
+                                                            logFirebaseEvent(
+                                                                'Button_navigate_to');
+
+                                                            context.pushNamed(
+                                                                'Login');
+
+                                                            if (shouldSetState) {
+                                                              setState(() {});
+                                                            }
+                                                            return;
+                                                          }
                                                           logFirebaseEvent(
                                                               'Button_backend_call');
                                                           _model.siteResult =
@@ -266,6 +302,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 currentAuthenticationToken,
                                                           );
 
+                                                          shouldSetState =
+                                                              true;
                                                           if (getJsonField(
                                                                 (_model.siteResult
                                                                         ?.jsonBody ??
@@ -291,30 +329,56 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 'Button_navigate_to');
 
                                                             context.pushNamed(
-                                                                'CreateSiteEtapa1');
+                                                                'CreateSiteEtapa6');
                                                           } else {
-                                                            logFirebaseEvent(
-                                                                'Button_update_app_state');
-                                                            FFAppState()
-                                                                    .existSite =
-                                                                false;
-                                                            FFAppState()
-                                                                    .dataSite =
-                                                                getJsonField(
-                                                              (_model.siteResult
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                              r'''$.data''',
-                                                            );
-                                                            setState(() {});
-                                                            logFirebaseEvent(
-                                                                'Button_navigate_to');
+                                                            if (FFAppState()
+                                                                    .codigoSiteUsado ==
+                                                                true) {
+                                                              logFirebaseEvent(
+                                                                  'Button_update_app_state');
+                                                              FFAppState()
+                                                                      .existSite =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .dataSite =
+                                                                  getJsonField(
+                                                                (_model.siteResult
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                                r'''$.data''',
+                                                              );
+                                                              setState(() {});
+                                                              logFirebaseEvent(
+                                                                  'Button_navigate_to');
 
-                                                            context.pushNamed(
-                                                                'CreateSiteEtapa0');
+                                                              context.pushNamed(
+                                                                  'CreateSiteEtapa5');
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'Button_update_app_state');
+                                                              FFAppState()
+                                                                      .existSite =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .dataSite =
+                                                                  getJsonField(
+                                                                (_model.siteResult
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                                r'''$.data''',
+                                                              );
+                                                              setState(() {});
+                                                              logFirebaseEvent(
+                                                                  'Button_navigate_to');
+
+                                                              context.pushNamed(
+                                                                  'CreateSiteEtapa1');
+                                                            }
                                                           }
 
-                                                          setState(() {});
+                                                          if (shouldSetState) {
+                                                            setState(() {});
+                                                          }
                                                         },
                                                         text: !FFAppState()
                                                                 .existSite
@@ -1005,6 +1069,299 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 0.0, 10.0),
                             child: Text(
+                              'Meus convites',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Manrope',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 12.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).primary,
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x34090F13),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 6.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 20.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 50.0,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(12.0),
+                                              topRight: Radius.circular(12.0),
+                                            ),
+                                          ),
+                                          child: SizedBox(
+                                            height: 79.0,
+                                            child: Stack(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 0.0, 15.0, 0.0),
+                                                  child: RichText(
+                                                    textScaler:
+                                                        MediaQuery.of(context)
+                                                            .textScaler,
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'Convites',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                fontSize: 21.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        )
+                                                      ],
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Manrope',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                fontSize: 21.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 15.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Flexible(
+                                              child: SizedBox(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.5,
+                                                child: Stack(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  15.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Convide seus amigos profissionais para fazer parte da ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text: 'Blu',
+                                                              style: GoogleFonts
+                                                                  .getFont(
+                                                                'Gloria Hallelujah',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                              ),
+                                                            ),
+                                                            TextSpan(
+                                                              text: 'bem',
+                                                              style: GoogleFonts
+                                                                  .getFont(
+                                                                'Gloria Hallelujah',
+                                                              ),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Manrope',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.5,
+                                              child: Stack(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                15.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_PAGE_MEUS_CONVITES_BTN_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Button_navigate_to');
+
+                                                        context.pushNamed(
+                                                            'Convites');
+                                                      },
+                                                      text: 'Meus convites',
+                                                      options: FFButtonOptions(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    15.0,
+                                                                    0.0,
+                                                                    15.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Manrope',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: const BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation4']!),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                20.0, 20.0, 0.0, 10.0),
+                            child: Text(
                               'Seus pacientes',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -1248,7 +1605,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               ),
                             ),
                           ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation4']!),
+                              animationsMap['containerOnPageLoadAnimation5']!),
                         ),
                       ],
                     ),

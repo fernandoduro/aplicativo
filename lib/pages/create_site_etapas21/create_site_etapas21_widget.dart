@@ -1,31 +1,62 @@
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'create_site_etapa0_model.dart';
-export 'create_site_etapa0_model.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'create_site_etapas21_model.dart';
+export 'create_site_etapas21_model.dart';
 
-class CreateSiteEtapa0Widget extends StatefulWidget {
-  const CreateSiteEtapa0Widget({super.key});
+class CreateSiteEtapas21Widget extends StatefulWidget {
+  const CreateSiteEtapas21Widget({super.key});
 
   @override
-  State<CreateSiteEtapa0Widget> createState() => _CreateSiteEtapa0WidgetState();
+  State<CreateSiteEtapas21Widget> createState() =>
+      _CreateSiteEtapas21WidgetState();
 }
 
-class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
-  late CreateSiteEtapa0Model _model;
+class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
+    with TickerProviderStateMixin {
+  late CreateSiteEtapas21Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateSiteEtapa0Model());
+    _model = createModel(context, () => CreateSiteEtapas21Model());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'CreateSiteEtapa0'});
+        parameters: {'screen_name': 'CreateSiteEtapas21'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPAS21_CreateSiteEtapas21_');
+      logFirebaseEvent('CreateSiteEtapas21_wait__delay');
+      await Future.delayed(const Duration(milliseconds: 5000));
+      logFirebaseEvent('CreateSiteEtapas21_navigate_to');
+
+      context.pushNamed('CreateSiteEtapas22');
+    });
+
+    animationsMap.addAll({
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 2000.0.ms,
+            color: FlutterFlowTheme.of(context).secondary,
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -69,45 +100,6 @@ class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
-                          child: Align(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'CREATE_SITE_ETAPA0_Text_ofkz7oga_ON_TAP');
-                                    logFirebaseEvent('Text_navigate_back');
-                                    context.safePop();
-                                  },
-                                  child: Text(
-                                    '< Voltar',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Manrope',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.help_sharp,
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  size: 36.0,
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
                       ),
                       Container(
@@ -126,13 +118,22 @@ class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/ilustra-3-transparente.png',
+                                      width: 300.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                   Align(
                                     alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 15.0, 0.0),
+                                          15.0, 30.0, 15.0, 0.0),
                                       child: Text(
-                                        'Criar seu site nunca foi tão fácil',
+                                        'Agora deixe a\nmágica com a gente!',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -140,7 +141,7 @@ class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              fontSize: 30.0,
+                                              fontSize: 20.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -151,14 +152,14 @@ class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         15.0, 10.0, 15.0, 0.0),
                                     child: Text(
-                                      'Vamos te passar por algumas perguntas e respostas, apenas com elas, seu site estará pronto!',
+                                      'Estamos criando seu site, por favor, não feche o aplicativo enquanto nosso mago encanta seus pacientes.',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Manrope',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            fontSize: 20.0,
+                                            fontSize: 14.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -179,15 +180,12 @@ class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'CREATE_SITE_ETAPA0_COMEAR_BTN_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Button_navigate_to');
-
-                                          context.pushNamed('CreateSiteEtapa2');
-                                        },
-                                        text: 'Começar',
+                                        onPressed: true
+                                            ? null
+                                            : () {
+                                                print('Button pressed ...');
+                                              },
+                                        text: 'Gerando seu site... ',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -218,7 +216,8 @@ class _CreateSiteEtapa0WidgetState extends State<CreateSiteEtapa0Widget> {
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'buttonOnPageLoadAnimation']!),
                                     ],
                                   ),
                                 ],

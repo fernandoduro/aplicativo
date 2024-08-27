@@ -1,12 +1,14 @@
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_site_etapa0_widget.dart' show CreateSiteEtapa0Widget;
+import 'create_site_etapas21_widget.dart' show CreateSiteEtapas21Widget;
 import 'package:flutter/material.dart';
 
-class CreateSiteEtapa0Model extends FlutterFlowModel<CreateSiteEtapa0Widget> {
+class CreateSiteEtapas21Model
+    extends FlutterFlowModel<CreateSiteEtapas21Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
   // Model for Footer component.

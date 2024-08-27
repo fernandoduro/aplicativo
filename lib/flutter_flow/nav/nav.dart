@@ -97,19 +97,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const RegisterWidget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa0',
-          path: '/createSiteEtapa0',
-          builder: (context, params) => const CreateSiteEtapa0Widget(),
-        ),
-        FFRoute(
-          name: 'CreateSiteEtapa2',
-          path: '/createSiteEtapa2',
-          builder: (context, params) => const CreateSiteEtapa2Widget(),
-        ),
-        FFRoute(
-          name: 'CreateSiteEtapa3',
-          path: '/createSiteEtapa3',
-          builder: (context, params) => const CreateSiteEtapa3Widget(),
+          name: 'CreateSiteEtapa5',
+          path: '/createSiteEtapa5',
+          builder: (context, params) => const CreateSiteEtapa5Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa7',
@@ -122,19 +112,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateSiteEtapa8Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa9',
-          path: '/createSiteEtapa9',
-          builder: (context, params) => const CreateSiteEtapa9Widget(),
+          name: 'CreateSiteEtapas12',
+          path: '/createSiteEtapas12',
+          builder: (context, params) => const CreateSiteEtapas12Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapas16',
-          path: '/createSiteEtapas16',
-          builder: (context, params) => const CreateSiteEtapas16Widget(),
+          name: 'CreateSiteEtapas13',
+          path: '/createSiteEtapas13',
+          builder: (context, params) => const CreateSiteEtapas13Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapas17',
-          path: '/createSiteEtapas17',
-          builder: (context, params) => const CreateSiteEtapas17Widget(),
+          name: 'CreateSiteEtapas14',
+          path: '/createSiteEtapas14',
+          builder: (context, params) => const CreateSiteEtapas14Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas21',
+          path: '/createSiteEtapas21',
+          builder: (context, params) => const CreateSiteEtapas21Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas22',
+          path: '/createSiteEtapas22',
+          builder: (context, params) => const CreateSiteEtapas22Widget(),
         ),
         FFRoute(
           name: 'HomeBalao',
@@ -152,29 +152,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ForgotPasswordWidget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapas10',
-          path: '/createSiteEtapas10',
-          builder: (context, params) => const CreateSiteEtapas10Widget(),
-        ),
-        FFRoute(
-          name: 'CreateSiteEtapas12',
-          path: '/createSiteEtapas12',
-          builder: (context, params) => const CreateSiteEtapas12Widget(),
-        ),
-        FFRoute(
-          name: 'CreateSiteEtapas14',
-          path: '/createSiteEtapas14',
-          builder: (context, params) => const CreateSiteEtapas14Widget(),
-        ),
-        FFRoute(
           name: 'CreateSiteEtapas15',
           path: '/createSiteEtapas15',
           builder: (context, params) => const CreateSiteEtapas15Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa6',
-          path: '/createSiteEtapa6',
-          builder: (context, params) => const CreateSiteEtapa6Widget(),
+          name: 'CreateSiteEtapas17',
+          path: '/createSiteEtapas17',
+          builder: (context, params) => const CreateSiteEtapas17Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas19',
+          path: '/createSiteEtapas19',
+          builder: (context, params) => const CreateSiteEtapas19Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas20',
+          path: '/createSiteEtapas20',
+          builder: (context, params) => const CreateSiteEtapas20Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas11',
@@ -182,9 +177,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateSiteEtapas11Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa1',
-          path: '/createSiteEtapa1',
-          builder: (context, params) => const CreateSiteEtapa1Widget(),
+          name: 'CreateSiteEtapas16',
+          path: '/createSiteEtapas16',
+          builder: (context, params) => const CreateSiteEtapas16Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapa6',
+          path: '/createSiteEtapa6',
+          builder: (context, params) => const CreateSiteEtapa6Widget(),
         ),
         FFRoute(
           name: 'EditarPerfil',
@@ -197,19 +197,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const EncerrarContaWidget(),
         ),
         FFRoute(
+          name: 'CreateSiteEtapa9',
+          path: '/createSiteEtapa9',
+          builder: (context, params) => const CreateSiteEtapa9Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas10',
+          path: '/createSiteEtapas10',
+          builder: (context, params) => const CreateSiteEtapas10Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas18',
+          path: '/createSiteEtapas18',
+          builder: (context, params) => const CreateSiteEtapas18Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapa1',
+          path: '/createSiteEtapa1',
+          builder: (context, params) => const CreateSiteEtapa1Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapa2',
+          path: '/createSiteEtapa2',
+          builder: (context, params) => const CreateSiteEtapa2Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapa3',
+          path: '/createSiteEtapa3',
+          builder: (context, params) => const CreateSiteEtapa3Widget(),
+        ),
+        FFRoute(
           name: 'CreateSiteEtapa4',
           path: '/createSiteEtapa4',
           builder: (context, params) => const CreateSiteEtapa4Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa5',
-          path: '/createSiteEtapa5',
-          builder: (context, params) => const CreateSiteEtapa5Widget(),
+          name: 'Convites',
+          path: '/convites',
+          builder: (context, params) => const ConvitesWidget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapas13',
-          path: '/createSiteEtapas13',
-          builder: (context, params) => const CreateSiteEtapas13Widget(),
+          name: 'ConvitesHistoricoConsumo',
+          path: '/convitesHistoricoConsumo',
+          builder: (context, params) => const ConvitesHistoricoConsumoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

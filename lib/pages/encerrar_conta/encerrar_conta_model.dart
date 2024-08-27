@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class EncerrarContaModel extends FlutterFlowModel<EncerrarContaWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
   // State field(s) for motivo widget.

@@ -6,24 +6,16 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for cellphone widget.
   FocusNode? cellphoneFocusNode;
   TextEditingController? cellphoneTextController;
   final cellphoneMask = MaskTextInputFormatter(mask: '(##) #####-####');
   String? Function(BuildContext, String?)? cellphoneTextControllerValidator;
-  String? _cellphoneTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Campo obrigatório';
-    }
-
-    return null;
-  }
 
   @override
-  void initState(BuildContext context) {
-    cellphoneTextControllerValidator = _cellphoneTextControllerValidator;
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {

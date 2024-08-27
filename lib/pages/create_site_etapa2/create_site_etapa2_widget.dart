@@ -28,6 +28,8 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapa2'});
+    _model.codigoTextController ??= TextEditingController();
+    _model.codigoFocusNode ??= FocusNode();
   }
 
   @override
@@ -84,7 +86,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPA2_Text_zq7y8ih8_ON_TAP');
+                                        'CREATE_SITE_ETAPA2_Text_dyj6pnd3_ON_TAP');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -134,7 +136,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Você possui um logo para se identificar na profissão?',
+                                        'Digite o seu código de convite para criar o site',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -147,6 +149,104 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        7.0, 0.0, 7.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.codigoTextController,
+                                              focusNode: _model.codigoFocusNode,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                focusedBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                errorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              maxLength: 6,
+                                              validator: _model
+                                                  .codigoTextControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
@@ -165,15 +265,51 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'CREATE_SITE_ETAPA2_PAGE_SIM_BTN_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Button_navigate_to');
+                                        onPressed: (_model.codigoTextController
+                                                        .text ==
+                                                    '')
+                                            ? null
+                                            : () async {
+                                                logFirebaseEvent(
+                                                    'CREATE_SITE_ETAPA2_AVANAR_BTN_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
+                                                _model.apiResultsom =
+                                                    await APIOficialGroup
+                                                        .invitesCall
+                                                        .call(
+                                                  authToken:
+                                                      currentAuthenticationToken,
+                                                  invite: _model
+                                                      .codigoTextController
+                                                      .text,
+                                                );
 
-                                          context.pushNamed('CreateSiteEtapa3');
-                                        },
-                                        text: 'Sim',
+                                                if ((_model.apiResultsom
+                                                        ?.succeeded ??
+                                                    true)) {
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
+                                                  context.pushNamed(
+                                                      'CreateSiteEtapa5');
+
+                                                  logFirebaseEvent(
+                                                      'Button_update_app_state');
+                                                  FFAppState().codigoSiteUsado =
+                                                      true;
+                                                  setState(() {});
+                                                } else {
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
+                                                  context.pushNamed(
+                                                      'CreateSiteEtapa3');
+                                                }
+
+                                                setState(() {});
+                                              },
+                                        text: 'Avançar',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -203,74 +339,11 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
+                                          disabledColor: const Color(0xFFACACAC),
+                                          disabledTextColor: const Color(0xFFD9D9D9),
                                         ),
                                       ),
                                     ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            logFirebaseEvent(
-                                                'CREATE_SITE_ETAPA2_PAGE_NO_BTN_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Button_backend_call');
-                                            await APIOficialGroup.updateSiteCall
-                                                .call(
-                                              authToken:
-                                                  currentAuthenticationToken,
-                                              bodyJson: <String, String?>{
-                                                'logo': '',
-                                              },
-                                            );
-
-                                            logFirebaseEvent(
-                                                'Button_navigate_to');
-
-                                            context
-                                                .pushNamed('CreateSiteEtapa4');
-                                          },
-                                          text: 'Não',
-                                          options: FFButtonOptions(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.8,
-                                            height: 40.0,
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Colors.white,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 19.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                   ),
                                 ],
                               ),

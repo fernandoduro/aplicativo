@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class CalculadoraModel extends FlutterFlowModel<CalculadoraWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Footer component.
   late FooterModel footerModel;
 

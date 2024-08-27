@@ -184,3 +184,15 @@ String? removeNullString(String? parameter) {
   }
   return parameter;
 }
+
+String? formatDate(String? data) {
+  try {
+    var ano = data?.substring(0, 4).trim();
+    var mes = data?.substring(5, 7).trim();
+    var dia = data?.substring(8, 10).trim();
+
+    return dia! + "/" + mes! + "/" + ano!;
+  } catch (err) {
+    return data;
+  }
+}

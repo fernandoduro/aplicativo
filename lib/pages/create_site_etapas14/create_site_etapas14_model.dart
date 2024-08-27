@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,24 +9,22 @@ class CreateSiteEtapas14Model
     extends FlutterFlowModel<CreateSiteEtapas14Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Specializations)] action in CreateSiteEtapas14 widget.
+  ApiCallResponse? apiResutServices;
+  // Stores action output result for [Backend Call - API (Specializations)] action in CreateSiteEtapas14 widget.
+  ApiCallResponse? apiResutServicesNotExists;
   // Model for Header component.
   late HeaderModel headerModel;
-  // State field(s) for Whatsapp widget.
-  FocusNode? whatsappFocusNode;
-  TextEditingController? whatsappTextController;
-  String? Function(BuildContext, String?)? whatsappTextControllerValidator;
-  // State field(s) for Instagram widget.
-  FocusNode? instagramFocusNode;
-  TextEditingController? instagramTextController;
-  String? Function(BuildContext, String?)? instagramTextControllerValidator;
-  // State field(s) for Email widget.
-  FocusNode? emailFocusNode;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
-  // State field(s) for AgendaOnline widget.
-  FocusNode? agendaOnlineFocusNode;
-  TextEditingController? agendaOnlineTextController;
-  String? Function(BuildContext, String?)? agendaOnlineTextControllerValidator;
+  // State field(s) for busca widget.
+  FocusNode? buscaFocusNode;
+  TextEditingController? buscaTextController;
+  String? Function(BuildContext, String?)? buscaTextControllerValidator;
+  // State field(s) for Checkbox widget.
+  Map<dynamic, bool> checkboxValueMap = {};
+  List<dynamic> get checkboxCheckedItems =>
+      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
+
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -38,17 +37,8 @@ class CreateSiteEtapas14Model
   @override
   void dispose() {
     headerModel.dispose();
-    whatsappFocusNode?.dispose();
-    whatsappTextController?.dispose();
-
-    instagramFocusNode?.dispose();
-    instagramTextController?.dispose();
-
-    emailFocusNode?.dispose();
-    emailTextController?.dispose();
-
-    agendaOnlineFocusNode?.dispose();
-    agendaOnlineTextController?.dispose();
+    buscaFocusNode?.dispose();
+    buscaTextController?.dispose();
 
     footerModel.dispose();
   }

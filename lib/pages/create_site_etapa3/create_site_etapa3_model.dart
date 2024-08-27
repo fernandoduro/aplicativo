@@ -7,14 +7,9 @@ import 'package:flutter/material.dart';
 class CreateSiteEtapa3Model extends FlutterFlowModel<CreateSiteEtapa3Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // Stores action output result for [Custom Action - convertBase64] action in Button widget.
-  String? base64CustomFunction;
   // Model for Footer component.
   late FooterModel footerModel;
 

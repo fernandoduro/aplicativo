@@ -1,14 +1,9 @@
-import '/auth/custom_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
 import 'create_site_etapa1_model.dart';
 export 'create_site_etapa1_model.dart';
 
@@ -31,45 +26,6 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapa1'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CREATE_SITE_ETAPA1_CreateSiteEtapa1_ON_I');
-      if (getJsonField(
-            FFAppState().dataSite,
-            r'''$.name''',
-          ) !=
-          null) {
-        logFirebaseEvent('CreateSiteEtapa1_set_form_field');
-        setState(() {
-          _model.nameTextController?.text =
-              functions.removeNullString(getJsonField(
-            FFAppState().dataSite,
-            r'''$.name''',
-          ).toString().toString())!;
-          _model.nameTextController?.selection = TextSelection.collapsed(
-              offset: _model.nameTextController!.text.length);
-        });
-      } else {
-        logFirebaseEvent('CreateSiteEtapa1_backend_call');
-        _model.apiResult = await APIOficialGroup.getUserCall.call(
-          authToken: currentAuthenticationToken,
-        );
-
-        logFirebaseEvent('CreateSiteEtapa1_set_form_field');
-        setState(() {
-          _model.nameTextController?.text =
-              functions.removeNullString(getJsonField(
-            (_model.apiResult?.jsonBody ?? ''),
-            r'''$.name''',
-          ).toString().toString())!;
-          _model.nameTextController?.selection = TextSelection.collapsed(
-              offset: _model.nameTextController!.text.length);
-        });
-      }
-    });
-
-    _model.nameTextController ??= TextEditingController();
-    _model.nameFocusNode ??= FocusNode();
   }
 
   @override
@@ -81,8 +37,6 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -128,7 +82,7 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPA1_Text_dft8oph4_ON_TAP');
+                                        'CREATE_SITE_ETAPA1_Text_klbif7ul_ON_TAP');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -178,7 +132,7 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Digite a forma que gostaria que seu nome apareça no site?',
+                                        'Você possui um código de convite para criar seu site gratuito?',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -191,77 +145,6 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 15.0, 0.0),
-                                    child: TextFormField(
-                                      controller: _model.nameTextController,
-                                      focusNode: _model.nameFocusNode,
-                                      autofocus: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelText: 'Nome',
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Manrope',
-                                              letterSpacing: 0.0,
-                                            ),
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Manrope',
-                                              letterSpacing: 0.0,
-                                            ),
-                                        enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder:
-                                            UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Manrope',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      validator: _model
-                                          .nameTextControllerValidator
-                                          .asValidator(context),
                                     ),
                                   ),
                                 ],
@@ -280,34 +163,15 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: (_model.nameTextController
-                                                        .text ==
-                                                    '')
-                                            ? null
-                                            : () async {
-                                                logFirebaseEvent(
-                                                    'CREATE_SITE_ETAPA1_AVANAR_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_backend_call');
-                                                await APIOficialGroup
-                                                    .updateSiteCall
-                                                    .call(
-                                                  authToken:
-                                                      currentAuthenticationToken,
-                                                  bodyJson: <String, String?>{
-                                                    'name': _model
-                                                        .nameTextController
-                                                        .text,
-                                                  },
-                                                );
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'CREATE_SITE_ETAPA1_PAGE_SIM_BTN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_navigate_to');
 
-                                                logFirebaseEvent(
-                                                    'Button_navigate_to');
-
-                                                context.pushNamed(
-                                                    'CreateSiteEtapa2');
-                                              },
-                                        text: 'Avançar',
+                                          context.pushNamed('CreateSiteEtapa2');
+                                        },
+                                        text: 'Sim',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -337,11 +201,63 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget> {
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          disabledColor: const Color(0xFFACACAC),
-                                          disabledTextColor: const Color(0xFFD9D9D9),
                                         ),
                                       ),
                                     ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 15.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        FFButtonWidget(
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'CREATE_SITE_ETAPA1_PAGE_NO_BTN_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Button_navigate_to');
+
+                                            context
+                                                .pushNamed('CreateSiteEtapa4');
+                                          },
+                                          text: 'Não',
+                                          options: FFButtonOptions(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 40.0,
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: Colors.white,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Manrope',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      fontSize: 19.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: const BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),

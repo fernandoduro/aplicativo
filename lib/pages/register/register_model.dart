@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (Categories)] action in Register widget.
   ApiCallResponse? apiResultCategories;

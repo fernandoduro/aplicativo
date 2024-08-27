@@ -31,6 +31,7 @@ class APIOficialGroup {
   static UpdateProfessionalCall updateProfessionalCall =
       UpdateProfessionalCall();
   static EncerrarContaCall encerrarContaCall = EncerrarContaCall();
+  static InvitesCall invitesCall = InvitesCall();
 }
 
 class LoginCall {
@@ -663,6 +664,53 @@ class EncerrarContaCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class InvitesCall {
+  Future<ApiCallResponse> call({
+    String? invite = '',
+    String? authToken = '',
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Invites',
+      apiUrl: '$baseUrl/invites/$invite/use',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? inviterid(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.inviter_id''',
+      ));
+  int? invitedid(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.invited_id''',
+      ));
+  String? usedat(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.used_at''',
+      ));
+  String? createdat(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.created_at''',
+      ));
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.id''',
+      ));
 }
 
 /// End API Oficial Group Code

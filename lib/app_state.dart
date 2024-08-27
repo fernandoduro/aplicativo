@@ -24,6 +24,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _existSite = prefs.getBool('ff_existSite') ?? _existSite;
     });
+    _safeInit(() {
+      _codigoSiteUsado =
+          prefs.getBool('ff_codigoSiteUsado') ?? _codigoSiteUsado;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -117,6 +121,13 @@ class FFAppState extends ChangeNotifier {
   String get photoProfessionalEdit => _photoProfessionalEdit;
   set photoProfessionalEdit(String value) {
     _photoProfessionalEdit = value;
+  }
+
+  bool _codigoSiteUsado = false;
+  bool get codigoSiteUsado => _codigoSiteUsado;
+  set codigoSiteUsado(bool value) {
+    _codigoSiteUsado = value;
+    prefs.setBool('ff_codigoSiteUsado', value);
   }
 }
 

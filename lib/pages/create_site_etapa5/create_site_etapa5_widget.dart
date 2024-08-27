@@ -1,15 +1,9 @@
-import '/auth/custom_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
 import 'create_site_etapa5_model.dart';
 export 'create_site_etapa5_model.dart';
 
@@ -32,32 +26,6 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapa5'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CREATE_SITE_ETAPA5_CreateSiteEtapa5_ON_I');
-      logFirebaseEvent('CreateSiteEtapa5_update_app_state');
-      FFAppState().imageUploaded = false;
-      setState(() {});
-      if (getJsonField(
-            FFAppState().dataSite,
-            r'''$.professional_photo''',
-          ) !=
-          null) {
-        logFirebaseEvent('CreateSiteEtapa5_update_app_state');
-        FFAppState().imageUploaded = true;
-        setState(() {});
-        logFirebaseEvent('CreateSiteEtapa5_update_app_state');
-        FFAppState().photoProfessionalEdit = getJsonField(
-          FFAppState().dataSite,
-          r'''$.professional_photo''',
-        ).toString();
-        setState(() {});
-      } else {
-        logFirebaseEvent('CreateSiteEtapa5_update_app_state');
-        FFAppState().imageUploaded = false;
-        setState(() {});
-      }
-    });
   }
 
   @override
@@ -69,8 +37,6 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -116,7 +82,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPA5_Text_8sahk0t1_ON_TAP');
+                                        'CREATE_SITE_ETAPA5_Text_ofkz7oga_ON_TAP');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -166,7 +132,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Adicione uma foto sua',
+                                        'Criar seu site nunca foi tão fácil',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -181,37 +147,28 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
                                       ),
                                     ),
                                   ),
-                                  if ((_model.uploadedLocalFile.bytes
-                                              ?.isNotEmpty ??
-                                          false))
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.memory(
-                                        _model.uploadedLocalFile.bytes ??
-                                            Uint8List.fromList([]),
-                                        width: 300.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
-                                      ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 10.0, 15.0, 0.0),
+                                    child: Text(
+                                      'Vamos te passar por algumas perguntas e respostas, apenas com elas, seu site estará pronto!',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Manrope',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
-                                  if ((_model.uploadedLocalFile.bytes
-                                              ?.isEmpty ??
-                                          true))
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        FFAppState().photoProfessionalEdit,
-                                        width: 300.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                                  ),
                                 ],
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 20.0, 0.0, 0.0),
+                                  0.0, 40.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -224,75 +181,13 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
                                       FFButtonWidget(
                                         onPressed: () async {
                                           logFirebaseEvent(
-                                              'CREATE_SITE_ETAPA5_INSERIR_MINHA_FOTO_BT');
+                                              'CREATE_SITE_ETAPA5_COMEAR_BTN_ON_TAP');
                                           logFirebaseEvent(
-                                              'Button_store_media_for_upload');
-                                          final selectedMedia =
-                                              await selectMediaWithSourceBottomSheet(
-                                            context: context,
-                                            allowPhoto: true,
-                                          );
-                                          if (selectedMedia != null &&
-                                              selectedMedia.every((m) =>
-                                                  validateFileFormat(
-                                                      m.storagePath,
-                                                      context))) {
-                                            setState(() =>
-                                                _model.isDataUploading = true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
+                                              'Button_navigate_to');
 
-                                            try {
-                                              selectedUploadedFiles =
-                                                  selectedMedia
-                                                      .map(
-                                                          (m) => FFUploadedFile(
-                                                                name: m
-                                                                    .storagePath
-                                                                    .split('/')
-                                                                    .last,
-                                                                bytes: m.bytes,
-                                                                height: m
-                                                                    .dimensions
-                                                                    ?.height,
-                                                                width: m
-                                                                    .dimensions
-                                                                    ?.width,
-                                                                blurHash:
-                                                                    m.blurHash,
-                                                              ))
-                                                      .toList();
-                                            } finally {
-                                              _model.isDataUploading = false;
-                                            }
-                                            if (selectedUploadedFiles.length ==
-                                                selectedMedia.length) {
-                                              setState(() {
-                                                _model.uploadedLocalFile =
-                                                    selectedUploadedFiles.first;
-                                              });
-                                            } else {
-                                              setState(() {});
-                                              return;
-                                            }
-                                          }
-
-                                          logFirebaseEvent(
-                                              'Button_custom_action');
-                                          _model.base64CustomFunction =
-                                              await actions.convertBase64(
-                                            _model.uploadedLocalFile,
-                                          );
-                                          logFirebaseEvent(
-                                              'Button_update_app_state');
-                                          FFAppState().imageUploaded = true;
-                                          FFAppState().base64 =
-                                              _model.base64CustomFunction!;
-                                          setState(() {});
-
-                                          setState(() {});
+                                          context.pushNamed('CreateSiteEtapa7');
                                         },
-                                        text: 'Inserir minha foto',
+                                        text: 'Começar',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -305,7 +200,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .primary,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -325,80 +220,6 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget> {
                                         ),
                                       ),
                                     ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 40.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        FFButtonWidget(
-                                          onPressed: (FFAppState()
-                                                      .imageUploaded !=
-                                                  true)
-                                              ? null
-                                              : () async {
-                                                  logFirebaseEvent(
-                                                      'CREATE_SITE_ETAPA5_PRXIMO_BTN_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .updateSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'professional_photo':
-                                                          FFAppState().base64,
-                                                    },
-                                                  );
-
-                                                  logFirebaseEvent(
-                                                      'Button_navigate_to');
-
-                                                  context.pushNamed(
-                                                      'CreateSiteEtapa6');
-                                                },
-                                          text: 'Próximo',
-                                          options: FFButtonOptions(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.8,
-                                            height: 40.0,
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      fontSize: 19.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            disabledColor: const Color(0xFFACACAC),
-                                            disabledTextColor:
-                                                const Color(0xFFD9D9D9),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                   ),
                                 ],
                               ),

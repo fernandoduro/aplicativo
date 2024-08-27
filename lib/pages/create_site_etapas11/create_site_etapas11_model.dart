@@ -6,8 +6,13 @@ import 'package:flutter/material.dart';
 
 class CreateSiteEtapas11Model
     extends FlutterFlowModel<CreateSiteEtapas11Widget> {
+  ///  Local state fields for this page.
+
+  int? imageSelected;
+
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
   // Model for Footer component.

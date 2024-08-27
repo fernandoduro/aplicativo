@@ -5,8 +5,10 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas10_model.dart';
 export 'create_site_etapas10_model.dart';
@@ -31,12 +33,32 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapas10'});
-    _model.descricaoTextController ??= TextEditingController(
-        text: functions.removeNullString(getJsonField(
-      FFAppState().dataSite,
-      r'''$.main_call_to_action''',
-    ).toString().toString()));
-    _model.descricaoFocusNode ??= FocusNode();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPAS10_CreateSiteEtapas10_');
+      logFirebaseEvent('CreateSiteEtapas10_update_app_state');
+      FFAppState().imageUploaded = false;
+      setState(() {});
+      if (getJsonField(
+            FFAppState().dataSite,
+            r'''$.professional_photo''',
+          ) !=
+          null) {
+        logFirebaseEvent('CreateSiteEtapas10_update_app_state');
+        FFAppState().imageUploaded = true;
+        setState(() {});
+        logFirebaseEvent('CreateSiteEtapas10_update_app_state');
+        FFAppState().photoProfessionalEdit = getJsonField(
+          FFAppState().dataSite,
+          r'''$.professional_photo''',
+        ).toString();
+        setState(() {});
+      } else {
+        logFirebaseEvent('CreateSiteEtapas10_update_app_state');
+        FFAppState().imageUploaded = false;
+        setState(() {});
+      }
+    });
   }
 
   @override
@@ -95,7 +117,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'CREATE_SITE_ETAPAS10_Text_cno91oz4_ON_TA');
+                                        'CREATE_SITE_ETAPAS10_Text_8sahk0t1_ON_TA');
                                     logFirebaseEvent('Text_navigate_back');
                                     context.safePop();
                                   },
@@ -145,7 +167,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Preencha uma chamada principal para que seus visitantes conheçam seu serviço. \n',
+                                        'Adicione uma foto sua',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -160,86 +182,37 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 8.0, 0.0),
-                                    child: TextFormField(
-                                      controller:
-                                          _model.descricaoTextController,
-                                      focusNode: _model.descricaoFocusNode,
-                                      autofocus: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelText: 'Digite aqui...',
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Manrope',
-                                              letterSpacing: 0.0,
-                                            ),
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Manrope',
-                                              letterSpacing: 0.0,
-                                            ),
-                                        enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder:
-                                            UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
+                                  if ((_model.uploadedLocalFile.bytes
+                                              ?.isNotEmpty ??
+                                          false))
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.memory(
+                                        _model.uploadedLocalFile.bytes ??
+                                            Uint8List.fromList([]),
+                                        width: 300.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Manrope',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      maxLines: 5,
-                                      keyboardType: TextInputType.multiline,
-                                      validator: _model
-                                          .descricaoTextControllerValidator
-                                          .asValidator(context),
                                     ),
-                                  ),
+                                  if ((_model.uploadedLocalFile.bytes
+                                              ?.isEmpty ??
+                                          true))
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        FFAppState().photoProfessionalEdit,
+                                        width: 300.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                 ],
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 40.0, 0.0, 0.0),
+                                  0.0, 20.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -250,34 +223,77 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       FFButtonWidget(
-                                        onPressed: (_model.descricaoTextController
-                                                        .text ==
-                                                    '')
-                                            ? null
-                                            : () async {
-                                                logFirebaseEvent(
-                                                    'CREATE_SITE_ETAPAS10_AVANAR_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_backend_call');
-                                                await APIOficialGroup
-                                                    .updateSiteCall
-                                                    .call(
-                                                  authToken:
-                                                      currentAuthenticationToken,
-                                                  bodyJson: <String, String?>{
-                                                    'main_call_to_action': _model
-                                                        .descricaoTextController
-                                                        .text,
-                                                  },
-                                                );
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'CREATE_SITE_ETAPAS10_INSERIR_MINHA_FOTO_');
+                                          logFirebaseEvent(
+                                              'Button_store_media_for_upload');
+                                          final selectedMedia =
+                                              await selectMediaWithSourceBottomSheet(
+                                            context: context,
+                                            allowPhoto: true,
+                                          );
+                                          if (selectedMedia != null &&
+                                              selectedMedia.every((m) =>
+                                                  validateFileFormat(
+                                                      m.storagePath,
+                                                      context))) {
+                                            setState(() =>
+                                                _model.isDataUploading = true);
+                                            var selectedUploadedFiles =
+                                                <FFUploadedFile>[];
 
-                                                logFirebaseEvent(
-                                                    'Button_navigate_to');
+                                            try {
+                                              selectedUploadedFiles =
+                                                  selectedMedia
+                                                      .map(
+                                                          (m) => FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                              ))
+                                                      .toList();
+                                            } finally {
+                                              _model.isDataUploading = false;
+                                            }
+                                            if (selectedUploadedFiles.length ==
+                                                selectedMedia.length) {
+                                              setState(() {
+                                                _model.uploadedLocalFile =
+                                                    selectedUploadedFiles.first;
+                                              });
+                                            } else {
+                                              setState(() {});
+                                              return;
+                                            }
+                                          }
 
-                                                context.pushNamed(
-                                                    'CreateSiteEtapas11');
-                                              },
-                                        text: 'Avançar',
+                                          logFirebaseEvent(
+                                              'Button_custom_action');
+                                          _model.base64CustomFunction =
+                                              await actions.convertBase64(
+                                            _model.uploadedLocalFile,
+                                          );
+                                          logFirebaseEvent(
+                                              'Button_update_app_state');
+                                          FFAppState().imageUploaded = true;
+                                          FFAppState().base64 =
+                                              _model.base64CustomFunction!;
+                                          setState(() {});
+
+                                          setState(() {});
+                                        },
+                                        text: 'Inserir minha foto',
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -290,7 +306,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .secondaryText,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -307,11 +323,83 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          disabledColor: const Color(0xFFACACAC),
-                                          disabledTextColor: const Color(0xFFD9D9D9),
                                         ),
                                       ),
                                     ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 40.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        FFButtonWidget(
+                                          onPressed: (FFAppState()
+                                                      .imageUploaded !=
+                                                  true)
+                                              ? null
+                                              : () async {
+                                                  logFirebaseEvent(
+                                                      'CREATE_SITE_ETAPAS10_PRXIMO_BTN_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Button_backend_call');
+                                                  await APIOficialGroup
+                                                      .updateSiteCall
+                                                      .call(
+                                                    authToken:
+                                                        currentAuthenticationToken,
+                                                    bodyJson: <String, String?>{
+                                                      'professional_photo':
+                                                          FFAppState().base64,
+                                                    },
+                                                  );
+
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
+                                                  context.pushNamed(
+                                                      'CreateSiteEtapas11');
+                                                },
+                                          text: 'Próximo',
+                                          options: FFButtonOptions(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 40.0,
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Manrope',
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      fontSize: 19.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: const BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            disabledColor: const Color(0xFFACACAC),
+                                            disabledTextColor:
+                                                const Color(0xFFD9D9D9),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),

@@ -142,12 +142,12 @@ class _FooterWidgetState extends State<FooterWidget> {
                           borderWidth: 1.0,
                           buttonSize: 40.0,
                           icon: Icon(
-                            Icons.sick,
+                            Icons.person,
                             color: FlutterFlowTheme.of(context).primary,
                             size: 24.0,
                           ),
                           onPressed: () async {
-                            logFirebaseEvent('FOOTER_COMP_sick_ICN_ON_TAP');
+                            logFirebaseEvent('FOOTER_COMP_person_ICN_ON_TAP');
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed('EditarPerfil');
@@ -193,12 +193,12 @@ class _FooterWidgetState extends State<FooterWidget> {
                           borderWidth: 1.0,
                           buttonSize: 40.0,
                           icon: Icon(
-                            Icons.sick,
+                            Icons.person,
                             color: FlutterFlowTheme.of(context).primary,
                             size: 24.0,
                           ),
                           onPressed: () async {
-                            logFirebaseEvent('FOOTER_COMP_sick_ICN_ON_TAP');
+                            logFirebaseEvent('FOOTER_COMP_person_ICN_ON_TAP');
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed('Login');

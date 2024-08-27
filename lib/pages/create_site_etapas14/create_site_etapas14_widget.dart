@@ -6,7 +6,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas14_model.dart';
 export 'create_site_etapas14_model.dart';
@@ -31,33 +33,59 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapas14'});
-    _model.whatsappTextController ??= TextEditingController(
-        text: functions.removeNullString(getJsonField(
-      FFAppState().dataSite,
-      r'''$.whatsapp''',
-    ).toString().toString()));
-    _model.whatsappFocusNode ??= FocusNode();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPAS14_CreateSiteEtapas14_');
+      if (getJsonField(
+            FFAppState().dataSite,
+            r'''$.services''',
+          ) !=
+          null) {
+        logFirebaseEvent('CreateSiteEtapas14_backend_call');
+        _model.apiResutServices =
+            await APIOficialGroup.specializationsCall.call(
+          authToken: currentAuthenticationToken,
+        );
 
-    _model.instagramTextController ??= TextEditingController(
-        text: functions.removeNullString(getJsonField(
-      FFAppState().dataSite,
-      r'''$.instagram''',
-    ).toString().toString()));
-    _model.instagramFocusNode ??= FocusNode();
+        logFirebaseEvent('CreateSiteEtapas14_update_app_state');
+        FFAppState().servicesJson = functions.addTwoListsNotLabelDuplicate(
+            getJsonField(
+              (_model.apiResutServices?.jsonBody ?? ''),
+              r'''$.data''',
+              true,
+            ),
+            getJsonField(
+              FFAppState().dataSite,
+              r'''$.services''',
+              true,
+            ))!;
+        FFAppState().servicesJsonFull = getJsonField(
+          FFAppState().servicesJson,
+          r'''$''',
+        );
+        setState(() {});
+      } else {
+        logFirebaseEvent('CreateSiteEtapas14_backend_call');
+        _model.apiResutServicesNotExists =
+            await APIOficialGroup.specializationsCall.call(
+          authToken: currentAuthenticationToken,
+        );
 
-    _model.emailTextController ??= TextEditingController(
-        text: functions.removeNullString(getJsonField(
-      FFAppState().dataSite,
-      r'''$.email''',
-    ).toString().toString()));
-    _model.emailFocusNode ??= FocusNode();
+        logFirebaseEvent('CreateSiteEtapas14_update_app_state');
+        FFAppState().servicesJson = getJsonField(
+          (_model.apiResutServicesNotExists?.jsonBody ?? ''),
+          r'''$.data''',
+        );
+        FFAppState().servicesJsonFull = getJsonField(
+          FFAppState().servicesJson,
+          r'''$''',
+        );
+        setState(() {});
+      }
+    });
 
-    _model.agendaOnlineTextController ??= TextEditingController(
-        text: functions.removeNullString(getJsonField(
-      FFAppState().dataSite,
-      r'''$.online_scheduler''',
-    ).toString().toString()));
-    _model.agendaOnlineFocusNode ??= FocusNode();
+    _model.buscaTextController ??= TextEditingController();
+    _model.buscaFocusNode ??= FocusNode();
   }
 
   @override
@@ -120,7 +148,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         logFirebaseEvent(
-                                            'CREATE_SITE_ETAPAS14_Text_4sreyjy0_ON_TA');
+                                            'CREATE_SITE_ETAPAS14_Text_aambeuqa_ON_TA');
                                         logFirebaseEvent('Text_navigate_back');
                                         context.safePop();
                                       },
@@ -175,7 +203,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Text(
-                                            'Preencha abaixo quais formas de contato seus visitantes podem usar',
+                                            'Selecione os serviços que presta atualmente:',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -190,322 +218,308 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 5.0, 15.0, 5.0),
-                                        child: TextFormField(
-                                          controller:
-                                              _model.whatsappTextController,
-                                          focusNode: _model.whatsappFocusNode,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText: 'WhatsApp\n',
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                      Container(
+                                        width: double.infinity,
+                                        height: 60.0,
+                                        decoration: const BoxDecoration(),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: TextFormField(
+                                            controller:
+                                                _model.buscaTextController,
+                                            focusNode: _model.buscaFocusNode,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              '_model.buscaTextController',
+                                              const Duration(milliseconds: 2000),
+                                              () async {
+                                                logFirebaseEvent(
+                                                    'CREATE_SITE_ETAPAS14_busca_ON_TEXTFIELD_');
+                                                logFirebaseEvent(
+                                                    'busca_update_app_state');
+                                                FFAppState().servicesJson =
+                                                    functions.filterServices(
+                                                        getJsonField(
+                                                          FFAppState()
+                                                              .servicesJsonFull,
+                                                          r'''$''',
+                                                          true,
+                                                        ),
+                                                        _model
+                                                            .buscaTextController
+                                                            .text)!;
+                                                setState(() {});
+                                                if (!functions.existElementList(
+                                                    FFAppState()
+                                                        .servicesJson)!) {
+                                                  logFirebaseEvent(
+                                                      'busca_update_app_state');
+                                                  FFAppState().servicesJson =
+                                                      <String, String?>{
+                                                    'type': 'custom_service',
+                                                    'label': _model
+                                                        .buscaTextController
+                                                        .text,
+                                                    'name': _model
+                                                        .buscaTextController
+                                                        .text,
+                                                  };
+                                                  setState(() {});
+                                                }
+                                              },
                                             ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 2.0,
+                                            autofocus: true,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelText: 'Pesquisar',
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              enabledBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
+                                              focusedBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
+                                              errorBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              focusedErrorBorder:
+                                                  UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Manrope',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                            validator: _model
+                                                .buscaTextControllerValidator
+                                                .asValidator(context),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Manrope',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          keyboardType: TextInputType.phone,
-                                          validator: _model
-                                              .whatsappTextControllerValidator
-                                              .asValidator(context),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 5.0, 15.0, 5.0),
-                                        child: TextFormField(
-                                          controller:
-                                              _model.instagramTextController,
-                                          focusNode: _model.instagramFocusNode,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText: 'Instagram',
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
+                                      Builder(
+                                        builder: (context) {
+                                          final services = functions
+                                                  .clearDuplicates(
+                                                      functions.filterServices(
+                                                          getJsonField(
+                                                            FFAppState()
+                                                                .servicesJson,
+                                                            r'''$''',
+                                                            true,
+                                                          ),
+                                                          _model
+                                                              .buscaTextController
+                                                              .text),
+                                                      'label')
+                                                  ?.toList() ??
+                                              [];
+
+                                          return ListView.builder(
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: services.length,
+                                            itemBuilder:
+                                                (context, servicesIndex) {
+                                              final servicesItem =
+                                                  services[servicesIndex];
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    decoration: const BoxDecoration(),
+                                                    child: Theme(
+                                                      data: ThemeData(
+                                                        checkboxTheme:
+                                                            const CheckboxThemeData(
+                                                          visualDensity:
+                                                              VisualDensity
+                                                                  .compact,
+                                                          materialTapTargetSize:
+                                                              MaterialTapTargetSize
+                                                                  .shrinkWrap,
+                                                          shape: CircleBorder(),
+                                                        ),
+                                                        unselectedWidgetColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                      ),
+                                                      child: Checkbox(
+                                                        value: _model
+                                                                .checkboxValueMap[
+                                                            servicesItem] ??= functions
+                                                                .searchElementByListAndColumn(
+                                                                    getJsonField(
+                                                                      FFAppState()
+                                                                          .dataSite,
+                                                                      r'''$.services''',
+                                                                      true,
+                                                                    ),
+                                                                    getJsonField(
+                                                                      servicesItem,
+                                                                      r'''$.label''',
+                                                                    ).toString(),
+                                                                    'label') ==
+                                                            true,
+                                                        onChanged:
+                                                            (newValue) async {
+                                                          setState(() => _model
+                                                                      .checkboxValueMap[
+                                                                  servicesItem] =
+                                                              newValue!);
+                                                          if (newValue!) {
+                                                            logFirebaseEvent(
+                                                                'CREATE_SITE_ETAPAS14_Checkbox_f8y66n3l_O');
+                                                            logFirebaseEvent(
+                                                                'Checkbox_update_app_state');
+                                                            FFAppState().serviceJsonAux = functions
+                                                                .filterServices(
+                                                                    getJsonField(
+                                                                      FFAppState()
+                                                                          .servicesJsonFull,
+                                                                      r'''$''',
+                                                                      true,
+                                                                    ),
+                                                                    _model
+                                                                        .buscaTextController
+                                                                        .text)!;
+                                                            setState(() {});
+                                                            if (!functions
+                                                                .existElementList(
+                                                                    getJsonField(
+                                                              FFAppState()
+                                                                  .serviceJsonAux,
+                                                              r'''$''',
+                                                              true,
+                                                            ))!) {
+                                                              logFirebaseEvent(
+                                                                  'Checkbox_update_app_state');
+                                                              FFAppState()
+                                                                      .servicesJson =
+                                                                  functions.addTwoListsNotLabelDuplicate(
+                                                                      getJsonField(
+                                                                        FFAppState()
+                                                                            .servicesJson,
+                                                                        r'''$''',
+                                                                        true,
+                                                                      ),
+                                                                      getJsonField(
+                                                                        FFAppState()
+                                                                            .servicesJsonFull,
+                                                                        r'''$''',
+                                                                        true,
+                                                                      ))!;
+                                                              FFAppState()
+                                                                      .servicesJsonFull =
+                                                                  jsonDecode(
+                                                                      '[{\"id\":\"\",\"label\":\"\"}]');
+                                                              setState(() {});
+                                                              logFirebaseEvent(
+                                                                  'Checkbox_update_app_state');
+                                                              FFAppState()
+                                                                      .servicesJsonFull =
+                                                                  getJsonField(
+                                                                FFAppState()
+                                                                    .servicesJson,
+                                                                r'''$''',
+                                                              );
+                                                              setState(() {});
+                                                              logFirebaseEvent(
+                                                                  'Checkbox_clear_text_fields_pin_codes');
+                                                              setState(() {
+                                                                _model
+                                                                    .buscaTextController
+                                                                    ?.clear();
+                                                              });
+                                                            }
+                                                          }
+                                                        },
+                                                        side: BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                        ),
+                                                        activeColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        checkColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
                                                     ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Manrope',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          validator: _model
-                                              .instagramTextControllerValidator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 5.0, 15.0, 5.0),
-                                        child: TextFormField(
-                                          controller:
-                                              _model.emailTextController,
-                                          focusNode: _model.emailFocusNode,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText: 'E-mail',
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Manrope',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                          validator: _model
-                                              .emailTextControllerValidator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 5.0, 15.0, 5.0),
-                                        child: TextFormField(
-                                          controller:
-                                              _model.agendaOnlineTextController,
-                                          focusNode:
-                                              _model.agendaOnlineFocusNode,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText: 'Agenda online\n',
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Manrope',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Manrope',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          keyboardType: TextInputType.url,
-                                          validator: _model
-                                              .agendaOnlineTextControllerValidator
-                                              .asValidator(context),
-                                        ),
+                                                  ),
+                                                  Text(
+                                                    getJsonField(
+                                                      servicesItem,
+                                                      r'''$.label''',
+                                                    ).toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
                                       ),
                                     ],
                                   ),
@@ -524,43 +538,29 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                             MainAxisAlignment.end,
                                         children: [
                                           FFButtonWidget(
-                                            onPressed: (_model.whatsappTextController
-                                                            .text ==
-                                                        '')
-                                                ? null
-                                                : () async {
-                                                    logFirebaseEvent(
-                                                        'CREATE_SITE_ETAPAS14_AVANAR_BTN_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Button_backend_call');
-                                                    await APIOficialGroup
-                                                        .updateSiteCall
-                                                        .call(
-                                                      authToken:
-                                                          currentAuthenticationToken,
-                                                      bodyJson: <String,
-                                                          String?>{
-                                                        'whatsapp': _model
-                                                            .whatsappTextController
-                                                            .text,
-                                                        'instagram': _model
-                                                            .instagramTextController
-                                                            .text,
-                                                        'email': _model
-                                                            .emailTextController
-                                                            .text,
-                                                        'online_scheduler': _model
-                                                            .agendaOnlineTextController
-                                                            .text,
-                                                      },
-                                                    );
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'CREATE_SITE_ETAPAS14_AVANAR_BTN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Button_backend_call');
+                                              await APIOficialGroup
+                                                  .updateSiteCall
+                                                  .call(
+                                                authToken:
+                                                    currentAuthenticationToken,
+                                                bodyJson: <String,
+                                                    List<dynamic>?>{
+                                                  'services': _model
+                                                      .checkboxCheckedItems,
+                                                },
+                                              );
 
-                                                    logFirebaseEvent(
-                                                        'Button_navigate_to');
+                                              logFirebaseEvent(
+                                                  'Button_navigate_to');
 
-                                                    context.pushNamed(
-                                                        'CreateSiteEtapas15');
-                                                  },
+                                              context.pushNamed(
+                                                  'CreateSiteEtapas15');
+                                            },
                                             text: 'Avançar',
                                             options: FFButtonOptions(
                                               width: MediaQuery.sizeOf(context)
@@ -591,9 +591,6 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
-                                              disabledColor: const Color(0xFFACACAC),
-                                              disabledTextColor:
-                                                  const Color(0xFFD9D9D9),
                                             ),
                                           ),
                                         ],

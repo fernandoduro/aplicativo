@@ -7,12 +7,15 @@ import 'package:flutter/material.dart';
 class CreateSiteEtapa8Model extends FlutterFlowModel<CreateSiteEtapa8Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
-  // State field(s) for descricao widget.
-  FocusNode? descricaoFocusNode;
-  TextEditingController? descricaoTextController;
-  String? Function(BuildContext, String?)? descricaoTextControllerValidator;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - convertBase64] action in Button widget.
+  String? base64CustomFunction;
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -25,9 +28,6 @@ class CreateSiteEtapa8Model extends FlutterFlowModel<CreateSiteEtapa8Widget> {
   @override
   void dispose() {
     headerModel.dispose();
-    descricaoFocusNode?.dispose();
-    descricaoTextController?.dispose();
-
     footerModel.dispose();
   }
 }
