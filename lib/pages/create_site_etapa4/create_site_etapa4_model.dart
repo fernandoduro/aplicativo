@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,6 +11,8 @@ class CreateSiteEtapa4Model extends FlutterFlowModel<CreateSiteEtapa4Widget> {
   final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
+  // Stores action output result for [Backend Call - API (RequestInviteCustomWebsite)] action in Button widget.
+  ApiCallResponse? apiResult;
   // Model for Footer component.
   late FooterModel footerModel;
 

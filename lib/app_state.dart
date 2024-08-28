@@ -129,6 +129,18 @@ class FFAppState extends ChangeNotifier {
     _codigoSiteUsado = value;
     prefs.setBool('ff_codigoSiteUsado', value);
   }
+
+  dynamic _myinvitehistory;
+  dynamic get myinvitehistory => _myinvitehistory;
+  set myinvitehistory(dynamic value) {
+    _myinvitehistory = value;
+  }
+
+  dynamic _myinvites = jsonDecode('{\"data\":[]}');
+  dynamic get myinvites => _myinvites;
+  set myinvites(dynamic value) {
+    _myinvites = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

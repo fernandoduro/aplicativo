@@ -32,6 +32,9 @@ class APIOficialGroup {
       UpdateProfessionalCall();
   static EncerrarContaCall encerrarContaCall = EncerrarContaCall();
   static InvitesCall invitesCall = InvitesCall();
+  static MyInvitesCall myInvitesCall = MyInvitesCall();
+  static RequestInviteCustomWebsiteCall requestInviteCustomWebsiteCall =
+      RequestInviteCustomWebsiteCall();
 }
 
 class LoginCall {
@@ -711,6 +714,69 @@ class InvitesCall {
         response,
         r'''$.id''',
       ));
+}
+
+class MyInvitesCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'MyInvites',
+      apiUrl: '$baseUrl/my-invites',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+}
+
+class RequestInviteCustomWebsiteCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'RequestInviteCustomWebsite',
+      apiUrl: '$baseUrl/request-invite/custom-website',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End API Oficial Group Code

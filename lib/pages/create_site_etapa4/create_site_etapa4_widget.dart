@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -635,12 +637,21 @@ class _CreateSiteEtapa4WidgetState extends State<CreateSiteEtapa4Widget>
                                     FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
-                                            'CREATE_SITE_ETAPA4_AVANAR_BTN_ON_TAP');
+                                            'CREATE_SITE_ETAPA4_SIM_EU_TOPO_BTN_ON_TA');
+                                        logFirebaseEvent('Button_backend_call');
+                                        _model.apiResult = await APIOficialGroup
+                                            .requestInviteCustomWebsiteCall
+                                            .call(
+                                          authToken: currentAuthenticationToken,
+                                        );
+
                                         logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed('CreateSiteEtapa5');
+
+                                        setState(() {});
                                       },
-                                      text: 'Avançar',
+                                      text: 'Sim, eu topo!',
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 44.0,

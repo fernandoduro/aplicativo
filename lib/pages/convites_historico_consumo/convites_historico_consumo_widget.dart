@@ -3,6 +3,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'convites_historico_consumo_model.dart';
@@ -142,8 +143,8 @@ class _ConvitesHistoricoConsumoWidgetState
                                 child: Builder(
                                   builder: (context) {
                                     final consumo = getJsonField(
-                                      FFAppState().dataSite,
-                                      r'''$''',
+                                      FFAppState().myinvitehistory,
+                                      r'''$.used''',
                                     ).toList();
 
                                     return FlutterFlowDataTable<dynamic>(
@@ -191,7 +192,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                           label: DefaultTextStyle.merge(
                                             softWrap: true,
                                             child: Text(
-                                              'Data',
+                                              'Data do uso',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
@@ -199,7 +200,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                                         fontFamily: 'Manrope',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
-                                                            .secondaryBackground,
+                                                            .primaryBackground,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -220,7 +221,10 @@ class _ConvitesHistoricoConsumoWidgetState
                                         ),
                                         cells: [
                                           Text(
-                                            'Edit Column 1',
+                                            getJsonField(
+                                              FFAppState().myinvitehistory,
+                                              r'''$.title''',
+                                            ).toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -229,7 +233,13 @@ class _ConvitesHistoricoConsumoWidgetState
                                                 ),
                                           ),
                                           Text(
-                                            'Edit Column 2',
+                                            valueOrDefault<String>(
+                                              functions.firstName(getJsonField(
+                                                consumoItem,
+                                                r'''$.professional_name''',
+                                              ).toString()),
+                                              ' - ',
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -238,7 +248,14 @@ class _ConvitesHistoricoConsumoWidgetState
                                                 ),
                                           ),
                                           Text(
-                                            'Edit Column 3',
+                                            valueOrDefault<String>(
+                                              functions
+                                                  .formatDateHour(getJsonField(
+                                                consumoItem,
+                                                r'''$.used_at''',
+                                              ).toString()),
+                                              ' - ',
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

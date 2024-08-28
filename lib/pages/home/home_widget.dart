@@ -1283,11 +1283,24 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                       onPressed: () async {
                                                         logFirebaseEvent(
                                                             'HOME_PAGE_MEUS_CONVITES_BTN_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Button_navigate_to');
+                                                        if (currentAuthenticationToken ==
+                                                                null ||
+                                                            currentAuthenticationToken ==
+                                                                '') {
+                                                          logFirebaseEvent(
+                                                              'Button_navigate_to');
 
-                                                        context.pushNamed(
-                                                            'Convites');
+                                                          context.pushNamed(
+                                                              'Login');
+
+                                                          return;
+                                                        } else {
+                                                          logFirebaseEvent(
+                                                              'Button_navigate_to');
+
+                                                          context.pushNamed(
+                                                              'Convites');
+                                                        }
                                                       },
                                                       text: 'Meus convites',
                                                       options: FFButtonOptions(

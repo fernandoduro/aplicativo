@@ -157,6 +157,20 @@ String? convertJsonToString(dynamic lista) {
   return lista + "";
 }
 
+String? formatDateHour(String? data) {
+  try {
+    var ano = data?.substring(2, 4).trim();
+    var mes = data?.substring(5, 7).trim();
+    var dia = data?.substring(8, 10).trim();
+
+    var hora = data?.substring(11, 16).trim();
+
+    return dia! + "/" + mes! + "/" + ano! + " " + hora!;
+  } catch (err) {
+    return data;
+  }
+}
+
 dynamic removeDuplicateDomainSugestionsArray(dynamic lista) {
   var notDuplicate = lista['sugestions'].toSet().toList();
   lista['sugestions'] = notDuplicate;
@@ -187,7 +201,7 @@ String? removeNullString(String? parameter) {
 
 String? formatDate(String? data) {
   try {
-    var ano = data?.substring(0, 4).trim();
+    var ano = data?.substring(2, 4).trim();
     var mes = data?.substring(5, 7).trim();
     var dia = data?.substring(8, 10).trim();
 
@@ -195,4 +209,12 @@ String? formatDate(String? data) {
   } catch (err) {
     return data;
   }
+}
+
+String? firstName(String? fullName) {
+  if (fullName == null) {
+    return null;
+  }
+  final splitName = fullName.split(' ');
+  return splitName.isNotEmpty ? splitName.first : null;
 }
