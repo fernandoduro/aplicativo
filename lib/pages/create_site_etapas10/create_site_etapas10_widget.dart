@@ -36,8 +36,16 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS10_CreateSiteEtapas10_');
+      logFirebaseEvent('CreateSiteEtapas10_clear_uploaded_data');
+      setState(() {
+        _model.isDataUploading = false;
+        _model.uploadedLocalFile =
+            FFUploadedFile(bytes: Uint8List.fromList([]));
+      });
+
       logFirebaseEvent('CreateSiteEtapas10_update_app_state');
       FFAppState().imageUploaded = false;
+      FFAppState().base64 = '';
       setState(() {});
       if (getJsonField(
             FFAppState().dataSite,
@@ -342,19 +350,22 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                               : () async {
                                                   logFirebaseEvent(
                                                       'CREATE_SITE_ETAPAS10_PRXIMO_BTN_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Button_backend_call');
-                                                  await APIOficialGroup
-                                                      .updateSiteCall
-                                                      .call(
-                                                    authToken:
-                                                        currentAuthenticationToken,
-                                                    bodyJson: <String, String?>{
-                                                      'professional_photo':
-                                                          FFAppState().base64,
-                                                    },
-                                                  );
-
+                                                  if (FFAppState().base64 !=
+                                                          '') {
+                                                    logFirebaseEvent(
+                                                        'Button_backend_call');
+                                                    await APIOficialGroup
+                                                        .updateSiteCall
+                                                        .call(
+                                                      authToken:
+                                                          currentAuthenticationToken,
+                                                      bodyJson: <String,
+                                                          String?>{
+                                                        'professional_photo':
+                                                            FFAppState().base64,
+                                                      },
+                                                    );
+                                                  }
                                                   logFirebaseEvent(
                                                       'Button_navigate_to');
 

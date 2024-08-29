@@ -283,7 +283,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
-                                                                0.0, 16.0),
+                                                                0.0, 8.0),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .whatsappTextController,
@@ -387,78 +387,167 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           .asValidator(context),
                                                     ),
                                                   ),
-                                                  FlutterFlowDropDown<String>(
-                                                    controller: _model
-                                                            .profissaoValueController ??=
-                                                        FormFieldController<
-                                                            String>(null),
-                                                    options: List<String>.from(
-                                                        (getJsonField(
-                                                      FFAppState()
-                                                          .CategoriesJson,
-                                                      r'''$[:].id''',
-                                                      true,
-                                                    ) as List)
-                                                            .map<String>((s) =>
-                                                                s.toString())
-                                                            .toList()),
-                                                    optionLabels: (getJsonField(
-                                                      FFAppState()
-                                                          .CategoriesJson,
-                                                      r'''$[:].name''',
-                                                      true,
-                                                    ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList(),
-                                                    onChanged: (val) =>
-                                                        setState(() => _model
-                                                                .profissaoValue =
-                                                            val),
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 56.0,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
-                                                        ),
-                                                    hintText:
-                                                        'Qual a sua especialidade?',
-                                                    icon: Icon(
-                                                      Icons
-                                                          .keyboard_arrow_down_rounded,
-                                                      color:
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 8.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
+                                                      controller: _model
+                                                              .generoValueController ??=
+                                                          FormFieldController<
+                                                              String>(null),
+                                                      options:
+                                                          List<String>.from(
+                                                              ['F', 'M', 'NB']),
+                                                      optionLabels: const [
+                                                        'Ela / Dela',
+                                                        'Ele / Dele',
+                                                        'Elu / Delu'
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          setState(() => _model
+                                                                  .generoValue =
+                                                              val),
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 56.0,
+                                                      textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
-                                                      size: 24.0,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Manrope',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.0,
+                                                              ),
+                                                      hintText: 'Seus pronomes',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  8.0,
+                                                                  16.0,
+                                                                  8.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
                                                     ),
-                                                    fillColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryBackground,
-                                                    elevation: 2.0,
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderWidth: 2.0,
-                                                    borderRadius: 8.0,
-                                                    margin:
+                                                  ),
+                                                  Padding(
+                                                    padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 8.0,
-                                                                16.0, 8.0),
-                                                    hidesUnderline: true,
-                                                    isOverButton: true,
-                                                    isSearchable: false,
-                                                    isMultiSelect: false,
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 8.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
+                                                      controller: _model
+                                                              .profissaoValueController ??=
+                                                          FormFieldController<
+                                                              String>(null),
+                                                      options: List<
+                                                              String>.from(
+                                                          (getJsonField(
+                                                        FFAppState()
+                                                            .CategoriesJson,
+                                                        r'''$[:].id''',
+                                                        true,
+                                                      ) as List)
+                                                              .map<String>((s) =>
+                                                                  s.toString())
+                                                              .toList()),
+                                                      optionLabels:
+                                                          (getJsonField(
+                                                        FFAppState()
+                                                            .CategoriesJson,
+                                                        r'''$[:].name''',
+                                                        true,
+                                                      ) as List)
+                                                              .map<String>((s) =>
+                                                                  s.toString())
+                                                              .toList(),
+                                                      onChanged: (val) =>
+                                                          setState(() => _model
+                                                                  .profissaoValue =
+                                                              val),
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 56.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Manrope',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.0,
+                                                              ),
+                                                      hintText:
+                                                          'Qual a sua especialidade?',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  8.0,
+                                                                  16.0,
+                                                                  8.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
+                                                    ),
                                                   ),
                                                   if (_model.profissaoValue !=
                                                           null &&
@@ -469,7 +558,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  16.0,
+                                                                  8.0,
                                                                   0.0,
                                                                   8.0),
                                                       child: TextFormField(
@@ -586,21 +675,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0.0,
-                                                                valueOrDefault<
-                                                                    double>(
-                                                                  _model.profissaoValue !=
-                                                                              null &&
-                                                                          _model.profissaoValue !=
-                                                                              ''
-                                                                      ? 8.0
-                                                                      : 16.0,
-                                                                  0.0,
-                                                                ),
-                                                                0.0,
-                                                                8.0),
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 8.0),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .passwordTextController,
@@ -1017,7 +1094,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           .validate()) {
                                                     return;
                                                   }
-                                                  if (_model.profissaoValue ==
+                                                  if (_model.generoValue ==
                                                       null) {
                                                     return;
                                                   }
@@ -1042,11 +1119,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                             .text),
                                                     categoryId: functions
                                                         .convertStrintToInt(
-                                                            _model
-                                                                .profissaoValue),
+                                                            _model.generoValue),
                                                     code: _model
                                                         .codigoTextController
                                                         .text,
+                                                    gender: _model.generoValue,
                                                   );
 
                                                   if ((_model.apiResult

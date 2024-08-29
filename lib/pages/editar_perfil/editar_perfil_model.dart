@@ -43,6 +43,9 @@ class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
     return null;
   }
 
+  // State field(s) for genero widget.
+  String? generoValue;
+  FormFieldController<String>? generoValueController;
   // State field(s) for Profissao widget.
   String? profissaoValue;
   FormFieldController<String>? profissaoValueController;

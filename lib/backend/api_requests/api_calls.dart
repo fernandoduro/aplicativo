@@ -88,6 +88,7 @@ class RegisterCall {
     String? cellphone = '',
     int? categoryId,
     String? code = '',
+    String? gender = '',
   }) async {
     final baseUrl = APIOficialGroup.getBaseUrl();
 
@@ -98,7 +99,8 @@ class RegisterCall {
   "c_password": "$cPassword",
   "cellphone": "$cellphone",
   "category_id": $categoryId,
-  "code": "$code"
+  "code": "$code",
+  "gender": "$gender"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Register',
