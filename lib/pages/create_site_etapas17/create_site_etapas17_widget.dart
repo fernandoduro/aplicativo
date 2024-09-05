@@ -9,6 +9,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas17_model.dart';
 export 'create_site_etapas17_model.dart';
@@ -33,6 +34,13 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapas17'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPAS17_CreateSiteEtapas17_');
+      logFirebaseEvent('CreateSiteEtapas17_custom_action');
+      await actions.lockOrientation();
+    });
+
     _model.cepTextController ??= TextEditingController(
         text: functions.removeNullString(getJsonField(
       FFAppState().dataSite,
@@ -112,7 +120,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                         alignment: const AlignmentDirectional(0.0, -1.0),
                         child: wrapWithModel(
                           model: _model.headerModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const HeaderWidget(),
                         ),
                       ),
@@ -260,7 +268,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
 
                                                     logFirebaseEvent(
                                                         'CEP_set_form_field');
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.ruaTextController
                                                           ?.text = getJsonField(
                                                         (_model.apiResultCEP
@@ -278,7 +286,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                     });
                                                     logFirebaseEvent(
                                                         'CEP_set_form_field');
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model
                                                           .bairroTextController
                                                           ?.text = getJsonField(
@@ -297,7 +305,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                     });
                                                     logFirebaseEvent(
                                                         'CEP_set_form_field');
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model
                                                           .estadoTextController
                                                           ?.text = getJsonField(
@@ -316,7 +324,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                     });
                                                     logFirebaseEvent(
                                                         'CEP_set_form_field');
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model
                                                           .cidadeTextController
                                                           ?.text = getJsonField(
@@ -335,7 +343,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                     });
                                                   }
 
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                               ),
                                               autofocus: true,
@@ -426,6 +434,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                   _model.ruaTextController,
                                               focusNode: _model.ruaFocusNode,
                                               autofocus: true,
+                                              textCapitalization:
+                                                  TextCapitalization.words,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Endereço',
@@ -616,6 +626,9 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                     focusNode: _model
                                                         .complementoFocusNode,
                                                     autofocus: true,
+                                                    textCapitalization:
+                                                        TextCapitalization
+                                                            .sentences,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       labelText: 'Complemento',
@@ -712,6 +725,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                   _model.bairroTextController,
                                               focusNode: _model.bairroFocusNode,
                                               autofocus: true,
+                                              textCapitalization:
+                                                  TextCapitalization.words,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Bairro',
@@ -799,6 +814,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                   _model.estadoTextController,
                                               focusNode: _model.estadoFocusNode,
                                               autofocus: true,
+                                              textCapitalization:
+                                                  TextCapitalization.words,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Estado',
@@ -886,6 +903,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                   _model.cidadeTextController,
                                               focusNode: _model.cidadeFocusNode,
                                               autofocus: true,
+                                              textCapitalization:
+                                                  TextCapitalization.words,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Cidade',
@@ -1103,7 +1122,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                             alignment: const AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.footerModel,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const FooterWidget(
                                 selectedPage: 'teste',
                               ),

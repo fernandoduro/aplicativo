@@ -3,7 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'calculadora_model.dart';
 export 'calculadora_model.dart';
@@ -29,6 +31,13 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
     _model = createModel(context, () => CalculadoraModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Calculadora'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CALCULADORA_Calculadora_ON_INIT_STATE');
+      logFirebaseEvent('Calculadora_custom_action');
+      await actions.lockOrientation();
+    });
+
     animationsMap.addAll({
       'webViewOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -75,7 +84,7 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
               ),
               wrapWithModel(
                 model: _model.footerModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const FooterWidget(
                   selectedPage: '1',
                 ),

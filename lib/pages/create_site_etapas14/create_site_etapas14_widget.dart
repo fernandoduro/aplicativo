@@ -5,6 +5,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +64,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
           FFAppState().servicesJson,
           r'''$''',
         );
-        setState(() {});
+        safeSetState(() {});
       } else {
         logFirebaseEvent('CreateSiteEtapas14_backend_call');
         _model.apiResutServicesNotExists =
@@ -80,8 +81,11 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
           FFAppState().servicesJson,
           r'''$''',
         );
-        setState(() {});
+        safeSetState(() {});
       }
+
+      logFirebaseEvent('CreateSiteEtapas14_custom_action');
+      await actions.lockOrientation();
     });
 
     _model.buscaTextController ??= TextEditingController();
@@ -115,7 +119,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                     alignment: const AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const HeaderWidget(),
                     ),
                   ),
@@ -203,7 +207,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Text(
-                                            'Selecione os serviços que presta atualmente:',
+                                            'Selecione os serviços que oferece atualmente:',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -250,7 +254,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                                         _model
                                                             .buscaTextController
                                                             .text)!;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (!functions.existElementList(
                                                     FFAppState()
                                                         .servicesJson)!) {
@@ -266,7 +270,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                                         .buscaTextController
                                                         .text,
                                                   };
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 }
                                               },
                                             ),
@@ -371,151 +375,164 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                                 (context, servicesIndex) {
                                               final servicesItem =
                                                   services[servicesIndex];
-                                              return Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    decoration: const BoxDecoration(),
-                                                    child: Theme(
-                                                      data: ThemeData(
-                                                        checkboxTheme:
-                                                            const CheckboxThemeData(
-                                                          visualDensity:
-                                                              VisualDensity
-                                                                  .compact,
-                                                          materialTapTargetSize:
-                                                              MaterialTapTargetSize
-                                                                  .shrinkWrap,
-                                                          shape: CircleBorder(),
+                                              return Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 10.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Theme(
+                                                        data: ThemeData(
+                                                          checkboxTheme:
+                                                              const CheckboxThemeData(
+                                                            visualDensity:
+                                                                VisualDensity
+                                                                    .compact,
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            shape:
+                                                                CircleBorder(),
+                                                          ),
+                                                          unselectedWidgetColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
                                                         ),
-                                                        unselectedWidgetColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                      child: Checkbox(
-                                                        value: _model
-                                                                .checkboxValueMap[
-                                                            servicesItem] ??= functions
-                                                                .searchElementByListAndColumn(
-                                                                    getJsonField(
-                                                                      FFAppState()
-                                                                          .dataSite,
-                                                                      r'''$.services''',
-                                                                      true,
-                                                                    ),
-                                                                    getJsonField(
-                                                                      servicesItem,
-                                                                      r'''$.label''',
-                                                                    ).toString(),
-                                                                    'label') ==
-                                                            true,
-                                                        onChanged:
-                                                            (newValue) async {
-                                                          setState(() => _model
-                                                                      .checkboxValueMap[
-                                                                  servicesItem] =
-                                                              newValue!);
-                                                          if (newValue!) {
-                                                            logFirebaseEvent(
-                                                                'CREATE_SITE_ETAPAS14_Checkbox_f8y66n3l_O');
-                                                            logFirebaseEvent(
-                                                                'Checkbox_update_app_state');
-                                                            FFAppState().serviceJsonAux = functions
-                                                                .filterServices(
-                                                                    getJsonField(
-                                                                      FFAppState()
-                                                                          .servicesJsonFull,
-                                                                      r'''$''',
-                                                                      true,
-                                                                    ),
-                                                                    _model
-                                                                        .buscaTextController
-                                                                        .text)!;
-                                                            setState(() {});
-                                                            if (!functions
-                                                                .existElementList(
-                                                                    getJsonField(
-                                                              FFAppState()
-                                                                  .serviceJsonAux,
-                                                              r'''$''',
-                                                              true,
-                                                            ))!) {
-                                                              logFirebaseEvent(
-                                                                  'Checkbox_update_app_state');
-                                                              FFAppState()
-                                                                      .servicesJson =
-                                                                  functions.addTwoListsNotLabelDuplicate(
+                                                        child: Checkbox(
+                                                          value: _model
+                                                                  .checkboxValueMap[
+                                                              servicesItem] ??= functions
+                                                                  .searchElementByListAndColumn(
                                                                       getJsonField(
                                                                         FFAppState()
-                                                                            .servicesJson,
-                                                                        r'''$''',
+                                                                            .dataSite,
+                                                                        r'''$.services''',
                                                                         true,
                                                                       ),
+                                                                      getJsonField(
+                                                                        servicesItem,
+                                                                        r'''$.label''',
+                                                                      ).toString(),
+                                                                      'label') ==
+                                                              true,
+                                                          onChanged:
+                                                              (newValue) async {
+                                                            safeSetState(() =>
+                                                                _model.checkboxValueMap[
+                                                                        servicesItem] =
+                                                                    newValue!);
+                                                            if (newValue!) {
+                                                              logFirebaseEvent(
+                                                                  'CREATE_SITE_ETAPAS14_Checkbox_f8y66n3l_O');
+                                                              logFirebaseEvent(
+                                                                  'Checkbox_update_app_state');
+                                                              FFAppState().serviceJsonAux = functions
+                                                                  .filterServices(
                                                                       getJsonField(
                                                                         FFAppState()
                                                                             .servicesJsonFull,
                                                                         r'''$''',
                                                                         true,
-                                                                      ))!;
-                                                              FFAppState()
-                                                                      .servicesJsonFull =
-                                                                  jsonDecode(
-                                                                      '[{\"id\":\"\",\"label\":\"\"}]');
-                                                              setState(() {});
-                                                              logFirebaseEvent(
-                                                                  'Checkbox_update_app_state');
-                                                              FFAppState()
-                                                                      .servicesJsonFull =
-                                                                  getJsonField(
+                                                                      ),
+                                                                      _model
+                                                                          .buscaTextController
+                                                                          .text)!;
+                                                              safeSetState(
+                                                                  () {});
+                                                              if (!functions
+                                                                  .existElementList(
+                                                                      getJsonField(
                                                                 FFAppState()
-                                                                    .servicesJson,
+                                                                    .serviceJsonAux,
                                                                 r'''$''',
-                                                              );
-                                                              setState(() {});
-                                                              logFirebaseEvent(
-                                                                  'Checkbox_clear_text_fields_pin_codes');
-                                                              setState(() {
-                                                                _model
-                                                                    .buscaTextController
-                                                                    ?.clear();
-                                                              });
+                                                                true,
+                                                              ))!) {
+                                                                logFirebaseEvent(
+                                                                    'Checkbox_update_app_state');
+                                                                FFAppState()
+                                                                        .servicesJson =
+                                                                    functions.addTwoListsNotLabelDuplicate(
+                                                                        getJsonField(
+                                                                          FFAppState()
+                                                                              .servicesJson,
+                                                                          r'''$''',
+                                                                          true,
+                                                                        ),
+                                                                        getJsonField(
+                                                                          FFAppState()
+                                                                              .servicesJsonFull,
+                                                                          r'''$''',
+                                                                          true,
+                                                                        ))!;
+                                                                FFAppState()
+                                                                        .servicesJsonFull =
+                                                                    jsonDecode(
+                                                                        '[{\"id\":\"\",\"label\":\"\"}]');
+                                                                safeSetState(
+                                                                    () {});
+                                                                logFirebaseEvent(
+                                                                    'Checkbox_update_app_state');
+                                                                FFAppState()
+                                                                        .servicesJsonFull =
+                                                                    getJsonField(
+                                                                  FFAppState()
+                                                                      .servicesJson,
+                                                                  r'''$''',
+                                                                );
+                                                                safeSetState(
+                                                                    () {});
+                                                                logFirebaseEvent(
+                                                                    'Checkbox_clear_text_fields_pin_codes');
+                                                                safeSetState(
+                                                                    () {
+                                                                  _model
+                                                                      .buscaTextController
+                                                                      ?.clear();
+                                                                });
+                                                              }
                                                             }
-                                                          }
-                                                        },
-                                                        side: BorderSide(
-                                                          width: 2,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
+                                                          },
+                                                          side: BorderSide(
+                                                            width: 2,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                          ),
+                                                          activeColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          checkColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .info,
                                                         ),
-                                                        activeColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        checkColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .info,
                                                       ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    getJsonField(
-                                                      servicesItem,
-                                                      r'''$.label''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ],
+                                                    Text(
+                                                      getJsonField(
+                                                        servicesItem,
+                                                        r'''$.label''',
+                                                      ).toString(),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Manrope',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
                                               );
                                             },
                                           );
@@ -612,7 +629,7 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                         alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const FooterWidget(
                             selectedPage: 'teste',
                           ),

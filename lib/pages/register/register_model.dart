@@ -3,11 +3,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'register_widget.dart' show RegisterWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (Categories)] action in Register widget.
   ApiCallResponse? apiResultCategories;
@@ -26,6 +26,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   // State field(s) for whatsapp widget.
   FocusNode? whatsappFocusNode;
   TextEditingController? whatsappTextController;
+  final whatsappMask = MaskTextInputFormatter(mask: '(##) #####-####');
   String? Function(BuildContext, String?)? whatsappTextControllerValidator;
   String? _whatsappTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {

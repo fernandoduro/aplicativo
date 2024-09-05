@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -41,7 +42,9 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
         FFAppState().dataSite,
         r'''$.layout_highlight''',
       ).toString().toString());
-      setState(() {});
+      safeSetState(() {});
+      logFirebaseEvent('CreateSiteEtapas11_custom_action');
+      await actions.lockOrientation();
     });
   }
 
@@ -98,7 +101,7 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
                             alignment: const AlignmentDirectional(0.0, -1.0),
                             child: wrapWithModel(
                               model: _model.headerModel,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const HeaderWidget(),
                             ),
                           ),
@@ -298,7 +301,7 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
                                                                             'Image_update_page_state');
                                                                         _model.imageSelected =
                                                                             null;
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                       } else {
                                                                         logFirebaseEvent(
@@ -308,7 +311,7 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
                                                                           gridsItem,
                                                                           r'''$.id''',
                                                                         );
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                       }
                                                                     },
@@ -343,7 +346,9 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
                                                                     r'''$.id''',
                                                                   )) &&
                                                               (_model.imageSelected !=
-                                                                  null)) {
+                                                                  null) &&
+                                                              (_model.imageSelected !=
+                                                                  0)) {
                                                             return ClipRect(
                                                               child:
                                                                   ImageFiltered(
@@ -478,7 +483,7 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: wrapWithModel(
                                   model: _model.footerModel,
-                                  updateCallback: () => setState(() {}),
+                                  updateCallback: () => safeSetState(() {}),
                                   child: const FooterWidget(
                                     selectedPage: 'teste',
                                   ),

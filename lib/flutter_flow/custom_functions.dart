@@ -88,7 +88,11 @@ dynamic addTwoListsNotLabelDuplicate(
 }
 
 int? convertStrintToInt(String? parametro) {
-  return int.parse(parametro!);
+  try {
+    return int.parse(parametro!);
+  } catch (err) {
+    return 0;
+  }
 }
 
 bool? searchElementByListAndColumn(
@@ -217,4 +221,31 @@ String? firstName(String? fullName) {
   }
   final splitName = fullName.split(' ');
   return splitName.isNotEmpty ? splitName.first : null;
+}
+
+String? formatMaskPhone(String? phone) {
+  final cleanPhone = phone?.replaceAll(RegExp(r'[^\d]'), '');
+
+  final areaCode = cleanPhone?.substring(0, 2);
+  final firstPart = cleanPhone?.substring(2, 7);
+  final secondPart = cleanPhone?.substring(7);
+  return '($areaCode) $firstPart-$secondPart';
+}
+
+bool? existeElementSpecifcList(
+  dynamic lista,
+  String? elemento,
+) {
+  return lista!.contains(elemento);
+}
+
+String? convertToTitleCase(String? text) {
+  List<String> words = text!.split(' ');
+  for (int i = 0; i < words.length; i++) {
+    String word = words[i];
+    if (word.isNotEmpty) {
+      words[i] = word[0].toUpperCase() + word.substring(1);
+    }
+  }
+  return words.join(' ');
 }

@@ -5,7 +5,9 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'create_site_etapa2_model.dart';
 export 'create_site_etapa2_model.dart';
 
@@ -28,6 +30,13 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapa2'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPA2_CreateSiteEtapa2_ON_I');
+      logFirebaseEvent('CreateSiteEtapa2_custom_action');
+      await actions.lockOrientation();
+    });
+
     _model.codigoTextController ??= TextEditingController();
     _model.codigoFocusNode ??= FocusNode();
   }
@@ -55,7 +64,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -136,7 +145,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
-                                        'Digite o seu código de convite para criar o site',
+                                        'Digite o código de convite para seu site gratuito:',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -298,7 +307,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                                       'Button_update_app_state');
                                                   FFAppState().codigoSiteUsado =
                                                       true;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 } else {
                                                   logFirebaseEvent(
                                                       'Button_navigate_to');
@@ -307,7 +316,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                                                       'CreateSiteEtapa3');
                                                 }
 
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                         text: 'Avançar',
                                         options: FFButtonOptions(
@@ -362,7 +371,7 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

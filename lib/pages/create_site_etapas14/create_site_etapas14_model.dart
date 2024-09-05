@@ -9,7 +9,6 @@ class CreateSiteEtapas14Model
     extends FlutterFlowModel<CreateSiteEtapas14Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Specializations)] action in CreateSiteEtapas14 widget.
   ApiCallResponse? apiResutServices;
   // Stores action output result for [Backend Call - API (Specializations)] action in CreateSiteEtapas14 widget.

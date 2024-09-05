@@ -5,6 +5,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +40,9 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
         FFAppState().dataSite,
         r'''$.primary_color''',
       ).toString().toString();
-      setState(() {});
+      safeSetState(() {});
+      logFirebaseEvent('CreateSiteEtapas12_custom_action');
+      await actions.lockOrientation();
     });
   }
 
@@ -92,7 +95,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                     alignment: const AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const HeaderWidget(),
                     ),
                   ),
@@ -240,7 +243,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                             'Container_update_page_state');
                                                         _model.colorSelected =
                                                             null;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       } else {
                                                         logFirebaseEvent(
                                                             'Container_update_page_state');
@@ -249,7 +252,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                           colorsItem,
                                                           r'''$.id''',
                                                         ).toString();
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       }
                                                     },
                                                     child: Container(
@@ -420,7 +423,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                         alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const FooterWidget(
                             selectedPage: 'teste',
                           ),

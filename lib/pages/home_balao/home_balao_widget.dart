@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -38,6 +39,8 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
 
         context.pushNamed('Home');
       }
+      logFirebaseEvent('HomeBalao_custom_action');
+      await actions.lockOrientation();
     });
 
     animationsMap.addAll({
@@ -238,7 +241,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
-                                              'Somos sua assistente digital, aqui para cuidar das coisas que você nem deveria ter que se preocupar, já que seu tempo e dedicação já é cuidar de tanta gente. 🩵',
+                                              'Somos sua assistente digital, aqui para cuidar das coisas que você nem deveria ter que se preocupar, já que seu tempo e dedicação já é cuidar de tanta gente. 💙',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -360,7 +363,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                       'HOME_BALAO_PAGE_VAMOS_L_BTN_ON_TAP');
                                   logFirebaseEvent('Button_update_app_state');
                                   FFAppState().firstAccess = false;
-                                  setState(() {});
+                                  safeSetState(() {});
                                   logFirebaseEvent('Button_navigate_to');
 
                                   context.pushNamed('Home');

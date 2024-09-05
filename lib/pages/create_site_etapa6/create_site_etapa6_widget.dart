@@ -5,6 +5,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -40,7 +41,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
           ) !=
           null) {
         logFirebaseEvent('CreateSiteEtapa6_set_form_field');
-        setState(() {
+        safeSetState(() {
           _model.nameTextController?.text =
               functions.removeNullString(getJsonField(
             FFAppState().dataSite,
@@ -56,7 +57,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
         );
 
         logFirebaseEvent('CreateSiteEtapa6_set_form_field');
-        setState(() {
+        safeSetState(() {
           _model.nameTextController?.text =
               functions.removeNullString(getJsonField(
             (_model.apiResult?.jsonBody ?? ''),
@@ -66,6 +67,9 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
               offset: _model.nameTextController!.text.length);
         });
       }
+
+      logFirebaseEvent('CreateSiteEtapa6_custom_action');
+      await actions.lockOrientation();
     });
 
     _model.nameTextController ??= TextEditingController();
@@ -97,7 +101,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -200,6 +204,8 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                       controller: _model.nameTextController,
                                       focusNode: _model.nameFocusNode,
                                       autofocus: true,
+                                      textCapitalization:
+                                          TextCapitalization.words,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Nome',
@@ -360,7 +366,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

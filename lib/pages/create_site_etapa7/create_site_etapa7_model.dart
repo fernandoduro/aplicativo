@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class CreateSiteEtapa7Model extends FlutterFlowModel<CreateSiteEtapa7Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
   // Model for Footer component.

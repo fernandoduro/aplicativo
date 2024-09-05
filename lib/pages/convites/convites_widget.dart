@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -50,7 +51,9 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
         (_model.apiResutInvites?.jsonBody ?? ''),
         r'''$''',
       );
-      setState(() {});
+      safeSetState(() {});
+      logFirebaseEvent('Convites_custom_action');
+      await actions.lockOrientation();
     });
 
     animationsMap.addAll({
@@ -108,700 +111,755 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                     children: [
                       Stack(
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
+                          Stack(
                             children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
-                                child: wrapWithModel(
-                                  model: _model.headerModel,
-                                  updateCallback: () => setState(() {}),
-                                  child: const HeaderWidget(),
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 20.0, 0.0, 0.0),
-                                  child: Column(
+                              Stack(
+                                children: [
+                                  Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(0.0, -1.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.85,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                          ),
+                                        child: wrapWithModel(
+                                          model: _model.headerModel,
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          child: const HeaderWidget(),
                                         ),
                                       ),
-                                      Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.8,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'Meus convites',
-                                                    style: FlutterFlowTheme.of(
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 20.0, 0.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, -1.0),
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.85,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
                                                             context)
-                                                        .displaySmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          fontSize: 30.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                        .primaryBackground,
                                                   ),
-                                                  Builder(
-                                                    builder: (context) {
-                                                      final invites =
-                                                          getJsonField(
-                                                        FFAppState().myinvites,
-                                                        r'''$.data''',
-                                                      ).toList();
-
-                                                      return SingleChildScrollView(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: List.generate(
-                                                              invites.length,
-                                                              (invitesIndex) {
-                                                            final invitesItem =
-                                                                invites[
-                                                                    invitesIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          20.0,
-                                                                          10.0,
-                                                                          20.0,
-                                                                          10.0),
-                                                              child: Container(
-                                                                decoration:
-                                                                    BoxDecoration(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            logFirebaseEvent(
+                                                                'CONVITES_PAGE_Text_lxhgqn86_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'Text_navigate_back');
+                                                            context.safePop();
+                                                          },
+                                                          child: Text(
+                                                            '< Voltar',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
-                                                                  boxShadow: const [
-                                                                    BoxShadow(
-                                                                      blurRadius:
-                                                                          4.0,
-                                                                      color: Color(
-                                                                          0x34090F13),
-                                                                      offset:
-                                                                          Offset(
-                                                                        0.0,
-                                                                        2.0,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.8,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                ),
+                                                child: Stack(
+                                                  children: [
+                                                    SingleChildScrollView(
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            'Meus convites',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      30.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                          Builder(
+                                                            builder: (context) {
+                                                              final invites =
+                                                                  getJsonField(
+                                                                FFAppState()
+                                                                    .myinvites,
+                                                                r'''$.data''',
+                                                              ).toList();
+
+                                                              return SingleChildScrollView(
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
-                                                                  children: [
-                                                                    Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              10.0),
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            children: [
-                                                                              Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                                                                                    child: Container(
-                                                                                      width: double.infinity,
-                                                                                      decoration: const BoxDecoration(
-                                                                                        borderRadius: BorderRadius.only(
-                                                                                          bottomLeft: Radius.circular(0.0),
-                                                                                          bottomRight: Radius.circular(0.0),
-                                                                                          topLeft: Radius.circular(12.0),
-                                                                                          topRight: Radius.circular(12.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                      child: SizedBox(
-                                                                                        height: 25.0,
-                                                                                        child: Stack(
-                                                                                          children: [
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-                                                                                              child: RichText(
-                                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                                text: TextSpan(
-                                                                                                  children: [
-                                                                                                    TextSpan(
-                                                                                                      text: getJsonField(
-                                                                                                        invitesItem,
-                                                                                                        r'''$.title''',
-                                                                                                      ).toString(),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Poppins',
-                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                            fontSize: 21.0,
-                                                                                                            letterSpacing: 0.0,
-                                                                                                            fontWeight: FontWeight.bold,
-                                                                                                          ),
-                                                                                                    )
-                                                                                                  ],
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Manrope',
-                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                        fontSize: 21.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
+                                                                  children: List
+                                                                      .generate(
+                                                                          invites
+                                                                              .length,
+                                                                          (invitesIndex) {
+                                                                    final invitesItem =
+                                                                        invites[
+                                                                            invitesIndex];
+                                                                    return Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          20.0,
+                                                                          10.0,
+                                                                          20.0,
+                                                                          10.0),
+                                                                      child:
+                                                                          Container(
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          boxShadow: const [
+                                                                            BoxShadow(
+                                                                              blurRadius: 4.0,
+                                                                              color: Color(0x34090F13),
+                                                                              offset: Offset(
+                                                                                0.0,
+                                                                                2.0,
                                                                               ),
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Flexible(
-                                                                                          child: Stack(
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  getJsonField(
-                                                                                                    invitesItem,
-                                                                                                    r'''$.inviter_pros''',
-                                                                                                  ).toString(),
-                                                                                                  textAlign: TextAlign.start,
-                                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                        fontFamily: 'Manrope',
-                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Flexible(
-                                                                                          child: SizedBox(
-                                                                                            width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                            child: Stack(
-                                                                                              children: [
-                                                                                                RichText(
-                                                                                                  textScaler: MediaQuery.of(context).textScaler,
-                                                                                                  text: TextSpan(
-                                                                                                    children: [
-                                                                                                      TextSpan(
-                                                                                                        text: 'Data criação: ',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
-                                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.bold,
-                                                                                                            ),
-                                                                                                      ),
-                                                                                                      TextSpan(
-                                                                                                        text: valueOrDefault<String>(
-                                                                                                          functions.formatDate(getJsonField(
-                                                                                                            invitesItem,
-                                                                                                            r'''$.created_at''',
-                                                                                                          ).toString()),
-                                                                                                          '-',
-                                                                                                        ),
-                                                                                                        style: TextStyle(
-                                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                                        ),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          letterSpacing: 0.0,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Flexible(
-                                                                                          child: Align(
-                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                            child: Stack(
-                                                                                              children: [
-                                                                                                RichText(
-                                                                                                  textScaler: MediaQuery.of(context).textScaler,
-                                                                                                  text: TextSpan(
-                                                                                                    children: [
-                                                                                                      TextSpan(
-                                                                                                        text: 'Data expiração: ',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
-                                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.bold,
-                                                                                                            ),
-                                                                                                      ),
-                                                                                                      TextSpan(
-                                                                                                        text: valueOrDefault<String>(
-                                                                                                          functions.formatDate(getJsonField(
-                                                                                                            invitesItem,
-                                                                                                            r'''$.expiration_date''',
-                                                                                                          ).toString()),
-                                                                                                          ' - ',
-                                                                                                        ),
-                                                                                                        style: TextStyle(
-                                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                                        ),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          letterSpacing: 0.0,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                      child: Row(
+                                                                            )
+                                                                          ],
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(12.0),
+                                                                        ),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                    children: [
+                                                                                      Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
-                                                                                          Flexible(
-                                                                                            child: SizedBox(
-                                                                                              width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                              child: Stack(
-                                                                                                children: [
-                                                                                                  RichText(
-                                                                                                    textScaler: MediaQuery.of(context).textScaler,
-                                                                                                    text: TextSpan(
-                                                                                                      children: [
-                                                                                                        TextSpan(
-                                                                                                          text: 'Consumido: ',
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Manrope',
-                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                letterSpacing: 0.0,
-                                                                                                                fontWeight: FontWeight.bold,
-                                                                                                              ),
-                                                                                                        ),
-                                                                                                        TextSpan(
-                                                                                                          text: getJsonField(
-                                                                                                            invitesItem,
-                                                                                                            r'''$.used_count''',
-                                                                                                          ).toString(),
-                                                                                                          style: TextStyle(
-                                                                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                                                                          ),
-                                                                                                        )
-                                                                                                      ],
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Manrope',
-                                                                                                            letterSpacing: 0.0,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ],
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                                                                                            child: Container(
+                                                                                              width: double.infinity,
+                                                                                              decoration: const BoxDecoration(
+                                                                                                borderRadius: BorderRadius.only(
+                                                                                                  bottomLeft: Radius.circular(0.0),
+                                                                                                  bottomRight: Radius.circular(0.0),
+                                                                                                  topLeft: Radius.circular(12.0),
+                                                                                                  topRight: Radius.circular(12.0),
+                                                                                                ),
                                                                                               ),
-                                                                                            ),
-                                                                                          ),
-                                                                                          Flexible(
-                                                                                            child: Align(
-                                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                              child: Stack(
-                                                                                                children: [
-                                                                                                  RichText(
-                                                                                                    textScaler: MediaQuery.of(context).textScaler,
-                                                                                                    text: TextSpan(
-                                                                                                      children: [
-                                                                                                        TextSpan(
-                                                                                                          text: 'Limite: ',
+                                                                                              child: SizedBox(
+                                                                                                height: 25.0,
+                                                                                                child: Stack(
+                                                                                                  children: [
+                                                                                                    Padding(
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                                                                                                      child: RichText(
+                                                                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                                                                        text: TextSpan(
+                                                                                                          children: [
+                                                                                                            TextSpan(
+                                                                                                              text: getJsonField(
+                                                                                                                invitesItem,
+                                                                                                                r'''$.title''',
+                                                                                                              ).toString(),
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                    fontSize: 21.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
+                                                                                                            )
+                                                                                                          ],
                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Manrope',
-                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                fontSize: 21.0,
                                                                                                                 letterSpacing: 0.0,
-                                                                                                                fontWeight: FontWeight.bold,
                                                                                                               ),
                                                                                                         ),
-                                                                                                        TextSpan(
-                                                                                                          text: getJsonField(
-                                                                                                            invitesItem,
-                                                                                                            r'''$.initial_limit''',
-                                                                                                          ).toString(),
-                                                                                                          style: TextStyle(
-                                                                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                                                                          ),
-                                                                                                        )
-                                                                                                      ],
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Manrope',
-                                                                                                            letterSpacing: 0.0,
-                                                                                                          ),
+                                                                                                      ),
                                                                                                     ),
-                                                                                                  ),
-                                                                                                ],
+                                                                                                  ],
+                                                                                                ),
                                                                                               ),
                                                                                             ),
                                                                                           ),
                                                                                         ],
                                                                                       ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.min,
-                                                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                  children: [
-                                                                                    Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Builder(
-                                                                                          builder: (context) => FFButtonWidget(
-                                                                                            onPressed: () async {
-                                                                                              logFirebaseEvent('CONVITES_PAGE_COMPARTILHAR_BTN_ON_TAP');
-                                                                                              logFirebaseEvent('Button_share');
-                                                                                              await Share.share(
-                                                                                                functions.concateStrings(
-                                                                                                    'Você ganhou um convite para criar seu site. Acesse https://blubem.com.br baixe o app e use o código:  ',
-                                                                                                    getJsonField(
-                                                                                                      invitesItem,
-                                                                                                      r'''$.hash''',
-                                                                                                    ).toString())!,
-                                                                                                sharePositionOrigin: getWidgetBoundingBox(context),
-                                                                                              );
-                                                                                            },
-                                                                                            text: 'Compartilhar',
-                                                                                            icon: const Icon(
-                                                                                              Icons.share,
-                                                                                              size: 15.0,
-                                                                                            ),
-                                                                                            options: FFButtonOptions(
-                                                                                              width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                              height: 40.0,
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                    fontFamily: 'Manrope',
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    letterSpacing: 0.0,
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Flexible(
+                                                                                                  child: Stack(
+                                                                                                    children: [
+                                                                                                      Padding(
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                                                                                                        child: Text(
+                                                                                                          getJsonField(
+                                                                                                            invitesItem,
+                                                                                                            r'''$.inviter_pros''',
+                                                                                                          ).toString(),
+                                                                                                          textAlign: TextAlign.start,
+                                                                                                          style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                                fontFamily: 'Manrope',
+                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ],
                                                                                                   ),
-                                                                                              elevation: 3.0,
-                                                                                              borderSide: const BorderSide(
-                                                                                                color: Colors.transparent,
-                                                                                                width: 1.0,
-                                                                                              ),
-                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                                ),
+                                                                                              ],
                                                                                             ),
-                                                                                          ),
+                                                                                          ],
                                                                                         ),
-                                                                                        Align(
-                                                                                          alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                            child: FFButtonWidget(
-                                                                                              onPressed: () async {
-                                                                                                logFirebaseEvent('CONVITES_PAGE_COPIAR_CDIGO_BTN_ON_TAP');
-                                                                                                logFirebaseEvent('Button_copy_to_clipboard');
-                                                                                                await Clipboard.setData(ClipboardData(
-                                                                                                    text: getJsonField(
-                                                                                                  invitesItem,
-                                                                                                  r'''$.hash''',
-                                                                                                ).toString()));
-                                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                  SnackBar(
-                                                                                                    content: Text(
-                                                                                                      'Código copiado!',
-                                                                                                      style: TextStyle(
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Flexible(
+                                                                                                  child: SizedBox(
+                                                                                                    width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                                    child: Stack(
+                                                                                                      children: [
+                                                                                                        RichText(
+                                                                                                          textScaler: MediaQuery.of(context).textScaler,
+                                                                                                          text: TextSpan(
+                                                                                                            children: [
+                                                                                                              TextSpan(
+                                                                                                                text: 'Data criação: ',
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                      fontWeight: FontWeight.bold,
+                                                                                                                    ),
+                                                                                                              ),
+                                                                                                              TextSpan(
+                                                                                                                text: valueOrDefault<String>(
+                                                                                                                  functions.formatDate(getJsonField(
+                                                                                                                    invitesItem,
+                                                                                                                    r'''$.created_at''',
+                                                                                                                  ).toString()),
+                                                                                                                  '-',
+                                                                                                                ),
+                                                                                                                style: TextStyle(
+                                                                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                ),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                  fontFamily: 'Manrope',
+                                                                                                                  letterSpacing: 0.0,
+                                                                                                                ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Flexible(
+                                                                                                  child: Align(
+                                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                    child: Stack(
+                                                                                                      children: [
+                                                                                                        RichText(
+                                                                                                          textScaler: MediaQuery.of(context).textScaler,
+                                                                                                          text: TextSpan(
+                                                                                                            children: [
+                                                                                                              TextSpan(
+                                                                                                                text: 'Data expiração: ',
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                      fontWeight: FontWeight.bold,
+                                                                                                                    ),
+                                                                                                              ),
+                                                                                                              TextSpan(
+                                                                                                                text: valueOrDefault<String>(
+                                                                                                                  functions.formatDate(getJsonField(
+                                                                                                                    invitesItem,
+                                                                                                                    r'''$.expiration_date''',
+                                                                                                                  ).toString()),
+                                                                                                                  ' - ',
+                                                                                                                ),
+                                                                                                                style: TextStyle(
+                                                                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                ),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                  fontFamily: 'Manrope',
+                                                                                                                  letterSpacing: 0.0,
+                                                                                                                ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Align(
+                                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                children: [
+                                                                                                  Flexible(
+                                                                                                    child: SizedBox(
+                                                                                                      width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                                      child: Stack(
+                                                                                                        children: [
+                                                                                                          RichText(
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
+                                                                                                            text: TextSpan(
+                                                                                                              children: [
+                                                                                                                TextSpan(
+                                                                                                                  text: 'Consumido: ',
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Manrope',
+                                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                        fontWeight: FontWeight.bold,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                                TextSpan(
+                                                                                                                  text: getJsonField(
+                                                                                                                    invitesItem,
+                                                                                                                    r'''$.used_count''',
+                                                                                                                  ).toString(),
+                                                                                                                  style: TextStyle(
+                                                                                                                    color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                )
+                                                                                                              ],
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ],
                                                                                                       ),
                                                                                                     ),
-                                                                                                    duration: const Duration(milliseconds: 4000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                   ),
-                                                                                                );
-                                                                                              },
-                                                                                              text: 'Copiar código',
-                                                                                              icon: const Icon(
-                                                                                                Icons.content_copy_sharp,
-                                                                                                size: 15.0,
-                                                                                              ),
-                                                                                              options: FFButtonOptions(
-                                                                                                width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                                height: 40.0,
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                      fontFamily: 'Manrope',
-                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                      fontSize: 15.0,
-                                                                                                      letterSpacing: 0.0,
+                                                                                                  Flexible(
+                                                                                                    child: Align(
+                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                      child: Stack(
+                                                                                                        children: [
+                                                                                                          RichText(
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
+                                                                                                            text: TextSpan(
+                                                                                                              children: [
+                                                                                                                TextSpan(
+                                                                                                                  text: 'Limite: ',
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Manrope',
+                                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                        fontWeight: FontWeight.bold,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                                TextSpan(
+                                                                                                                  text: getJsonField(
+                                                                                                                    invitesItem,
+                                                                                                                    r'''$.initial_limit''',
+                                                                                                                  ).toString(),
+                                                                                                                  style: TextStyle(
+                                                                                                                    color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                )
+                                                                                                              ],
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                      ),
                                                                                                     ),
-                                                                                                elevation: 3.0,
-                                                                                                borderSide: const BorderSide(
-                                                                                                  color: Colors.transparent,
-                                                                                                  width: 1.0,
-                                                                                                ),
-                                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                              Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.min,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
-                                                                                          child: FFButtonWidget(
-                                                                                            onPressed: () async {
-                                                                                              logFirebaseEvent('CONVITES_HISTRICO_DE_CONSUMO_BTN_ON_TAP');
-                                                                                              logFirebaseEvent('Button_update_app_state');
-                                                                                              FFAppState().myinvitehistory = getJsonField(
-                                                                                                invitesItem,
-                                                                                                r'''$''',
-                                                                                              );
-                                                                                              setState(() {});
-                                                                                              logFirebaseEvent('Button_navigate_to');
-
-                                                                                              context.pushNamed('ConvitesHistoricoConsumo');
-                                                                                            },
-                                                                                            text: 'Histórico de consumo',
-                                                                                            icon: const Icon(
-                                                                                              Icons.history_sharp,
-                                                                                              size: 15.0,
-                                                                                            ),
-                                                                                            options: FFButtonOptions(
-                                                                                              width: MediaQuery.sizeOf(context).width * 0.85,
-                                                                                              height: 40.0,
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                    fontFamily: 'Manrope',
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    letterSpacing: 0.0,
                                                                                                   ),
-                                                                                              elevation: 3.0,
-                                                                                              borderSide: const BorderSide(
-                                                                                                color: Colors.transparent,
-                                                                                                width: 1.0,
+                                                                                                ],
                                                                                               ),
-                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.min,
+                                                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Builder(
+                                                                                                  builder: (context) => FFButtonWidget(
+                                                                                                    onPressed: () async {
+                                                                                                      logFirebaseEvent('CONVITES_PAGE_COMPARTILHAR_BTN_ON_TAP');
+                                                                                                      logFirebaseEvent('Button_share');
+                                                                                                      await Share.share(
+                                                                                                        functions.concateStrings(
+                                                                                                            'Você ganhou um convite para criar seu site. Acesse https://blubem.com.br baixe o app e use o código:  ',
+                                                                                                            getJsonField(
+                                                                                                              invitesItem,
+                                                                                                              r'''$.hash''',
+                                                                                                            ).toString())!,
+                                                                                                        sharePositionOrigin: getWidgetBoundingBox(context),
+                                                                                                      );
+                                                                                                    },
+                                                                                                    text: 'Compartilhar',
+                                                                                                    icon: const Icon(
+                                                                                                      Icons.share,
+                                                                                                      size: 15.0,
+                                                                                                    ),
+                                                                                                    options: FFButtonOptions(
+                                                                                                      width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                                      height: 40.0,
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                            fontFamily: 'Manrope',
+                                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                          ),
+                                                                                                      elevation: 3.0,
+                                                                                                      borderSide: const BorderSide(
+                                                                                                        color: Colors.transparent,
+                                                                                                        width: 1.0,
+                                                                                                      ),
+                                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Align(
+                                                                                                  alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                                  child: Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                                    child: FFButtonWidget(
+                                                                                                      onPressed: () async {
+                                                                                                        logFirebaseEvent('CONVITES_PAGE_COPIAR_CDIGO_BTN_ON_TAP');
+                                                                                                        logFirebaseEvent('Button_copy_to_clipboard');
+                                                                                                        await Clipboard.setData(ClipboardData(
+                                                                                                            text: getJsonField(
+                                                                                                          invitesItem,
+                                                                                                          r'''$.hash''',
+                                                                                                        ).toString()));
+                                                                                                        logFirebaseEvent('Button_show_snack_bar');
+                                                                                                        ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                          SnackBar(
+                                                                                                            content: Text(
+                                                                                                              'Código copiado!',
+                                                                                                              style: TextStyle(
+                                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            duration: const Duration(milliseconds: 4000),
+                                                                                                            backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                      text: 'Copiar código',
+                                                                                                      icon: const Icon(
+                                                                                                        Icons.content_copy_sharp,
+                                                                                                        size: 15.0,
+                                                                                                      ),
+                                                                                                      options: FFButtonOptions(
+                                                                                                        width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                                        height: 40.0,
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                        textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                              fontFamily: 'Manrope',
+                                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                                              fontSize: 15.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                            ),
+                                                                                                        elevation: 3.0,
+                                                                                                        borderSide: const BorderSide(
+                                                                                                          color: Colors.transparent,
+                                                                                                          width: 1.0,
+                                                                                                        ),
+                                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                      Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.min,
+                                                                                              children: [
+                                                                                                Padding(
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                                                                                                  child: FFButtonWidget(
+                                                                                                    onPressed: () async {
+                                                                                                      logFirebaseEvent('CONVITES_HISTRICO_DE_CONSUMO_BTN_ON_TAP');
+                                                                                                      logFirebaseEvent('Button_update_app_state');
+                                                                                                      FFAppState().myinvitehistory = getJsonField(
+                                                                                                        invitesItem,
+                                                                                                        r'''$''',
+                                                                                                      );
+                                                                                                      safeSetState(() {});
+                                                                                                      logFirebaseEvent('Button_navigate_to');
+
+                                                                                                      context.pushNamed('ConvitesHistoricoConsumo');
+                                                                                                    },
+                                                                                                    text: 'Histórico de consumo',
+                                                                                                    icon: const Icon(
+                                                                                                      Icons.history_sharp,
+                                                                                                      size: 15.0,
+                                                                                                    ),
+                                                                                                    options: FFButtonOptions(
+                                                                                                      width: MediaQuery.sizeOf(context).width * 0.85,
+                                                                                                      height: 40.0,
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                            fontFamily: 'Manrope',
+                                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                          ),
+                                                                                                      elevation: 3.0,
+                                                                                                      borderSide: const BorderSide(
+                                                                                                        color: Colors.transparent,
+                                                                                                        width: 1.0,
+                                                                                                      ),
+                                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
                                                                                             ),
                                                                                           ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ],
                                                                                   ),
-                                                                                ],
-                                                                              ),
-                                                                            ],
-                                                                          ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ],
                                                                         ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
+                                                                      ).animateOnPageLoad(
+                                                                              animationsMap['containerOnPageLoadAnimation']!),
+                                                                    );
+                                                                  }),
                                                                 ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'containerOnPageLoadAnimation']!),
-                                                            );
-                                                          }),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                  if ((functions
-                                                              .existElementList(
-                                                                  getJsonField(
-                                                            FFAppState()
-                                                                .myinvites,
-                                                            r'''$.data''',
-                                                            true,
-                                                          )) ==
-                                                          false) &&
-                                                      (getJsonField(
-                                                            FFAppState()
-                                                                .myinvites,
-                                                            r'''$.success''',
-                                                          ) !=
-                                                          null))
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  50.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Você ainda não possui convite disponível 🙁',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    fontSize:
-                                                                        16.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
+                                                              );
+                                                            },
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        20.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child:
-                                                                  Image.asset(
-                                                                'assets/images/blubem-630x1024.png',
-                                                                width: 300.0,
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.5,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                          if ((functions.existElementList(
+                                                                      getJsonField(
+                                                                    FFAppState()
+                                                                        .myinvites,
+                                                                    r'''$.data''',
+                                                                    true,
+                                                                  )) ==
+                                                                  false) &&
+                                                              (getJsonField(
+                                                                    FFAppState()
+                                                                        .myinvites,
+                                                                    r'''$.success''',
+                                                                  ) !=
+                                                                  null))
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          50.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      'Você ainda não possui convite disponível ',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Manrope',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            fontSize:
+                                                                                16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                      child: Image
+                                                                          .asset(
+                                                                        'assets/images/blubem-630x1024.png',
+                                                                        width:
+                                                                            300.0,
+                                                                        height: MediaQuery.sizeOf(context).height *
+                                                                            0.5,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
-                                                          ),
                                                         ],
                                                       ),
                                                     ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
-                                    child: wrapWithModel(
-                                      model: _model.footerModel,
-                                      updateCallback: () => setState(() {}),
-                                      child: const FooterWidget(
-                                        selectedPage: 'teste',
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 1.0),
+                                            child: wrapWithModel(
+                                              model: _model.footerModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: const FooterWidget(
+                                                selectedPage: 'teste',
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ],
                               ),
@@ -811,7 +869,61 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                       ),
                     ],
                   ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'CONVITES_PAGE_Text_5zi94sac_ON_TAP');
+                            logFirebaseEvent('Text_navigate_back');
+                            context.safePop();
+                          },
+                          child: Text(
+                            '< Voltar',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Manrope',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 20.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
+              ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  logFirebaseEvent('CONVITES_PAGE_Text_w4l0jbno_ON_TAP');
+                  logFirebaseEvent('Text_navigate_back');
+                  context.safePop();
+                },
+                child: Text(
+                  '< Voltar',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Manrope',
+                        color: FlutterFlowTheme.of(context).primary,
+                        fontSize: 20.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
               ),
             ],
           ),

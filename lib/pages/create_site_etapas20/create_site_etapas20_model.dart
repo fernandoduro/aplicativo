@@ -13,7 +13,6 @@ class CreateSiteEtapas20Model
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Domains)] action in CreateSiteEtapas20 widget.
   ApiCallResponse? apiResultDomains;
   // Model for Header component.

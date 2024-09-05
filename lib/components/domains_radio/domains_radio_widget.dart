@@ -55,10 +55,10 @@ class _DomainsRadioWidgetState extends State<DomainsRadioWidget> {
               .toList()
               .toList(),
           onChanged: (val) async {
-            setState(() {});
+            safeSetState(() {});
             logFirebaseEvent('DOMAINS_RADIO_RadioButton_wm9or6gn_ON_FO');
             logFirebaseEvent('RadioButton_set_form_field');
-            setState(() {
+            safeSetState(() {
               _model.radioButtonValueController?.value =
                   _model.radioButtonValue!;
             });

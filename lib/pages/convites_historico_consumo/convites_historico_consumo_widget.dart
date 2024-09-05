@@ -3,8 +3,10 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'convites_historico_consumo_model.dart';
 export 'convites_historico_consumo_model.dart';
@@ -30,6 +32,12 @@ class _ConvitesHistoricoConsumoWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ConvitesHistoricoConsumo'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CONVITES_HISTORICO_CONSUMO_ConvitesHisto');
+      logFirebaseEvent('ConvitesHistoricoConsumo_custom_action');
+      await actions.lockOrientation();
+    });
   }
 
   @override
@@ -57,7 +65,7 @@ class _ConvitesHistoricoConsumoWidgetState
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -302,7 +310,7 @@ class _ConvitesHistoricoConsumoWidgetState
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

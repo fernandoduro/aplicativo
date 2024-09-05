@@ -8,7 +8,6 @@ class CreateSiteEtapas22Model
     extends FlutterFlowModel<CreateSiteEtapas22Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
   // Model for Footer component.

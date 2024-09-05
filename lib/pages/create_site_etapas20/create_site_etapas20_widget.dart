@@ -5,6 +5,7 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
         FFAppState().dataSite,
         r'''$.domain''',
       );
-      setState(() {});
+      safeSetState(() {});
       logFirebaseEvent('CreateSiteEtapas20_backend_call');
       _model.apiResultDomains = await APIOficialGroup.domainsCall.call(
         authToken: currentAuthenticationToken,
@@ -58,7 +59,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
             r'''$.domain''',
           ).toString().toString(),
           'sugestions')!;
-      setState(() {});
+      safeSetState(() {});
       logFirebaseEvent('CreateSiteEtapas20_update_app_state');
       FFAppState().allDomains = functions.addStringToJson(
           getJsonField(
@@ -67,7 +68,9 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
           ),
           'Outra opção',
           'sugestions')!;
-      setState(() {});
+      safeSetState(() {});
+      logFirebaseEvent('CreateSiteEtapas20_custom_action');
+      await actions.lockOrientation();
     });
 
     _model.textController ??= TextEditingController();
@@ -101,7 +104,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                     alignment: const AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const HeaderWidget(),
                     ),
                   ),
@@ -223,82 +226,86 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                   (context, domainsIndex) {
                                                 final domainsItem =
                                                     domains[domainsIndex];
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    logFirebaseEvent(
-                                                        'CREATE_SITE_ETAPAS20_Row_6dcsu6ze_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Row_update_page_state');
-                                                    _model.domainsSelected =
-                                                        getJsonField(
-                                                      domainsItem,
-                                                      r'''$''',
-                                                    );
-                                                    setState(() {});
-                                                  },
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      if (getJsonField(
+                                                return Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'CREATE_SITE_ETAPAS20_Row_6dcsu6ze_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Row_update_page_state');
+                                                      _model.domainsSelected =
+                                                          getJsonField(
+                                                        domainsItem,
+                                                        r'''$''',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        if (getJsonField(
+                                                              domainsItem,
+                                                              r'''$''',
+                                                            ) !=
+                                                            getJsonField(
+                                                              _model
+                                                                  .domainsSelected,
+                                                              r'''$''',
+                                                            ))
+                                                          Icon(
+                                                            Icons
+                                                                .radio_button_off_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                        if (getJsonField(
+                                                              domainsItem,
+                                                              r'''$''',
+                                                            ) ==
+                                                            getJsonField(
+                                                              _model
+                                                                  .domainsSelected,
+                                                              r'''$''',
+                                                            ))
+                                                          Icon(
+                                                            Icons
+                                                                .radio_button_checked_outlined,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                        Text(
+                                                          getJsonField(
                                                             domainsItem,
                                                             r'''$''',
-                                                          ) !=
-                                                          getJsonField(
-                                                            _model
-                                                                .domainsSelected,
-                                                            r'''$''',
-                                                          ))
-                                                        Icon(
-                                                          Icons
-                                                              .radio_button_off_rounded,
-                                                          color: FlutterFlowTheme
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Manrope',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
-                                                      if (getJsonField(
-                                                            domainsItem,
-                                                            r'''$''',
-                                                          ) ==
-                                                          getJsonField(
-                                                            _model
-                                                                .domainsSelected,
-                                                            r'''$''',
-                                                          ))
-                                                        Icon(
-                                                          Icons
-                                                              .radio_button_checked_outlined,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
-                                                      Text(
-                                                        getJsonField(
-                                                          domainsItem,
-                                                          r'''$''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
                                                 );
                                               },
@@ -402,7 +409,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                         );
                                                       }
 
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                   ),
                                                   autofocus: true,
@@ -561,7 +568,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                     ),
                                                   );
                                                   if (shouldSetState) {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   }
                                                   return;
                                                 } else {
@@ -606,31 +613,18 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                               );
 
                                               shouldSetState = true;
-                                              if (getJsonField(
-                                                    (_model.siteResult
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                    r'''$.data''',
-                                                  ) !=
-                                                  null) {
-                                                logFirebaseEvent(
-                                                    'Button_update_app_state');
-                                                FFAppState().existSite = true;
-                                                FFAppState().dataSite =
-                                                    getJsonField(
-                                                  (_model.siteResult
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$.data''',
-                                                );
-                                                setState(() {});
-                                              } else {
-                                                logFirebaseEvent(
-                                                    'Button_update_app_state');
-                                                FFAppState().existSite = false;
-                                                setState(() {});
-                                              }
-
+                                              logFirebaseEvent(
+                                                  'Button_update_app_state');
+                                              FFAppState().existSite = true;
+                                              FFAppState().dataSite =
+                                                  getJsonField(
+                                                (_model.siteResult?.jsonBody ??
+                                                    ''),
+                                                r'''$.data''',
+                                              );
+                                              FFAppState().codigoSiteUsado =
+                                                  true;
+                                              safeSetState(() {});
                                               logFirebaseEvent(
                                                   'Button_navigate_to');
 
@@ -638,7 +632,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                   'CreateSiteEtapas21');
 
                                               if (shouldSetState) {
-                                                setState(() {});
+                                                safeSetState(() {});
                                               }
                                             },
                                             text: 'Finalizar',
@@ -692,7 +686,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                         alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const FooterWidget(
                             selectedPage: 'teste',
                           ),

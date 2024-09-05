@@ -3,7 +3,9 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'create_site_etapa3_model.dart';
 export 'create_site_etapa3_model.dart';
@@ -27,6 +29,12 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapa3'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPA3_CreateSiteEtapa3_ON_I');
+      logFirebaseEvent('CreateSiteEtapa3_custom_action');
+      await actions.lockOrientation();
+    });
   }
 
   @override
@@ -52,7 +60,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -259,7 +267,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

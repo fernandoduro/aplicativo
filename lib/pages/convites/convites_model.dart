@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class ConvitesModel extends FlutterFlowModel<ConvitesWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (MyInvites)] action in Convites widget.
   ApiCallResponse? apiResutInvites;
   // Model for Header component.

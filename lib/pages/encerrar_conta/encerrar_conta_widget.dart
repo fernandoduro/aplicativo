@@ -5,8 +5,10 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'encerrar_conta_model.dart';
 export 'encerrar_conta_model.dart';
 
@@ -29,6 +31,13 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EncerrarConta'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('ENCERRAR_CONTA_EncerrarConta_ON_INIT_STA');
+      logFirebaseEvent('EncerrarConta_custom_action');
+      await actions.lockOrientation();
+    });
+
     _model.motivoTextController ??= TextEditingController();
     _model.motivoFocusNode ??= FocusNode();
   }
@@ -56,7 +65,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -187,6 +196,8 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                       controller: _model.motivoTextController,
                                       focusNode: _model.motivoFocusNode,
                                       autofocus: true,
+                                      textCapitalization:
+                                          TextCapitalization.sentences,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Digite aqui...',
@@ -322,12 +333,12 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                     'Button_update_app_state');
                                                 FFAppState().firstAccess = true;
                                                 FFAppState().existSite = false;
-                                                setState(() {});
+                                                safeSetState(() {});
 
                                                 context.goNamedAuth('HomeBalao',
                                                     context.mounted);
 
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                         text: 'Encerrar conta',
                                         options: FFButtonOptions(
@@ -382,7 +393,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

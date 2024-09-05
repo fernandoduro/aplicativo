@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         (_model.apiResultCategories?.jsonBody ?? ''),
         r'''$.data''',
       );
-      setState(() {});
+      safeSetState(() {});
+      logFirebaseEvent('Register_custom_action');
+      await actions.lockOrientation();
     });
 
     _model.nomeTextController ??= TextEditingController();
@@ -187,6 +190,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         autofillHints: const [
                                                           AutofillHints.email
                                                         ],
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .words,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -385,6 +391,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       validator: _model
                                                           .whatsappTextControllerValidator
                                                           .asValidator(context),
+                                                      inputFormatters: [
+                                                        _model.whatsappMask
+                                                      ],
                                                     ),
                                                   ),
                                                   Padding(
@@ -407,9 +416,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         'Elu / Delu'
                                                       ],
                                                       onChanged: (val) =>
-                                                          setState(() => _model
-                                                                  .generoValue =
-                                                              val),
+                                                          safeSetState(() =>
+                                                              _model.generoValue =
+                                                                  val),
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
@@ -494,9 +503,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                   s.toString())
                                                               .toList(),
                                                       onChanged: (val) =>
-                                                          setState(() => _model
-                                                                  .profissaoValue =
-                                                              val),
+                                                          safeSetState(() =>
+                                                              _model.profissaoValue =
+                                                                  val),
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
@@ -570,6 +579,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         autofillHints: const [
                                                           AutofillHints.email
                                                         ],
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .sentences,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -767,7 +779,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .primaryBackground,
                                                         suffixIcon: InkWell(
-                                                          onTap: () => setState(
+                                                          onTap: () =>
+                                                              safeSetState(
                                                             () => _model
                                                                     .passwordVisibility =
                                                                 !_model
@@ -896,7 +909,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .primaryBackground,
                                                         suffixIcon: InkWell(
-                                                          onTap: () => setState(
+                                                          onTap: () =>
+                                                              safeSetState(
                                                             () => _model
                                                                     .confirmPasswordVisibility =
                                                                 !_model
@@ -968,7 +982,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                 true,
                                                             onChanged:
                                                                 (newValue) async {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.checkboxValue =
                                                                       newValue!);
                                                             },
@@ -1096,6 +1110,50 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   }
                                                   if (_model.generoValue ==
                                                       null) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Campo pronomes obrigatório',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                      ),
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (_model.profissaoValue ==
+                                                      null) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Campo especialidade obrigatório',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                      ),
+                                                    );
                                                     return;
                                                   }
                                                   logFirebaseEvent(
@@ -1119,7 +1177,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                             .text),
                                                     categoryId: functions
                                                         .convertStrintToInt(
-                                                            _model.generoValue),
+                                                            _model
+                                                                .profissaoValue),
                                                     code: _model
                                                         .codigoTextController
                                                         .text,
@@ -1141,9 +1200,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           await APIOficialGroup
                                                               .loginCall
                                                               .call(
-                                                        cellphone: _model
-                                                            .whatsappTextController
-                                                            .text,
+                                                        cellphone: functions
+                                                            .clearMaskPhone(_model
+                                                                .whatsappTextController
+                                                                .text),
                                                         password: _model
                                                             .passwordTextController
                                                             .text,
@@ -1152,6 +1212,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       if ((_model.apiResultLogin
                                                               ?.succeeded ??
                                                           true)) {
+                                                        logFirebaseEvent(
+                                                            'Button_update_app_state');
+                                                        FFAppState()
+                                                                .codigoSiteUsado =
+                                                            false;
+                                                        safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'Button_auth');
                                                         GoRouter.of(context)
@@ -1267,7 +1333,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                                                   navigate();
 
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 text: 'Criar conta',
                                                 options: FFButtonOptions(
@@ -1348,65 +1414,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                                                               context.pushNamed(
                                                                   'Login');
-                                                            },
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelLarge
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-
-                                            // You will have to add an action on this rich text to go to your login page.
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 12.0, 0.0, 12.0),
-                                              child: RichText(
-                                                textScaler:
-                                                    MediaQuery.of(context)
-                                                        .textScaler,
-                                                text: TextSpan(
-                                                  children: [
-                                                    const TextSpan(
-                                                      text:
-                                                          'Continuar sem cadastro?',
-                                                      style: TextStyle(),
-                                                    ),
-                                                    TextSpan(
-                                                      text: ' Início',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Manrope',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                      mouseCursor:
-                                                          SystemMouseCursors
-                                                              .click,
-                                                      recognizer:
-                                                          TapGestureRecognizer()
-                                                            ..onTap = () async {
-                                                              logFirebaseEvent(
-                                                                  'REGISTER_RichTextSpan_nz47ruc3_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'RichTextSpan_navigate_to');
-
-                                                              context.pushNamed(
-                                                                  'Home');
                                                             },
                                                     )
                                                   ],

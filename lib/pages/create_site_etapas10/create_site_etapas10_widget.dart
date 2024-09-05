@@ -37,7 +37,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS10_CreateSiteEtapas10_');
       logFirebaseEvent('CreateSiteEtapas10_clear_uploaded_data');
-      setState(() {
+      safeSetState(() {
         _model.isDataUploading = false;
         _model.uploadedLocalFile =
             FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -46,7 +46,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
       logFirebaseEvent('CreateSiteEtapas10_update_app_state');
       FFAppState().imageUploaded = false;
       FFAppState().base64 = '';
-      setState(() {});
+      safeSetState(() {});
       if (getJsonField(
             FFAppState().dataSite,
             r'''$.professional_photo''',
@@ -54,18 +54,21 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
           null) {
         logFirebaseEvent('CreateSiteEtapas10_update_app_state');
         FFAppState().imageUploaded = true;
-        setState(() {});
+        safeSetState(() {});
         logFirebaseEvent('CreateSiteEtapas10_update_app_state');
         FFAppState().photoProfessionalEdit = getJsonField(
           FFAppState().dataSite,
           r'''$.professional_photo''',
         ).toString();
-        setState(() {});
+        safeSetState(() {});
       } else {
         logFirebaseEvent('CreateSiteEtapas10_update_app_state');
         FFAppState().imageUploaded = false;
-        setState(() {});
+        safeSetState(() {});
       }
+
+      logFirebaseEvent('CreateSiteEtapas10_custom_action');
+      await actions.lockOrientation();
     });
   }
 
@@ -94,7 +97,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -169,27 +172,6 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 15.0, 0.0),
-                                      child: Text(
-                                        'Adicione uma foto sua',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Manrope',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              fontSize: 30.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
                                   if ((_model.uploadedLocalFile.bytes
                                               ?.isNotEmpty ??
                                           false))
@@ -246,7 +228,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                                   validateFileFormat(
                                                       m.storagePath,
                                                       context))) {
-                                            setState(() =>
+                                            safeSetState(() =>
                                                 _model.isDataUploading = true);
                                             var selectedUploadedFiles =
                                                 <FFUploadedFile>[];
@@ -276,12 +258,12 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                             }
                                             if (selectedUploadedFiles.length ==
                                                 selectedMedia.length) {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.uploadedLocalFile =
                                                     selectedUploadedFiles.first;
                                               });
                                             } else {
-                                              setState(() {});
+                                              safeSetState(() {});
                                               return;
                                             }
                                           }
@@ -297,9 +279,9 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                           FFAppState().imageUploaded = true;
                                           FFAppState().base64 =
                                               _model.base64CustomFunction!;
-                                          setState(() {});
+                                          safeSetState(() {});
 
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         text: 'Inserir minha foto',
                                         options: FFButtonOptions(
@@ -429,7 +411,7 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

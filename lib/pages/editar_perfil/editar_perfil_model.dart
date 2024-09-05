@@ -13,7 +13,6 @@ class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (Categories)] action in EditarPerfil widget.
   ApiCallResponse? apiResultCategories;

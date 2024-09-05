@@ -56,3 +56,4 @@ export '/pages/create_site_etapa4/create_site_etapa4_widget.dart'
 export '/pages/convites/convites_widget.dart' show ConvitesWidget;
 export '/pages/convites_historico_consumo/convites_historico_consumo_widget.dart'
     show ConvitesHistoricoConsumoWidget;
+export '/teste/teste_widget.dart' show TesteWidget;

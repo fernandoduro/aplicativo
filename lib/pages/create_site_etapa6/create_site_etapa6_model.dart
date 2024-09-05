@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class CreateSiteEtapa6Model extends FlutterFlowModel<CreateSiteEtapa6Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetUser)] action in CreateSiteEtapa6 widget.
   ApiCallResponse? apiResult;
   // Model for Header component.

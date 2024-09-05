@@ -3,8 +3,10 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -26,6 +28,13 @@ class _LoginWidgetState extends State<LoginWidget> {
     _model = createModel(context, () => LoginModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Login'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('LOGIN_PAGE_Login_ON_INIT_STATE');
+      logFirebaseEvent('Login_custom_action');
+      await actions.lockOrientation();
+    });
+
     _model.cellphoneTextController ??= TextEditingController();
     _model.cellphoneFocusNode ??= FocusNode();
 
@@ -270,7 +279,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               suffixIcon: InkWell(
-                                                onTap: () => setState(
+                                                onTap: () => safeSetState(
                                                   () => _model
                                                           .passwordVisibility =
                                                       !_model
@@ -401,12 +410,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      getJsonField(
-                                                        (_model.apiResultLogin
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                        r'''$.message''',
-                                                      ).toString(),
+                                                      'Celular ou senha inválidos.',
                                                       style: TextStyle(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -444,12 +448,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 logFirebaseEvent(
                                                     'Button_update_app_state');
                                                 FFAppState().existSite = true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                               } else {
                                                 logFirebaseEvent(
                                                     'Button_update_app_state');
                                                 FFAppState().existSite = false;
-                                                setState(() {});
+                                                safeSetState(() {});
                                               }
                                             } else {
                                               logFirebaseEvent(
@@ -458,12 +462,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   .showSnackBar(
                                                 SnackBar(
                                                   content: Text(
-                                                    getJsonField(
-                                                      (_model.apiResultLogin
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                      r'''$.message''',
-                                                    ).toString(),
+                                                    'Celular ou senha inválidos.',
                                                     style: TextStyle(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -483,7 +482,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                                             navigate();
 
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           text: 'Acessar',
                                           options: FFButtonOptions(

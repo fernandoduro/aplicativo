@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -41,6 +42,9 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
       logFirebaseEvent('CreateSiteEtapas21_navigate_to');
 
       context.pushNamed('CreateSiteEtapas22');
+
+      logFirebaseEvent('CreateSiteEtapas21_custom_action');
+      await actions.lockOrientation();
     });
 
     animationsMap.addAll({
@@ -82,7 +86,7 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -237,7 +241,7 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

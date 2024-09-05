@@ -3,8 +3,10 @@ import '/components/header/header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas22_model.dart';
 export 'create_site_etapas22_model.dart';
@@ -29,6 +31,12 @@ class _CreateSiteEtapas22WidgetState extends State<CreateSiteEtapas22Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateSiteEtapas22'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CREATE_SITE_ETAPAS22_CreateSiteEtapas22_');
+      logFirebaseEvent('CreateSiteEtapas22_custom_action');
+      await actions.lockOrientation();
+    });
   }
 
   @override
@@ -56,7 +64,7 @@ class _CreateSiteEtapas22WidgetState extends State<CreateSiteEtapas22Widget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const HeaderWidget(),
                 ),
               ),
@@ -275,7 +283,7 @@ class _CreateSiteEtapas22WidgetState extends State<CreateSiteEtapas22Widget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const FooterWidget(
                         selectedPage: 'teste',
                       ),

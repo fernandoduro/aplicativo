@@ -8,7 +8,6 @@ class CreateSiteEtapas18Model
     extends FlutterFlowModel<CreateSiteEtapas18Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Header component.
   late HeaderModel headerModel;
   // State field(s) for descricao widget.

@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
 
@@ -25,6 +27,13 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ForgotPassword'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('FORGOT_PASSWORD_ForgotPassword_ON_INIT_S');
+      logFirebaseEvent('ForgotPassword_custom_action');
+      await actions.lockOrientation();
+    });
+
     _model.cellphoneTextController ??= TextEditingController();
     _model.cellphoneFocusNode ??= FocusNode();
   }
