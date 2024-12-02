@@ -1,0 +1,1528 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/components/footer/footer_widget.dart';
+import '/components/header_help/header_help_widget.dart';
+import '/flutter_flow/flutter_flow_calendar.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
+import 'schedule01_model.dart';
+export 'schedule01_model.dart';
+
+class Schedule01Widget extends StatefulWidget {
+  const Schedule01Widget({super.key});
+
+  @override
+  State<Schedule01Widget> createState() => _Schedule01WidgetState();
+}
+
+class _Schedule01WidgetState extends State<Schedule01Widget> {
+  late Schedule01Model _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => Schedule01Model());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Schedule01'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('SCHEDULE01_PAGE_Schedule01_ON_INIT_STATE');
+      logFirebaseEvent('Schedule01_update_page_state');
+      _model.dateSelected = _model.calendarSelectedDay?.start;
+      safeSetState(() {});
+      logFirebaseEvent('Schedule01_backend_call');
+      _model.apiResultrko = await APIOficialGroup.listScheduleCall.call(
+        authToken: currentAuthenticationToken,
+        dataFiltro: dateTimeFormat(
+          "y-MM-d",
+          _model.dateSelected,
+          locale: FFLocalizations.of(context).languageCode,
+        ),
+      );
+
+      logFirebaseEvent('Schedule01_update_page_state');
+      _model.listSchedule = getJsonField(
+        (_model.apiResultrko?.jsonBody ?? ''),
+        r'''$''',
+      );
+      safeSetState(() {});
+      if (getJsonField(
+            (_model.apiResultrko?.jsonBody ?? ''),
+            r'''$[0].time''',
+          ) !=
+          null) {
+        logFirebaseEvent('Schedule01_update_page_state');
+        _model.existHours = true;
+        safeSetState(() {});
+      } else {
+        logFirebaseEvent('Schedule01_update_page_state');
+        _model.existHours = false;
+        safeSetState(() {});
+      }
+
+      logFirebaseEvent('Schedule01_update_page_state');
+      _model.isLoading = true;
+      safeSetState(() {});
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Stack(
+            children: [
+              Stack(
+                children: [
+                  Stack(
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            child: wrapWithModel(
+                              model: _model.headerHelpModel,
+                              updateCallback: () => safeSetState(() {}),
+                              child: const HeaderHelpWidget(),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(0.0, -1.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.85,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 0.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Stack(
+                                                children: [
+                                                  if (_model.isCalendarExpanded)
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              -1.0, -1.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    0.0,
+                                                                    50.0,
+                                                                    0.0),
+                                                        child:
+                                                            FlutterFlowCalendar(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          iconColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
+                                                          weekFormat: false,
+                                                          weekStartsMonday:
+                                                              false,
+                                                          initialDate: _model
+                                                              .calendarReduceSelectedDay
+                                                              ?.start,
+                                                          rowHeight: 36.0,
+                                                          onChange: (DateTimeRange?
+                                                              newSelectedDate) async {
+                                                            if (_model
+                                                                    .calendarSelectedDay ==
+                                                                newSelectedDate) {
+                                                              return;
+                                                            }
+                                                            _model.calendarSelectedDay =
+                                                                newSelectedDate;
+                                                            logFirebaseEvent(
+                                                                'SCHEDULE01_Calendar_jn9quwe6_ON_DATE_SEL');
+                                                            logFirebaseEvent(
+                                                                'Calendar_update_page_state');
+                                                            _model.dateSelected =
+                                                                _model
+                                                                    .calendarSelectedDay
+                                                                    ?.start;
+                                                            safeSetState(() {});
+                                                            logFirebaseEvent(
+                                                                'Calendar_backend_call');
+                                                            _model.apiResultrkoNew =
+                                                                await APIOficialGroup
+                                                                    .listScheduleCall
+                                                                    .call(
+                                                              authToken:
+                                                                  currentAuthenticationToken,
+                                                              dataFiltro:
+                                                                  dateTimeFormat(
+                                                                "y-MM-d",
+                                                                _model
+                                                                    .dateSelected,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
+                                                            );
+
+                                                            logFirebaseEvent(
+                                                                'Calendar_update_page_state');
+                                                            _model.listSchedule =
+                                                                getJsonField(
+                                                              (_model.apiResultrkoNew
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                              r'''$''',
+                                                            );
+                                                            safeSetState(() {});
+                                                            if (getJsonField(
+                                                                  (_model.apiResultrkoNew
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                  r'''$[0].time''',
+                                                                ) !=
+                                                                null) {
+                                                              logFirebaseEvent(
+                                                                  'Calendar_update_page_state');
+                                                              _model.existHours =
+                                                                  true;
+                                                              safeSetState(
+                                                                  () {});
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'Calendar_update_page_state');
+                                                              _model.existHours =
+                                                                  false;
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+
+                                                            safeSetState(() {});
+                                                          },
+                                                          titleStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w900,
+                                                                  ),
+                                                          dayOfWeekStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    lineHeight:
+                                                                        1.0,
+                                                                  ),
+                                                          dateStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          selectedDateStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          inactiveDateStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (!_model
+                                                      .isCalendarExpanded)
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              -1.0, -1.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    0.0,
+                                                                    50.0,
+                                                                    0.0),
+                                                        child:
+                                                            FlutterFlowCalendar(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          iconColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
+                                                          weekFormat: true,
+                                                          weekStartsMonday:
+                                                              false,
+                                                          initialDate: _model
+                                                              .calendarSelectedDay
+                                                              ?.start,
+                                                          rowHeight: 36.0,
+                                                          onChange: (DateTimeRange?
+                                                              newSelectedDate) async {
+                                                            if (_model
+                                                                    .calendarReduceSelectedDay ==
+                                                                newSelectedDate) {
+                                                              return;
+                                                            }
+                                                            _model.calendarReduceSelectedDay =
+                                                                newSelectedDate;
+                                                            logFirebaseEvent(
+                                                                'SCHEDULE01_calendarReduce_ON_DATE_SELECT');
+                                                            logFirebaseEvent(
+                                                                'calendarReduce_update_page_state');
+                                                            _model.dateSelected =
+                                                                _model
+                                                                    .calendarReduceSelectedDay
+                                                                    ?.start;
+                                                            safeSetState(() {});
+                                                            logFirebaseEvent(
+                                                                'calendarReduce_backend_call');
+                                                            _model.apiResultrkored =
+                                                                await APIOficialGroup
+                                                                    .listScheduleCall
+                                                                    .call(
+                                                              authToken:
+                                                                  currentAuthenticationToken,
+                                                              dataFiltro:
+                                                                  dateTimeFormat(
+                                                                "y-MM-d",
+                                                                _model
+                                                                    .dateSelected,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
+                                                            );
+
+                                                            logFirebaseEvent(
+                                                                'calendarReduce_update_page_state');
+                                                            _model.listSchedule =
+                                                                getJsonField(
+                                                              (_model.apiResultrkored
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                              r'''$''',
+                                                            );
+                                                            safeSetState(() {});
+                                                            if (getJsonField(
+                                                                  (_model.apiResultrkored
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                  r'''$[0].time''',
+                                                                ) !=
+                                                                null) {
+                                                              logFirebaseEvent(
+                                                                  'calendarReduce_update_page_state');
+                                                              _model.existHours =
+                                                                  true;
+                                                              safeSetState(
+                                                                  () {});
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'calendarReduce_update_page_state');
+                                                              _model.existHours =
+                                                                  false;
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+
+                                                            safeSetState(() {});
+                                                          },
+                                                          titleStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w900,
+                                                                  ),
+                                                          dayOfWeekStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          dateStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          selectedDateStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          inactiveDateStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (_model.isCalendarExpanded)
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              1.0, -1.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    120.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child:
+                                                            FlutterFlowIconButton(
+                                                          borderColor: Colors
+                                                              .transparent,
+                                                          borderRadius: 8.0,
+                                                          buttonSize: 40.0,
+                                                          fillColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          icon: Icon(
+                                                            Icons
+                                                                .expand_less_sharp,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .info,
+                                                            size: 24.0,
+                                                          ),
+                                                          onPressed: () async {
+                                                            logFirebaseEvent(
+                                                                'SCHEDULE01_PAGE_expand_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'expand_update_page_state');
+                                                            _model.isCalendarExpanded =
+                                                                false;
+                                                            safeSetState(() {});
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (!_model
+                                                      .isCalendarExpanded)
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              1.0, -1.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    120.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child:
+                                                            FlutterFlowIconButton(
+                                                          borderColor: Colors
+                                                              .transparent,
+                                                          borderRadius: 8.0,
+                                                          buttonSize: 40.0,
+                                                          fillColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          icon: Icon(
+                                                            Icons.expand_more,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .info,
+                                                            size: 24.0,
+                                                          ),
+                                                          onPressed: () async {
+                                                            logFirebaseEvent(
+                                                                'SCHEDULE01_PAGE_reduce_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'reduce_update_page_state');
+                                                            _model.isCalendarExpanded =
+                                                                true;
+                                                            safeSetState(() {});
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                ],
+                                              ),
+                                              if ((_model.existHours ==
+                                                      false) &&
+                                                  _model.isLoading)
+                                                Padding(
+                                                  padding: const EdgeInsets.all(16.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Flexible(
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          16.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Você não possui horários cadastrados para o dia selecionado.',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (_model.existHours)
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        1.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  1.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            if (_model
+                                                                .existHours)
+                                                              Padding(
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        16.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          RichText(
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
+                                                                        text:
+                                                                            TextSpan(
+                                                                          children: [
+                                                                            TextSpan(
+                                                                              text: dateTimeFormat(
+                                                                                "EEEE, d ",
+                                                                                _model.dateSelected,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Manrope',
+                                                                                    fontSize: 18.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w900,
+                                                                                  ),
+                                                                            ),
+                                                                            const TextSpan(
+                                                                              text: 'de ',
+                                                                              style: TextStyle(),
+                                                                            ),
+                                                                            TextSpan(
+                                                                              text: dateTimeFormat(
+                                                                                "LLLL",
+                                                                                _model.dateSelected,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              ),
+                                                                              style: const TextStyle(),
+                                                                            )
+                                                                          ],
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Manrope',
+                                                                                fontSize: 18.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w900,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            if (_model
+                                                                .existHours)
+                                                              Stack(
+                                                                children: [
+                                                                  Builder(
+                                                                    builder:
+                                                                        (context) {
+                                                                      final schedule =
+                                                                          getJsonField(
+                                                                        _model
+                                                                            .listSchedule,
+                                                                        r'''$''',
+                                                                      ).toList().take(100000).toList();
+
+                                                                      return SingleChildScrollView(
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: List.generate(
+                                                                              schedule.length,
+                                                                              (scheduleIndex) {
+                                                                            final scheduleItem =
+                                                                                schedule[scheduleIndex];
+                                                                            return Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                              child: Container(
+                                                                                constraints: const BoxConstraints(
+                                                                                  maxHeight: double.infinity,
+                                                                                ),
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                  borderRadius: BorderRadius.circular(16.0),
+                                                                                  shape: BoxShape.rectangle,
+                                                                                  border: Border.all(
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                  ),
+                                                                                ),
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    logFirebaseEvent('SCHEDULE01_PAGE_Row_wvxbxbjo_ON_TAP');
+                                                                                    if ((getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.schedule.id''',
+                                                                                            ) !=
+                                                                                            null) &&
+                                                                                        (functions
+                                                                                                .convertStrintToInt(getJsonField(
+                                                                                                  scheduleItem,
+                                                                                                  r'''$.schedule.service.is_singular_client''',
+                                                                                                ).toString())
+                                                                                                .toString() ==
+                                                                                            '0')) {
+                                                                                      logFirebaseEvent('Row_navigate_to');
+
+                                                                                      context.pushNamed(
+                                                                                        'Schedule02',
+                                                                                        queryParameters: {
+                                                                                          'dateSelected': serializeParam(
+                                                                                            _model.dateSelected,
+                                                                                            ParamType.DateTime,
+                                                                                          ),
+                                                                                          'hourSelected': serializeParam(
+                                                                                            getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.time''',
+                                                                                            ).toString(),
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                          'scheduleSelected': serializeParam(
+                                                                                            getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$''',
+                                                                                            ),
+                                                                                            ParamType.JSON,
+                                                                                          ),
+                                                                                          'scheduleJson': serializeParam(
+                                                                                            getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.schedule''',
+                                                                                            ),
+                                                                                            ParamType.JSON,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                      );
+                                                                                    } else {
+                                                                                      logFirebaseEvent('Row_navigate_to');
+
+                                                                                      context.pushNamed(
+                                                                                        'Schedule03',
+                                                                                        queryParameters: {
+                                                                                          'dateSelected': serializeParam(
+                                                                                            _model.dateSelected,
+                                                                                            ParamType.DateTime,
+                                                                                          ),
+                                                                                          'hourSelected': serializeParam(
+                                                                                            getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.time''',
+                                                                                            ).toString(),
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                          'scheduleJson': serializeParam(
+                                                                                            getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.schedule''',
+                                                                                            ),
+                                                                                            ParamType.JSON,
+                                                                                          ),
+                                                                                          'isAddNewClient': serializeParam(
+                                                                                            getJsonField(
+                                                                                                      scheduleItem,
+                                                                                                      r'''$.schedule.id''',
+                                                                                                    ) !=
+                                                                                                    null
+                                                                                                ? false
+                                                                                                : true,
+                                                                                            ParamType.bool,
+                                                                                          ),
+                                                                                          'situacao': serializeParam(
+                                                                                            getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.schedule.professional_client[0].pivot.confirmation''',
+                                                                                            ).toString(),
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                      );
+                                                                                    }
+                                                                                  },
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 8.0, 0.0),
+                                                                                        child: SingleChildScrollView(
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.min,
+                                                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                                                            children: [
+                                                                                              Text(
+                                                                                                getJsonField(
+                                                                                                  scheduleItem,
+                                                                                                  r'''$.time''',
+                                                                                                ).toString(),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Manrope',
+                                                                                                      fontSize: 20.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w900,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      SingleChildScrollView(
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.min,
+                                                                                          children: [
+                                                                                            Container(
+                                                                                              width: 5.0,
+                                                                                              height: 63.0,
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                      Expanded(
+                                                                                        child: Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 8.0),
+                                                                                          child: SingleChildScrollView(
+                                                                                            primary: false,
+                                                                                            child: Column(
+                                                                                              mainAxisSize: MainAxisSize.min,
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                              children: [
+                                                                                                if ((getJsonField(
+                                                                                                          scheduleItem,
+                                                                                                          r'''$.schedule.id''',
+                                                                                                        ) !=
+                                                                                                        null) &&
+                                                                                                    (functions
+                                                                                                            .convertStrintToInt(getJsonField(
+                                                                                                              scheduleItem,
+                                                                                                              r'''$.schedule.service.is_singular_client''',
+                                                                                                            ).toString())
+                                                                                                            .toString() ==
+                                                                                                        '0'))
+                                                                                                  RichText(
+                                                                                                    textScaler: MediaQuery.of(context).textScaler,
+                                                                                                    text: TextSpan(
+                                                                                                      children: [
+                                                                                                        TextSpan(
+                                                                                                          text: 'Disponíveis: ',
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Manrope',
+                                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                fontSize: 12.0,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                                fontWeight: FontWeight.w600,
+                                                                                                              ),
+                                                                                                        ),
+                                                                                                        TextSpan(
+                                                                                                          text: (int.parse(getJsonField(
+                                                                                                                    scheduleItem,
+                                                                                                                    r'''$.schedule.service.max_clients''',
+                                                                                                                  ).toString()) -
+                                                                                                                  int.parse(functions
+                                                                                                                      .lengthElements(getJsonField(
+                                                                                                                        scheduleItem,
+                                                                                                                        r'''$.schedule.professional_client''',
+                                                                                                                        true,
+                                                                                                                      ))
+                                                                                                                      .toString()))
+                                                                                                              .toString(),
+                                                                                                          style: const TextStyle(),
+                                                                                                        ),
+                                                                                                        const TextSpan(
+                                                                                                          text: ' de ',
+                                                                                                          style: TextStyle(),
+                                                                                                        ),
+                                                                                                        TextSpan(
+                                                                                                          text: getJsonField(
+                                                                                                            scheduleItem,
+                                                                                                            r'''$.schedule.service.max_clients''',
+                                                                                                          ).toString(),
+                                                                                                          style: const TextStyle(),
+                                                                                                        )
+                                                                                                      ],
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            fontFamily: 'Manrope',
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                            fontSize: 12.0,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                if (getJsonField(
+                                                                                                      scheduleItem,
+                                                                                                      r'''$.schedule.id''',
+                                                                                                    ) !=
+                                                                                                    null)
+                                                                                                  Builder(
+                                                                                                    builder: (context) {
+                                                                                                      final clientes = functions
+                                                                                                          .handleNullList(getJsonField(
+                                                                                                            scheduleItem,
+                                                                                                            r'''$.schedule.professional_client''',
+                                                                                                          ))
+                                                                                                          .toList();
+
+                                                                                                      return Column(
+                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                        children: List.generate(clientes.length, (clientesIndex) {
+                                                                                                          final clientesItem = clientes[clientesIndex];
+                                                                                                          return RichText(
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
+                                                                                                            text: TextSpan(
+                                                                                                              children: [
+                                                                                                                TextSpan(
+                                                                                                                  text: getJsonField(
+                                                                                                                    clientesItem,
+                                                                                                                    r'''$.client.name''',
+                                                                                                                  ).toString(),
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Manrope',
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                        fontSize: 12.0,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                        fontWeight: FontWeight.bold,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                                const TextSpan(
+                                                                                                                  text: ' ( ',
+                                                                                                                  style: TextStyle(),
+                                                                                                                ),
+                                                                                                                TextSpan(
+                                                                                                                  text: () {
+                                                                                                                    if (functions.convertJsonToString(getJsonField(
+                                                                                                                          clientesItem,
+                                                                                                                          r'''$.pivot.confirmation''',
+                                                                                                                        )) ==
+                                                                                                                        'pending') {
+                                                                                                                      return 'Pendente';
+                                                                                                                    } else if (functions.convertJsonToString(getJsonField(
+                                                                                                                          clientesItem,
+                                                                                                                          r'''$.pivot.confirmation''',
+                                                                                                                        )) ==
+                                                                                                                        'confirmed') {
+                                                                                                                      return 'Confirmado';
+                                                                                                                    } else if (functions.convertJsonToString(getJsonField(
+                                                                                                                          clientesItem,
+                                                                                                                          r'''$.pivot.confirmation''',
+                                                                                                                        )) ==
+                                                                                                                        'absent') {
+                                                                                                                      return 'Ausente';
+                                                                                                                    } else {
+                                                                                                                      return 'Cancelado';
+                                                                                                                    }
+                                                                                                                  }(),
+                                                                                                                  style: const TextStyle(),
+                                                                                                                ),
+                                                                                                                const TextSpan(
+                                                                                                                  text: ' )',
+                                                                                                                  style: TextStyle(),
+                                                                                                                )
+                                                                                                              ],
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                    fontSize: 12.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.w900,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          );
+                                                                                                        }),
+                                                                                                      );
+                                                                                                    },
+                                                                                                  ),
+                                                                                                if (getJsonField(
+                                                                                                      scheduleItem,
+                                                                                                      r'''$.schedule.id''',
+                                                                                                    ) ==
+                                                                                                    null)
+                                                                                                  Text(
+                                                                                                    'Nenhum atendimento agendado',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Manrope',
+                                                                                                          fontSize: 12.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FontWeight.w800,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      if (getJsonField(
+                                                                                            scheduleItem,
+                                                                                            r'''$.schedule.id''',
+                                                                                          ) !=
+                                                                                          null)
+                                                                                        Column(
+                                                                                          mainAxisSize: MainAxisSize.min,
+                                                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.end,
+                                                                                                children: [
+                                                                                                  Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                    child: InkWell(
+                                                                                                      splashColor: Colors.transparent,
+                                                                                                      focusColor: Colors.transparent,
+                                                                                                      hoverColor: Colors.transparent,
+                                                                                                      highlightColor: Colors.transparent,
+                                                                                                      onTap: () async {
+                                                                                                        logFirebaseEvent('SCHEDULE01_PAGE_Icon_9g4pr1h5_ON_TAP');
+                                                                                                        logFirebaseEvent('Icon_alert_dialog');
+                                                                                                        var confirmDialogResponse = await showDialog<bool>(
+                                                                                                              context: context,
+                                                                                                              builder: (alertDialogContext) {
+                                                                                                                return WebViewAware(
+                                                                                                                  child: AlertDialog(
+                                                                                                                    content: const Text('Deseja excluir esse agendamento?'),
+                                                                                                                    actions: [
+                                                                                                                      TextButton(
+                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                                        child: const Text('Cancelar'),
+                                                                                                                      ),
+                                                                                                                      TextButton(
+                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                                        child: const Text('Confirmar'),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                              },
+                                                                                                            ) ??
+                                                                                                            false;
+                                                                                                        if (confirmDialogResponse) {
+                                                                                                          if (functions
+                                                                                                                  .convertStrintToInt(getJsonField(
+                                                                                                                    scheduleItem,
+                                                                                                                    r'''$.schedule.recurrent''',
+                                                                                                                  ).toString())
+                                                                                                                  .toString() ==
+                                                                                                              '1') {
+                                                                                                            logFirebaseEvent('Icon_alert_dialog');
+                                                                                                            confirmDialogResponse = await showDialog<bool>(
+                                                                                                                  context: context,
+                                                                                                                  builder: (alertDialogContext) {
+                                                                                                                    return WebViewAware(
+                                                                                                                      child: AlertDialog(
+                                                                                                                        content: const Text('Deseja excluir apenas o agendamento de hoje ou também os futuros deste cliente neste horário?'),
+                                                                                                                        actions: [
+                                                                                                                          TextButton(
+                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                                            child: const Text('Apenas hoje'),
+                                                                                                                          ),
+                                                                                                                          TextButton(
+                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                                            child: const Text('Também os futuros'),
+                                                                                                                          ),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                    );
+                                                                                                                  },
+                                                                                                                ) ??
+                                                                                                                false;
+                                                                                                            if (confirmDialogResponse) {
+                                                                                                              logFirebaseEvent('Icon_backend_call');
+                                                                                                              _model.apiResult9co21 = await APIOficialGroup.deleteAppoitmentCall.call(
+                                                                                                                authToken: currentAuthenticationToken,
+                                                                                                                idAppointment: getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.schedule.id''',
+                                                                                                                ).toString(),
+                                                                                                                date: getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.schedule.scheduled_at''',
+                                                                                                                ).toString(),
+                                                                                                              );
+
+                                                                                                              if ((_model.apiResult9co21?.succeeded ?? true)) {
+                                                                                                                logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                  SnackBar(
+                                                                                                                    content: Text(
+                                                                                                                      'Cliente excluído com sucesso.',
+                                                                                                                      style: TextStyle(
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                                logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                                context.pushNamed('Schedule01');
+                                                                                                              } else {
+                                                                                                                logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                  SnackBar(
+                                                                                                                    content: Text(
+                                                                                                                      'Erro ao excluir um cliente. Tente novamente.',
+                                                                                                                      style: TextStyle(
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                              }
+                                                                                                            } else {
+                                                                                                              logFirebaseEvent('Icon_backend_call');
+                                                                                                              _model.apiResult9co22 = await APIOficialGroup.deleteAppoitmentCall.call(
+                                                                                                                authToken: currentAuthenticationToken,
+                                                                                                                idAppointment: getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.schedule.id''',
+                                                                                                                ).toString(),
+                                                                                                                date: functions.concateStrings(
+                                                                                                                    functions.concateStrings(
+                                                                                                                        dateTimeFormat(
+                                                                                                                          "y-M-d ",
+                                                                                                                          _model.calendarSelectedDay?.start,
+                                                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                                                        ),
+                                                                                                                        getJsonField(
+                                                                                                                          scheduleItem,
+                                                                                                                          r'''$.time''',
+                                                                                                                        ).toString()),
+                                                                                                                    ':00'),
+                                                                                                              );
+
+                                                                                                              if ((_model.apiResult9co22?.succeeded ?? true)) {
+                                                                                                                logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                  SnackBar(
+                                                                                                                    content: Text(
+                                                                                                                      'Cliente excluído com sucesso.',
+                                                                                                                      style: TextStyle(
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                                logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                                context.pushNamed('Schedule01');
+                                                                                                              } else {
+                                                                                                                logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                  SnackBar(
+                                                                                                                    content: Text(
+                                                                                                                      'Erro ao excluir um cliente. Tente novamente.',
+                                                                                                                      style: TextStyle(
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                              }
+                                                                                                            }
+                                                                                                          } else {
+                                                                                                            logFirebaseEvent('Icon_backend_call');
+                                                                                                            _model.apiResult9co2 = await APIOficialGroup.deleteAppoitmentCall.call(
+                                                                                                              authToken: currentAuthenticationToken,
+                                                                                                              idAppointment: getJsonField(
+                                                                                                                scheduleItem,
+                                                                                                                r'''$.schedule.id''',
+                                                                                                              ).toString(),
+                                                                                                              date: functions.concateStrings(
+                                                                                                                  functions.concateStrings(
+                                                                                                                      dateTimeFormat(
+                                                                                                                        "y-M-d ",
+                                                                                                                        _model.calendarSelectedDay?.start,
+                                                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                                                      ),
+                                                                                                                      getJsonField(
+                                                                                                                        scheduleItem,
+                                                                                                                        r'''$.time''',
+                                                                                                                      ).toString()),
+                                                                                                                  ':00'),
+                                                                                                            );
+
+                                                                                                            if ((_model.apiResult9co2?.succeeded ?? true)) {
+                                                                                                              logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                SnackBar(
+                                                                                                                  content: Text(
+                                                                                                                    'Cliente excluído com sucesso.',
+                                                                                                                    style: TextStyle(
+                                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                ),
+                                                                                                              );
+                                                                                                              logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                              context.pushNamed('Schedule01');
+                                                                                                            } else {
+                                                                                                              logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                SnackBar(
+                                                                                                                  content: Text(
+                                                                                                                    'Erro ao excluir um cliente. Tente novamente.',
+                                                                                                                    style: TextStyle(
+                                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                ),
+                                                                                                              );
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+
+                                                                                                        safeSetState(() {});
+                                                                                                      },
+                                                                                                      child: Icon(
+                                                                                                        Icons.delete_sharp,
+                                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                                        size: 24.0,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  if (functions
+                                                                                                          .convertStrintToInt(getJsonField(
+                                                                                                            scheduleItem,
+                                                                                                            r'''$.schedule.service.is_singular_client''',
+                                                                                                          ).toString())
+                                                                                                          .toString() ==
+                                                                                                      '1')
+                                                                                                    InkWell(
+                                                                                                      splashColor: Colors.transparent,
+                                                                                                      focusColor: Colors.transparent,
+                                                                                                      hoverColor: Colors.transparent,
+                                                                                                      highlightColor: Colors.transparent,
+                                                                                                      onTap: () async {
+                                                                                                        logFirebaseEvent('SCHEDULE01_PAGE_Icon_27u88my1_ON_TAP');
+                                                                                                        logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                        context.pushNamed(
+                                                                                                          'Comments',
+                                                                                                          queryParameters: {
+                                                                                                            'idAppointment': serializeParam(
+                                                                                                              getJsonField(
+                                                                                                                scheduleItem,
+                                                                                                                r'''$.schedule.id''',
+                                                                                                              ),
+                                                                                                              ParamType.int,
+                                                                                                            ),
+                                                                                                            'idClient': serializeParam(
+                                                                                                              getJsonField(
+                                                                                                                scheduleItem,
+                                                                                                                r'''$.schedule.professional_client[0].client.id''',
+                                                                                                              ),
+                                                                                                              ParamType.int,
+                                                                                                            ),
+                                                                                                          }.withoutNulls,
+                                                                                                        );
+                                                                                                      },
+                                                                                                      child: Icon(
+                                                                                                        Icons.comment,
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        size: 24.0,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  if (functions
+                                                                                                          .convertStrintToInt(getJsonField(
+                                                                                                            scheduleItem,
+                                                                                                            r'''$.schedule.service.is_singular_client''',
+                                                                                                          ).toString())
+                                                                                                          .toString() ==
+                                                                                                      '0')
+                                                                                                    InkWell(
+                                                                                                      splashColor: Colors.transparent,
+                                                                                                      focusColor: Colors.transparent,
+                                                                                                      hoverColor: Colors.transparent,
+                                                                                                      highlightColor: Colors.transparent,
+                                                                                                      onTap: () async {
+                                                                                                        logFirebaseEvent('SCHEDULE01_PAGE_Icon_upub087e_ON_TAP');
+                                                                                                        if ((getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.schedule.id''',
+                                                                                                                ) !=
+                                                                                                                null) &&
+                                                                                                            (functions
+                                                                                                                    .convertStrintToInt(getJsonField(
+                                                                                                                      scheduleItem,
+                                                                                                                      r'''$.schedule.service.is_singular_client''',
+                                                                                                                    ).toString())
+                                                                                                                    .toString() ==
+                                                                                                                '0')) {
+                                                                                                          logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                          context.pushNamed(
+                                                                                                            'Schedule02',
+                                                                                                            queryParameters: {
+                                                                                                              'dateSelected': serializeParam(
+                                                                                                                _model.dateSelected,
+                                                                                                                ParamType.DateTime,
+                                                                                                              ),
+                                                                                                              'hourSelected': serializeParam(
+                                                                                                                getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.time''',
+                                                                                                                ).toString(),
+                                                                                                                ParamType.String,
+                                                                                                              ),
+                                                                                                              'scheduleSelected': serializeParam(
+                                                                                                                getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$''',
+                                                                                                                ),
+                                                                                                                ParamType.JSON,
+                                                                                                              ),
+                                                                                                              'scheduleJson': serializeParam(
+                                                                                                                getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.schedule''',
+                                                                                                                ),
+                                                                                                                ParamType.JSON,
+                                                                                                              ),
+                                                                                                            }.withoutNulls,
+                                                                                                          );
+                                                                                                        } else {
+                                                                                                          logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                          context.pushNamed(
+                                                                                                            'Schedule03',
+                                                                                                            queryParameters: {
+                                                                                                              'dateSelected': serializeParam(
+                                                                                                                _model.dateSelected,
+                                                                                                                ParamType.DateTime,
+                                                                                                              ),
+                                                                                                              'hourSelected': serializeParam(
+                                                                                                                getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.time''',
+                                                                                                                ).toString(),
+                                                                                                                ParamType.String,
+                                                                                                              ),
+                                                                                                              'scheduleJson': serializeParam(
+                                                                                                                getJsonField(
+                                                                                                                  scheduleItem,
+                                                                                                                  r'''$.schedule''',
+                                                                                                                ),
+                                                                                                                ParamType.JSON,
+                                                                                                              ),
+                                                                                                              'isAddNewClient': serializeParam(
+                                                                                                                getJsonField(
+                                                                                                                          scheduleItem,
+                                                                                                                          r'''$.schedule.id''',
+                                                                                                                        ) !=
+                                                                                                                        null
+                                                                                                                    ? false
+                                                                                                                    : true,
+                                                                                                                ParamType.bool,
+                                                                                                              ),
+                                                                                                              'situacao': serializeParam(
+                                                                                                                'confirmed',
+                                                                                                                ParamType.String,
+                                                                                                              ),
+                                                                                                            }.withoutNulls,
+                                                                                                          );
+                                                                                                        }
+                                                                                                      },
+                                                                                                      child: Icon(
+                                                                                                        Icons.people,
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        size: 24.0,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                child: wrapWithModel(
+                                  model: _model.footerModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: const FooterWidget(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

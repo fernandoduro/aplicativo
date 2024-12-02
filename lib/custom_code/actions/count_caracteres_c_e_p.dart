@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/schema/structs/index.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -12,7 +13,7 @@ import 'package:flutter/material.dart';
 // and then add the boilerplate code using the green button on the right!
 
 Future<bool> countCaracteresCEP(String? inputString) async {
-  // create a function that counts the number of characters in a string and returns true if it is 7 characters or false if it is less
+  //teste
   Function countCharacters = () {
     int length = inputString!.length;
     if (length >= 8) {

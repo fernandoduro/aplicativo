@@ -31,6 +31,8 @@ class _DomainsRadioWidgetState extends State<DomainsRadioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DomainsRadioModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

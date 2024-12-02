@@ -28,6 +28,40 @@ class FFAppState extends ChangeNotifier {
       _codigoSiteUsado =
           prefs.getBool('ff_codigoSiteUsado') ?? _codigoSiteUsado;
     });
+    _safeInit(() {
+      _dateCheckPlan = prefs.containsKey('ff_dateCheckPlan')
+          ? DateTime.fromMillisecondsSinceEpoch(
+              prefs.getInt('ff_dateCheckPlan')!)
+          : _dateCheckPlan;
+    });
+    _safeInit(() {
+      _existPlan = prefs.getBool('ff_existPlan') ?? _existPlan;
+    });
+    _safeInit(() {
+      _firstReminder = prefs.getBool('ff_firstReminder') ?? _firstReminder;
+    });
+    _safeInit(() {
+      _routerPage = prefs.getString('ff_routerPage') ?? _routerPage;
+    });
+    _safeInit(() {
+      _FirstInsights = prefs.getBool('ff_FirstInsights') ?? _FirstInsights;
+    });
+    _safeInit(() {
+      _firstRequest = prefs.getBool('ff_firstRequest') ?? _firstRequest;
+    });
+    _safeInit(() {
+      _firstLoyault = prefs.getBool('ff_firstLoyault') ?? _firstLoyault;
+    });
+    _safeInit(() {
+      _loyalt01 = prefs.getBool('ff_loyalt01') ?? _loyalt01;
+    });
+    _safeInit(() {
+      _nameProfessional =
+          prefs.getString('ff_nameProfessional') ?? _nameProfessional;
+    });
+    _safeInit(() {
+      _firsSchedule = prefs.getBool('ff_firsSchedule') ?? _firsSchedule;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -140,6 +174,139 @@ class FFAppState extends ChangeNotifier {
   dynamic get myinvites => _myinvites;
   set myinvites(dynamic value) {
     _myinvites = value;
+  }
+
+  DateTime? _dateCheckPlan;
+  DateTime? get dateCheckPlan => _dateCheckPlan;
+  set dateCheckPlan(DateTime? value) {
+    _dateCheckPlan = value;
+    value != null
+        ? prefs.setInt('ff_dateCheckPlan', value.millisecondsSinceEpoch)
+        : prefs.remove('ff_dateCheckPlan');
+  }
+
+  dynamic _historySite;
+  dynamic get historySite => _historySite;
+  set historySite(dynamic value) {
+    _historySite = value;
+  }
+
+  int _forgotPasswordId = 0;
+  int get forgotPasswordId => _forgotPasswordId;
+  set forgotPasswordId(int value) {
+    _forgotPasswordId = value;
+  }
+
+  String _forgotPasswordWhats = '';
+  String get forgotPasswordWhats => _forgotPasswordWhats;
+  set forgotPasswordWhats(String value) {
+    _forgotPasswordWhats = value;
+  }
+
+  dynamic _packagesList = jsonDecode('{\"packages\":[]}');
+  dynamic get packagesList => _packagesList;
+  set packagesList(dynamic value) {
+    _packagesList = value;
+  }
+
+  String _forgotPasswordCode = '';
+  String get forgotPasswordCode => _forgotPasswordCode;
+  set forgotPasswordCode(String value) {
+    _forgotPasswordCode = value;
+  }
+
+  dynamic _hoursWork = jsonDecode(
+      '{\"days\":[{\"dayWeek\":\"Segunda-Feira\",\"hours\":[]},{\"dayWeek\":\"Terça-Feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-Feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
+  dynamic get hoursWork => _hoursWork;
+  set hoursWork(dynamic value) {
+    _hoursWork = value;
+  }
+
+  bool _loading = false;
+  bool get loading => _loading;
+  set loading(bool value) {
+    _loading = value;
+  }
+
+  int _featureIdSelected = 0;
+  int get featureIdSelected => _featureIdSelected;
+  set featureIdSelected(int value) {
+    _featureIdSelected = value;
+  }
+
+  bool _existPlan = false;
+  bool get existPlan => _existPlan;
+  set existPlan(bool value) {
+    _existPlan = value;
+    prefs.setBool('ff_existPlan', value);
+  }
+
+  dynamic _myClients = jsonDecode('{\"data\":[{}]}');
+  dynamic get myClients => _myClients;
+  set myClients(dynamic value) {
+    _myClients = value;
+  }
+
+  bool _firstReminder = true;
+  bool get firstReminder => _firstReminder;
+  set firstReminder(bool value) {
+    _firstReminder = value;
+    prefs.setBool('ff_firstReminder', value);
+  }
+
+  String _routerPage = '';
+  String get routerPage => _routerPage;
+  set routerPage(String value) {
+    _routerPage = value;
+    prefs.setString('ff_routerPage', value);
+  }
+
+  bool _FirstInsights = true;
+  bool get FirstInsights => _FirstInsights;
+  set FirstInsights(bool value) {
+    _FirstInsights = value;
+    prefs.setBool('ff_FirstInsights', value);
+  }
+
+  bool _firstRequest = true;
+  bool get firstRequest => _firstRequest;
+  set firstRequest(bool value) {
+    _firstRequest = value;
+    prefs.setBool('ff_firstRequest', value);
+  }
+
+  bool _firstLoyault = true;
+  bool get firstLoyault => _firstLoyault;
+  set firstLoyault(bool value) {
+    _firstLoyault = value;
+    prefs.setBool('ff_firstLoyault', value);
+  }
+
+  bool _loyalt01 = false;
+  bool get loyalt01 => _loyalt01;
+  set loyalt01(bool value) {
+    _loyalt01 = value;
+    prefs.setBool('ff_loyalt01', value);
+  }
+
+  bool _loyalt02 = false;
+  bool get loyalt02 => _loyalt02;
+  set loyalt02(bool value) {
+    _loyalt02 = value;
+  }
+
+  String _nameProfessional = '';
+  String get nameProfessional => _nameProfessional;
+  set nameProfessional(String value) {
+    _nameProfessional = value;
+    prefs.setString('ff_nameProfessional', value);
+  }
+
+  bool _firsSchedule = true;
+  bool get firsSchedule => _firsSchedule;
+  set firsSchedule(bool value) {
+    _firsSchedule = value;
+    prefs.setBool('ff_firsSchedule', value);
   }
 }
 

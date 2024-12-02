@@ -89,7 +89,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(
+            tokenAdmin: params.getParam(
+              'tokenAdmin',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Register',
@@ -97,9 +102,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const RegisterWidget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa5',
-          path: '/createSiteEtapa5',
-          builder: (context, params) => const CreateSiteEtapa5Widget(),
+          name: 'CreateSiteEtapa1',
+          path: '/createSiteEtapa1',
+          builder: (context, params) => const CreateSiteEtapa1Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa7',
@@ -212,11 +217,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateSiteEtapas18Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapa1',
-          path: '/createSiteEtapa1',
-          builder: (context, params) => const CreateSiteEtapa1Widget(),
-        ),
-        FFRoute(
           name: 'CreateSiteEtapa2',
           path: '/createSiteEtapa2',
           builder: (context, params) => const CreateSiteEtapa2Widget(),
@@ -232,6 +232,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateSiteEtapa4Widget(),
         ),
         FFRoute(
+          name: 'CreateSiteEtapa5',
+          path: '/createSiteEtapa5',
+          builder: (context, params) => const CreateSiteEtapa5Widget(),
+        ),
+        FFRoute(
           name: 'Convites',
           path: '/convites',
           builder: (context, params) => const ConvitesWidget(),
@@ -242,11 +247,349 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ConvitesHistoricoConsumoWidget(),
         ),
         FFRoute(
-          name: 'teste',
-          path: '/teste',
-          builder: (context, params) => const TesteWidget(),
+          name: 'NewClient01',
+          path: '/newClient01',
+          builder: (context, params) => NewClient01Widget(
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+            adicionadoPeloMais: params.getParam(
+              'adicionadoPeloMais',
+              ParamType.bool,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'NewClient03',
+          path: '/newClient03',
+          builder: (context, params) => NewClient03Widget(
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'NewClient04',
+          path: '/newClient04',
+          builder: (context, params) => NewClient04Widget(
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'NewClient05',
+          path: '/newClient05',
+          builder: (context, params) => NewClient05Widget(
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'listAllClients',
+          path: '/listAllClients',
+          builder: (context, params) => const ListAllClientsWidget(),
+        ),
+        FFRoute(
+          name: 'NewClient02',
+          path: '/newClient02',
+          builder: (context, params) => NewClient02Widget(
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Services01',
+          path: '/services01',
+          builder: (context, params) => const Services01Widget(),
+        ),
+        FFRoute(
+          name: 'Services02',
+          path: '/services02',
+          builder: (context, params) => Services02Widget(
+            adicionadoPeloMais: params.getParam(
+              'adicionadoPeloMais',
+              ParamType.bool,
+            ),
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Services03',
+          path: '/services03',
+          builder: (context, params) => Services03Widget(
+            adicionadoPeloMais: params.getParam(
+              'adicionadoPeloMais',
+              ParamType.bool,
+            ),
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Services04',
+          path: '/services04',
+          builder: (context, params) => Services04Widget(
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Services05',
+          path: '/services05',
+          builder: (context, params) => Services05Widget(
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Ratings',
+          path: '/ratings',
+          builder: (context, params) => RatingsWidget(
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Schedule01',
+          path: '/schedule01',
+          builder: (context, params) => const Schedule01Widget(),
+        ),
+        FFRoute(
+          name: 'Schedule02',
+          path: '/schedule02',
+          builder: (context, params) => Schedule02Widget(
+            dateSelected: params.getParam(
+              'dateSelected',
+              ParamType.DateTime,
+            ),
+            hourSelected: params.getParam(
+              'hourSelected',
+              ParamType.String,
+            ),
+            scheduleSelected: params.getParam(
+              'scheduleSelected',
+              ParamType.JSON,
+            ),
+            scheduleJson: params.getParam(
+              'scheduleJson',
+              ParamType.JSON,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Schedule03',
+          path: '/schedule03',
+          builder: (context, params) => Schedule03Widget(
+            dateSelected: params.getParam(
+              'dateSelected',
+              ParamType.DateTime,
+            ),
+            hourSelected: params.getParam(
+              'hourSelected',
+              ParamType.String,
+            ),
+            existAppointment: params.getParam(
+              'existAppointment',
+              ParamType.bool,
+            ),
+            scheduleJson: params.getParam(
+              'scheduleJson',
+              ParamType.JSON,
+            ),
+            isAddNewClient: params.getParam(
+              'isAddNewClient',
+              ParamType.bool,
+            ),
+            idClientSelected: params.getParam(
+              'idClientSelected',
+              ParamType.int,
+            ),
+            situacao: params.getParam(
+              'situacao',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Solicitacoes',
+          path: '/solicitacoes',
+          builder: (context, params) => const SolicitacoesWidget(),
+        ),
+        FFRoute(
+          name: 'novaSolicitacao',
+          path: '/novaSolicitacao',
+          builder: (context, params) => const NovaSolicitacaoWidget(),
+        ),
+        FFRoute(
+          name: 'enviarSolicitacao',
+          path: '/enviarSolicitacao',
+          builder: (context, params) => EnviarSolicitacaoWidget(
+            areaName: params.getParam(
+              'areaName',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'SolicitacoesADM',
+          path: '/solicitacoesADM',
+          builder: (context, params) => const SolicitacoesADMWidget(),
+        ),
+        FFRoute(
+          name: 'FirstAccessReminder',
+          path: '/firstAccessReminder',
+          builder: (context, params) => const FirstAccessReminderWidget(),
+        ),
+        FFRoute(
+          name: 'Reminders',
+          path: '/reminders',
+          builder: (context, params) => const RemindersWidget(),
+        ),
+        FFRoute(
+          name: 'FirstAccessInsights',
+          path: '/firstAccessInsights',
+          builder: (context, params) => const FirstAccessInsightsWidget(),
+        ),
+        FFRoute(
+          name: 'NotInsights',
+          path: '/notInsights',
+          builder: (context, params) => const NotInsightsWidget(),
+        ),
+        FFRoute(
+          name: 'Insights',
+          path: '/insights',
+          builder: (context, params) => const InsightsWidget(),
+        ),
+        FFRoute(
+          name: 'FirstAccessLoyalty',
+          path: '/firstAccessLoyalty',
+          builder: (context, params) => const FirstAccessLoyaltyWidget(),
+        ),
+        FFRoute(
+          name: 'Loyalty01',
+          path: '/loyalty01',
+          builder: (context, params) => const Loyalty01Widget(),
+        ),
+        FFRoute(
+          name: 'Loyalty02',
+          path: '/loyalty02',
+          builder: (context, params) => const Loyalty02Widget(),
+        ),
+        FFRoute(
+          name: 'LoyaltyHistory',
+          path: '/loyaltyHistory',
+          builder: (context, params) => const LoyaltyHistoryWidget(),
+        ),
+        FFRoute(
+          name: 'Comments',
+          path: '/comments',
+          builder: (context, params) => CommentsWidget(
+            idAppointment: params.getParam(
+              'idAppointment',
+              ParamType.int,
+            ),
+            idClient: params.getParam(
+              'idClient',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'FirstAccess',
+          path: '/firstAccess',
+          builder: (context, params) => FirstAccessWidget(
+            navigateTo: params.getParam(
+              'navigateTo',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'TrialFinished',
+          path: '/trialFinished',
+          builder: (context, params) => const TrialFinishedWidget(),
+        ),
+        FFRoute(
+          name: 'SubscriptionOptions',
+          path: '/subscriptionOptions',
+          builder: (context, params) => const SubscriptionOptionsWidget(),
+        ),
+        FFRoute(
+          name: 'SubscriptionCancel',
+          path: '/subscriptionCancel',
+          builder: (context, params) => const SubscriptionCancelWidget(),
+        ),
+        FFRoute(
+          name: 'SubscriptionHistory',
+          path: '/subscriptionHistory',
+          builder: (context, params) => const SubscriptionHistoryWidget(),
+        ),
+        FFRoute(
+          name: 'Help',
+          path: '/help',
+          builder: (context, params) => const HelpWidget(),
+        ),
+        FFRoute(
+          name: 'ForgotPassword2',
+          path: '/forgotPassword2',
+          builder: (context, params) => const ForgotPassword2Widget(),
+        ),
+        FFRoute(
+          name: 'ForgotPassword3',
+          path: '/forgotPassword3',
+          builder: (context, params) => const ForgotPassword3Widget(),
+        ),
+        FFRoute(
+          name: 'conversaAssistente',
+          path: '/conversaAssistente',
+          builder: (context, params) => const ConversaAssistenteWidget(),
+        ),
+        FFRoute(
+          name: 'FirstAccessConfig',
+          path: '/firstAccessConfig',
+          builder: (context, params) => FirstAccessConfigWidget(
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'RemindersCopy',
+          path: '/remindersCopy',
+          builder: (context, params) => const RemindersCopyWidget(),
+        ),
+        FFRoute(
+          name: 'FinishAccessConfig',
+          path: '/finishAccessConfig',
+          builder: (context, params) => FinishAccessConfigWidget(
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -432,7 +775,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/splashV2.png',
+                    'assets/images/Splash.png',
                     fit: BoxFit.cover,
                   ),
                 )
