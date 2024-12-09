@@ -367,10 +367,14 @@ dynamic refreshHourWork(
 }
 
 int? lengthElements(List<dynamic>? lista) {
-  if (lista != null) {
-    return lista.length;
-  } else {
-    return null;
+  try {
+    if (lista != null) {
+      return lista.length;
+    } else {
+      return 0;
+    }
+  } catch (err) {
+    return 0;
   }
 }
 
@@ -468,4 +472,71 @@ double? convertStringToDouble(String? valor) {
     print('Error converting string to double: $e');
   }
   return null;
+}
+
+String? convertDescriptionToMarkdown(String? description) {
+  // Perform the replacements to convert the description to standard Markdown
+  return description
+      // Replace newlines with actual line breaks for Markdown
+      ?.replaceAll('\\n', '\n') // Keeping \n for Markdown line breaks
+
+      // Replace bold tags with ** for Markdown bold
+      .replaceAll('[b]', '**')
+      .replaceAll('[/b]', '**')
+
+      // Replace italic tags with * for Markdown italics
+      .replaceAll('[i]', '*')
+      .replaceAll('[/i]', '*')
+
+      // Replace underline tags (Markdown does not directly support underline, so you may leave it as is or skip it)
+      .replaceAll('[u]', '')
+      .replaceAll('[/u]', '')
+
+      // Replace unordered list tags with - for Markdown unordered lists
+      .replaceAll('[ul]', '')
+      .replaceAll('[/ul]', '')
+      .replaceAll('[li indent=0 align=left]',
+          '- ') // Use "- " for list items in Markdown
+      .replaceAll('[/li]', '')
+
+      // Replace multi-line list tags with normal lists in Markdown
+      .replaceAll('[ml]', '')
+      .replaceAll('[/ml]', '')
+
+      // Replace headings with # and ## for Markdown headings
+      .replaceAll('[h1]', '# ')
+      .replaceAll('[/h1]', '')
+      .replaceAll('[h2]', '## ')
+      .replaceAll('[/h2]', '')
+
+      // Replace blockquote with > for Markdown blockquote
+      .replaceAll('[quote]', '> ')
+      .replaceAll('[/quote]', '')
+
+      // Markdown does not support horizontal rules directly, so you can use --- or ***
+      .replaceAll('[hr]', '---')
+
+      // Replace image tags with ![alt text](URL) for Markdown images
+      .replaceAllMapped(RegExp(r'\[img\](.*?)\[\/img\]'), (match) {
+        return '![](${match.group(1)})';
+      })
+
+      // Replace links with [text](URL) for Markdown links
+      .replaceAllMapped(RegExp(r'\[a href=(.*?)\](.*?)\[\/a\]'), (match) {
+        return '[${match.group(2)}](${match.group(1)})';
+      })
+
+      // Replace color tags (Markdown doesn't support color, so leave them out)
+      .replaceAll(RegExp(r'\[color=#([A-Fa-f0-9]{6})\]'), '')
+      .replaceAll('[/color]', '')
+
+      // Replace size tags (Markdown doesn't support font size, so leave them out)
+      .replaceAll(RegExp(r'\[size=(.*?)\]'), '')
+      .replaceAll('[/size]', '')
+
+      // Replace alignment tags (Markdown doesn't support text alignment, so leave them out)
+      .replaceAll('[align=center]', '')
+      .replaceAll('[align=left]', '')
+      .replaceAll('[align=right]', '')
+      .replaceAll('[/align]', '');
 }

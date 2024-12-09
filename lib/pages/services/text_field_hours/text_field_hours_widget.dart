@@ -44,7 +44,22 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
     _model.textController ??=
         TextEditingController(text: widget.valor?.toString());
     _model.textFieldFocusNode ??= FocusNode();
-
+    _model.textFieldFocusNode!.addListener(
+      () async {
+        logFirebaseEvent('TEXT_FIELD_HOURS_TextField_t3z4rw3h_ON_F');
+        logFirebaseEvent('TextField_custom_action');
+        await actions.refreshHourWorkAction(
+          getJsonField(
+            FFAppState().hoursWork,
+            r'''$''',
+          ),
+          widget.indexDayWeek,
+          widget.indexHour,
+          widget.typeHour,
+          _model.textController.text,
+        );
+      },
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -73,7 +88,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                 focusNode: _model.textFieldFocusNode,
                 onChanged: (_) => EasyDebounce.debounce(
                   '_model.textController',
-                  const Duration(milliseconds: 2000),
+                  const Duration(milliseconds: 100),
                   () async {
                     logFirebaseEvent(
                         'TEXT_FIELD_HOURS_TextField_t3z4rw3h_ON_T');

@@ -62,6 +62,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _firsSchedule = prefs.getBool('ff_firsSchedule') ?? _firsSchedule;
     });
+    _safeInit(() {
+      _configCompleted =
+          prefs.getBool('ff_configCompleted') ?? _configCompleted;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -307,6 +311,13 @@ class FFAppState extends ChangeNotifier {
   set firsSchedule(bool value) {
     _firsSchedule = value;
     prefs.setBool('ff_firsSchedule', value);
+  }
+
+  bool _configCompleted = false;
+  bool get configCompleted => _configCompleted;
+  set configCompleted(bool value) {
+    _configCompleted = value;
+    prefs.setBool('ff_configCompleted', value);
   }
 }
 

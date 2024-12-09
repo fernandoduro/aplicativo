@@ -31,8 +31,6 @@ class Schedule02Model extends FlutterFlowModel<Schedule02Widget> {
   ApiCallResponse? apiResult9co223;
   // Stores action output result for [Backend Call - API (DeleteAppoitment)] action in Row widget.
   ApiCallResponse? apiResult9co23232;
-  // Stores action output result for [Backend Call - API (PutAppointmentsProfessional)] action in Icon widget.
-  ApiCallResponse? apiResultevf;
   // Stores action output result for [Backend Call - API (DeleteAppoitment)] action in Icon widget.
   ApiCallResponse? apiResult9co;
   // Model for Footer component.

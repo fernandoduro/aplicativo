@@ -1,17 +1,14 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'first_access_model.dart';
@@ -43,13 +40,6 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
     _model = createModel(context, () => FirstAccessModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'FirstAccess'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('FIRST_ACCESS_FirstAccess_ON_INIT_STATE');
-      logFirebaseEvent('FirstAccess_custom_action');
-      await actions.lockOrientation();
-    });
-
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -175,13 +165,10 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
@@ -488,102 +475,115 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                      ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
-                                                            10.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: RichText(
-                                                                  textScaler: MediaQuery.of(
-                                                                          context)
-                                                                      .textScaler,
-                                                                  text:
-                                                                      TextSpan(
-                                                                    children: [
-                                                                      TextSpan(
-                                                                        text:
-                                                                            'Já vou deixar aqui uma forma de conhecer os valores: ',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: const Color(0xFF12151C),
-                                                                              fontSize: 14.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
-                                                                      TextSpan(
-                                                                        text:
-                                                                            'Planos',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          decoration:
-                                                                              TextDecoration.underline,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'FIRST_ACCESS_Container_e9hlob9l_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_launch_u_r_l');
+                                                        await launchURL(functions
+                                                            .concateStrings(
+                                                                'https://api.blubem.com.br/select-plan/voucher?t=',
+                                                                currentAuthenticationToken)!);
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  10.0),
+                                                          child:
+                                                              SingleChildScrollView(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      RichText(
+                                                                    textScaler:
+                                                                        MediaQuery.of(context)
+                                                                            .textScaler,
+                                                                    text:
+                                                                        TextSpan(
+                                                                      children: [
+                                                                        TextSpan(
+                                                                          text:
+                                                                              'Já vou deixar aqui uma forma de conhecer os valores: ',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                color: const Color(0xFF12151C),
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
                                                                         ),
-                                                                        mouseCursor:
-                                                                            SystemMouseCursors.click,
-                                                                        recognizer:
-                                                                            TapGestureRecognizer()
-                                                                              ..onTap = () async {
-                                                                                logFirebaseEvent('FIRST_ACCESS_RichTextSpan_csatq38u_ON_TA');
-                                                                                logFirebaseEvent('RichTextSpan_launch_u_r_l');
-                                                                                await launchURL(functions.concateStrings('https://api.blubem.com.br/select-plan/voucher?t=', currentAuthenticationToken)!);
-                                                                              },
-                                                                      )
-                                                                    ],
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              const Color(0xFF12151C),
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
+                                                                        TextSpan(
+                                                                          text:
+                                                                              'Planos',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            decoration:
+                                                                                TextDecoration.underline,
+                                                                          ),
+                                                                        )
+                                                                      ],
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                const Color(0xFF12151C),
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -682,42 +682,34 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                 .navigateTo ==
                                                             'newClient01') {
                                                           logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                            'NewClient01',
-                                                            queryParameters: {
-                                                              'adicionadoPeloMais':
-                                                                  serializeParam(
-                                                                false,
-                                                                ParamType.bool,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .meusClientes(
+                                                                  context);
                                                         } else if (widget
                                                                 .navigateTo ==
                                                             'loyalt01') {
                                                           logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'Loyalty01');
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .fidelidade(
+                                                                  context);
                                                         } else if (widget
                                                                 .navigateTo ==
                                                             'Solicitacoes') {
                                                           logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'Solicitacoes');
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .assistente(
+                                                                  context);
                                                         } else if (widget
                                                                 .navigateTo ==
                                                             'listAllClient') {
                                                           logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'listAllClients');
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .meusClientes(
+                                                                  context);
                                                         } else if (widget
                                                                 .navigateTo ==
                                                             'Services01') {
@@ -730,10 +722,10 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                 .navigateTo ==
                                                             'firstAccessReminder') {
                                                           logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'FirstAccessReminder');
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .meusLembretes(
+                                                                  context);
                                                         } else if (widget
                                                                 .navigateTo ==
                                                             'firstAccessSchedule') {
@@ -745,10 +737,41 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                 .navigateTo ==
                                                             'firstAccessInsights') {
                                                           logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'FirstAccessInsights');
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .resumoSemanal(
+                                                                  context);
+                                                        } else if (widget
+                                                                .navigateTo ==
+                                                            'seuSite') {
+                                                          logFirebaseEvent(
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .seuSite(context);
+                                                        } else if (widget
+                                                                .navigateTo ==
+                                                            'assistente') {
+                                                          logFirebaseEvent(
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .assistente(
+                                                                  context);
+                                                        } else if (widget
+                                                                .navigateTo ==
+                                                            'fidelidade') {
+                                                          logFirebaseEvent(
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .fidelidade(
+                                                                  context);
+                                                        } else if (widget
+                                                                .navigateTo ==
+                                                            'calculadora') {
+                                                          logFirebaseEvent(
+                                                              'Button_action_block');
+                                                          await action_blocks
+                                                              .calculadora(
+                                                                  context);
                                                         } else {
                                                           logFirebaseEvent(
                                                               'Button_navigate_to');
@@ -757,29 +780,6 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                               'Home');
                                                         }
                                                       }
-                                                      logFirebaseEvent(
-                                                          'Button_show_snack_bar');
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        SnackBar(
-                                                          content: Text(
-                                                            'Seu período de testes foi criado, aproveite todos os recursos!',
-                                                            style: TextStyle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                            ),
-                                                          ),
-                                                          duration: const Duration(
-                                                              milliseconds:
-                                                                  4000),
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondary,
-                                                        ),
-                                                      );
 
                                                       safeSetState(() {});
                                                     },

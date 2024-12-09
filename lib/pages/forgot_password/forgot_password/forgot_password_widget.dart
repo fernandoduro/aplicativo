@@ -128,13 +128,13 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 10.0),
                                             child: Text(
-                                              'Digite seu celular abaixo para recuperar sua senha.',
+                                              'Digite seu celular abaixo .',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -167,7 +167,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                               ],
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelText: 'Whatsapp',
+                                                labelText: 'WhatsApp',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelLarge

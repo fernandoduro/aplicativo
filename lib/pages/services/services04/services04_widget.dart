@@ -95,47 +95,57 @@ class _Services04WidgetState extends State<Services04Widget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      35.0, 0.0, 25.0, 0.0),
-                                              child: RichText(
-                                                textScaler:
-                                                    MediaQuery.of(context)
-                                                        .textScaler,
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text:
-                                                          'Dia de pagamento padrão',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .displaySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                fontSize: 30.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
+                                              padding: const EdgeInsets.all(16.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Flexible(
+                                                    child: RichText(
+                                                      textScaler:
+                                                          MediaQuery.of(context)
+                                                              .textScaler,
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text:
+                                                                'Dia de pagamento ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      30.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          )
+                                                        ],
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
-                                                        fontSize: 30.0,
-                                                        letterSpacing: 0.0,
+                                                                .displaySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      30.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
-                                                ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                             Padding(
@@ -216,7 +226,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                             -1.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'Qual o dia do mês que seus clientes precisam te pagar?\n',
+                                                                      'Qual dia do mês os clientes te pagam?',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -310,7 +320,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                                 0.0,
                                                                           ),
                                                                       hintText:
-                                                                          'Método de pagamento',
+                                                                          'Dia de pagamento',
                                                                       icon:
                                                                           Icon(
                                                                         Icons
@@ -480,7 +490,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('SERVICES04_PAGE_SALVAR_BTN_ON_TAP');
+                                                                              logFirebaseEvent('SERVICES04_SALVAR_INFORMAES_BTN_ON_TAP');
                                                                               logFirebaseEvent('Button_backend_call');
                                                                               _model.apiResulttmj = await APIOficialGroup.defaultDaysPaymentCall.call(
                                                                                 authToken: currentAuthenticationToken,
@@ -493,7 +503,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
                                                                                   SnackBar(
                                                                                     content: Text(
-                                                                                      'Dias de Pagamento salvo com sucesso!',
+                                                                                      'Tudo certo! Registramos estas informações.',
                                                                                       style: TextStyle(
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
@@ -524,7 +534,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
                                                                                   SnackBar(
                                                                                     content: Text(
-                                                                                      'Erro ao salvar os dias padrões de pagamento.',
+                                                                                      'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                       style: TextStyle(
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
@@ -538,7 +548,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               safeSetState(() {});
                                                                             },
                                                                             text:
-                                                                                'Salvar',
+                                                                                'Salvar informações',
                                                                             options:
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 0.7,

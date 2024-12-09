@@ -107,6 +107,7 @@ class APIOficialGroup {
       ListClientsClubStatementCall();
   static PutAppointmentsProfessionalCall putAppointmentsProfessionalCall =
       PutAppointmentsProfessionalCall();
+  static DELETEClientCall dELETEClientCall = DELETEClientCall();
 }
 
 class LoginCall {
@@ -1938,8 +1939,8 @@ class UpdateAppointmentCall {
     int? serviceId,
     String? authToken = '',
     String? idAppointment = '',
-    String? confirmation = '',
     String? recurrentInterval = '',
+    String? confirmation = '',
   }) async {
     final baseUrl = APIOficialGroup.getBaseUrl();
     final professionalClientId = _serializeList(professionalClientIdList);
@@ -1978,25 +1979,20 @@ class UpdateAppointmentCall {
 class PUTSolicitacoesCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? status = '',
+    String? id = '',
+    String? area = '',
     String? title = '',
     String? description = '',
-    String? audioFile = '',
-    List<String>? imagesList,
-    String? status = '',
-    String? area = '',
-    String? id = '',
   }) async {
     final baseUrl = APIOficialGroup.getBaseUrl();
-    final images = _serializeList(imagesList);
 
     final ffApiRequestBody = '''
 {
   "title": "$title",
-  "description": "$description",
-  "audio_file": "$audioFile",
-  "images": $images,
   "status": "$status",
-  "area": "$area"
+  "area": "$area",
+  "description": "$description"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'PUT Solicitacoes',
@@ -2024,7 +2020,6 @@ class AddClientAppointmentCall {
     String? authToken = '',
     bool? recurrent,
     List<int>? professionalClientIdList,
-    String? confirmation = '',
     String? recurrentInterval = '',
   }) async {
     final baseUrl = APIOficialGroup.getBaseUrl();
@@ -2034,8 +2029,7 @@ class AddClientAppointmentCall {
 {
   "recurrent": $recurrent,
   "recurrence_interval": "$recurrentInterval",
-  "professional_client_id": $professionalClientId,
-  "confirmation": "$confirmation"
+  "professional_client_id": $professionalClientId
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'AddClientAppointment',
@@ -2720,6 +2714,31 @@ class PutAppointmentsProfessionalCall {
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class DELETEClientCall {
+  Future<ApiCallResponse> call({
+    String? id = '',
+    String? authToken = '',
+  }) async {
+    final baseUrl = APIOficialGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'DELETE Client',
+      apiUrl: '$baseUrl/clients/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

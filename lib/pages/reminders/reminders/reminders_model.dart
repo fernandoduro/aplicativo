@@ -1,4 +1,4 @@
-import '/components/footer_white/footer_white_widget.dart';
+import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/reminders/switch_lembretes/switch_lembretes_widget.dart';
@@ -13,21 +13,21 @@ class RemindersModel extends FlutterFlowModel<RemindersWidget> {
   late HeaderHelpModel headerHelpModel;
   // Models for SwitchLembretes dynamic component.
   late FlutterFlowDynamicModels<SwitchLembretesModel> switchLembretesModels;
-  // Model for FooterWhite component.
-  late FooterWhiteModel footerWhiteModel;
+  // Model for Footer component.
+  late FooterModel footerModel;
 
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
     switchLembretesModels =
         FlutterFlowDynamicModels(() => SwitchLembretesModel());
-    footerWhiteModel = createModel(context, () => FooterWhiteModel());
+    footerModel = createModel(context, () => FooterModel());
   }
 
   @override
   void dispose() {
     headerHelpModel.dispose();
     switchLembretesModels.dispose();
-    footerWhiteModel.dispose();
+    footerModel.dispose();
   }
 }

@@ -1,13 +1,15 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'insights_model.dart';
 export 'insights_model.dart';
 
@@ -42,18 +44,36 @@ class _InsightsWidgetState extends State<InsightsWidget>
 
       if ((_model.apiResulte71?.succeeded ?? true)) {
         logFirebaseEvent('Insights_update_page_state');
-        _model.generalinfo = getJsonField(
-          (_model.apiResulte71?.jsonBody ?? ''),
-          r'''$.data[*].general_info[*]''',
-        ).toString().toString();
-        _model.lastweekinfo = getJsonField(
-          (_model.apiResulte71?.jsonBody ?? ''),
-          r'''$.data[*].last_week_info[*]''',
-        ).toString().toString();
-        _model.siteinfo = getJsonField(
-          (_model.apiResulte71?.jsonBody ?? ''),
-          r'''$.data[*].site_info[*]''',
-        ).toString().toString();
+        _model.generalinfo = functions.replaceAll(
+            functions.replaceAll(
+                getJsonField(
+                  (_model.apiResulte71?.jsonBody ?? ''),
+                  r'''$.data[*].general_info[*]''',
+                ).toString().toString(),
+                '[',
+                ''),
+            ']',
+            '');
+        _model.lastweekinfo = functions.replaceAll(
+            functions.replaceAll(
+                getJsonField(
+                  (_model.apiResulte71?.jsonBody ?? ''),
+                  r'''$.data[*].last_week_info[*]''',
+                ).toString().toString(),
+                '[',
+                ''),
+            ']',
+            '');
+        _model.siteinfo = functions.replaceAll(
+            functions.replaceAll(
+                getJsonField(
+                  (_model.apiResulte71?.jsonBody ?? ''),
+                  r'''$.data[*].site_info[*]''',
+                ).toString().toString(),
+                '[',
+                ''),
+            ']',
+            '');
         safeSetState(() {});
       }
     });
@@ -145,13 +165,10 @@ class _InsightsWidgetState extends State<InsightsWidget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
@@ -233,24 +250,50 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                               CrossAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            Text(
-                                                              'Olá! Vamos ao resumo da semana?',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    color: const Color(
-                                                                        0xFF12151C),
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
+                                                            RichText(
+                                                              textScaler:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
+                                                              text: TextSpan(
+                                                                children: [
+                                                                  TextSpan(
+                                                                    text:
+                                                                        'Olá! Vamos ao resumo da semana?',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              const Color(0xFF12151C),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  )
+                                                                ],
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: const Color(
+                                                                          0xFF12151C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
                                                             ),
                                                           ],
                                                         ),
@@ -276,55 +319,23 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         shape:
                                                             BoxShape.rectangle,
                                                       ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
-                                                            10.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model
-                                                                        .generalinfo,
-                                                                    'general_info',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: const Color(
-                                                                            0xFF12151C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                      child: Container(
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  10.0),
+                                                          child: MarkdownBody(
+                                                            data:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              _model
+                                                                  .generalinfo,
+                                                              'general_info',
+                                                            ),
+                                                            selectable: false,
+                                                            onTapLink: (_, url,
+                                                                    __) =>
+                                                                launchURL(url!),
                                                           ),
                                                         ),
                                                       ),
@@ -349,55 +360,23 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         shape:
                                                             BoxShape.rectangle,
                                                       ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
-                                                            10.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model
-                                                                        .lastweekinfo,
-                                                                    ' last_week_info',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: const Color(
-                                                                            0xFF12151C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                      child: Container(
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  10.0),
+                                                          child: MarkdownBody(
+                                                            data:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              _model
+                                                                  .lastweekinfo,
+                                                              ' last_week_info',
+                                                            ),
+                                                            selectable: false,
+                                                            onTapLink: (_, url,
+                                                                    __) =>
+                                                                launchURL(url!),
                                                           ),
                                                         ),
                                                       ),
@@ -422,55 +401,22 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         shape:
                                                             BoxShape.rectangle,
                                                       ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
-                                                            10.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model
-                                                                        .siteinfo,
-                                                                    'site_info',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: const Color(
-                                                                            0xFF12151C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                      child: Container(
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  10.0),
+                                                          child: MarkdownBody(
+                                                            data:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              _model.siteinfo,
+                                                              'site_info',
+                                                            ),
+                                                            selectable: false,
+                                                            onTapLink: (_, url,
+                                                                    __) =>
+                                                                launchURL(url!),
                                                           ),
                                                         ),
                                                       ),

@@ -21,9 +21,6 @@ class TextFieldHoursModel extends FlutterFlowModel<TextFieldHoursWidget> {
       return 'Obrigatório';
     }
 
-    if (!RegExp('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]\$').hasMatch(val)) {
-      return 'Horá inválida';
-    }
     return null;
   }
 

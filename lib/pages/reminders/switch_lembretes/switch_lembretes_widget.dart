@@ -70,7 +70,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Opção habilitada!',
+                      'Tudo certo! Registramos estas informações.',
                       style: TextStyle(
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
@@ -84,7 +84,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Erro ao tentar habilitara  função. Tente novamente!',
+                      'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                       style: TextStyle(
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),

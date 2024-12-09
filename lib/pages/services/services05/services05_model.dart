@@ -13,6 +13,10 @@ class Services05Model extends FlutterFlowModel<Services05Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Backend Call - API (GetUser)] action in Services05 widget.
+  ApiCallResponse? apiResultjh62;
+  // Stores action output result for [Custom Action - convertStringToJson] action in Services05 widget.
+  dynamic disponibility;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
   // Stores action output result for [Custom Action - removeJsonToJsonAction] action in IconButton widget.

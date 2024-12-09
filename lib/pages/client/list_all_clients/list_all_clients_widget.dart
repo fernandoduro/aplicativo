@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'list_all_clients_model.dart';
 export 'list_all_clients_model.dart';
 
@@ -491,90 +492,155 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
+                                                                                if (functions.convertJsonToString(getJsonField(
+                                                                                      clientsItem,
+                                                                                      r'''$.professional_clients[0].status''',
+                                                                                    )) ==
+                                                                                    'inactive')
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      '(Inativo)',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
                                                                               ],
                                                                             ),
                                                                           ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                16.0,
-                                                                                8.0,
-                                                                                16.0,
-                                                                                8.0),
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(-1.0, 0.0),
                                                                             child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Pacotes: ',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                      ),
-                                                                                ),
-                                                                                if (getJsonField(
-                                                                                      clientsItem,
-                                                                                      r'''$.professional_clients[*].packages[*]''',
-                                                                                    ) ==
-                                                                                    null)
-                                                                                  Text(
-                                                                                    'sem pacotes',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                        ),
-                                                                                  ),
-                                                                                if (getJsonField(
-                                                                                      clientsItem,
-                                                                                      r'''$.professional_clients[*].packages[*]''',
-                                                                                    ) !=
-                                                                                    null)
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                children: [
+                                                                                  if (getJsonField(
+                                                                                        clientsItem,
+                                                                                        r'''$.professional_clients[*].packages[*]''',
+                                                                                      ) ==
+                                                                                      null)
+                                                                                    Text(
+                                                                                      'Sem pacotes',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                          ),
+                                                                                    ),
                                                                                   Builder(
                                                                                     builder: (context) {
-                                                                                      final packs = getJsonField(
+                                                                                      final packages = getJsonField(
                                                                                         clientsItem,
                                                                                         r'''$.professional_clients[*].packages''',
                                                                                       ).toList();
 
-                                                                                      return Row(
+                                                                                      return Column(
                                                                                         mainAxisSize: MainAxisSize.max,
-                                                                                        children: List.generate(packs.length, (packsIndex) {
-                                                                                          final packsItem = packs[packsIndex];
-                                                                                          return RichText(
-                                                                                            textScaler: MediaQuery.of(context).textScaler,
-                                                                                            text: TextSpan(
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: List.generate(packages.length, (packagesIndex) {
+                                                                                          final packagesItem = packages[packagesIndex];
+                                                                                          return Visibility(
+                                                                                            visible: getJsonField(
+                                                                                                  clientsItem,
+                                                                                                  r'''$.professional_clients[*].packages[*]''',
+                                                                                                ) !=
+                                                                                                null,
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
                                                                                               children: [
-                                                                                                TextSpan(
-                                                                                                  text: getJsonField(
-                                                                                                    packsItem,
-                                                                                                    r'''$.name''',
-                                                                                                  ).toString(),
+                                                                                                Padding(
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                  child: RichText(
+                                                                                                    textScaler: MediaQuery.of(context).textScaler,
+                                                                                                    text: TextSpan(
+                                                                                                      children: [
+                                                                                                        TextSpan(
+                                                                                                          text: getJsonField(
+                                                                                                            packagesItem,
+                                                                                                            r'''$.name''',
+                                                                                                          ).toString(),
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Manrope',
+                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
+                                                                                                        )
+                                                                                                      ],
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            fontFamily: 'Manrope',
+                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Text(
+                                                                                                  ' - ',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Manrope',
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                         letterSpacing: 0.0,
                                                                                                       ),
                                                                                                 ),
-                                                                                                const TextSpan(
-                                                                                                  text: ' ',
-                                                                                                  style: TextStyle(),
-                                                                                                )
+                                                                                                Builder(
+                                                                                                  builder: (context) {
+                                                                                                    final services = getJsonField(
+                                                                                                      packagesItem,
+                                                                                                      r'''$.services''',
+                                                                                                    ).toList();
+
+                                                                                                    return Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      children: List.generate(services.length, (servicesIndex) {
+                                                                                                        final servicesItem = services[servicesIndex];
+                                                                                                        return Padding(
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                          child: RichText(
+                                                                                                            textScaler: MediaQuery.of(context).textScaler,
+                                                                                                            text: TextSpan(
+                                                                                                              children: [
+                                                                                                                TextSpan(
+                                                                                                                  text: getJsonField(
+                                                                                                                    servicesItem,
+                                                                                                                    r'''$.name''',
+                                                                                                                  ).toString(),
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Manrope',
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
+                                                                                                                )
+                                                                                                              ],
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      }),
+                                                                                                    );
+                                                                                                  },
+                                                                                                ),
                                                                                               ],
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Manrope',
-                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                  ),
                                                                                             ),
                                                                                           );
                                                                                         }),
                                                                                       );
                                                                                     },
                                                                                   ),
-                                                                              ],
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                           Padding(
@@ -586,76 +652,82 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
                                                                               children: [
-                                                                                FFButtonWidget(
-                                                                                  onPressed: () async {
-                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_ATENDIMENTOS_BTN_ON_TAP');
-                                                                                    logFirebaseEvent('Button_navigate_to');
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                  child: FFButtonWidget(
+                                                                                    onPressed: () async {
+                                                                                      logFirebaseEvent('LIST_ALL_CLIENTS_ATENDIMENTOS_BTN_ON_TAP');
+                                                                                      logFirebaseEvent('Button_navigate_to');
 
-                                                                                    context.pushNamed(
-                                                                                      'NewClient05',
-                                                                                      queryParameters: {
-                                                                                        'idClient': serializeParam(
-                                                                                          getJsonField(
-                                                                                            clientsItem,
-                                                                                            r'''$.id''',
+                                                                                      context.pushNamed(
+                                                                                        'NewClient05',
+                                                                                        queryParameters: {
+                                                                                          'idClient': serializeParam(
+                                                                                            getJsonField(
+                                                                                              clientsItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            ParamType.int,
                                                                                           ),
-                                                                                          ParamType.int,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-                                                                                  },
-                                                                                  text: 'Atendimentos',
-                                                                                  options: FFButtonOptions(
-                                                                                    height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          fontSize: 12.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                        ),
-                                                                                    elevation: 0.0,
-                                                                                    borderRadius: BorderRadius.circular(8.0),
+                                                                                        }.withoutNulls,
+                                                                                      );
+                                                                                    },
+                                                                                    text: 'Atendimentos',
+                                                                                    options: FFButtonOptions(
+                                                                                      height: 40.0,
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            fontSize: 12.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                          ),
+                                                                                      elevation: 0.0,
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                    ),
                                                                                   ),
                                                                                 ),
-                                                                                FFButtonWidget(
-                                                                                  onPressed: () async {
-                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_AVALIAES_BTN_ON_TAP');
-                                                                                    logFirebaseEvent('Button_navigate_to');
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                  child: FFButtonWidget(
+                                                                                    onPressed: () async {
+                                                                                      logFirebaseEvent('LIST_ALL_CLIENTS_AVALIAES_BTN_ON_TAP');
+                                                                                      logFirebaseEvent('Button_navigate_to');
 
-                                                                                    context.pushNamed(
-                                                                                      'Ratings',
-                                                                                      queryParameters: {
-                                                                                        'idClient': serializeParam(
-                                                                                          getJsonField(
-                                                                                            clientsItem,
-                                                                                            r'''$.id''',
+                                                                                      context.pushNamed(
+                                                                                        'Ratings',
+                                                                                        queryParameters: {
+                                                                                          'idClient': serializeParam(
+                                                                                            getJsonField(
+                                                                                              clientsItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            ParamType.int,
                                                                                           ),
-                                                                                          ParamType.int,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-                                                                                  },
-                                                                                  text: 'Avaliações',
-                                                                                  options: FFButtonOptions(
-                                                                                    height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          fontSize: 12.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                        ),
-                                                                                    elevation: 0.0,
-                                                                                    borderRadius: BorderRadius.circular(8.0),
+                                                                                        }.withoutNulls,
+                                                                                      );
+                                                                                    },
+                                                                                    text: 'Avaliações',
+                                                                                    options: FFButtonOptions(
+                                                                                      height: 40.0,
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            fontSize: 12.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                          ),
+                                                                                      elevation: 0.0,
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                                 if (getJsonField(
@@ -663,20 +735,67 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                       r'''$.cellphone[0]''',
                                                                                     ) !=
                                                                                     null)
-                                                                                  FFButtonWidget(
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                    child: FFButtonWidget(
+                                                                                      onPressed: () async {
+                                                                                        logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
+                                                                                        logFirebaseEvent('Button_launch_u_r_l');
+                                                                                        await launchURL(functions.concateStrings(
+                                                                                            'https://wa.me/55',
+                                                                                            functions.clearMaskPhone(getJsonField(
+                                                                                              clientsItem,
+                                                                                              r'''$.cellphone[0]''',
+                                                                                            ).toString()))!);
+                                                                                      },
+                                                                                      text: '',
+                                                                                      icon: const Icon(
+                                                                                        FFIcons.kwhatsapp,
+                                                                                        size: 25.0,
+                                                                                      ),
+                                                                                      options: FFButtonOptions(
+                                                                                        width: 40.0,
+                                                                                        height: 40.0,
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                        textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                              fontFamily: 'Manrope',
+                                                                                              color: FlutterFlowTheme.of(context).success,
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
+                                                                                        elevation: 0.0,
+                                                                                        borderRadius: BorderRadius.circular(14.0),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                  child: FFButtonWidget(
                                                                                     onPressed: () async {
                                                                                       logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
-                                                                                      logFirebaseEvent('Button_launch_u_r_l');
-                                                                                      await launchURL(functions.concateStrings(
-                                                                                          'https://wa.me/55',
-                                                                                          getJsonField(
-                                                                                            clientsItem,
-                                                                                            r'''$.cellphone[0]''',
-                                                                                          ).toString())!);
+                                                                                      logFirebaseEvent('Button_navigate_to');
+
+                                                                                      context.pushNamed(
+                                                                                        'NewClient01',
+                                                                                        queryParameters: {
+                                                                                          'idClient': serializeParam(
+                                                                                            getJsonField(
+                                                                                              clientsItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            ParamType.int,
+                                                                                          ),
+                                                                                          'adicionadoPeloMais': serializeParam(
+                                                                                            false,
+                                                                                            ParamType.bool,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                      );
                                                                                     },
                                                                                     text: '',
                                                                                     icon: const Icon(
-                                                                                      FFIcons.kwhatsapp,
+                                                                                      Icons.edit,
                                                                                       size: 25.0,
                                                                                     ),
                                                                                     options: FFButtonOptions(
@@ -687,77 +806,87 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Manrope',
-                                                                                            color: FlutterFlowTheme.of(context).success,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       elevation: 0.0,
                                                                                       borderRadius: BorderRadius.circular(14.0),
                                                                                     ),
                                                                                   ),
-                                                                                FFButtonWidget(
-                                                                                  onPressed: () async {
-                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
-                                                                                    logFirebaseEvent('Button_navigate_to');
-
-                                                                                    context.pushNamed(
-                                                                                      'NewClient01',
-                                                                                      queryParameters: {
-                                                                                        'idClient': serializeParam(
-                                                                                          getJsonField(
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                  child: FFButtonWidget(
+                                                                                    onPressed: () async {
+                                                                                      logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
+                                                                                      logFirebaseEvent('Button_alert_dialog');
+                                                                                      var confirmDialogResponse = await showDialog<bool>(
+                                                                                            context: context,
+                                                                                            builder: (alertDialogContext) {
+                                                                                              return WebViewAware(
+                                                                                                child: AlertDialog(
+                                                                                                  content: const Text('Tem certeza que deseja excluir o cliente?'),
+                                                                                                  actions: [
+                                                                                                    TextButton(
+                                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                      child: const Text('Cancelar'),
+                                                                                                    ),
+                                                                                                    TextButton(
+                                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                      child: const Text('Confirmar'),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          ) ??
+                                                                                          false;
+                                                                                      if (confirmDialogResponse) {
+                                                                                        logFirebaseEvent('Button_backend_call');
+                                                                                        _model.apiResultc8y = await APIOficialGroup.dELETEClientCall.call(
+                                                                                          authToken: currentAuthenticationToken,
+                                                                                          id: getJsonField(
                                                                                             clientsItem,
                                                                                             r'''$.id''',
+                                                                                          ).toString(),
+                                                                                        );
+
+                                                                                        logFirebaseEvent('Button_show_snack_bar');
+                                                                                        ScaffoldMessenger.of(context).showSnackBar(
+                                                                                          SnackBar(
+                                                                                            content: Text(
+                                                                                              'Tudo certo! Removemos estas informações.',
+                                                                                              style: TextStyle(
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              ),
+                                                                                            ),
+                                                                                            duration: const Duration(milliseconds: 4000),
+                                                                                            backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                           ),
-                                                                                          ParamType.int,
-                                                                                        ),
-                                                                                        'adicionadoPeloMais': serializeParam(
-                                                                                          false,
-                                                                                          ParamType.bool,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-                                                                                  },
-                                                                                  text: '',
-                                                                                  icon: const Icon(
-                                                                                    Icons.edit,
-                                                                                    size: 25.0,
-                                                                                  ),
-                                                                                  options: FFButtonOptions(
-                                                                                    width: 40.0,
-                                                                                    height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                    elevation: 0.0,
-                                                                                    borderRadius: BorderRadius.circular(14.0),
-                                                                                  ),
-                                                                                ),
-                                                                                FFButtonWidget(
-                                                                                  onPressed: () {
-                                                                                    print('Button pressed ...');
-                                                                                  },
-                                                                                  text: '',
-                                                                                  icon: const Icon(
-                                                                                    Icons.delete_outline,
-                                                                                    size: 25.0,
-                                                                                  ),
-                                                                                  options: FFButtonOptions(
-                                                                                    width: 40.0,
-                                                                                    height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).error,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                    elevation: 0.0,
-                                                                                    borderRadius: BorderRadius.circular(14.0),
+                                                                                        );
+                                                                                      }
+
+                                                                                      safeSetState(() {});
+                                                                                    },
+                                                                                    text: '',
+                                                                                    icon: const Icon(
+                                                                                      Icons.delete_outline,
+                                                                                      size: 25.0,
+                                                                                    ),
+                                                                                    options: FFButtonOptions(
+                                                                                      width: 40.0,
+                                                                                      height: 40.0,
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            color: FlutterFlowTheme.of(context).error,
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                      elevation: 0.0,
+                                                                                      borderRadius: BorderRadius.circular(14.0),
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -865,7 +994,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'Você nenhum cliente cadastrado com essa  busca. Tente novamente',
+                                                          'Nenhum cliente encontrado com este nome.',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

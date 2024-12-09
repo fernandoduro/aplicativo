@@ -101,14 +101,14 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 10.0),
                                 child: Text(
-                                  'Histórico pagamentos',
+                                  'Histórico de pagamentos',
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
-                                        fontSize: 30.0,
+                                        fontSize: 28.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -436,7 +436,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         child: Text(
-                                          'Você ainda não possui nenhum histórico de pagamento disponível.',
+                                          'Nenhum registro de pagamento encontrado.',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

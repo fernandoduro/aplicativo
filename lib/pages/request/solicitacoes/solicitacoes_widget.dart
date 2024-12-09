@@ -45,19 +45,7 @@ class _SolicitacoesWidgetState extends State<SolicitacoesWidget>
     });
 
     animationsMap.addAll({
-      'buttonOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 5000.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'buttonOnPageLoadAnimation2': AnimationInfo(
+      'buttonOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -297,7 +285,7 @@ class _SolicitacoesWidgetState extends State<SolicitacoesWidget>
                                                                       16.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'Você ainda não possui nenhuma solicitação criada.',
+                                                            'Você ainda não possui solicitações.',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -470,18 +458,19 @@ class _SolicitacoesWidgetState extends State<SolicitacoesWidget>
                                                                         MainAxisSize
                                                                             .max,
                                                                     children: [
-                                                                      Row(
+                                                                      Column(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
-                                                                        children:
-                                                                            [
-                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceEvenly,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceEvenly,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
+                                                                                MainAxisAlignment.spaceBetween,
                                                                             children: [
                                                                               Text(
                                                                                 getJsonField(
@@ -496,45 +485,116 @@ class _SolicitacoesWidgetState extends State<SolicitacoesWidget>
                                                                                       fontWeight: FontWeight.bold,
                                                                                     ),
                                                                               ),
-                                                                              Text(
-                                                                                getJsonField(
-                                                                                  listaSolicitacoesItem,
-                                                                                  r'''$.area''',
-                                                                                ).toString(),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
-                                                                                      fontSize: 16.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  functions.formatDateHour(getJsonField(
+                                                                              if (functions.convertJsonToString(getJsonField(
                                                                                     listaSolicitacoesItem,
-                                                                                    r'''$.created_at''',
-                                                                                  ).toString()),
-                                                                                  'null',
+                                                                                    r'''$.status''',
+                                                                                  )) !=
+                                                                                  'canceled')
+                                                                                InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    logFirebaseEvent('SOLICITACOES_PAGE_Icon_dweyi5oe_ON_TAP');
+                                                                                    logFirebaseEvent('Icon_alert_dialog');
+                                                                                    var confirmDialogResponse = await showDialog<bool>(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: const Text('Você tem certeza que quer cancelar essa solicitação?'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                    child: const Text('Não'),
+                                                                                                  ),
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                    child: const Text('Sim, Cancelar'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        ) ??
+                                                                                        false;
+                                                                                    if (confirmDialogResponse) {
+                                                                                      logFirebaseEvent('Icon_backend_call');
+                                                                                      _model.apiResult2ogCopy2 = await APIOficialGroup.pUTSolicitacoesCall.call(
+                                                                                        authToken: currentAuthenticationToken,
+                                                                                        id: getJsonField(
+                                                                                          listaSolicitacoesItem,
+                                                                                          r'''$.id''',
+                                                                                        ).toString(),
+                                                                                        status: 'canceled',
+                                                                                        area: getJsonField(
+                                                                                          listaSolicitacoesItem,
+                                                                                          r'''$.area''',
+                                                                                        ).toString(),
+                                                                                        title: getJsonField(
+                                                                                          listaSolicitacoesItem,
+                                                                                          r'''$.title''',
+                                                                                        ).toString(),
+                                                                                        description: getJsonField(
+                                                                                          listaSolicitacoesItem,
+                                                                                          r'''$.description''',
+                                                                                        ).toString(),
+                                                                                      );
+
+                                                                                      if ((_model.apiResult2ogCopy2?.succeeded ?? true)) {
+                                                                                        logFirebaseEvent('Icon_show_snack_bar');
+                                                                                        ScaffoldMessenger.of(context).showSnackBar(
+                                                                                          SnackBar(
+                                                                                            content: Text(
+                                                                                              'Tudo certo! Removemos estas informações.',
+                                                                                              style: TextStyle(
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              ),
+                                                                                            ),
+                                                                                            duration: const Duration(milliseconds: 4000),
+                                                                                            backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                          ),
+                                                                                        );
+                                                                                      }
+                                                                                    }
+
+                                                                                    safeSetState(() {});
+                                                                                  },
+                                                                                  child: Icon(
+                                                                                    Icons.delete_outline_outlined,
+                                                                                    color: FlutterFlowTheme.of(context).error,
+                                                                                    size: 36.0,
+                                                                                  ),
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
-                                                                                      fontSize: 16.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                              Text(
-                                                                                functions.traduzirStatus(getJsonField(
-                                                                                  listaSolicitacoesItem,
-                                                                                  r'''$.status''',
-                                                                                ).toString()),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
-                                                                                      fontSize: 16.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(const SizedBox(width: 0.0)),
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              functions.formatDateHour(getJsonField(
+                                                                                listaSolicitacoesItem,
+                                                                                r'''$.created_at''',
+                                                                              ).toString()),
+                                                                              'null',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Manrope',
+                                                                                  fontSize: 16.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                          Text(
+                                                                            functions.traduzirStatus(getJsonField(
+                                                                              listaSolicitacoesItem,
+                                                                              r'''$.status''',
+                                                                            ).toString()),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Manrope',
+                                                                                  fontSize: 16.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                        ],
                                                                       ),
                                                                       Row(
                                                                         mainAxisSize:
@@ -570,91 +630,7 @@ class _SolicitacoesWidgetState extends State<SolicitacoesWidget>
                                                                                   ),
                                                                                   borderRadius: BorderRadius.circular(8.0),
                                                                                 ),
-                                                                              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation1']!),
-                                                                            ),
-                                                                          if (getJsonField(
-                                                                                listaSolicitacoesItem,
-                                                                                r'''$.data[:].status''',
-                                                                              ) !=
-                                                                              functions.convertTextToJson('canceled'))
-                                                                            Expanded(
-                                                                              child: FFButtonWidget(
-                                                                                onPressed: () async {
-                                                                                  logFirebaseEvent('SOLICITACOES_PAGE_CANCELAR_BTN_ON_TAP');
-                                                                                  logFirebaseEvent('Button_alert_dialog');
-                                                                                  var confirmDialogResponse = await showDialog<bool>(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              title: const Text('Tem certeza?'),
-                                                                                              content: const Text('Você tem certeza que quer cancelar essa solicitação?'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                  child: const Text('Não'),
-                                                                                                ),
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                  child: const Text('Sim, Cancelar'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      ) ??
-                                                                                      false;
-                                                                                  if (confirmDialogResponse) {
-                                                                                    logFirebaseEvent('Button_backend_call');
-                                                                                    _model.apiResult2og = await APIOficialGroup.pUTSolicitacoesCall.call(
-                                                                                      authToken: currentAuthenticationToken,
-                                                                                      id: getJsonField(
-                                                                                        listaSolicitacoesItem,
-                                                                                        r'''$.data[:].id''',
-                                                                                      ).toString(),
-                                                                                      status: 'canceled',
-                                                                                    );
-
-                                                                                    if ((_model.apiResult2og?.succeeded ?? true)) {
-                                                                                      logFirebaseEvent('Button_show_snack_bar');
-                                                                                      ScaffoldMessenger.of(context).showSnackBar(
-                                                                                        SnackBar(
-                                                                                          content: Text(
-                                                                                            'Pronto! Sua solicitação foi cancelada.',
-                                                                                            style: TextStyle(
-                                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            ),
-                                                                                          ),
-                                                                                          duration: const Duration(milliseconds: 4000),
-                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                        ),
-                                                                                      );
-                                                                                    }
-                                                                                  }
-
-                                                                                  safeSetState(() {});
-                                                                                },
-                                                                                text: 'Cancelar',
-                                                                                options: FFButtonOptions(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                                                                  height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                  color: FlutterFlowTheme.of(context).error,
-                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        color: Colors.white,
-                                                                                        fontSize: 18.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                  elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
-                                                                                    color: Colors.transparent,
-                                                                                    width: 1.0,
-                                                                                  ),
-                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                ),
-                                                                              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation2']!),
+                                                                              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
                                                                             ),
                                                                         ].divide(const SizedBox(width: 8.0)),
                                                                       ),

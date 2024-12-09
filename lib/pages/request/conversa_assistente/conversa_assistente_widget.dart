@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -177,13 +177,10 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
@@ -194,7 +191,6 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              height: MediaQuery.sizeOf(context).height * 0.67,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -256,7 +252,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              'Oi! Tudo bem? ',
+                                                              'Olá! Aqui é a Blu, sou a especialista em IA (Inteligência para Autônomas) da Blubem, lembra?',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -720,7 +716,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                               .checkSubscription(
                                                         context,
                                                         featureID: FFAppConstants
-                                                            .FeatureAssistencia,
+                                                            .FeatureCalculadora,
                                                         pageNavigateTo:
                                                             'Solicitacoes',
                                                       );

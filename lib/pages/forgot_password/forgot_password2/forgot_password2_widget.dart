@@ -257,7 +257,7 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.end,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
@@ -278,41 +278,50 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                   alignment:
                                                       const AlignmentDirectional(
                                                           1.0, 0.0),
-                                                  child: FlutterFlowTimer(
-                                                    initialTime: _model
-                                                        .timerInitialTimeMs,
-                                                    getDisplayTime: (value) =>
-                                                        StopWatchTimer
-                                                            .getDisplayTime(
-                                                      value,
-                                                      hours: false,
-                                                      milliSecond: false,
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 2.0,
+                                                                0.0, 0.0),
+                                                    child: FlutterFlowTimer(
+                                                      initialTime: _model
+                                                          .timerInitialTimeMs,
+                                                      getDisplayTime: (value) =>
+                                                          StopWatchTimer
+                                                              .getDisplayTime(
+                                                        value,
+                                                        hours: false,
+                                                        milliSecond: false,
+                                                      ),
+                                                      controller: _model
+                                                          .timerController,
+                                                      updateStateInterval:
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1000),
+                                                      onChanged: (value,
+                                                          displayTime,
+                                                          shouldUpdate) {
+                                                        _model.timerMilliseconds =
+                                                            value;
+                                                        _model.timerValue =
+                                                            displayTime;
+                                                        if (shouldUpdate) {
+                                                          safeSetState(() {});
+                                                        }
+                                                      },
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 13.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
-                                                    controller:
-                                                        _model.timerController,
-                                                    updateStateInterval:
-                                                        const Duration(
-                                                            milliseconds: 1000),
-                                                    onChanged: (value,
-                                                        displayTime,
-                                                        shouldUpdate) {
-                                                      _model.timerMilliseconds =
-                                                          value;
-                                                      _model.timerValue =
-                                                          displayTime;
-                                                      if (shouldUpdate) {
-                                                        safeSetState(() {});
-                                                      }
-                                                    },
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 13.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
                                                   ),
                                                 ),
                                               ],

@@ -25,6 +25,19 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
 
   dynamic listClients;
 
+  List<int> listProfessionalClients = [];
+  void addToListProfessionalClients(int item) =>
+      listProfessionalClients.add(item);
+  void removeFromListProfessionalClients(int item) =>
+      listProfessionalClients.remove(item);
+  void removeAtIndexFromListProfessionalClients(int index) =>
+      listProfessionalClients.removeAt(index);
+  void insertAtIndexInListProfessionalClients(int index, int item) =>
+      listProfessionalClients.insert(index, item);
+  void updateListProfessionalClientsAtIndex(
+          int index, Function(int) updateFn) =>
+      listProfessionalClients[index] = updateFn(listProfessionalClients[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -73,8 +86,8 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   // State field(s) for prazoRecorrente widget.
   String? prazoRecorrenteValue;
   FormFieldController<String>? prazoRecorrenteValueController;
-  // Stores action output result for [Backend Call - API (AddClientAppointment)] action in Button widget.
-  ApiCallResponse? apiResultiw1;
+  // Stores action output result for [Backend Call - API (CreateAppointment)] action in Button widget.
+  ApiCallResponse? apiResulttd2;
   // Stores action output result for [Backend Call - API (UpdateAppointment)] action in Button widget.
   ApiCallResponse? apiResultvdr;
   // Stores action output result for [Backend Call - API (CreateAppointment)] action in Button widget.

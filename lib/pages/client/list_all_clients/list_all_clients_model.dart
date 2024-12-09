@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,6 +18,8 @@ class ListAllClientsModel extends FlutterFlowModel<ListAllClientsWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (DELETE Client)] action in Button widget.
+  ApiCallResponse? apiResultc8y;
   // Model for Footer component.
   late FooterModel footerModel;
 

@@ -33,12 +33,6 @@ class Schedule01Model extends FlutterFlowModel<Schedule01Widget> {
   DateTimeRange? calendarReduceSelectedDay;
   // Stores action output result for [Backend Call - API (ListSchedule)] action in calendarReduce widget.
   ApiCallResponse? apiResultrkored;
-  // Stores action output result for [Backend Call - API (DeleteAppoitment)] action in Icon widget.
-  ApiCallResponse? apiResult9co21;
-  // Stores action output result for [Backend Call - API (DeleteAppoitment)] action in Icon widget.
-  ApiCallResponse? apiResult9co22;
-  // Stores action output result for [Backend Call - API (DeleteAppoitment)] action in Icon widget.
-  ApiCallResponse? apiResult9co2;
   // Model for Footer component.
   late FooterModel footerModel;
 

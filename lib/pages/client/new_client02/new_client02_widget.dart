@@ -11,7 +11,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'new_client02_model.dart';
@@ -123,18 +122,36 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      35.0, 0.0, 35.0, 0.0),
-                                              child: RichText(
-                                                textScaler:
-                                                    MediaQuery.of(context)
-                                                        .textScaler,
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text:
-                                                          'O que seu cliente ',
+                                              padding: const EdgeInsets.all(16.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  RichText(
+                                                    textScaler:
+                                                        MediaQuery.of(context)
+                                                            .textScaler,
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text:
+                                                              'O que foi contratado?',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .displaySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                fontSize: 29.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        )
+                                                      ],
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -144,37 +161,14 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryBackground,
-                                                                fontSize: 30.0,
+                                                                    .primary,
+                                                                fontSize: 5.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                     ),
-                                                    TextSpan(
-                                                      text: 'está contratando?',
-                                                      style:
-                                                          GoogleFonts.getFont(
-                                                        'Gloria Hallelujah',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 30.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                             Padding(
@@ -700,10 +694,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               .showSnackBar(
                                                                             SnackBar(
                                                                               content: Text(
-                                                                                getJsonField(
-                                                                                  _model.packagesAdd,
-                                                                                  r'''$''',
-                                                                                ).toString(),
+                                                                                'Tudo certo! Registramos estas informações.',
                                                                                 style: TextStyle(
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                 ),
@@ -964,7 +955,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                                       SnackBar(
                                                                                                         content: Text(
-                                                                                                          'Pacote removido com sucesso.',
+                                                                                                          'Tudo certo! Removemos estas informações.',
                                                                                                           style: TextStyle(
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           ),

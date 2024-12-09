@@ -157,63 +157,61 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  const EdgeInsets
+                                                                      .all(
+                                                                          16.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Flexible(
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           0.0,
                                                                           20.0,
                                                                           0.0),
-                                                              child: RichText(
-                                                                textScaler: MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                                text: TextSpan(
-                                                                  children: [
-                                                                    TextSpan(
-                                                                      text:
-                                                                          'Quais são as suas ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .displaySmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            fontSize:
-                                                                                30.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
+                                                                      child:
+                                                                          RichText(
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
+                                                                        text:
+                                                                            TextSpan(
+                                                                          children: [
+                                                                            TextSpan(
+                                                                              text: 'Quais são as suas ',
+                                                                              style: FlutterFlowTheme.of(context).displaySmall.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    fontSize: 30.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                            TextSpan(
+                                                                              text: 'avaliações',
+                                                                              style: GoogleFonts.getFont(
+                                                                                'Gloria Hallelujah',
+                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                              ),
+                                                                            )
+                                                                          ],
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                fontSize: 30.0,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                        textAlign:
+                                                                            TextAlign.start,
+                                                                      ),
                                                                     ),
-                                                                    TextSpan(
-                                                                      text:
-                                                                          'avaliações',
-                                                                      style: GoogleFonts
-                                                                          .getFont(
-                                                                        'Gloria Hallelujah',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        fontSize:
-                                                                            30.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                             Padding(
@@ -524,49 +522,6 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                           ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                if (getJsonField(
-                                                                                                      containerGetClientByIDResponse.jsonBody,
-                                                                                                      r'''$.data.email''',
-                                                                                                    ) !=
-                                                                                                    null)
-                                                                                                  Align(
-                                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                                    child: Padding(
-                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                      child: Container(
-                                                                                                        width: 15.0,
-                                                                                                        height: 15.0,
-                                                                                                        decoration: BoxDecoration(
-                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                          borderRadius: BorderRadius.circular(24.0),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                if ((getJsonField(
-                                                                                                          containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.email''',
-                                                                                                        ) !=
-                                                                                                        null) &&
-                                                                                                    responsiveVisibility(
-                                                                                                      context: context,
-                                                                                                      tablet: false,
-                                                                                                    ))
-                                                                                                  Padding(
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                    child: Text(
-                                                                                                      functions.formatArrayintoCommaAeparatedString(getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.email''',
-                                                                                                      ).toString())!,
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Manrope',
-                                                                                                            fontSize: 12.0,
-                                                                                                            letterSpacing: 0.0,
-                                                                                                            fontWeight: FontWeight.w600,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                  ),
                                                                                               ],
                                                                                             ),
                                                                                           ),
@@ -625,10 +580,10 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                     children: List.generate(packsItems.length, (packsItemsIndex) {
                                                                                                       final packsItemsItem = packsItems[packsItemsIndex];
                                                                                                       return Text(
-                                                                                                        getJsonField(
+                                                                                                        '${getJsonField(
                                                                                                           packsItemsItem,
                                                                                                           r'''$.name''',
-                                                                                                        ).toString(),
+                                                                                                        ).toString()} | ',
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Manrope',
                                                                                                               fontSize: 12.0,
@@ -662,7 +617,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           20.0,
                                                                           16.0,
                                                                           20.0,
-                                                                          0.0),
+                                                                          36.0),
                                                               child: Container(
                                                                 decoration:
                                                                     BoxDecoration(
@@ -846,8 +801,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                   Padding(
                                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                                     child: FlutterFlowDropDown<int>(
-                                                                                                      controller: _model.servicosValueController1 ??= FormFieldController<int>(
-                                                                                                        _model.servicosValue1 ??= 0,
+                                                                                                      controller: _model.servicosValueController ??= FormFieldController<int>(
+                                                                                                        _model.servicosValue ??= 0,
                                                                                                       ),
                                                                                                       options: List<int>.from(getJsonField(
                                                                                                         columnGetServicesResponse.jsonBody,
@@ -861,7 +816,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                       ) as List)
                                                                                                           .map<String>((s) => s.toString())
                                                                                                           .toList(),
-                                                                                                      onChanged: (val) => safeSetState(() => _model.servicosValue1 = val),
+                                                                                                      onChanged: (val) => safeSetState(() => _model.servicosValue = val),
                                                                                                       width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                                       height: 40.0,
                                                                                                       textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -934,9 +889,9 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                   Padding(
                                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                                     child: FlutterFlowDropDown<String>(
-                                                                                                      controller: _model.servicosValueController2 ??= FormFieldController<String>(null),
+                                                                                                      controller: _model.servicosEmptyValueController ??= FormFieldController<String>(null),
                                                                                                       options: const <String>[],
-                                                                                                      onChanged: (val) => safeSetState(() => _model.servicosValue2 = val),
+                                                                                                      onChanged: (val) => safeSetState(() => _model.servicosEmptyValue = val),
                                                                                                       width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                                       height: 40.0,
                                                                                                       textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1312,7 +1267,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             );
                                                                                                           }
                                                                                                         },
-                                                                                                  text: 'Iniciar ',
+                                                                                                  text: _model.isRecording ? 'Gravando' : 'Iniciar',
                                                                                                   options: FFButtonOptions(
                                                                                                     width: 100.0,
                                                                                                     height: 50.0,
@@ -1442,7 +1397,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                               'rating': _model.comentarioTextController.text,
                                                                                                               'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                               'professional_client_id': widget.idClient?.toString(),
-                                                                                                              'service_id': _model.servicosValue1?.toString(),
+                                                                                                              'service_id': _model.servicosValue?.toString(),
                                                                                                             },
                                                                                                           );
 
@@ -1451,7 +1406,21 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             ScaffoldMessenger.of(context).showSnackBar(
                                                                                                               SnackBar(
                                                                                                                 content: Text(
-                                                                                                                  'Avaliação salva com sucesso!',
+                                                                                                                  'Tudo certo! Registramos estas informações.',
+                                                                                                                  style: TextStyle(
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          } else {
+                                                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                              SnackBar(
+                                                                                                                content: Text(
+                                                                                                                  'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                                                   style: TextStyle(
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
@@ -1469,7 +1438,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                               'rating': _model.comentarioTextController.text,
                                                                                                               'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                               'professional_client_id': widget.idClient?.toString(),
-                                                                                                              'service_id': _model.servicosValue1?.toString(),
+                                                                                                              'service_id': _model.servicosValue?.toString(),
                                                                                                               'audio_file': functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                                             },
                                                                                                           );
@@ -1479,7 +1448,21 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             ScaffoldMessenger.of(context).showSnackBar(
                                                                                                               SnackBar(
                                                                                                                 content: Text(
-                                                                                                                  'Avaliação salva com sucesso!',
+                                                                                                                  'Tudo certo! Registramos estas informações.',
+                                                                                                                  style: TextStyle(
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          } else {
+                                                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                              SnackBar(
+                                                                                                                content: Text(
+                                                                                                                  'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                                                   style: TextStyle(
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
@@ -1499,7 +1482,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                               'rating': _model.comentarioTextController.text,
                                                                                                               'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                               'professional_client_id': widget.idClient?.toString(),
-                                                                                                              'service_id': _model.servicosValue1?.toString(),
+                                                                                                              'service_id': _model.servicosValue?.toString(),
                                                                                                               'rating_id': _model.idRating?.toString(),
                                                                                                             },
                                                                                                           );
@@ -1509,7 +1492,21 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             ScaffoldMessenger.of(context).showSnackBar(
                                                                                                               SnackBar(
                                                                                                                 content: Text(
-                                                                                                                  'Avaliação salva com sucesso!',
+                                                                                                                  'Tudo certo! Atualizamos estas informações.',
+                                                                                                                  style: TextStyle(
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          } else {
+                                                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                              SnackBar(
+                                                                                                                content: Text(
+                                                                                                                  'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                                                   style: TextStyle(
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
@@ -1527,7 +1524,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                               'rating': _model.comentarioTextController.text,
                                                                                                               'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                               'professional_client_id': widget.idClient?.toString(),
-                                                                                                              'service_id': _model.servicosValue1?.toString(),
+                                                                                                              'service_id': _model.servicosValue?.toString(),
                                                                                                               'audio_file': functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                                               'rating_id': _model.idRating?.toString(),
                                                                                                             },
@@ -1538,7 +1535,21 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             ScaffoldMessenger.of(context).showSnackBar(
                                                                                                               SnackBar(
                                                                                                                 content: Text(
-                                                                                                                  'Avaliação salva com sucesso!',
+                                                                                                                  'Tudo certo! Atualizamos estas informações.',
+                                                                                                                  style: TextStyle(
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          } else {
+                                                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                              SnackBar(
+                                                                                                                content: Text(
+                                                                                                                  'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                                                   style: TextStyle(
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
@@ -1594,18 +1605,6 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                     Column(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
-                                                                                        Align(
-                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Text(
-                                                                                            'Suas avaliações',
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
-                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                  letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.bold,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ),
                                                                                         FutureBuilder<ApiCallResponse>(
                                                                                           future: APIOficialGroup.listRatingsCall.call(
                                                                                             authToken: currentAuthenticationToken,
@@ -1643,299 +1642,316 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: List.generate(ratingList.length, (ratingListIndex) {
                                                                                                     final ratingListItem = ratingList[ratingListIndex];
-                                                                                                    return Align(
-                                                                                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                                      child: Padding(
-                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                                                        child: Container(
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                            borderRadius: BorderRadius.circular(16.0),
-                                                                                                            border: Border.all(
-                                                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                                                    return Stack(
+                                                                                                      children: [
+                                                                                                        if (ratingListIndex.toString() == '0')
+                                                                                                          Align(
+                                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              'Suas avaliações',
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ),
-                                                                                                          child: SizedBox(
-                                                                                                            width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                            child: Stack(
-                                                                                                              children: [
-                                                                                                                Column(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                        Align(
+                                                                                                          alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                                          child: Padding(
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 19.0, 0.0, 8.0),
+                                                                                                            child: Container(
+                                                                                                              decoration: BoxDecoration(
+                                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                borderRadius: BorderRadius.circular(16.0),
+                                                                                                                border: Border.all(
+                                                                                                                  color: FlutterFlowTheme.of(context).alternate,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              child: SizedBox(
+                                                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                                                child: Stack(
                                                                                                                   children: [
-                                                                                                                    Align(
-                                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                                                      child: Padding(
-                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
-                                                                                                                        child: Column(
-                                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                                          mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                          children: [
-                                                                                                                            Text(
-                                                                                                                              functions.formatDateHour(getJsonField(
-                                                                                                                                ratingListItem,
-                                                                                                                                r'''$.date_reference''',
-                                                                                                                              ).toString())!,
-                                                                                                                              style: const TextStyle(
-                                                                                                                                fontWeight: FontWeight.w800,
-                                                                                                                              ),
+                                                                                                                    Column(
+                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                                      children: [
+                                                                                                                        Align(
+                                                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                                          child: Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                                                                                                                            child: Column(
+                                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                              children: [
+                                                                                                                                Text(
+                                                                                                                                  functions.formatDateHour(getJsonField(
+                                                                                                                                    ratingListItem,
+                                                                                                                                    r'''$.date_reference''',
+                                                                                                                                  ).toString())!,
+                                                                                                                                  style: const TextStyle(
+                                                                                                                                    fontWeight: FontWeight.w800,
+                                                                                                                                  ),
+                                                                                                                                ),
+                                                                                                                              ],
                                                                                                                             ),
-                                                                                                                          ],
+                                                                                                                          ),
                                                                                                                         ),
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                    Align(
-                                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                                                      child: Padding(
-                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
-                                                                                                                        child: Column(
+                                                                                                                        Align(
+                                                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                                          child: Padding(
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                                                                                                                            child: Column(
+                                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                              children: [
+                                                                                                                                Text(
+                                                                                                                                  getJsonField(
+                                                                                                                                    ratingListItem,
+                                                                                                                                    r'''$.rating''',
+                                                                                                                                  ).toString(),
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                        fontFamily: 'Manrope',
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
+                                                                                                                                ),
+                                                                                                                              ],
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                        Column(
                                                                                                                           mainAxisSize: MainAxisSize.max,
-                                                                                                                          mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                                           children: [
-                                                                                                                            Text(
-                                                                                                                              getJsonField(
-                                                                                                                                ratingListItem,
-                                                                                                                                r'''$.rating''',
-                                                                                                                              ).toString(),
-                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                            FlutterFlowAudioPlayer(
+                                                                                                                              audio: Audio.network(
+                                                                                                                                getJsonField(
+                                                                                                                                  ratingListItem,
+                                                                                                                                  r'''$.audio_file''',
+                                                                                                                                ).toString(),
+                                                                                                                                metas: Metas(
+                                                                                                                                  title: 'Áudio',
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                              titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
+                                                                                                                              playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                                                     fontFamily: 'Manrope',
                                                                                                                                     letterSpacing: 0.0,
                                                                                                                                   ),
+                                                                                                                              fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                                              playbackButtonColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                              activeTrackColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                              inactiveTrackColor: FlutterFlowTheme.of(context).alternate,
+                                                                                                                              elevation: 0.0,
+                                                                                                                              playInBackground: PlayInBackground.disabledRestoreOnForeground,
                                                                                                                             ),
                                                                                                                           ],
                                                                                                                         ),
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                    Column(
-                                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                                      children: [
-                                                                                                                        FlutterFlowAudioPlayer(
-                                                                                                                          audio: Audio.network(
-                                                                                                                            getJsonField(
-                                                                                                                              ratingListItem,
-                                                                                                                              r'''$.audio_file''',
-                                                                                                                            ).toString(),
-                                                                                                                            metas: Metas(
-                                                                                                                              title: 'Áudio',
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                          titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                                                                fontFamily: 'Poppins',
-                                                                                                                                letterSpacing: 0.0,
-                                                                                                                              ),
-                                                                                                                          playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                                                fontFamily: 'Manrope',
-                                                                                                                                letterSpacing: 0.0,
-                                                                                                                              ),
-                                                                                                                          fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                          playbackButtonColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                          activeTrackColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                          inactiveTrackColor: FlutterFlowTheme.of(context).alternate,
-                                                                                                                          elevation: 0.0,
-                                                                                                                          playInBackground: PlayInBackground.disabledRestoreOnForeground,
-                                                                                                                        ),
-                                                                                                                      ],
-                                                                                                                    ),
-                                                                                                                    Column(
-                                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                                      mainAxisAlignment: MainAxisAlignment.end,
-                                                                                                                      children: [
-                                                                                                                        Padding(
-                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 10.0),
-                                                                                                                          child: Row(
-                                                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                                            children: [
-                                                                                                                              FFButtonWidget(
-                                                                                                                                onPressed: () async {
-                                                                                                                                  logFirebaseEvent('RATINGS_PAGE_EDITAR_BTN_ON_TAP');
-                                                                                                                                  logFirebaseEvent('Button_update_page_state');
-                                                                                                                                  _model.idRating = getJsonField(
-                                                                                                                                    ratingListItem,
-                                                                                                                                    r'''$.id''',
-                                                                                                                                  );
-                                                                                                                                  safeSetState(() {});
-                                                                                                                                  await Future.wait([
-                                                                                                                                    Future(() async {
-                                                                                                                                      logFirebaseEvent('Button_set_form_field');
-                                                                                                                                      safeSetState(() {
-                                                                                                                                        _model.servicosValueController1?.value = getJsonField(
-                                                                                                                                          ratingListItem,
-                                                                                                                                          r'''$.service_id''',
-                                                                                                                                        );
-                                                                                                                                      });
-                                                                                                                                    }),
-                                                                                                                                    Future(() async {
-                                                                                                                                      logFirebaseEvent('Button_set_form_field');
-                                                                                                                                      safeSetState(() {
-                                                                                                                                        _model.dataTextController?.text = functions.formatDate(getJsonField(
-                                                                                                                                          ratingListItem,
-                                                                                                                                          r'''$.date_reference''',
-                                                                                                                                        ).toString())!;
-                                                                                                                                        _model.dataFocusNode?.requestFocus();
-                                                                                                                                        WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                                          _model.dataTextController?.selection = TextSelection.collapsed(
-                                                                                                                                            offset: _model.dataTextController!.text.length,
-                                                                                                                                          );
-                                                                                                                                        });
-                                                                                                                                        _model.dataMask.updateMask(
-                                                                                                                                          newValue: TextEditingValue(
-                                                                                                                                            text: _model.dataTextController!.text,
-                                                                                                                                            selection: TextSelection.collapsed(
-                                                                                                                                              offset: _model.dataTextController!.text.length,
-                                                                                                                                            ),
-                                                                                                                                          ),
-                                                                                                                                        );
-                                                                                                                                      });
-                                                                                                                                    }),
-                                                                                                                                    Future(() async {
-                                                                                                                                      logFirebaseEvent('Button_set_form_field');
-                                                                                                                                      safeSetState(() {
-                                                                                                                                        _model.horaTextController?.text = functions.formatHour(getJsonField(
-                                                                                                                                          ratingListItem,
-                                                                                                                                          r'''$.date_reference''',
-                                                                                                                                        ).toString())!;
-                                                                                                                                        _model.horaFocusNode?.requestFocus();
-                                                                                                                                        WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                                          _model.horaTextController?.selection = TextSelection.collapsed(
-                                                                                                                                            offset: _model.horaTextController!.text.length,
-                                                                                                                                          );
-                                                                                                                                        });
-                                                                                                                                        _model.horaMask.updateMask(
-                                                                                                                                          newValue: TextEditingValue(
-                                                                                                                                            text: _model.horaTextController!.text,
-                                                                                                                                            selection: TextSelection.collapsed(
-                                                                                                                                              offset: _model.horaTextController!.text.length,
-                                                                                                                                            ),
-                                                                                                                                          ),
-                                                                                                                                        );
-                                                                                                                                      });
-                                                                                                                                    }),
-                                                                                                                                    Future(() async {
-                                                                                                                                      logFirebaseEvent('Button_set_form_field');
-                                                                                                                                      safeSetState(() {
-                                                                                                                                        _model.comentarioTextController?.text = getJsonField(
-                                                                                                                                          ratingListItem,
-                                                                                                                                          r'''$.rating''',
-                                                                                                                                        ).toString();
-                                                                                                                                        _model.comentarioFocusNode?.requestFocus();
-                                                                                                                                        WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                                          _model.comentarioTextController?.selection = TextSelection.collapsed(
-                                                                                                                                            offset: _model.comentarioTextController!.text.length,
-                                                                                                                                          );
-                                                                                                                                        });
-                                                                                                                                      });
-                                                                                                                                    }),
-                                                                                                                                  ]);
-                                                                                                                                },
-                                                                                                                                text: 'Editar',
-                                                                                                                                icon: const Icon(
-                                                                                                                                  Icons.edit,
-                                                                                                                                  size: 15.0,
-                                                                                                                                ),
-                                                                                                                                options: FFButtonOptions(
-                                                                                                                                  height: 40.0,
-                                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                                        fontFamily: 'Manrope',
-                                                                                                                                        color: Colors.white,
-                                                                                                                                        letterSpacing: 0.0,
-                                                                                                                                      ),
-                                                                                                                                  elevation: 0.0,
-                                                                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                                                                ),
-                                                                                                                              ),
-                                                                                                                              Padding(
-                                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
-                                                                                                                                child: FFButtonWidget(
-                                                                                                                                  onPressed: () async {
-                                                                                                                                    logFirebaseEvent('RATINGS_PAGE_EXCLUIR_BTN_ON_TAP');
-                                                                                                                                    logFirebaseEvent('Button_alert_dialog');
-                                                                                                                                    var confirmDialogResponse = await showDialog<bool>(
-                                                                                                                                          context: context,
-                                                                                                                                          builder: (alertDialogContext) {
-                                                                                                                                            return WebViewAware(
-                                                                                                                                              child: AlertDialog(
-                                                                                                                                                content: const Text('Deseja excluir o serviço?'),
-                                                                                                                                                actions: [
-                                                                                                                                                  TextButton(
-                                                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                                    child: const Text('Não'),
-                                                                                                                                                  ),
-                                                                                                                                                  TextButton(
-                                                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                                    child: const Text('Sim'),
-                                                                                                                                                  ),
-                                                                                                                                                ],
+                                                                                                                        Column(
+                                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                                          mainAxisAlignment: MainAxisAlignment.end,
+                                                                                                                          children: [
+                                                                                                                            Padding(
+                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 10.0),
+                                                                                                                              child: Row(
+                                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                                                children: [
+                                                                                                                                  FFButtonWidget(
+                                                                                                                                    onPressed: () async {
+                                                                                                                                      logFirebaseEvent('RATINGS_PAGE_EDITAR_BTN_ON_TAP');
+                                                                                                                                      logFirebaseEvent('Button_update_page_state');
+                                                                                                                                      _model.idRating = getJsonField(
+                                                                                                                                        ratingListItem,
+                                                                                                                                        r'''$.id''',
+                                                                                                                                      );
+                                                                                                                                      safeSetState(() {});
+                                                                                                                                      await Future.wait([
+                                                                                                                                        Future(() async {
+                                                                                                                                          logFirebaseEvent('Button_set_form_field');
+                                                                                                                                          safeSetState(() {
+                                                                                                                                            _model.servicosValueController?.value = getJsonField(
+                                                                                                                                              ratingListItem,
+                                                                                                                                              r'''$.service_id''',
+                                                                                                                                            );
+                                                                                                                                          });
+                                                                                                                                        }),
+                                                                                                                                        Future(() async {
+                                                                                                                                          logFirebaseEvent('Button_set_form_field');
+                                                                                                                                          safeSetState(() {
+                                                                                                                                            _model.dataTextController?.text = functions.formatDate(getJsonField(
+                                                                                                                                              ratingListItem,
+                                                                                                                                              r'''$.date_reference''',
+                                                                                                                                            ).toString())!;
+                                                                                                                                            _model.dataFocusNode?.requestFocus();
+                                                                                                                                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                                                                                                                                              _model.dataTextController?.selection = TextSelection.collapsed(
+                                                                                                                                                offset: _model.dataTextController!.text.length,
+                                                                                                                                              );
+                                                                                                                                            });
+                                                                                                                                            _model.dataMask.updateMask(
+                                                                                                                                              newValue: TextEditingValue(
+                                                                                                                                                text: _model.dataTextController!.text,
+                                                                                                                                                selection: TextSelection.collapsed(
+                                                                                                                                                  offset: _model.dataTextController!.text.length,
+                                                                                                                                                ),
                                                                                                                                               ),
                                                                                                                                             );
-                                                                                                                                          },
-                                                                                                                                        ) ??
-                                                                                                                                        false;
-                                                                                                                                    if (confirmDialogResponse) {
-                                                                                                                                      logFirebaseEvent('Button_backend_call');
-                                                                                                                                      await APIOficialGroup.deleteRatingsCall.call(
-                                                                                                                                        authToken: currentAuthenticationToken,
-                                                                                                                                        id: getJsonField(
-                                                                                                                                          ratingListItem,
-                                                                                                                                          r'''$.id''',
-                                                                                                                                        ).toString(),
-                                                                                                                                      );
-
-                                                                                                                                      logFirebaseEvent('Button_show_snack_bar');
-                                                                                                                                      ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                                                        SnackBar(
-                                                                                                                                          content: Text(
-                                                                                                                                            'Pacote removido com sucesso.',
-                                                                                                                                            style: TextStyle(
-                                                                                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                                            ),
+                                                                                                                                          });
+                                                                                                                                        }),
+                                                                                                                                        Future(() async {
+                                                                                                                                          logFirebaseEvent('Button_set_form_field');
+                                                                                                                                          safeSetState(() {
+                                                                                                                                            _model.horaTextController?.text = functions.formatHour(getJsonField(
+                                                                                                                                              ratingListItem,
+                                                                                                                                              r'''$.date_reference''',
+                                                                                                                                            ).toString())!;
+                                                                                                                                            _model.horaFocusNode?.requestFocus();
+                                                                                                                                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                                                                                                                                              _model.horaTextController?.selection = TextSelection.collapsed(
+                                                                                                                                                offset: _model.horaTextController!.text.length,
+                                                                                                                                              );
+                                                                                                                                            });
+                                                                                                                                            _model.horaMask.updateMask(
+                                                                                                                                              newValue: TextEditingValue(
+                                                                                                                                                text: _model.horaTextController!.text,
+                                                                                                                                                selection: TextSelection.collapsed(
+                                                                                                                                                  offset: _model.horaTextController!.text.length,
+                                                                                                                                                ),
+                                                                                                                                              ),
+                                                                                                                                            );
+                                                                                                                                          });
+                                                                                                                                        }),
+                                                                                                                                        Future(() async {
+                                                                                                                                          logFirebaseEvent('Button_set_form_field');
+                                                                                                                                          safeSetState(() {
+                                                                                                                                            _model.comentarioTextController?.text = getJsonField(
+                                                                                                                                              ratingListItem,
+                                                                                                                                              r'''$.rating''',
+                                                                                                                                            ).toString();
+                                                                                                                                            _model.comentarioFocusNode?.requestFocus();
+                                                                                                                                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                                                                                                                                              _model.comentarioTextController?.selection = TextSelection.collapsed(
+                                                                                                                                                offset: _model.comentarioTextController!.text.length,
+                                                                                                                                              );
+                                                                                                                                            });
+                                                                                                                                          });
+                                                                                                                                        }),
+                                                                                                                                      ]);
+                                                                                                                                    },
+                                                                                                                                    text: 'Editar',
+                                                                                                                                    icon: const Icon(
+                                                                                                                                      Icons.edit,
+                                                                                                                                      size: 15.0,
+                                                                                                                                    ),
+                                                                                                                                    options: FFButtonOptions(
+                                                                                                                                      height: 40.0,
+                                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                                            fontFamily: 'Manrope',
+                                                                                                                                            color: Colors.white,
+                                                                                                                                            letterSpacing: 0.0,
                                                                                                                                           ),
-                                                                                                                                          duration: const Duration(milliseconds: 4000),
-                                                                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                                                        ),
-                                                                                                                                      );
-                                                                                                                                      logFirebaseEvent('Button_update_page_state');
+                                                                                                                                      elevation: 0.0,
+                                                                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                  Padding(
+                                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
+                                                                                                                                    child: FFButtonWidget(
+                                                                                                                                      onPressed: () async {
+                                                                                                                                        logFirebaseEvent('RATINGS_PAGE_EXCLUIR_BTN_ON_TAP');
+                                                                                                                                        logFirebaseEvent('Button_alert_dialog');
+                                                                                                                                        var confirmDialogResponse = await showDialog<bool>(
+                                                                                                                                              context: context,
+                                                                                                                                              builder: (alertDialogContext) {
+                                                                                                                                                return WebViewAware(
+                                                                                                                                                  child: AlertDialog(
+                                                                                                                                                    content: const Text('Deseja excluir o serviço?'),
+                                                                                                                                                    actions: [
+                                                                                                                                                      TextButton(
+                                                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                                                                        child: const Text('Não'),
+                                                                                                                                                      ),
+                                                                                                                                                      TextButton(
+                                                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                                                                        child: const Text('Sim'),
+                                                                                                                                                      ),
+                                                                                                                                                    ],
+                                                                                                                                                  ),
+                                                                                                                                                );
+                                                                                                                                              },
+                                                                                                                                            ) ??
+                                                                                                                                            false;
+                                                                                                                                        if (confirmDialogResponse) {
+                                                                                                                                          logFirebaseEvent('Button_backend_call');
+                                                                                                                                          await APIOficialGroup.deleteRatingsCall.call(
+                                                                                                                                            authToken: currentAuthenticationToken,
+                                                                                                                                            id: getJsonField(
+                                                                                                                                              ratingListItem,
+                                                                                                                                              r'''$.id''',
+                                                                                                                                            ).toString(),
+                                                                                                                                          );
 
-                                                                                                                                      safeSetState(() {});
-                                                                                                                                    }
-                                                                                                                                  },
-                                                                                                                                  text: 'Excluir',
-                                                                                                                                  icon: const Icon(
-                                                                                                                                    Icons.delete_sharp,
-                                                                                                                                    size: 15.0,
+                                                                                                                                          logFirebaseEvent('Button_show_snack_bar');
+                                                                                                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                                            SnackBar(
+                                                                                                                                              content: Text(
+                                                                                                                                                'Tudo certo! Removemos estas informações.',
+                                                                                                                                                style: TextStyle(
+                                                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                                ),
+                                                                                                                                              ),
+                                                                                                                                              duration: const Duration(milliseconds: 4000),
+                                                                                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                                            ),
+                                                                                                                                          );
+                                                                                                                                          logFirebaseEvent('Button_update_page_state');
+
+                                                                                                                                          safeSetState(() {});
+                                                                                                                                        }
+                                                                                                                                      },
+                                                                                                                                      text: 'Excluir',
+                                                                                                                                      icon: const Icon(
+                                                                                                                                        Icons.delete_sharp,
+                                                                                                                                        size: 15.0,
+                                                                                                                                      ),
+                                                                                                                                      options: FFButtonOptions(
+                                                                                                                                        height: 40.0,
+                                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                                                                        textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                                              fontFamily: 'Manrope',
+                                                                                                                                              color: Colors.white,
+                                                                                                                                              letterSpacing: 0.0,
+                                                                                                                                            ),
+                                                                                                                                        elevation: 0.0,
+                                                                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                                                                      ),
+                                                                                                                                    ),
                                                                                                                                   ),
-                                                                                                                                  options: FFButtonOptions(
-                                                                                                                                    height: 40.0,
-                                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                                                    color: FlutterFlowTheme.of(context).error,
-                                                                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                                          color: Colors.white,
-                                                                                                                                          letterSpacing: 0.0,
-                                                                                                                                        ),
-                                                                                                                                    elevation: 0.0,
-                                                                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                                                                  ),
-                                                                                                                                ),
+                                                                                                                                ],
                                                                                                                               ),
-                                                                                                                            ],
-                                                                                                                          ),
+                                                                                                                            ),
+                                                                                                                          ],
                                                                                                                         ),
                                                                                                                       ],
                                                                                                                     ),
                                                                                                                   ],
                                                                                                                 ),
-                                                                                                              ],
+                                                                                                              ),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ),
+                                                                                                      ],
                                                                                                     );
                                                                                                   }),
                                                                                                 );

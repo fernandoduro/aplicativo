@@ -275,6 +275,9 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                                   },
                                                 ),
                                                 autofocus: false,
+                                                textCapitalization:
+                                                    TextCapitalization
+                                                        .sentences,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelText: 'Pesquisar',

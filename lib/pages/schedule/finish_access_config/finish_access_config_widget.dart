@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -83,24 +83,12 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 3000.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
       'buttonOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
             curve: Curves.easeInOut,
-            delay: 4000.0.ms,
+            delay: 3000.0.ms,
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
@@ -133,13 +121,10 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
@@ -212,7 +197,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              'Aqui você conseguirá gerenciar toda sua agenda de forma simples.',
+                                                              'Maravilha! Configurações realizadas.',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -279,7 +264,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                             5.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  '',
+                                                                  'A qualquer momento você pode alterá-las, acessando o menu \"Suas informações padrões\".',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -305,78 +290,10 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                         animationsMap[
                                                             'containerOnPageLoadAnimation3']!),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 10.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                      ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
-                                                            10.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  '',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: const Color(
-                                                                            0xFF12151C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation4']!),
-                                                  ),
                                                   FFButtonWidget(
                                                     onPressed: () async {
                                                       logFirebaseEvent(
-                                                          'FINISH_ACCESS_CONFIG_VAMOS_L_BTN_ON_TAP');
+                                                          'FINISH_ACCESS_CONFIG_AVANAR_BTN_ON_TAP');
                                                       if (widget
                                                               .originConfig ==
                                                           'schedule') {
@@ -411,7 +328,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                         );
                                                       }
                                                     },
-                                                    text: 'Vamos lá!',
+                                                    text: 'Avançar',
                                                     options: FFButtonOptions(
                                                       width: MediaQuery.sizeOf(
                                                                   context)

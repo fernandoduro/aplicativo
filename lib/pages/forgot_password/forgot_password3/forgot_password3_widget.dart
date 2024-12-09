@@ -441,6 +441,14 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                     FFAppState()
                                                             .codigoSiteUsado =
                                                         false;
+                                                    FFAppState()
+                                                            .nameProfessional =
+                                                        getJsonField(
+                                                      (_model.apiResultahc
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                      r'''$.data.professional.name''',
+                                                    ).toString();
                                                     safeSetState(() {});
                                                     logFirebaseEvent(
                                                         'Button_auth');

@@ -20,19 +20,25 @@ class Schedule03Widget extends StatefulWidget {
     this.dateSelected,
     this.hourSelected,
     bool? existAppointment,
-    this.scheduleJson,
+    this.scheduleCabecalho,
     required this.isAddNewClient,
     this.idClientSelected,
     required this.situacao,
+    this.idAppointmentSelected,
+    this.idProfessionalClientSelected,
+    this.professionalClientJSON,
   }) : existAppointment = existAppointment ?? false;
 
   final DateTime? dateSelected;
   final String? hourSelected;
   final bool existAppointment;
-  final dynamic scheduleJson;
+  final dynamic scheduleCabecalho;
   final bool? isAddNewClient;
   final int? idClientSelected;
   final String? situacao;
+  final int? idAppointmentSelected;
+  final int? idProfessionalClientSelected;
+  final dynamic professionalClientJSON;
 
   @override
   State<Schedule03Widget> createState() => _Schedule03WidgetState();
@@ -53,13 +59,13 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SCHEDULE03_PAGE_Schedule03_ON_INIT_STATE');
       if (getJsonField(
-            widget.scheduleJson,
+            widget.scheduleCabecalho,
             r'''$.professional_client[*].client.id''',
           ) !=
           null) {
         logFirebaseEvent('Schedule03_update_page_state');
         _model.idsClientsSchedule = getJsonField(
-          widget.scheduleJson,
+          widget.scheduleCabecalho,
           r'''$.professional_client[*].client.id''',
           true,
         )!
@@ -125,12 +131,12 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
     _model.descricaoTextController ??= TextEditingController(text: () {
       if (!widget.isAddNewClient!) {
         return functions.removeNullString(getJsonField(
-          widget.scheduleJson,
+          widget.scheduleCabecalho,
           r'''$.description''',
         ).toString().toString());
       } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
         return functions.removeNullString(getJsonField(
-          widget.scheduleJson,
+          widget.scheduleCabecalho,
           r'''$.description''',
         ).toString().toString());
       } else {
@@ -143,19 +149,13 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
       if (!widget.isAddNewClient!) {
         return (functions
                 .convertStrintToInt(getJsonField(
-                  widget.scheduleJson,
+                  widget.professionalClientJSON,
                   r'''$.recurrent''',
                 ).toString().toString())
                 .toString() ==
             '1');
-      } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
-        return (functions
-                .convertStrintToInt(getJsonField(
-                  widget.scheduleJson,
-                  r'''$.recurrent''',
-                ).toString().toString())
-                .toString() ==
-            '1');
+      } else if (widget.isAddNewClient!) {
+        return false;
       } else {
         return false;
       }
@@ -327,10 +327,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                         MainAxisSize
                                                                             .max,
                                                                     children: [
-                                                                      if (!((widget.isAddNewClient ==
-                                                                              true) &&
-                                                                          widget
-                                                                              .existAppointment))
+                                                                      if (!widget
+                                                                          .existAppointment)
                                                                         Align(
                                                                           alignment: const AlignmentDirectional(
                                                                               -1.0,
@@ -352,8 +350,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceBetween,
                                                                         children: [
-                                                                          if (!((widget.isAddNewClient == true) &&
-                                                                              widget.existAppointment))
+                                                                          if (!widget
+                                                                              .existAppointment)
                                                                             Expanded(
                                                                               child: Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
@@ -362,19 +360,18 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     _model.tipocompromissoValue ??= () {
                                                                                       if (!widget.isAddNewClient!) {
                                                                                         return getJsonField(
-                                                                                          widget.scheduleJson,
+                                                                                          widget.scheduleCabecalho,
                                                                                           r'''$.type''',
-                                                                                        );
+                                                                                        ).toString();
                                                                                       } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                         return getJsonField(
-                                                                                          widget.scheduleJson,
+                                                                                          widget.scheduleCabecalho,
                                                                                           r'''$.type''',
-                                                                                        );
+                                                                                        ).toString();
                                                                                       } else {
-                                                                                        return 0;
+                                                                                        return 'professional';
                                                                                       }
-                                                                                    }()
-                                                                                        .toString(),
+                                                                                    }(),
                                                                                   ),
                                                                                   options: List<String>.from([
                                                                                     'professional',
@@ -391,7 +388,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         fontFamily: 'Manrope',
                                                                                         letterSpacing: 0.0,
                                                                                       ),
-                                                                                  hintText: 'Tipos',
+                                                                                  hintText: 'Selecione uma opção',
                                                                                   icon: Icon(
                                                                                     Icons.keyboard_arrow_down_rounded,
                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -453,7 +450,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           return widget.idClientSelected;
                                                                                         } else if (!widget.isAddNewClient!) {
                                                                                           return getJsonField(
-                                                                                            widget.scheduleJson,
+                                                                                            widget.scheduleCabecalho,
                                                                                             r'''$.professional_client[*].client.id''',
                                                                                           );
                                                                                         } else {
@@ -463,7 +460,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     ),
                                                                                     options: List<int>.from(getJsonField(
                                                                                       _model.listClients,
-                                                                                      r'''$.data[*].id''',
+                                                                                      r'''$.data[*].professional_clients[0].id''',
                                                                                       true,
                                                                                     )!),
                                                                                     optionLabels: (getJsonField(
@@ -482,18 +479,6 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       logFirebaseEvent('clientes_update_page_state');
                                                                                       _model.addToIdsClientsSchedule(_model.clientesValue!);
                                                                                       safeSetState(() {});
-                                                                                      if (getJsonField(
-                                                                                            widget.scheduleJson,
-                                                                                            r'''$.id''',
-                                                                                          ) !=
-                                                                                          null) {
-                                                                                        logFirebaseEvent('clientes_update_page_state');
-                                                                                        _model.addToIdsClientsSchedule(getJsonField(
-                                                                                          widget.scheduleJson,
-                                                                                          r'''$.professional_client[*].client.id''',
-                                                                                        ));
-                                                                                        safeSetState(() {});
-                                                                                      }
                                                                                     },
                                                                                     width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                     height: 40.0,
@@ -501,7 +486,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           fontFamily: 'Manrope',
                                                                                           letterSpacing: 0.0,
                                                                                         ),
-                                                                                    hintText: 'Meus clientes',
+                                                                                    hintText: 'Selecione uma opção',
                                                                                     icon: Icon(
                                                                                       Icons.keyboard_arrow_down_rounded,
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -515,7 +500,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                     hidesUnderline: true,
                                                                                     disabled: (getJsonField(
-                                                                                              widget.scheduleJson,
+                                                                                              widget.scheduleCabecalho,
                                                                                               r'''$.id''',
                                                                                             ) !=
                                                                                             null) &&
@@ -545,6 +530,41 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         'adicionadoPeloMais': serializeParam(
                                                                                           true,
                                                                                           ParamType.bool,
+                                                                                        ),
+                                                                                        'originConfig': serializeParam(
+                                                                                          'schedule',
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'dateSelected': serializeParam(
+                                                                                          widget.dateSelected,
+                                                                                          ParamType.DateTime,
+                                                                                        ),
+                                                                                        'hourSelected': serializeParam(
+                                                                                          widget.hourSelected,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'existAppointment': serializeParam(
+                                                                                          widget.existAppointment,
+                                                                                          ParamType.bool,
+                                                                                        ),
+                                                                                        'scheduleJson': serializeParam(
+                                                                                          getJsonField(
+                                                                                            widget.scheduleCabecalho,
+                                                                                            r'''$''',
+                                                                                          ),
+                                                                                          ParamType.JSON,
+                                                                                        ),
+                                                                                        'isAddNewClient': serializeParam(
+                                                                                          widget.isAddNewClient,
+                                                                                          ParamType.bool,
+                                                                                        ),
+                                                                                        'idClientSelected': serializeParam(
+                                                                                          widget.idClientSelected,
+                                                                                          ParamType.int,
+                                                                                        ),
+                                                                                        'situacao': serializeParam(
+                                                                                          widget.situacao,
+                                                                                          ParamType.String,
                                                                                         ),
                                                                                       }.withoutNulls,
                                                                                     );
@@ -580,7 +600,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           fontFamily: 'Manrope',
                                                                                           letterSpacing: 0.0,
                                                                                         ),
-                                                                                    hintText: 'Meus clientes',
+                                                                                    hintText: 'Selecione uma opção',
                                                                                     icon: Icon(
                                                                                       Icons.keyboard_arrow_down_rounded,
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -619,6 +639,41 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           true,
                                                                                           ParamType.bool,
                                                                                         ),
+                                                                                        'originConfig': serializeParam(
+                                                                                          'schedule',
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'dateSelected': serializeParam(
+                                                                                          widget.dateSelected,
+                                                                                          ParamType.DateTime,
+                                                                                        ),
+                                                                                        'hourSelected': serializeParam(
+                                                                                          widget.hourSelected,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'existAppointment': serializeParam(
+                                                                                          widget.existAppointment,
+                                                                                          ParamType.bool,
+                                                                                        ),
+                                                                                        'scheduleJson': serializeParam(
+                                                                                          getJsonField(
+                                                                                            widget.scheduleCabecalho,
+                                                                                            r'''$''',
+                                                                                          ),
+                                                                                          ParamType.JSON,
+                                                                                        ),
+                                                                                        'isAddNewClient': serializeParam(
+                                                                                          widget.isAddNewClient,
+                                                                                          ParamType.bool,
+                                                                                        ),
+                                                                                        'idClientSelected': serializeParam(
+                                                                                          widget.idClientSelected,
+                                                                                          ParamType.int,
+                                                                                        ),
+                                                                                        'situacao': serializeParam(
+                                                                                          widget.situacao,
+                                                                                          ParamType.String,
+                                                                                        ),
                                                                                       }.withoutNulls,
                                                                                     );
                                                                                   },
@@ -632,10 +687,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                      if (!((widget.isAddNewClient ==
-                                                                              true) &&
-                                                                          widget
-                                                                              .existAppointment))
+                                                                      if (!widget
+                                                                          .existAppointment)
                                                                         Align(
                                                                           alignment: const AlignmentDirectional(
                                                                               -1.0,
@@ -651,10 +704,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 ),
                                                                           ),
                                                                         ),
-                                                                      if (!((widget.isAddNewClient ==
-                                                                              true) &&
-                                                                          widget
-                                                                              .existAppointment))
+                                                                      if (!widget
+                                                                          .existAppointment)
                                                                         FutureBuilder<
                                                                             ApiCallResponse>(
                                                                           future: APIOficialGroup
@@ -701,12 +752,12 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             _model.servicosValue ??= () {
                                                                                               if (!widget.isAddNewClient!) {
                                                                                                 return getJsonField(
-                                                                                                  widget.scheduleJson,
+                                                                                                  widget.scheduleCabecalho,
                                                                                                   r'''$.service_id''',
                                                                                                 );
                                                                                               } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                                 return getJsonField(
-                                                                                                  widget.scheduleJson,
+                                                                                                  widget.scheduleCabecalho,
                                                                                                   r'''$.service_id''',
                                                                                                 );
                                                                                               } else {
@@ -733,7 +784,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
-                                                                                          hintText: 'Meus serviços',
+                                                                                          hintText: 'Selecione uma opção',
                                                                                           icon: Icon(
                                                                                             Icons.keyboard_arrow_down_rounded,
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -808,7 +859,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
-                                                                                          hintText: 'Meus serviços',
+                                                                                          hintText: 'Selecione uma opção',
                                                                                           icon: Icon(
                                                                                             Icons.keyboard_arrow_down_rounded,
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -892,14 +943,12 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                       Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceAround,
                                                                         children: [
                                                                           Flexible(
                                                                             child:
                                                                                 FlutterFlowDropDown<String>(
                                                                               controller: _model.situacaoDropDownValueController ??= FormFieldController<String>(
-                                                                                _model.situacaoDropDownValue ??= widget.situacao,
+                                                                                _model.situacaoDropDownValue ??= widget.isAddNewClient == true ? 'confirmed' : widget.situacao,
                                                                               ),
                                                                               options: List<String>.from([
                                                                                 'pending',
@@ -940,10 +989,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                      if (!((widget.isAddNewClient ==
-                                                                              true) &&
-                                                                          widget
-                                                                              .existAppointment))
+                                                                      if (!widget
+                                                                          .existAppointment)
                                                                         Align(
                                                                           alignment: const AlignmentDirectional(
                                                                               -1.0,
@@ -973,8 +1020,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceAround,
                                                                         children: [
-                                                                          if (!((widget.isAddNewClient == true) &&
-                                                                              widget.existAppointment))
+                                                                          if (!widget
+                                                                              .existAppointment)
                                                                             Padding(
                                                                               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 8.0),
                                                                               child: SizedBox(
@@ -1038,8 +1085,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          if (!((widget.isAddNewClient == true) &&
-                                                                              widget.existAppointment))
+                                                                          if (!widget
+                                                                              .existAppointment)
                                                                             Expanded(
                                                                               child: Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
@@ -1107,10 +1154,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             ),
                                                                         ],
                                                                       ),
-                                                                      if (!((widget.isAddNewClient ==
-                                                                              true) &&
-                                                                          widget
-                                                                              .existAppointment))
+                                                                      if (!widget
+                                                                          .existAppointment)
                                                                         Align(
                                                                           alignment: const AlignmentDirectional(
                                                                               -1.0,
@@ -1140,8 +1185,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceAround,
                                                                         children: [
-                                                                          if (!((widget.isAddNewClient == true) &&
-                                                                              widget.existAppointment))
+                                                                          if (!widget
+                                                                              .existAppointment)
                                                                             Flexible(
                                                                               child: Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
@@ -1231,19 +1276,17 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             ),
                                                                             Switch.adaptive(
                                                                               value: _model.statusValue!,
-                                                                              onChanged: !widget.isAddNewClient!
-                                                                                  ? null
-                                                                                  : (newValue) async {
-                                                                                      safeSetState(() => _model.statusValue = newValue);
+                                                                              onChanged: (newValue) async {
+                                                                                safeSetState(() => _model.statusValue = newValue);
 
-                                                                                      if (!newValue) {
-                                                                                        logFirebaseEvent('SCHEDULE03_PAGE_status_ON_TOGGLE_OFF');
-                                                                                        logFirebaseEvent('status_reset_form_fields');
-                                                                                        safeSetState(() {
-                                                                                          _model.prazoRecorrenteValueController?.reset();
-                                                                                        });
-                                                                                      }
-                                                                                    },
+                                                                                if (!newValue) {
+                                                                                  logFirebaseEvent('SCHEDULE03_PAGE_status_ON_TOGGLE_OFF');
+                                                                                  logFirebaseEvent('status_reset_form_fields');
+                                                                                  safeSetState(() {
+                                                                                    _model.prazoRecorrenteValueController?.reset();
+                                                                                  });
+                                                                                }
+                                                                              },
                                                                               activeColor: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               activeTrackColor: FlutterFlowTheme.of(context).primary,
                                                                               inactiveTrackColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1273,31 +1316,31 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     _model.prazoRecorrenteValue ??= () {
                                                                                       if ((_model.statusValue == true) &&
                                                                                           (functions.convertJsonToString(getJsonField(
-                                                                                                widget.scheduleJson,
+                                                                                                widget.professionalClientJSON,
                                                                                                 r'''$.frequency''',
                                                                                               )) ==
                                                                                               'WEEKLY') &&
                                                                                           (functions.convertStrintToInt(getJsonField(
-                                                                                                widget.scheduleJson,
+                                                                                                widget.professionalClientJSON,
                                                                                                 r'''$.interval_num''',
                                                                                               ).toString()) ==
                                                                                               1)) {
                                                                                         return 'weekly';
                                                                                       } else if ((_model.statusValue == true) &&
                                                                                           (functions.convertJsonToString(getJsonField(
-                                                                                                widget.scheduleJson,
+                                                                                                widget.professionalClientJSON,
                                                                                                 r'''$.frequency''',
                                                                                               )) ==
                                                                                               'WEEKLY') &&
                                                                                           (functions.convertStrintToInt(getJsonField(
-                                                                                                widget.scheduleJson,
+                                                                                                widget.professionalClientJSON,
                                                                                                 r'''$.interval_num''',
                                                                                               ).toString()) ==
                                                                                               2)) {
                                                                                         return 'fortnightly';
                                                                                       } else if ((_model.statusValue == true) &&
                                                                                           (functions.convertJsonToString(getJsonField(
-                                                                                                widget.scheduleJson,
+                                                                                                widget.professionalClientJSON,
                                                                                                 r'''$.frequency''',
                                                                                               )) ==
                                                                                               'MONTHLY')) {
@@ -1337,7 +1380,6 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                   borderRadius: 8.0,
                                                                                   margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                   hidesUnderline: true,
-                                                                                  disabled: !widget.isAddNewClient!,
                                                                                   isOverButton: false,
                                                                                   isSearchable: false,
                                                                                   isMultiSelect: false,
@@ -1371,29 +1413,32 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                   if (_model.clientesValue == null) {
                                                                                     return;
                                                                                   }
-                                                                                  if (_model.situacaoDropDownValue == null) {
-                                                                                    return;
-                                                                                  }
                                                                                   if (getJsonField(
-                                                                                        widget.scheduleJson,
+                                                                                        widget.scheduleCabecalho,
                                                                                         r'''$.id''',
                                                                                       ) !=
                                                                                       null) {
                                                                                     if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                       logFirebaseEvent('Button_backend_call');
-                                                                                      _model.apiResultiw1 = await APIOficialGroup.addClientAppointmentCall.call(
+                                                                                      _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
                                                                                         authToken: currentAuthenticationToken,
-                                                                                        idAppointment: getJsonField(
-                                                                                          widget.scheduleJson,
-                                                                                          r'''$.id''',
+                                                                                        type: getJsonField(
+                                                                                          widget.scheduleCabecalho,
+                                                                                          r'''$.type''',
                                                                                         ).toString(),
+                                                                                        description: _model.descricaoTextController.text,
                                                                                         recurrent: _model.statusValue,
+                                                                                        scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
+                                                                                        serviceId: getJsonField(
+                                                                                          widget.scheduleCabecalho,
+                                                                                          r'''$.service.id''',
+                                                                                        ),
                                                                                         professionalClientIdList: _model.idsClientsSchedule,
+                                                                                        recurrentInterval: _model.prazoRecorrenteValue,
                                                                                         confirmation: _model.situacaoDropDownValue,
-                                                                                        recurrentInterval: functions.removeNullString(_model.prazoRecorrenteValue),
                                                                                       );
 
-                                                                                      if ((_model.apiResultiw1?.succeeded ?? true)) {
+                                                                                      if ((_model.apiResulttd2?.succeeded ?? true)) {
                                                                                         logFirebaseEvent('Button_navigate_to');
 
                                                                                         context.pushNamed('Schedule01');
@@ -1402,7 +1447,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         ScaffoldMessenger.of(context).showSnackBar(
                                                                                           SnackBar(
                                                                                             content: Text(
-                                                                                              'Dado salvo com sucesso.',
+                                                                                              'Tudo certo! Registramos estas informações.',
                                                                                               style: TextStyle(
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                               ),
@@ -1416,7 +1461,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         ScaffoldMessenger.of(context).showSnackBar(
                                                                                           SnackBar(
                                                                                             content: Text(
-                                                                                              'Preencha todos os campos.',
+                                                                                              'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                               style: TextStyle(
                                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                               ),
@@ -1430,18 +1475,32 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       logFirebaseEvent('Button_backend_call');
                                                                                       _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
                                                                                         authToken: currentAuthenticationToken,
-                                                                                        idAppointment: getJsonField(
-                                                                                          widget.scheduleJson,
-                                                                                          r'''$.id''',
-                                                                                        ).toString(),
-                                                                                        type: _model.tipocompromissoValue,
+                                                                                        idAppointment: widget.idAppointmentSelected?.toString(),
+                                                                                        type: () {
+                                                                                          if (!widget.isAddNewClient!) {
+                                                                                            return getJsonField(
+                                                                                              widget.scheduleCabecalho,
+                                                                                              r'''$.type''',
+                                                                                            ).toString();
+                                                                                          } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
+                                                                                            return getJsonField(
+                                                                                              widget.scheduleCabecalho,
+                                                                                              r'''$.type''',
+                                                                                            ).toString();
+                                                                                          } else {
+                                                                                            return 'professional';
+                                                                                          }
+                                                                                        }(),
                                                                                         description: _model.descricaoTextController.text,
                                                                                         recurrent: _model.statusValue,
-                                                                                        serviceId: _model.servicosValue,
-                                                                                        professionalClientIdList: _model.idsClientsSchedule,
+                                                                                        serviceId: getJsonField(
+                                                                                          widget.scheduleCabecalho,
+                                                                                          r'''$.service_id''',
+                                                                                        ),
+                                                                                        professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), widget.idProfessionalClientSelected),
                                                                                         scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                        confirmation: _model.situacaoDropDownValue,
                                                                                         recurrentInterval: functions.removeNullString(_model.prazoRecorrenteValue),
+                                                                                        confirmation: _model.situacaoDropDownValue,
                                                                                       );
 
                                                                                       if ((_model.apiResultvdr?.succeeded ?? true)) {
@@ -1453,7 +1512,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         ScaffoldMessenger.of(context).showSnackBar(
                                                                                           SnackBar(
                                                                                             content: Text(
-                                                                                              'Dado salvo com sucesso.',
+                                                                                              'Tudo certo! Atualizamos estas informações.',
                                                                                               style: TextStyle(
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                               ),
@@ -1467,7 +1526,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         ScaffoldMessenger.of(context).showSnackBar(
                                                                                           SnackBar(
                                                                                             content: Text(
-                                                                                              'Preencha todos os campos.',
+                                                                                              'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                               style: TextStyle(
                                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                               ),
@@ -1486,10 +1545,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       description: _model.descricaoTextController.text,
                                                                                       recurrent: _model.statusValue,
                                                                                       scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                      confirmation: _model.situacaoDropDownValue,
                                                                                       serviceId: _model.servicosValue,
                                                                                       professionalClientIdList: _model.idsClientsSchedule,
                                                                                       recurrentInterval: _model.prazoRecorrenteValue,
+                                                                                      confirmation: _model.situacaoDropDownValue,
                                                                                     );
 
                                                                                     if ((_model.apiResulttd1?.succeeded ?? true)) {
@@ -1501,7 +1560,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       ScaffoldMessenger.of(context).showSnackBar(
                                                                                         SnackBar(
                                                                                           content: Text(
-                                                                                            'Dado salvo com sucesso.',
+                                                                                            'Tudo certo! Registramos estas informações.',
                                                                                             style: TextStyle(
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                             ),
@@ -1515,7 +1574,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       ScaffoldMessenger.of(context).showSnackBar(
                                                                                         SnackBar(
                                                                                           content: Text(
-                                                                                            'Preencha todos os campos.',
+                                                                                            'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                             style: TextStyle(
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                             ),

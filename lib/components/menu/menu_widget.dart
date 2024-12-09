@@ -214,7 +214,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Seu site',
+                                            'Meu site',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -269,7 +269,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Seu valor ideal de sessão',
+                                            'Meu valor ideal de sessão',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -349,7 +349,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Seus clientes',
+                                          'Meus clientes',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -407,65 +407,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Sua agenda',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Manrope',
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ].divide(const SizedBox(height: 12.0)),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  logFirebaseEvent(
-                                      'MENU_COMP_Row_n5y1tc7k_ON_TAP');
-                                  logFirebaseEvent('Row_action_block');
-                                  await action_blocks.seusServicos(context);
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  30.0, 0.0, 10.0, 0.0),
-                                          child: Icon(
-                                            Icons.home_repair_service_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Seus serviços',
+                                          'Minha agenda',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -523,7 +465,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Suas solicitações',
+                                          'Minhas solicitações',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -602,7 +544,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Seu resumo semanal',
+                                          'Meu resumo semanal',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -660,7 +602,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Seus  lembretes',
+                                          'Meus lembretes',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -704,7 +646,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
-                                            Icons.local_atm,
+                                            Icons.card_giftcard,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             size: 24.0,
@@ -718,7 +660,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Seu programa de fidelidade',
+                                          'Meu programa de benefícios',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -743,7 +685,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Organize seu cadastro',
+                              ' Atualize seu cadastro',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -809,7 +751,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Seu perfil',
+                                          'Meu perfil',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -821,6 +763,68 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     ),
                                   ],
                                 ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'MENU_COMP_Row_qfex0im2_ON_TAP');
+                                      logFirebaseEvent('Row_action_block');
+                                      await action_blocks.seusServicos(context);
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      30.0, 0.0, 10.0, 0.0),
+                                              child: Icon(
+                                                Icons.construction,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Minhas informações padrões',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ].divide(const SizedBox(height: 12.0)),
                               ),
                             ].divide(const SizedBox(height: 12.0)),
                           ),
@@ -853,7 +857,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
-                                            Icons.pending_actions_rounded,
+                                            Icons.local_atm,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             size: 24.0,
@@ -867,7 +871,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Sua assinatura',
+                                          'Minha assinatura',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -925,7 +929,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Seus convites',
+                                          'Meus convites',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -956,6 +960,10 @@ class _MenuWidgetState extends State<MenuWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent('MENU_COMP_SAIR_BTN_ON_TAP');
+                              logFirebaseEvent('Button_update_app_state');
+                              FFAppState().existSite = false;
+                              FFAppState().configCompleted = false;
+                              safeSetState(() {});
                               logFirebaseEvent('Button_auth');
                               GoRouter.of(context).prepareAuthEvent();
                               await authManager.signOut();
@@ -964,10 +972,6 @@ class _MenuWidgetState extends State<MenuWidget> {
                               logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamedAuth('Login', context.mounted);
-
-                              logFirebaseEvent('Button_update_app_state');
-                              FFAppState().existSite = false;
-                              safeSetState(() {});
                             },
                             text: 'Sair',
                             icon: Icon(

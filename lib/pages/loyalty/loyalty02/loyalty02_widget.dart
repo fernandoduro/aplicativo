@@ -1,7 +1,7 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -155,13 +155,10 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
-                        child: wrapWithModel(
-                          model: _model.headerHelpModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: const HeaderHelpWidget(),
-                        ),
+                      wrapWithModel(
+                        model: _model.headerBalaoModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: const HeaderBalaoWidget(),
                       ),
                       Expanded(
                         child: Padding(
@@ -257,7 +254,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                       .start,
                                                               children: [
                                                                 Text(
-                                                                  'Esta é a última etapa de preparação do seu programa de fidelidade.',
+                                                                  'Esta é a última etapa de preparação do seu programa de benefícios.',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium

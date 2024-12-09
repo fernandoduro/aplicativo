@@ -11,7 +11,7 @@ import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'services05_model.dart';
 export 'services05_model.dart';
@@ -39,6 +39,37 @@ class _Services05WidgetState extends State<Services05Widget> {
     _model = createModel(context, () => Services05Model());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Services05'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('SERVICES05_PAGE_Services05_ON_INIT_STATE');
+      logFirebaseEvent('Services05_backend_call');
+      _model.apiResultjh62 = await APIOficialGroup.getUserCall.call(
+        authToken: currentAuthenticationToken,
+      );
+
+      if ((_model.apiResultjh62?.succeeded ?? true)) {
+        logFirebaseEvent('Services05_custom_action');
+        _model.disponibility = await actions.convertStringToJson(
+          getJsonField(
+            (_model.apiResultjh62?.jsonBody ?? ''),
+            r'''$.disponibility''',
+          ).toString().toString(),
+        );
+        if (getJsonField(
+              _model.disponibility,
+              r'''$''',
+            ) !=
+            null) {
+          logFirebaseEvent('Services05_update_app_state');
+          FFAppState().hoursWork = getJsonField(
+            _model.disponibility,
+            r'''$''',
+          );
+          safeSetState(() {});
+        }
+      }
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -83,7 +114,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                       Form(
                                         key: _model.formKey,
                                         autovalidateMode:
-                                            AutovalidateMode.always,
+                                            AutovalidateMode.disabled,
                                         child: Container(
                                           constraints: BoxConstraints(
                                             minHeight:
@@ -108,8 +139,8 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(35.0, 0.0,
-                                                                25.0, 0.0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 16.0),
                                                     child: RichText(
                                                       textScaler:
                                                           MediaQuery.of(context)
@@ -118,7 +149,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                         children: [
                                                           TextSpan(
                                                             text:
-                                                                'Meus horários de ',
+                                                                'Meus horários',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .displaySmall
@@ -133,16 +164,6 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                          ),
-                                                          TextSpan(
-                                                            text: 'atendimento',
-                                                            style: GoogleFonts
-                                                                .getFont(
-                                                              'Gloria Hallelujah',
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondary,
-                                                            ),
                                                           )
                                                         ],
                                                         style:
@@ -269,7 +290,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                        mainAxisAlignment: MainAxisAlignment.start,
                                                                                         children: [
                                                                                           TextFieldHoursWidget(
                                                                                             key: Key('Keyxwe_${hoursIndex}_of_${hours.length}'),
@@ -293,62 +314,71 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                             indexDayWeek: workIndex,
                                                                                             typeHour: 'end',
                                                                                           ),
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                                                            children: [
-                                                                                              FlutterFlowIconButton(
-                                                                                                borderColor: Colors.transparent,
-                                                                                                borderRadius: 30.0,
-                                                                                                buttonSize: 46.0,
-                                                                                                icon: Icon(
-                                                                                                  Icons.remove_circle_outline,
-                                                                                                  color: FlutterFlowTheme.of(context).error,
-                                                                                                  size: 24.0,
-                                                                                                ),
-                                                                                                onPressed: () async {
-                                                                                                  logFirebaseEvent('SERVICES05_remove_circle_outline_ICN_ON_');
-                                                                                                  logFirebaseEvent('IconButton_custom_action');
-                                                                                                  _model.removeWork = await actions.removeJsonToJsonAction(
-                                                                                                    getJsonField(
-                                                                                                      workItem,
-                                                                                                      r'''$''',
-                                                                                                    ),
-                                                                                                    hoursIndex,
-                                                                                                    'hours',
-                                                                                                  );
+                                                                                          Flexible(
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                                              children: [
+                                                                                                Flexible(
+                                                                                                  child: Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
+                                                                                                    child: FlutterFlowIconButton(
+                                                                                                      borderColor: Colors.transparent,
+                                                                                                      borderRadius: 30.0,
+                                                                                                      buttonSize: 46.0,
+                                                                                                      icon: Icon(
+                                                                                                        Icons.remove_circle_outline,
+                                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                                        size: 24.0,
+                                                                                                      ),
+                                                                                                      onPressed: () async {
+                                                                                                        logFirebaseEvent('SERVICES05_remove_circle_outline_ICN_ON_');
+                                                                                                        logFirebaseEvent('IconButton_custom_action');
+                                                                                                        _model.removeWork = await actions.removeJsonToJsonAction(
+                                                                                                          getJsonField(
+                                                                                                            workItem,
+                                                                                                            r'''$''',
+                                                                                                          ),
+                                                                                                          hoursIndex,
+                                                                                                          'hours',
+                                                                                                        );
 
-                                                                                                  safeSetState(() {});
-                                                                                                },
-                                                                                              ),
-                                                                                              FlutterFlowIconButton(
-                                                                                                borderColor: Colors.transparent,
-                                                                                                borderRadius: 30.0,
-                                                                                                buttonSize: 46.0,
-                                                                                                icon: Icon(
-                                                                                                  Icons.add_circle_outline,
-                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                  size: 24.0,
-                                                                                                ),
-                                                                                                onPressed: () async {
-                                                                                                  logFirebaseEvent('SERVICES05_add_circle_outline_ICN_ON_TAP');
-                                                                                                  logFirebaseEvent('IconButton_custom_action');
-                                                                                                  _model.hoursAdd = await actions.addJsonToJsonAction(
-                                                                                                    getJsonField(
-                                                                                                      workItem,
-                                                                                                      r'''$''',
+                                                                                                        safeSetState(() {});
+                                                                                                      },
                                                                                                     ),
-                                                                                                    <String, String?>{
-                                                                                                      'start': '',
-                                                                                                      'end': '',
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Flexible(
+                                                                                                  child: FlutterFlowIconButton(
+                                                                                                    borderColor: Colors.transparent,
+                                                                                                    borderRadius: 30.0,
+                                                                                                    buttonSize: 46.0,
+                                                                                                    icon: Icon(
+                                                                                                      Icons.add_circle_outline,
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      size: 24.0,
+                                                                                                    ),
+                                                                                                    onPressed: () async {
+                                                                                                      logFirebaseEvent('SERVICES05_add_circle_outline_ICN_ON_TAP');
+                                                                                                      logFirebaseEvent('IconButton_custom_action');
+                                                                                                      _model.hoursAdd = await actions.addJsonToJsonAction(
+                                                                                                        getJsonField(
+                                                                                                          workItem,
+                                                                                                          r'''$''',
+                                                                                                        ),
+                                                                                                        <String, String?>{
+                                                                                                          'start': '',
+                                                                                                          'end': '',
+                                                                                                        },
+                                                                                                        'hours',
+                                                                                                      );
+
+                                                                                                      safeSetState(() {});
                                                                                                     },
-                                                                                                    'hours',
-                                                                                                  );
-
-                                                                                                  safeSetState(() {});
-                                                                                                },
-                                                                                              ),
-                                                                                            ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
                                                                                           ),
                                                                                         ],
                                                                                       ),
@@ -370,7 +400,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                                                     children: [
                                                                                       Text(
-                                                                                        'Sem horário cadastrado',
+                                                                                        ' Nenhum horário cadastrado',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
@@ -432,7 +462,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                     onPressed:
                                                                         () async {
                                                                       logFirebaseEvent(
-                                                                          'SERVICES05_SALVAR_HORRIOS_BTN_ON_TAP');
+                                                                          'SERVICES05_SALVAR_INFORMAES_BTN_ON_TAP');
                                                                       logFirebaseEvent(
                                                                           'Button_backend_call');
                                                                       _model.apiResultlsp = await APIOficialGroup
@@ -459,7 +489,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                           SnackBar(
                                                                             content:
                                                                                 Text(
-                                                                              'Horários salvo com sucesso.',
+                                                                              'Tudo certo! Registramos estas informações.',
                                                                               style: TextStyle(
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                               ),
@@ -492,9 +522,12 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                           SnackBar(
                                                                             content:
                                                                                 Text(
-                                                                              'Erro ao salvar o horário',
+                                                                              getJsonField(
+                                                                                (_model.apiResultlsp?.jsonBody ?? ''),
+                                                                                r'''$.message''',
+                                                                              ).toString(),
                                                                               style: TextStyle(
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               ),
                                                                             ),
                                                                             duration:
@@ -509,7 +542,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                           () {});
                                                                     },
                                                                     text:
-                                                                        'Salvar horários',
+                                                                        'Salvar informações',
                                                                     options:
                                                                         FFButtonOptions(
                                                                       height:

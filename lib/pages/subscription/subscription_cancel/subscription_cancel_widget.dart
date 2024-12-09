@@ -244,7 +244,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                                 .showSnackBar(
                                               SnackBar(
                                                 content: Text(
-                                                  'Seu plano foi cancelado.',
+                                                  'Tudo certo! Registramos estas informações.',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -265,7 +265,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                                 .showSnackBar(
                                               SnackBar(
                                                 content: Text(
-                                                  'Erro ao cancelar o plano.',
+                                                  'Tudo certo! Removemos estas informações.',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)

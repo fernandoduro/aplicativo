@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -134,13 +134,10 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
@@ -213,7 +210,10 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              'Aqui você conseguirá gerenciar toda sua agenda de forma simples.',
+                                                              widget.originConfig ==
+                                                                      'schedule'
+                                                                  ? 'Aqui você conseguirá gerenciar toda sua agenda de forma simples.'
+                                                                  : 'Aqui você conseguirá organizar todas as informações dos seus clientes.',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -280,7 +280,7 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
                                                                             5.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  'Mas antes de ir para lá, como é seu primeiro uso, eu preciso coletar algumas informações sobre seus horários de atendimento e serviços.',
+                                                                  'Mas antes de ir para lá, como é seu primeiro acesso, eu preciso coletar algumas informações sobre seus horários de atendimento e serviços.',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium

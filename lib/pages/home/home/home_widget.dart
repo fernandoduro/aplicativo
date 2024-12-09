@@ -372,7 +372,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Crie seu site',
+                                  'Meu site',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -432,7 +432,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
-                                                          fontSize: 21.0,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -444,12 +444,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondary,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18.0,
                                                     ),
                                                   ),
                                                   const TextSpan(
                                                     text:
-                                                        ' de graça em poucos minutos ',
-                                                    style: TextStyle(),
+                                                        ' de graça em minutos ',
+                                                    style: TextStyle(
+                                                      fontSize: 18.0,
+                                                    ),
                                                   )
                                                 ],
                                                 style:
@@ -460,7 +465,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
-                                                          fontSize: 21.0,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -485,7 +490,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.6,
+                                                          0.45,
                                                   child: Stack(
                                                     children: [
                                                       Align(
@@ -498,13 +503,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       0.0,
-                                                                      15.0,
+                                                                      0.0,
                                                                       0.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_PAGE_CRIAR_GRATUITAMENTE_BTN_ON_TAP');
+                                                                  'HOME_PAGE_Button_bhuva68e_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
@@ -514,7 +519,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             text: !FFAppState()
                                                                     .existSite
                                                                 ? 'Criar agora'
-                                                                : 'Edite seu site',
+                                                                : 'Editar agora',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -579,7 +584,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
-                                                        0.4,
+                                                        0.05,
+                                                height: 1.0,
+                                                child: const Stack(
+                                                  children: [],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.45,
                                                 child: Stack(
                                                   children: [
                                                     Align(
@@ -597,7 +612,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             logFirebaseEvent(
-                                                                'HOME_PAGE_VER_EXEMPLO_BTN_ON_TAP');
+                                                                'HOME_PAGE_Button_uqmkr40n_ON_TAP');
                                                             logFirebaseEvent(
                                                                 'Button_backend_call');
                                                             _model.siteResult2 =
@@ -637,7 +652,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           text: !FFAppState()
                                                                   .existSite
                                                               ? 'Ver exemplo'
-                                                              : 'Veja seu site',
+                                                              : 'Acessar o site',
                                                           options:
                                                               FFButtonOptions(
                                                             width: MediaQuery
@@ -756,7 +771,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
-                                                          fontSize: 21.0,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -957,7 +972,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Agenda',
+                                  'Minha agenda',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1027,8 +1042,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   text: TextSpan(
                                                     children: [
                                                       TextSpan(
-                                                        text:
-                                                            'Organize todos seus ',
+                                                        text: 'Organize seus ',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1040,7 +1054,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1056,7 +1070,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
-                                                          fontSize: 21.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -1068,7 +1084,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
-                                                          fontSize: 21.0,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1191,7 +1207,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Resumo semanal',
+                                  'Meu resumo semanal',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1207,7 +1223,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 12.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
@@ -1261,7 +1277,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   text: TextSpan(
                                                     children: [
                                                       TextSpan(
-                                                        text: 'Tenha toda ',
+                                                        text: 'Veja seus',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1273,7 +1289,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1282,7 +1298,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 ),
                                                       ),
                                                       TextSpan(
-                                                        text: 'segunda-feira ',
+                                                        text:
+                                                            ' principais resultados',
                                                         style:
                                                             GoogleFonts.getFont(
                                                           'Gloria Hallelujah',
@@ -1291,18 +1308,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               .secondary,
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 21.0,
-                                                        ),
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            'de manhã  um resumo semanal das principais informações da sua jornada profissional.',
-                                                        style:
-                                                            GoogleFonts.getFont(
-                                                          'Poppins',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 21.0,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -1314,7 +1320,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
-                                                          fontSize: 21.0,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1355,14 +1361,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_PAGE_ACESSAR_BTN_ON_TAP');
+                                                                  'HOME_PAGE_ACESSAR_INFORMAES_BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
                                                                   .resumoSemanal(
                                                                       context);
                                                             },
-                                                            text: 'Acessar',
+                                                            text:
+                                                                'Acessar informações',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -1508,7 +1515,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     children: [
                                                       TextSpan(
                                                         text:
-                                                            'Organize todas as informações dos seus ',
+                                                            'Informações dos seus ',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1520,7 +1527,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1536,7 +1543,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
-                                                          fontSize: 21.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -1548,7 +1557,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
-                                                          fontSize: 21.0,
+                                                          fontSize: 19.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1567,12 +1576,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Flexible(
+                                                Expanded(
                                                   child: SizedBox(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
-                                                        0.5,
+                                                        0.45,
                                                     child: Stack(
                                                       children: [
                                                         Padding(
@@ -1581,13 +1590,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       0.0,
-                                                                      15.0,
+                                                                      0.0,
                                                                       0.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_PAGE_MEUS_CLIENTES_BTN_ON_TAP');
+                                                                  'HOME_PAGE_VER_CLIENTES_BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
@@ -1595,7 +1604,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                       context);
                                                             },
                                                             text:
-                                                                'Meus clientes',
+                                                                'Ver clientes',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -1657,7 +1666,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.5,
+                                                          0.05,
+                                                  height: 1.0,
+                                                  child: const Stack(
+                                                    children: [],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.45,
                                                   child: Stack(
                                                     children: [
                                                       Padding(
@@ -1671,45 +1690,46 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             logFirebaseEvent(
-                                                                'HOME_INCLUIR_NOVO_CLIENTE_BTN_ON_TAP');
+                                                                'HOME_PAGE_INCLUIR_NOVO_BTN_ON_TAP');
                                                             var shouldSetState =
                                                                 false;
                                                             logFirebaseEvent(
                                                                 'Button_custom_action');
                                                             await actions
                                                                 .lockOrientation();
-                                                            if (currentAuthenticationToken ==
-                                                                    null ||
-                                                                currentAuthenticationToken ==
-                                                                    '') {
-                                                              logFirebaseEvent(
-                                                                  'Button_navigate_to');
+                                                            logFirebaseEvent(
+                                                                'Button_action_block');
+                                                            _model.subscriptionResult2 =
+                                                                await action_blocks
+                                                                    .checkSubscription(
+                                                              context,
+                                                              featureID:
+                                                                  FFAppConstants
+                                                                      .FeatureListaCientes,
+                                                              pageNavigateTo:
+                                                                  'newClient01',
+                                                            );
+                                                            shouldSetState =
+                                                                true;
+                                                            if (_model
+                                                                .subscriptionResult2!) {
+                                                              if (currentAuthenticationToken ==
+                                                                      null ||
+                                                                  currentAuthenticationToken ==
+                                                                      '') {
+                                                                logFirebaseEvent(
+                                                                    'Button_navigate_to');
 
-                                                              context.pushNamed(
-                                                                  'Login');
+                                                                context
+                                                                    .pushNamed(
+                                                                        'Login');
 
-                                                              if (shouldSetState) {
-                                                                safeSetState(
-                                                                    () {});
-                                                              }
-                                                              return;
-                                                            } else {
-                                                              logFirebaseEvent(
-                                                                  'Button_action_block');
-                                                              _model.subscriptionResult3 =
-                                                                  await action_blocks
-                                                                      .checkSubscription(
-                                                                context,
-                                                                featureID:
-                                                                    FFAppConstants
-                                                                        .FeatureModuloGestao,
-                                                                pageNavigateTo:
-                                                                    'newClient01',
-                                                              );
-                                                              shouldSetState =
-                                                                  true;
-                                                              if (_model
-                                                                  .subscriptionResult3!) {
+                                                                if (shouldSetState) {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                }
+                                                                return;
+                                                              } else {
                                                                 logFirebaseEvent(
                                                                     'Button_action_block');
                                                                 await action_blocks
@@ -1720,14 +1740,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 );
                                                               }
                                                             }
-
                                                             if (shouldSetState) {
                                                               safeSetState(
                                                                   () {});
                                                             }
                                                           },
-                                                          text:
-                                                              'Incluir novo cliente',
+                                                          text: 'Incluir novo',
                                                           options:
                                                               FFButtonOptions(
                                                             width: MediaQuery
@@ -1803,7 +1821,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Assistente ',
+                                  'Minhas solicitações',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1819,7 +1837,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 12.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
@@ -1874,7 +1892,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     children: [
                                                       TextSpan(
                                                         text:
-                                                            'Como posso te ajudar ?',
+                                                            'Deixe que a Blu ',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1886,7 +1904,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1895,15 +1913,24 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 ),
                                                       ),
                                                       TextSpan(
-                                                        text:
-                                                            '\nNão sabe usar alguma função do aplicativo ou está sem tempo?',
+                                                        text: 'atualize',
                                                         style:
                                                             GoogleFonts.getFont(
                                                           'Gloria Hallelujah',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
-                                                          fontSize: 21.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
+                                                        ),
+                                                      ),
+                                                      const TextSpan(
+                                                        text: ' seu app',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -1956,7 +1983,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_DEIXA_QUE_FAO_POR_VOC_BTN_ON_TAP');
+                                                                  'HOME_PAGE_ENVIAR_SOLICITAO_BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
@@ -1964,7 +1991,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                       context);
                                                             },
                                                             text:
-                                                                'Deixa que faço por você',
+                                                                'Enviar solicitação',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -2039,7 +2066,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Programa de fidelidade',
+                                  'Meu programa de benefícios',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -2055,7 +2082,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 12.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
@@ -2109,8 +2136,21 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   text: TextSpan(
                                                     children: [
                                                       TextSpan(
+                                                        text: 'Fidelize ',
+                                                        style:
+                                                            GoogleFonts.getFont(
+                                                          'Gloria Hallelujah',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
                                                         text:
-                                                            'Fidelize ainda mais seu cliente oferecendo diversos benefícios através do programa de pontos da ',
+                                                            'ainda mais seu cliente',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2122,24 +2162,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
                                                                 ),
-                                                      ),
-                                                      TextSpan(
-                                                        text: 'Blubem',
-                                                        style:
-                                                            GoogleFonts.getFont(
-                                                          'Gloria Hallelujah',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 21.0,
-                                                        ),
                                                       )
                                                     ],
                                                     style: FlutterFlowTheme.of(
@@ -2191,14 +2220,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_PAGE_ACESSAR_BTN_ON_TAP');
+                                                                  'HOME_PAGE_ACESSAR_INFORMAES_BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
                                                                   .fidelidade(
                                                                       context);
                                                             },
-                                                            text: 'Acessar',
+                                                            text:
+                                                                'Acessar informações',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -2273,7 +2303,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Lembretes',
+                                  'Meus lembretes',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -2289,7 +2319,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 12.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
@@ -2343,8 +2373,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   text: TextSpan(
                                                     children: [
                                                       TextSpan(
-                                                        text:
-                                                            'Habilite lembretes importantes para você e seus ',
+                                                        text: 'Habilite ',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2356,7 +2385,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2365,14 +2394,24 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 ),
                                                       ),
                                                       TextSpan(
-                                                        text: 'clientes',
+                                                        text: 'lembretes',
                                                         style:
                                                             GoogleFonts.getFont(
                                                           'Gloria Hallelujah',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
-                                                          fontSize: 21.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
+                                                        ),
+                                                      ),
+                                                      const TextSpan(
+                                                        text: ' importantes',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -2507,242 +2546,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Informações',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Manrope',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 17.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 0.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x34090F13),
-                                      offset: Offset(
-                                        0.0,
-                                        2.0,
-                                      ),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 6.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 0.0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              decoration: const BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(0.0),
-                                                  bottomRight:
-                                                      Radius.circular(0.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 15.0, 10.0),
-                                                child: RichText(
-                                                  textScaler:
-                                                      MediaQuery.of(context)
-                                                          .textScaler,
-                                                  text: TextSpan(
-                                                    children: [
-                                                      TextSpan(
-                                                        text:
-                                                            'Organize as informações padrões do seus ',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      21.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                      ),
-                                                      TextSpan(
-                                                        text: 'serviços',
-                                                        style:
-                                                            GoogleFonts.getFont(
-                                                          'Gloria Hallelujah',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 21.0,
-                                                        ),
-                                                      )
-                                                    ],
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 21.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 15.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Flexible(
-                                                  child: SizedBox(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    child: Stack(
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      15.0,
-                                                                      0.0,
-                                                                      15.0,
-                                                                      0.0),
-                                                          child: FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'HOME_PAGE_ORGANIZAR_AGORA_BTN_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Button_action_block');
-                                                              await action_blocks
-                                                                  .seusServicos(
-                                                                      context);
-                                                            },
-                                                            text:
-                                                                'Organizar agora',
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  1.0,
-                                                              height: 40.0,
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          0.0,
-                                                                          15.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                              elevation: 3.0,
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation9']!),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 0.0, 10.0),
-                                child: Text(
-                                  'Assistente de precificação',
+                                  'Meu valor ideal da sessão',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -2812,8 +2616,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   text: TextSpan(
                                                     children: [
                                                       TextSpan(
-                                                        text:
-                                                            'Qual seria o preço ideal para o seu ',
+                                                        text: 'Calcule seu ',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2825,7 +2628,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2834,14 +2637,24 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 ),
                                                       ),
                                                       TextSpan(
-                                                        text: 'atendimento?',
+                                                        text: 'valor ideal ',
                                                         style:
                                                             GoogleFonts.getFont(
                                                           'Gloria Hallelujah',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
-                                                          fontSize: 21.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
+                                                        ),
+                                                      ),
+                                                      const TextSpan(
+                                                        text: 'da sessão',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -2871,13 +2684,251 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           children: [
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                SizedBox(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.9,
+                                                  child: Stack(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    15.0,
+                                                                    0.0,
+                                                                    15.0,
+                                                                    0.0),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            logFirebaseEvent(
+                                                                'HOME_PAGE_CALCULAR_AGORA_BTN_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'Button_action_block');
+                                                            await action_blocks
+                                                                .calculadora(
+                                                                    context);
+                                                          },
+                                                          text:
+                                                              'Calcular agora',
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                1.0,
+                                                            height: 40.0,
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                            elevation: 3.0,
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation9']!),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 20.0, 0.0, 10.0),
+                                child: Text(
+                                  'Minhas informações padrões',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Manrope',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 17.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 20.0, 0.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x34090F13),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 6.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 20.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              decoration: const BoxDecoration(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(0.0),
+                                                  bottomRight:
+                                                      Radius.circular(0.0),
+                                                  topLeft:
+                                                      Radius.circular(12.0),
+                                                  topRight:
+                                                      Radius.circular(12.0),
+                                                ),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        15.0, 0.0, 15.0, 10.0),
+                                                child: RichText(
+                                                  textScaler:
+                                                      MediaQuery.of(context)
+                                                          .textScaler,
+                                                  text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text: 'Altere suas ',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontSize:
+                                                                      18.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            'informações padrões',
+                                                        style:
+                                                            GoogleFonts.getFont(
+                                                          'Gloria Hallelujah',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
+                                                        ),
+                                                      )
+                                                    ],
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 15.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
                                               children: [
                                                 Flexible(
                                                   child: SizedBox(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
-                                                        0.5,
+                                                        1.0,
                                                     child: Stack(
                                                       children: [
                                                         Padding(
@@ -2886,62 +2937,20 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       0.0,
-                                                                      10.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Nossa calculadora leva em conta suas expectativas de ganho, custos e outras boas práticas de precificação.',
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.5,
-                                                  child: Stack(
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                -1.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
                                                                       15.0,
                                                                       0.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_PAGE_DESCUBRA_AGORA_BTN_ON_TAP');
+                                                                  'HOME_PAGE_VER_OPES_BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
-                                                                  .calculadora(
+                                                                  .seusServicos(
                                                                       context);
                                                             },
-                                                            text:
-                                                                'Descubra agora',
+                                                            text: 'Ver opções',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -2953,9 +2962,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          24.0,
+                                                                          15.0,
                                                                           0.0,
-                                                                          24.0,
+                                                                          15.0,
                                                                           0.0),
                                                               iconPadding:
                                                                   const EdgeInsetsDirectional
@@ -2995,8 +3004,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ],
@@ -3096,24 +3105,34 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         text: TextSpan(
                                                           children: [
                                                             TextSpan(
-                                                              text: 'Convites',
+                                                              text: 'Convide',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Poppins',
+                                                                        'Gloria Hallelujah',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryBackground,
+                                                                        .secondary,
                                                                     fontSize:
-                                                                        21.0,
+                                                                        18.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
                                                                   ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  ' outras profissionais',
+                                                              style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 18.0,
+                                                              ),
                                                             )
                                                           ],
                                                           style: FlutterFlowTheme
@@ -3125,7 +3144,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                fontSize: 21.0,
+                                                                fontSize: 19.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -3148,95 +3167,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Flexible(
-                                                  child: SizedBox(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.5,
-                                                    child: Stack(
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      15.0,
-                                                                      0.0,
-                                                                      10.0,
-                                                                      0.0),
-                                                          child: RichText(
-                                                            textScaler:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                            text: TextSpan(
-                                                              children: [
-                                                                TextSpan(
-                                                                  text:
-                                                                      'Convide outras profissionais para fazer parte da ',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryBackground,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                                TextSpan(
-                                                                  text: 'Blu',
-                                                                  style: GoogleFonts
-                                                                      .getFont(
-                                                                    'Gloria Hallelujah',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                                  ),
-                                                                ),
-                                                                TextSpan(
-                                                                  text: 'bem.',
-                                                                  style: GoogleFonts
-                                                                      .getFont(
-                                                                    'Gloria Hallelujah',
-                                                                  ),
-                                                                )
-                                                              ],
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
                                                 SizedBox(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.5,
+                                                          0.9,
                                                   child: Stack(
                                                     children: [
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
+                                                                    15.0,
                                                                     0.0,
                                                                     15.0,
                                                                     0.0),
@@ -3326,7 +3268,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Assinatura',
+                                  'Minha assinatura',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -3397,7 +3339,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     children: [
                                                       TextSpan(
                                                         text:
-                                                            'Confirme as informações de seu ',
+                                                            'Veja informações do seu ',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3409,7 +3351,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .primaryBackground,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -3425,7 +3367,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
-                                                          fontSize: 21.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18.0,
                                                         ),
                                                       )
                                                     ],
@@ -3478,14 +3422,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             onPressed:
                                                                 () async {
                                                               logFirebaseEvent(
-                                                                  'HOME_PAGE_MEU_PLANO_BTN_ON_TAP');
+                                                                  'HOME_PAGE_ACESSAR_INFORMAES_BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
                                                                   .assinatura(
                                                                       context);
                                                             },
-                                                            text: 'Meu plano',
+                                                            text:
+                                                                'Acessar informações',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: MediaQuery
@@ -3553,14 +3498,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 ),
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation12']!),
-                            ),
-                            Container(
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
                             ),
                           ],
                         ),

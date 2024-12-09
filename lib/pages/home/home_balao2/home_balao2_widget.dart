@@ -7,19 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import 'home_balao_model.dart';
-export 'home_balao_model.dart';
+import 'home_balao2_model.dart';
+export 'home_balao2_model.dart';
 
-class HomeBalaoWidget extends StatefulWidget {
-  const HomeBalaoWidget({super.key});
+class HomeBalao2Widget extends StatefulWidget {
+  const HomeBalao2Widget({super.key});
 
   @override
-  State<HomeBalaoWidget> createState() => _HomeBalaoWidgetState();
+  State<HomeBalao2Widget> createState() => _HomeBalao2WidgetState();
 }
 
-class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
+class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
     with TickerProviderStateMixin {
-  late HomeBalaoModel _model;
+  late HomeBalao2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -28,18 +28,18 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomeBalaoModel());
+    _model = createModel(context, () => HomeBalao2Model());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'HomeBalao'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'HomeBalao2'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('HOME_BALAO_PAGE_HomeBalao_ON_INIT_STATE');
+      logFirebaseEvent('HOME_BALAO2_HomeBalao2_ON_INIT_STATE');
       if (!FFAppState().firstAccess) {
-        logFirebaseEvent('HomeBalao_navigate_to');
+        logFirebaseEvent('HomeBalao2_navigate_to');
 
         context.pushNamed('Home');
       }
-      logFirebaseEvent('HomeBalao_custom_action');
+      logFirebaseEvent('HomeBalao2_custom_action');
       await actions.lockOrientation();
     });
 
@@ -104,12 +104,24 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation': AnimationInfo(
+      'containerOnPageLoadAnimation6': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 5000.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 6000.0.ms,
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
@@ -192,27 +204,40 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
                                     borderRadius: BorderRadius.circular(10.0),
+                                    shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(10.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Oie, espero que você esteja bem! 😊',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: const Color(0xFF12151C),
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                        ),
-                                      ],
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 0.0, 5.0, 0.0),
+                                            child: Text(
+                                              'Ótimo! ',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            const Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -243,7 +268,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
-                                              'Se você baixou este aplicativo para utilizar seus pontos em benefícios relacionados a saúde e bem-estar, infelizmente está no lugar errado. Acesse nosso outro aplicativo, o Clube da Blubem. ',
+                                              'Deixa eu me apresentar primeiro, me chamo Blu, sou a especialista em IA (Inteligência para Autônomas) da Blubem.',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -268,99 +293,44 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'HOME_BALAO_Container_hdldz56z_ON_TAP');
-                                    logFirebaseEvent('Container_launch_u_r_l');
-                                    await launchURL(
-                                        'https://clubedablubem.com.br');
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: SingleChildScrollView(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
-                                              child: RichText(
-                                                textScaler:
-                                                    MediaQuery.of(context)
-                                                        .textScaler,
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text:
-                                                          'Para fazer download do Clube da Blubem: ',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
-                                                    ),
-                                                    TextSpan(
-                                                      text: 'clique aqui.',
-                                                      style: TextStyle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        decoration:
-                                                            TextDecoration
-                                                                .underline,
-                                                      ),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 0.0, 5.0, 0.0),
+                                            child: Text(
+                                              'Estarei aqui no aplicativo para guiar seu uso e te ajudar em vários assuntos.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
+                                                            const Color(0xFF12151C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
-                                                        decoration:
-                                                            TextDecoration
-                                                                .underline,
                                                       ),
-                                                ),
-                                              ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -392,7 +362,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
-                                              'Agora, se você é uma profissional da saúde, e baixou este aplicativo para ter ajuda em atividades desde atrair e fidelizar novos pacientes até organizar sua agenda, você está no lugar certo. ',
+                                              'A Blubem cuida de tudo para que você possa focar no que mais importa: seu atendimento e o seu crescimento profissional.',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -414,15 +384,65 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation5']!),
                               ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 0.0, 5.0, 0.0),
+                                            child: Text(
+                                              'Vamos começar?',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            const Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'containerOnPageLoadAnimation6']!),
+                              ),
                               FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
-                                      'HOME_BALAO_SOU_PROFISSIONAL_DA_SADE_BTN_');
+                                      'HOME_BALAO2_PAGE_VAMOS_L_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_update_app_state');
+                                  FFAppState().firstAccess = false;
+                                  safeSetState(() {});
                                   logFirebaseEvent('Button_navigate_to');
 
-                                  context.pushNamed('HomeBalao2');
+                                  context.pushNamed('Home');
                                 },
-                                text: 'Sou profissional da saúde',
+                                text: 'Vamos lá!',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 44.0,
@@ -461,7 +481,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
                   child: Stack(
                     children: [
                       Align(

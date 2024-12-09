@@ -109,23 +109,14 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.85,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                              ),
-                            ),
                             Container(
-                              height: MediaQuery.sizeOf(context).height * 0.8,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                               ),
-                              child: SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 36.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -133,172 +124,162 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 20.0, 0.0),
-                                      child: SingleChildScrollView(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 15.0, 0.0),
-                                                child: Text(
-                                                  'Selecione abaixo qual cor você gostaria de destacar em seu site.',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 30.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Text(
+                                                'Selecione abaixo qual cor você gostaria de destacar em seu site.',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          fontSize: 30.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
                                               ),
                                             ),
-                                            Builder(
-                                              builder: (context) {
-                                                final colors = getJsonField(
-                                                  createSiteEtapas12ColorsResponse
-                                                      .jsonBody,
-                                                  r'''$.data''',
-                                                ).toList();
+                                          ),
+                                          Builder(
+                                            builder: (context) {
+                                              final colors = getJsonField(
+                                                createSiteEtapas12ColorsResponse
+                                                    .jsonBody,
+                                                r'''$.data''',
+                                              ).toList();
 
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount: colors.length,
-                                                  itemBuilder:
-                                                      (context, colorsIndex) {
-                                                    final colorsItem =
-                                                        colors[colorsIndex];
-                                                    return Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  10.0,
-                                                                  15.0,
-                                                                  0.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children:
+                                                    List.generate(colors.length,
+                                                        (colorsIndex) {
+                                                  final colorsItem =
+                                                      colors[colorsIndex];
+                                                  return Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                15.0,
+                                                                10.0,
+                                                                15.0,
+                                                                0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'CREATE_SITE_ETAPAS12_Container_v9gjwts4_');
+                                                        if (_model
+                                                                .colorSelected ==
+                                                            getJsonField(
+                                                              colorsItem,
+                                                              r'''$.id''',
+                                                            ).toString()) {
                                                           logFirebaseEvent(
-                                                              'CREATE_SITE_ETAPAS12_Container_v9gjwts4_');
-                                                          if (_model
+                                                              'Container_update_page_state');
+                                                          _model.colorSelected =
+                                                              null;
+                                                          safeSetState(() {});
+                                                        } else {
+                                                          logFirebaseEvent(
+                                                              'Container_update_page_state');
+                                                          _model.colorSelected =
+                                                              getJsonField(
+                                                            colorsItem,
+                                                            r'''$.id''',
+                                                          ).toString();
+                                                          safeSetState(() {});
+                                                        }
+                                                      },
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        height: 70.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              colorFromCssString(
+                                                            getJsonField(
+                                                              colorsItem,
+                                                              r'''$.hex''',
+                                                            ).toString(),
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    5.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    5.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    5.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    5.0),
+                                                          ),
+                                                        ),
+                                                        child: Visibility(
+                                                          visible: _model
                                                                   .colorSelected ==
                                                               getJsonField(
                                                                 colorsItem,
                                                                 r'''$.id''',
-                                                              ).toString()) {
-                                                            logFirebaseEvent(
-                                                                'Container_update_page_state');
-                                                            _model.colorSelected =
-                                                                null;
-                                                            safeSetState(() {});
-                                                          } else {
-                                                            logFirebaseEvent(
-                                                                'Container_update_page_state');
-                                                            _model.colorSelected =
-                                                                getJsonField(
-                                                              colorsItem,
-                                                              r'''$.id''',
-                                                            ).toString();
-                                                            safeSetState(() {});
-                                                          }
-                                                        },
-                                                        child: Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height: 70.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color:
-                                                                colorFromCssString(
-                                                              getJsonField(
-                                                                colorsItem,
-                                                                r'''$.hex''',
                                                               ).toString(),
-                                                            ),
-                                                            borderRadius:
-                                                                const BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      5.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          5.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      5.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      5.0),
-                                                            ),
-                                                          ),
-                                                          child: Visibility(
-                                                            visible: _model
-                                                                    .colorSelected ==
-                                                                getJsonField(
-                                                                  colorsItem,
-                                                                  r'''$.id''',
-                                                                ).toString(),
-                                                            child: Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .check_box,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  size: 36.0,
-                                                                ),
+                                                          child: Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    -1.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Icon(
+                                                                Icons.check_box,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                size: 36.0,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                            ),
-                                          ],
-                                        ),
+                                                    ),
+                                                  );
+                                                }),
+                                              );
+                                            },
+                                          ),
+                                        ],
                                       ),
                                     ),
                                     Padding(

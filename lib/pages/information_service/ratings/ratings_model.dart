@@ -28,11 +28,11 @@ class RatingsModel extends FlutterFlowModel<RatingsWidget> {
   int? clientesValue;
   FormFieldController<int>? clientesValueController;
   // State field(s) for servicos widget.
-  int? servicosValue1;
-  FormFieldController<int>? servicosValueController1;
-  // State field(s) for servicos widget.
-  String? servicosValue2;
-  FormFieldController<String>? servicosValueController2;
+  int? servicosValue;
+  FormFieldController<int>? servicosValueController;
+  // State field(s) for servicosEmpty widget.
+  String? servicosEmptyValue;
+  FormFieldController<String>? servicosEmptyValueController;
   // State field(s) for data widget.
   FocusNode? dataFocusNode;
   TextEditingController? dataTextController;

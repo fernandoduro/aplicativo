@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -174,13 +174,10 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -676,7 +673,7 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                 FFButtonWidget(
                                                   onPressed: () async {
                                                     logFirebaseEvent(
-                                                        'LOYALTY01_PAGE_VAMOS_L_BTN_ON_TAP');
+                                                        'LOYALTY01_PAGE_ATIVAR_AGORA_BTN_ON_TAP');
                                                     logFirebaseEvent(
                                                         'Button_update_app_state');
                                                     FFAppState().firstLoyault =
@@ -692,7 +689,7 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                     context
                                                         .pushNamed('Loyalty02');
                                                   },
-                                                  text: 'Vamos lá!',
+                                                  text: 'Ativar agora',
                                                   options: FFButtonOptions(
                                                     width: MediaQuery.sizeOf(
                                                                 context)

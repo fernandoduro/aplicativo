@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'header_back_help_widget.dart' show HeaderBackHelpWidget;
+import 'home_balao2_widget.dart' show HomeBalao2Widget;
 import 'package:flutter/material.dart';
 
-class HeaderBackHelpModel extends FlutterFlowModel<HeaderBackHelpWidget> {
+class HomeBalao2Model extends FlutterFlowModel<HomeBalao2Widget> {
   @override
   void initState(BuildContext context) {}
 

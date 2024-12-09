@@ -10,8 +10,8 @@ class SolicitacoesModel extends FlutterFlowModel<SolicitacoesWidget> {
 
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // Stores action output result for [Backend Call - API (PUT Solicitacoes)] action in Button widget.
-  ApiCallResponse? apiResult2og;
+  // Stores action output result for [Backend Call - API (PUT Solicitacoes)] action in Icon widget.
+  ApiCallResponse? apiResult2ogCopy2;
   // Model for Footer component.
   late FooterModel footerModel;
 

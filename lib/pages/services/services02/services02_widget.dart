@@ -124,56 +124,58 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                               MainAxisAlignment
                                                                   .center,
                                                           children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        35.0,
-                                                                        0.0,
-                                                                        35.0,
-                                                                        0.0),
-                                                                child: RichText(
-                                                                  textScaler: MediaQuery.of(
-                                                                          context)
-                                                                      .textScaler,
-                                                                  text:
-                                                                      TextSpan(
-                                                                    children: [
-                                                                      TextSpan(
-                                                                        text:
-                                                                            'Meus serviços',
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(
+                                                                          16.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        RichText(
+                                                                      textScaler:
+                                                                          MediaQuery.of(context)
+                                                                              .textScaler,
+                                                                      text:
+                                                                          TextSpan(
+                                                                        children: [
+                                                                          TextSpan(
+                                                                            text:
+                                                                                'Meus serviços',
+                                                                            style: FlutterFlowTheme.of(context).displaySmall.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  fontSize: 30.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          )
+                                                                        ],
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displaySmall
                                                                             .override(
                                                                               fontFamily: 'Poppins',
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              color: FlutterFlowTheme.of(context).primary,
                                                                               fontSize: 30.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
-                                                                      )
-                                                                    ],
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          fontSize:
-                                                                              30.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
+                                                                      ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                    ),
                                                                   ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                ),
+                                                                ],
                                                               ),
                                                             ),
                                                             Padding(
@@ -251,7 +253,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
-                                                                                      hintText: 'Exemplos: Atendimento on-line, presencial',
+                                                                                      hintText: 'Sessão, Avaliação… ',
                                                                                       hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                             fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
@@ -502,7 +504,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                       child: FFButtonWidget(
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('SERVICES02_PAGE__BTN_ON_TAP');
+                                                                                          logFirebaseEvent('SERVICES02_PAGE_Button_kxunrw3s_ON_TAP');
                                                                                           logFirebaseEvent('Button_validate_form');
                                                                                           if (_model.formKey.currentState == null || !_model.formKey.currentState!.validate()) {
                                                                                             return;
@@ -529,6 +531,20 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                 isSingularClient: _model.individualValue,
                                                                                                 maxClients: int.tryParse(_model.maxclientsTextController.text),
                                                                                               );
+
+                                                                                              logFirebaseEvent('Button_show_snack_bar');
+                                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                SnackBar(
+                                                                                                  content: Text(
+                                                                                                    'Tudo certo! Registramos estas informações.',
+                                                                                                    style: TextStyle(
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                ),
+                                                                                              );
                                                                                             } else {
                                                                                               logFirebaseEvent('Button_backend_call');
                                                                                               _model.apiResultxos11 = await APIOficialGroup.updateServiceCall.call(
@@ -539,21 +555,22 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                 isSingularClient: _model.individualValue,
                                                                                                 maxClients: int.tryParse(_model.maxclientsTextController.text),
                                                                                               );
+
+                                                                                              logFirebaseEvent('Button_show_snack_bar');
+                                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                SnackBar(
+                                                                                                  content: Text(
+                                                                                                    'Tudo certo! Atualizamos estas informações.',
+                                                                                                    style: TextStyle(
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                ),
+                                                                                              );
                                                                                             }
 
-                                                                                            logFirebaseEvent('Button_show_snack_bar');
-                                                                                            ScaffoldMessenger.of(context).showSnackBar(
-                                                                                              SnackBar(
-                                                                                                content: Text(
-                                                                                                  'Serviço adicionado com sucesso.',
-                                                                                                  style: TextStyle(
-                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                  ),
-                                                                                                ),
-                                                                                                duration: const Duration(milliseconds: 4000),
-                                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                              ),
-                                                                                            );
                                                                                             logFirebaseEvent('Button_reset_form_fields');
                                                                                             safeSetState(() {
                                                                                               _model.nameTextController?.clear();
@@ -597,7 +614,7 @@ class _Services02WidgetState extends State<Services02Widget> {
 
                                                                                           safeSetState(() {});
                                                                                         },
-                                                                                        text: _model.editService == 0 ? 'Criar serviço' : 'Atualizar serviço',
+                                                                                        text: _model.editService == 0 ? 'Salvar informações' : 'Atualizar informações',
                                                                                         options: FFButtonOptions(
                                                                                           width: MediaQuery.sizeOf(context).width * 0.7,
                                                                                           height: 44.0,
@@ -956,7 +973,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                         ScaffoldMessenger.of(context).showSnackBar(
                                                                                                                           SnackBar(
                                                                                                                             content: Text(
-                                                                                                                              'Pacote removido com sucesso.',
+                                                                                                                              'Tudo certo! Removemos estas informações.',
                                                                                                                               style: TextStyle(
                                                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                               ),

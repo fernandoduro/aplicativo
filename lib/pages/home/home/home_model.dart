@@ -20,7 +20,7 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   // Stores action output result for [Backend Call - API (GetSite)] action in Button widget.
   ApiCallResponse? siteResult2;
   // Stores action output result for [Action Block - CheckSubscription] action in Button widget.
-  bool? subscriptionResult3;
+  bool? subscriptionResult2;
   // Model for Footer component.
   late FooterModel footerModel;
 

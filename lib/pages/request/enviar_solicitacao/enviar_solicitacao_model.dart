@@ -40,6 +40,7 @@ class EnviarSolicitacaoModel extends FlutterFlowModel<EnviarSolicitacaoWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
   // State field(s) for TextField widget.

@@ -258,6 +258,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'adicionadoPeloMais',
               ParamType.bool,
             ),
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+            dateSelected: params.getParam(
+              'dateSelected',
+              ParamType.DateTime,
+            ),
+            hourSelected: params.getParam(
+              'hourSelected',
+              ParamType.String,
+            ),
+            existAppointment: params.getParam(
+              'existAppointment',
+              ParamType.bool,
+            ),
+            scheduleJson: params.getParam(
+              'scheduleJson',
+              ParamType.JSON,
+            ),
+            isAddNewClient: params.getParam(
+              'isAddNewClient',
+              ParamType.bool,
+            ),
+            idClientSelected: params.getParam(
+              'idClientSelected',
+              ParamType.int,
+            ),
+            situacao: params.getParam(
+              'situacao',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -411,8 +443,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'existAppointment',
               ParamType.bool,
             ),
-            scheduleJson: params.getParam(
-              'scheduleJson',
+            scheduleCabecalho: params.getParam(
+              'scheduleCabecalho',
               ParamType.JSON,
             ),
             isAddNewClient: params.getParam(
@@ -426,6 +458,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             situacao: params.getParam(
               'situacao',
               ParamType.String,
+            ),
+            idAppointmentSelected: params.getParam(
+              'idAppointmentSelected',
+              ParamType.int,
+            ),
+            idProfessionalClientSelected: params.getParam(
+              'idProfessionalClientSelected',
+              ParamType.int,
+            ),
+            professionalClientJSON: params.getParam(
+              'professionalClientJSON',
+              ParamType.JSON,
             ),
           ),
         ),
@@ -574,11 +618,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'RemindersCopy',
-          path: '/remindersCopy',
-          builder: (context, params) => const RemindersCopyWidget(),
-        ),
-        FFRoute(
           name: 'FinishAccessConfig',
           path: '/finishAccessConfig',
           builder: (context, params) => FinishAccessConfigWidget(
@@ -587,6 +626,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'HomeBalao2',
+          path: '/homeBalao2',
+          builder: (context, params) => const HomeBalao2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

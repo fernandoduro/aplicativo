@@ -175,10 +175,10 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                     -1.0, 0.0),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 15.0, 0.0),
+                                                      .fromSTEB(16.0, 0.0, 16.0,
+                                                          16.0),
                                                   child: Text(
-                                                    'Preencha abaixo seu endereço.',
+                                                    'Preencha seu endereço',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -187,7 +187,7 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          fontSize: 30.0,
+                                                          fontSize: 25.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
