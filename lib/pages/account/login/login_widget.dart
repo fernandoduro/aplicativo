@@ -69,7 +69,10 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
@@ -430,6 +433,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 navigate = () =>
                                                     context.goNamedAuth('Home',
                                                         context.mounted);
+                                                logFirebaseEvent(
+                                                    'Button_update_app_state');
+                                                FFAppState().idUser =
+                                                    getJsonField(
+                                                  (_model.apiResultLogin
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                  r'''$.data.professional.id''',
+                                                );
+                                                safeSetState(() {});
                                                 logFirebaseEvent(
                                                     'Button_custom_action');
                                                 await actions.onesignalLogin(

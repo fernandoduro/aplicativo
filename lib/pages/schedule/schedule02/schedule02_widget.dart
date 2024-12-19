@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'schedule02_model.dart';
 export 'schedule02_model.dart';
@@ -61,7 +62,10 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -290,25 +294,6 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                       .textScaler,
                                                               text: TextSpan(
                                                                 children: [
-                                                                  TextSpan(
-                                                                    text:
-                                                                        'Serviço: ',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondary,
-                                                                          fontSize:
-                                                                              12.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                        ),
-                                                                  ),
                                                                   TextSpan(
                                                                     text:
                                                                         getJsonField(
@@ -586,7 +571,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                     getJsonField(
                                                                       widget
                                                                           .scheduleSelected,
-                                                                      r'''$.schedule.professional_client[*].appointment_id''',
+                                                                      r'''$.schedule.professional_client[*].pivot.appointment_id''',
                                                                     ).toString(),
                                                                     '[',
                                                                     ''),
@@ -672,7 +657,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                     getJsonField(
                                                                       widget
                                                                           .scheduleSelected,
-                                                                      r'''$.schedule.professional_client[*].appointment_id''',
+                                                                      r'''$.schedule.professional_client[*].pivot.appointment_id''',
                                                                     ).toString(),
                                                                     '[',
                                                                     ''),
@@ -767,7 +752,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                       getJsonField(
                                                                         widget
                                                                             .scheduleSelected,
-                                                                        r'''$.schedule.professional_client[*].appointment_id''',
+                                                                        r'''$.schedule.professional_client[*].pivot.appointment_id''',
                                                                       ).toString(),
                                                                       '[',
                                                                       ''),
@@ -1086,8 +1071,8 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                             'idAppointment':
                                                                                 serializeParam(
                                                                               getJsonField(
-                                                                                widget.scheduleJson,
-                                                                                r'''$.id''',
+                                                                                scheduleItem,
+                                                                                r'''$.pivot.appointment_id''',
                                                                               ),
                                                                               ParamType.int,
                                                                             ),
@@ -1095,7 +1080,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                 serializeParam(
                                                                               getJsonField(
                                                                                 scheduleItem,
-                                                                                r'''$.client.id''',
+                                                                                r'''$.pivot.client_id''',
                                                                               ),
                                                                               ParamType.int,
                                                                             ),
@@ -1182,7 +1167,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                 serializeParam(
                                                                               getJsonField(
                                                                                 scheduleItem,
-                                                                                r'''$.appointment_id''',
+                                                                                r'''$.pivot.appointment_id''',
                                                                               ),
                                                                               ParamType.int,
                                                                             ),
@@ -1244,20 +1229,11 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                             .idsClientsSchedule = getJsonField(
                                                                           widget
                                                                               .scheduleJson,
-                                                                          r'''$.professional_client[*].client.id''',
+                                                                          r'''$.professional_client[*].pivot.professional_client_id''',
                                                                           true,
                                                                         )!
                                                                             .toList()
                                                                             .cast<int>();
-                                                                        safeSetState(
-                                                                            () {});
-                                                                        logFirebaseEvent(
-                                                                            'Icon_update_page_state');
-                                                                        _model.removeFromIdsClientsSchedule(
-                                                                            getJsonField(
-                                                                          scheduleItem,
-                                                                          r'''$.client.id''',
-                                                                        ));
                                                                         safeSetState(
                                                                             () {});
                                                                         logFirebaseEvent(
@@ -1294,7 +1270,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                             idAppointment:
                                                                                 getJsonField(
                                                                               scheduleItem,
-                                                                              r'''$.appointment_id''',
+                                                                              r'''$.pivot.appointment_id''',
                                                                             ).toString(),
                                                                             date: functions.concateStrings(
                                                                                 functions.concateStrings(
@@ -1418,7 +1394,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                 Text(
                                                                                   getJsonField(
                                                                                     scheduleItem,
-                                                                                    r'''$.client.name''',
+                                                                                    r'''$.name''',
                                                                                   ).toString(),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Manrope',
@@ -1490,7 +1466,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                               children: [
                                                                                 if (getJsonField(
                                                                                       scheduleItem,
-                                                                                      r'''$.client.birthday''',
+                                                                                      r'''$.birthday''',
                                                                                     ) !=
                                                                                     null)
                                                                                   Align(
@@ -1509,7 +1485,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                   ),
                                                                                 if (getJsonField(
                                                                                       scheduleItem,
-                                                                                      r'''$.client.birthday''',
+                                                                                      r'''$.birthday''',
                                                                                     ) !=
                                                                                     null)
                                                                                   Padding(
@@ -1517,47 +1493,8 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                     child: Text(
                                                                                       functions.formatDate(functions.removeNullString(getJsonField(
                                                                                         scheduleItem,
-                                                                                        r'''$.client.birthday''',
+                                                                                        r'''$.birthday''',
                                                                                       ).toString()))!,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.client.cpf''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                      child: Container(
-                                                                                        width: 15.0,
-                                                                                        height: 15.0,
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          borderRadius: BorderRadius.circular(24.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.client.cpf''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                    child: Text(
-                                                                                      functions.removeNullString(getJsonField(
-                                                                                        scheduleItem,
-                                                                                        r'''$.client.cpf''',
-                                                                                      ).toString())!,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Manrope',
                                                                                             fontSize: 12.0,
@@ -1576,89 +1513,57 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                 0.0,
                                                                                 8.0),
                                                                             child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                              children: [
-                                                                                if (getJsonField(
+                                                                                InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                logFirebaseEvent('SCHEDULE02_PAGE_Row_u1ex4x4x_ON_TAP');
+                                                                                logFirebaseEvent('Row_launch_u_r_l');
+                                                                                await launchURL(functions.concateStrings(
+                                                                                    'https://wa.me/55',
+                                                                                    functions.clearMaskPhone(getJsonField(
                                                                                       scheduleItem,
                                                                                       r'''$.client.cellphone[0]''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                      child: Container(
-                                                                                        width: 15.0,
-                                                                                        height: 15.0,
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          borderRadius: BorderRadius.circular(24.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.client.cellphone[0]''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                    child: Text(
-                                                                                      functions.removeNullString(getJsonField(
+                                                                                    ).toString()))!);
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                children: [
+                                                                                  if (getJsonField(
                                                                                         scheduleItem,
                                                                                         r'''$.client.cellphone[0]''',
-                                                                                      ).toString())!,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                          ),
+                                                                                      ) !=
+                                                                                      null)
+                                                                                    FaIcon(
+                                                                                      FontAwesomeIcons.whatsapp,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                      size: 19.0,
                                                                                     ),
-                                                                                  ),
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.client.email[0]''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                      child: Container(
-                                                                                        width: 15.0,
-                                                                                        height: 15.0,
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          borderRadius: BorderRadius.circular(24.0),
-                                                                                        ),
+                                                                                  if (getJsonField(
+                                                                                        scheduleItem,
+                                                                                        r'''$.cellphone[0]''',
+                                                                                      ) !=
+                                                                                      null)
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
+                                                                                      child: Text(
+                                                                                        functions.removeNullString(getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.cellphone[0]''',
+                                                                                        ).toString())!,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Manrope',
+                                                                                              fontSize: 12.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w600,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.client.email[0]''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                    child: Text(
-                                                                                      functions.removeNullString(getJsonField(
-                                                                                        scheduleItem,
-                                                                                        r'''$.client.email[0]''',
-                                                                                      ).toString())!,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                              ],
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ],

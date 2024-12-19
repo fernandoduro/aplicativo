@@ -133,7 +133,10 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
@@ -200,17 +203,22 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          'Oie, espero que você esteja bem! 😊',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: const Color(0xFF12151C),
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  5.0, 0.0, 5.0, 0.0),
+                                          child: Text(
+                                            'Oie, espero que você esteja bem! 😊',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: const Color(0xFF12151C),
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -275,10 +283,10 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
-                                        'HOME_BALAO_Container_hdldz56z_ON_TAP');
+                                        'HOME_BALAO_Container_qh224cqn_ON_TAP');
                                     logFirebaseEvent('Container_launch_u_r_l');
                                     await launchURL(
-                                        'https://clubedablubem.com.br');
+                                        'https://blubem.com.br/link-app-clube');
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -308,53 +316,42 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                   children: [
                                                     TextSpan(
                                                       text:
-                                                          'Para fazer download do Clube da Blubem: ',
+                                                          'Para fazer download do Clube da Blubem:  ',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 14.0,
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
                                                           ),
                                                     ),
                                                     TextSpan(
                                                       text: 'clique aqui.',
-                                                      style: TextStyle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Manrope',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        decoration:
-                                                            TextDecoration
-                                                                .underline,
-                                                      ),
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                          ),
                                                     )
                                                   ],
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 14.0,
+                                                        fontFamily: 'Manrope',
                                                         letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        decoration:
-                                                            TextDecoration
-                                                                .underline,
                                                       ),
                                                 ),
                                               ),
@@ -465,7 +462,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                   child: Stack(
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(1.05, 0.0),
+                        alignment: const AlignmentDirectional(1.06, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(

@@ -45,6 +45,8 @@ class CreateSiteEtapas17Model
   String? Function(BuildContext, String?)? cidadeTextControllerValidator;
   // Stores action output result for [Backend Call - API (UpdateSite)] action in Button widget.
   ApiCallResponse? updatesite17;
+  // Stores action output result for [Backend Call - API (ListSchedule)] action in Button widget.
+  ApiCallResponse? listScheduleCode3;
   // Model for Footer component.
   late FooterModel footerModel;
 

@@ -2,27 +2,22 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_site_etapas16_widget.dart' show CreateSiteEtapas16Widget;
+import 'create_site_etapas18_copy_widget.dart'
+    show CreateSiteEtapas18CopyWidget;
 import 'package:flutter/material.dart';
 
-class CreateSiteEtapas16Model
-    extends FlutterFlowModel<CreateSiteEtapas16Widget> {
+class CreateSiteEtapas18CopyModel
+    extends FlutterFlowModel<CreateSiteEtapas18CopyWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // State field(s) for online widget.
-  bool? onlineValue;
-  // State field(s) for presencial widget.
-  bool? presencialValue;
-  // State field(s) for domiciliar widget.
-  bool? domiciliarValue;
-  // Stores action output result for [Custom Action - addPersonServices] action in Button widget.
-  String? servicesResult;
+  // State field(s) for descricao widget.
+  FocusNode? descricaoFocusNode;
+  TextEditingController? descricaoTextController;
+  String? Function(BuildContext, String?)? descricaoTextControllerValidator;
   // Stores action output result for [Backend Call - API (UpdateSite)] action in Button widget.
-  ApiCallResponse? updatesite17;
-  // Stores action output result for [Backend Call - API (ListSchedule)] action in Button widget.
-  ApiCallResponse? listScheduleCode4;
+  ApiCallResponse? updatesite18;
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -35,6 +30,9 @@ class CreateSiteEtapas16Model
   @override
   void dispose() {
     headerHelpModel.dispose();
+    descricaoFocusNode?.dispose();
+    descricaoTextController?.dispose();
+
     footerModel.dispose();
   }
 }

@@ -90,7 +90,10 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
         final createSiteEtapas11LayoutsResponse = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

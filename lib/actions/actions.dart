@@ -34,7 +34,7 @@ Future<bool?> checkSubscription(
           '0') {
         logFirebaseEvent('CheckSubscription_navigate_to');
 
-        context.goNamed(
+        context.pushNamed(
           'FirstAccess',
           queryParameters: {
             'navigateTo': serializeParam(

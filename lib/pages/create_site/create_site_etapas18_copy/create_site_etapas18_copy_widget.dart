@@ -1,7 +1,7 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
-import '/components/header/header_widget.dart';
+import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -13,18 +13,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:provider/provider.dart';
-import 'create_site_etapa6_model.dart';
-export 'create_site_etapa6_model.dart';
+import 'create_site_etapas18_copy_model.dart';
+export 'create_site_etapas18_copy_model.dart';
 
-class CreateSiteEtapa6Widget extends StatefulWidget {
-  const CreateSiteEtapa6Widget({super.key});
+class CreateSiteEtapas18CopyWidget extends StatefulWidget {
+  const CreateSiteEtapas18CopyWidget({super.key});
 
   @override
-  State<CreateSiteEtapa6Widget> createState() => _CreateSiteEtapa6WidgetState();
+  State<CreateSiteEtapas18CopyWidget> createState() =>
+      _CreateSiteEtapas18CopyWidgetState();
 }
 
-class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
-  late CreateSiteEtapa6Model _model;
+class _CreateSiteEtapas18CopyWidgetState
+    extends State<CreateSiteEtapas18CopyWidget> {
+  late CreateSiteEtapas18CopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
@@ -33,43 +35,15 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateSiteEtapa6Model());
+    _model = createModel(context, () => CreateSiteEtapas18CopyModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'CreateSiteEtapa6'});
+        parameters: {'screen_name': 'CreateSiteEtapas18Copy'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('CREATE_SITE_ETAPA6_CreateSiteEtapa6_ON_I');
-      logFirebaseEvent('CreateSiteEtapa6_custom_action');
+      logFirebaseEvent('CREATE_SITE_ETAPAS18_COPY_CreateSiteEtap');
+      logFirebaseEvent('CreateSiteEtapas18Copy_custom_action');
       await actions.lockOrientation();
-      if (getJsonField(
-            FFAppState().dataSite,
-            r'''$.name''',
-          ) !=
-          null) {
-        logFirebaseEvent('CreateSiteEtapa6_set_form_field');
-        safeSetState(() {
-          _model.nameTextController?.text =
-              functions.removeNullString(getJsonField(
-            FFAppState().dataSite,
-            r'''$.name''',
-          ).toString().toString())!;
-        });
-      } else {
-        logFirebaseEvent('CreateSiteEtapa6_backend_call');
-        _model.apiResult = await APIOficialGroup.getUserCall.call(
-          authToken: currentAuthenticationToken,
-        );
-
-        logFirebaseEvent('CreateSiteEtapa6_set_form_field');
-        safeSetState(() {
-          _model.nameTextController?.text =
-              functions.removeNullString(getJsonField(
-            (_model.apiResult?.jsonBody ?? ''),
-            r'''$.name''',
-          ).toString().toString())!;
-        });
-      }
     });
 
     if (!isWeb) {
@@ -81,8 +55,12 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
       });
     }
 
-    _model.nameTextController ??= TextEditingController();
-    _model.nameFocusNode ??= FocusNode();
+    _model.descricaoTextController ??= TextEditingController(
+        text: functions.removeNullString(getJsonField(
+      FFAppState().dataSite,
+      r'''$.open_hours''',
+    ).toString().toString()));
+    _model.descricaoFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -106,25 +84,26 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          body: SafeArea(
-            top: true,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                wrapWithModel(
-                  model: _model.headerModel,
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: const AlignmentDirectional(0.0, -1.0),
+                child: wrapWithModel(
+                  model: _model.headerHelpModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const HeaderWidget(),
+                  child: const HeaderHelpWidget(),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -162,7 +141,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 0.0, 15.0, 0.0),
                                         child: Text(
-                                          'Digite a forma que gostaria que seu nome apareça no site?',
+                                          'Preencha no campo abaixo seus horários de atendimento:',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -186,28 +165,29 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 15.0, 0.0),
+                                          15.0, 0.0, 8.0, 0.0),
                                       child: TextFormField(
-                                        controller: _model.nameTextController,
-                                        focusNode: _model.nameFocusNode,
+                                        controller:
+                                            _model.descricaoTextController,
+                                        focusNode: _model.descricaoFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
-                                          '_model.nameTextController',
+                                          '_model.descricaoTextController',
                                           const Duration(milliseconds: 30),
                                           () async {
                                             logFirebaseEvent(
-                                                'CREATE_SITE_ETAPA6_Name_ON_TEXTFIELD_CHA');
+                                                'CREATE_SITE_ETAPAS18_COPY_descricao_ON_T');
                                             logFirebaseEvent(
-                                                'Name_update_app_state');
+                                                'descricao_update_app_state');
 
                                             safeSetState(() {});
                                           },
                                         ),
                                         autofocus: false,
                                         textCapitalization:
-                                            TextCapitalization.words,
+                                            TextCapitalization.sentences,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Nome',
+                                          labelText: 'Digite aqui...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
@@ -270,8 +250,10 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                               fontFamily: 'Manrope',
                                               letterSpacing: 0.0,
                                             ),
+                                        maxLines: 5,
+                                        keyboardType: TextInputType.multiline,
                                         validator: _model
-                                            .nameTextControllerValidator
+                                            .descricaoTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -291,24 +273,24 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         FFButtonWidget(
-                                          onPressed: (_model.nameTextController
+                                          onPressed: (_model.descricaoTextController
                                                           .text ==
                                                       '')
                                               ? null
                                               : () async {
                                                   logFirebaseEvent(
-                                                      'CREATE_SITE_ETAPA6_AVANAR_BTN_ON_TAP');
+                                                      'CREATE_SITE_ETAPAS18_COPY_AVANAR_BTN_ON_');
                                                   logFirebaseEvent(
                                                       'Button_backend_call');
-                                                  _model.updateSite6 =
+                                                  _model.updatesite18 =
                                                       await APIOficialGroup
                                                           .updateSiteCall
                                                           .call(
                                                     authToken:
                                                         currentAuthenticationToken,
                                                     bodyJson: <String, String?>{
-                                                      'name': _model
-                                                          .nameTextController
+                                                      'open_hours': _model
+                                                          .descricaoTextController
                                                           .text,
                                                     },
                                                   );
@@ -317,13 +299,13 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                                       'Button_navigate_to');
 
                                                   context.pushNamed(
-                                                      'CreateSiteEtapa7');
+                                                      'CreateSiteEtapas19');
 
                                                   logFirebaseEvent(
                                                       'Button_update_app_state');
                                                   FFAppState().dataSite =
                                                       getJsonField(
-                                                    (_model.updateSite6
+                                                    (_model.updatesite18
                                                             ?.jsonBody ??
                                                         ''),
                                                     r'''$.data''',
@@ -397,21 +379,21 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                     ),
                   ),
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
-                      child: wrapWithModel(
-                        model: _model.footerModel,
-                        updateCallback: () => safeSetState(() {}),
-                        child: const FooterWidget(),
-                      ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    child: wrapWithModel(
+                      model: _model.footerModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: const FooterWidget(),
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

@@ -84,15 +84,22 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                      getJsonField(
+                        (_model.apiResult4ia?.jsonBody ?? ''),
+                        r'''$.message''',
+                      ).toString(),
                       style: TextStyle(
-                        color: FlutterFlowTheme.of(context).primaryText,
+                        color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                     ),
                     duration: const Duration(milliseconds: 4000),
                     backgroundColor: FlutterFlowTheme.of(context).error,
                   ),
                 );
+                logFirebaseEvent('status_set_form_field');
+                safeSetState(() {
+                  _model.statusValue = false;
+                });
               }
 
               safeSetState(() {});
@@ -124,7 +131,10 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Erro ao tentar habilitara  função. Tente novamente!',
+                      getJsonField(
+                        (_model.apiResultndw?.jsonBody ?? ''),
+                        r'''$.message''',
+                      ).toString(),
                       style: TextStyle(
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
@@ -133,6 +143,10 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                     backgroundColor: FlutterFlowTheme.of(context).error,
                   ),
                 );
+                logFirebaseEvent('status_set_form_field');
+                safeSetState(() {
+                  _model.statusValue = false;
+                });
               }
 
               safeSetState(() {});

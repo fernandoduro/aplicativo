@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'header_model.dart';
 export 'header_model.dart';
 
@@ -25,6 +27,18 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     super.initState();
     _model = createModel(context, () => HeaderModel());
 
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('HEADER_COMP_Header_ON_INIT_STATE');
+      logFirebaseEvent('Header_google_analytics_event');
+      logFirebaseEvent(
+        'user_id',
+        parameters: {
+          'id': FFAppState().idUser,
+        },
+      );
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -37,6 +51,8 @@ class _HeaderWidgetState extends State<HeaderWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [

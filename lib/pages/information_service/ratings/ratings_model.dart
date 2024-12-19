@@ -24,9 +24,6 @@ class RatingsModel extends FlutterFlowModel<RatingsWidget> {
   final formKey = GlobalKey<FormState>();
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // State field(s) for clientes widget.
-  int? clientesValue;
-  FormFieldController<int>? clientesValueController;
   // State field(s) for servicos widget.
   int? servicosValue;
   FormFieldController<int>? servicosValueController;
@@ -51,10 +48,27 @@ class RatingsModel extends FlutterFlowModel<RatingsWidget> {
   TextEditingController? horaTextController;
   final horaMask = MaskTextInputFormatter(mask: '##:##');
   String? Function(BuildContext, String?)? horaTextControllerValidator;
+  String? _horaTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Campo obrigatório';
+    }
+
+    return null;
+  }
+
   // State field(s) for comentario widget.
   FocusNode? comentarioFocusNode;
   TextEditingController? comentarioTextController;
   String? Function(BuildContext, String?)? comentarioTextControllerValidator;
+  String? _comentarioTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Campo obrigatório';
+    }
+
+    return null;
+  }
+
   AudioRecorder? audioRecorder;
   String? recording;
   FFUploadedFile recordedFileBytes =
@@ -76,6 +90,8 @@ class RatingsModel extends FlutterFlowModel<RatingsWidget> {
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
     dataTextControllerValidator = _dataTextControllerValidator;
+    horaTextControllerValidator = _horaTextControllerValidator;
+    comentarioTextControllerValidator = _comentarioTextControllerValidator;
     footerWhiteModel = createModel(context, () => FooterWhiteModel());
   }
 

@@ -116,7 +116,10 @@ class _CommentsWidgetState extends State<CommentsWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -396,7 +399,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                   Text(
                                                                                                     getJsonField(
                                                                                                       containerGetClientByIDResponse.jsonBody,
-                                                                                                      r'''$.data.name''',
+                                                                                                      r'''$.data.professional_clients[0].name''',
                                                                                                     ).toString(),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Manrope',
@@ -435,7 +438,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     ),
                                                                                                   if (getJsonField(
                                                                                                         containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.birthday''',
+                                                                                                        r'''$.data.professional_clients[0].birthday''',
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Padding(
@@ -443,7 +446,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       child: Text(
                                                                                                         getJsonField(
                                                                                                           containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.birthday''',
+                                                                                                          r'''$.data.professional_clients[0].birthday''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Manrope',
@@ -474,7 +477,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     ),
                                                                                                   if (getJsonField(
                                                                                                         containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.cpf''',
+                                                                                                        r'''$.data.professional_clients[0].cpf''',
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Padding(
@@ -482,7 +485,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       child: Text(
                                                                                                         getJsonField(
                                                                                                           containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.cpf''',
+                                                                                                          r'''$.data.professional_clients[0].cpf''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Manrope',
@@ -522,7 +525,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     ),
                                                                                                   if (getJsonField(
                                                                                                         containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.cellphone[0]''',
+                                                                                                        r'''$.data.professional_clients[0].cellphone[0]''',
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Padding(
@@ -530,7 +533,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       child: Text(
                                                                                                         getJsonField(
                                                                                                           containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.cellphone[0]''',
+                                                                                                          r'''$.data.professional_clients[0].cellphone[0]''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Manrope',
@@ -1382,12 +1385,6 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                           commentsListItem,
                                                                                                                                           r'''$.comment''',
                                                                                                                                         ).toString();
-                                                                                                                                        _model.comentarioFocusNode?.requestFocus();
-                                                                                                                                        WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                                          _model.comentarioTextController?.selection = TextSelection.collapsed(
-                                                                                                                                            offset: _model.comentarioTextController!.text.length,
-                                                                                                                                          );
-                                                                                                                                        });
                                                                                                                                       });
                                                                                                                                     },
                                                                                                                                     text: 'Editar',

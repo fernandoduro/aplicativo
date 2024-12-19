@@ -12,7 +12,13 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start API Oficial Group Code
 
 class APIOficialGroup {
-  static String getBaseUrl() => 'https://api.blubem.com.br/api';
+  static String getBaseUrl({
+    String? apiURL,
+  }) {
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    return apiURL;
+  }
+
   static Map<String, String> headers = {};
   static LoginCall loginCall = LoginCall();
   static RegisterCall registerCall = RegisterCall();
@@ -114,8 +120,12 @@ class LoginCall {
   Future<ApiCallResponse> call({
     String? cellphone = '',
     String? password = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -162,8 +172,12 @@ class RegisterCall {
     int? categoryId,
     String? code = '',
     String? gender = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -207,8 +221,13 @@ class RegisterCall {
 }
 
 class CategoriesCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? apiURL,
+  }) async {
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Categories',
@@ -243,8 +262,12 @@ class CategoriesCall {
 class ColorsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Colors',
@@ -281,8 +304,12 @@ class ColorsCall {
 class LayoutsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Layouts',
@@ -319,8 +346,12 @@ class LayoutsCall {
 class SpecializationsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Specializations',
@@ -357,8 +388,12 @@ class SpecializationsCall {
 class GetSiteCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetSite',
@@ -395,8 +430,12 @@ class UpdateSiteCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic bodyJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
@@ -436,8 +475,12 @@ class UpdateSiteCall {
 class DomainsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Domains',
@@ -483,8 +526,12 @@ class CepCall {
   Future<ApiCallResponse> call({
     String? cep = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'CEP',
@@ -530,8 +577,13 @@ class CepCall {
 }
 
 class StateCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? apiURL,
+  }) async {
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'State',
@@ -566,8 +618,12 @@ class StateCall {
 class CityCall {
   Future<ApiCallResponse> call({
     String? idCity = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'City',
@@ -603,8 +659,12 @@ class DomainCheckCall {
   Future<ApiCallResponse> call({
     String? url = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DomainCheck',
@@ -644,8 +704,12 @@ class DomainCheckCall {
 class GetUserCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetUser',
@@ -698,8 +762,12 @@ class UpdateProfessionalCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic bodyJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
@@ -727,8 +795,12 @@ class EncerrarContaCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? motive = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'EncerrarConta',
@@ -752,8 +824,12 @@ class InvitesCall {
   Future<ApiCallResponse> call({
     String? invite = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Invites',
@@ -798,8 +874,12 @@ class InvitesCall {
 class MyInvitesCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'MyInvites',
@@ -840,8 +920,12 @@ class MyInvitesCall {
 class RequestInviteCustomWebsiteCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'RequestInviteCustomWebsite',
@@ -865,8 +949,12 @@ class RequestInviteCustomWebsiteCall {
 class GetPackagesCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getPackages',
@@ -908,8 +996,12 @@ class GetPackagesCall {
 class ViewsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Views',
@@ -949,8 +1041,12 @@ class CreateClientCall {
     String? cpf = '',
     String? cellphone = '',
     String? status = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -998,8 +1094,12 @@ class ListAllClientsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? filter = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'ListAllClients',
@@ -1041,8 +1141,12 @@ class GetClientByIDCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getClientByID',
@@ -1066,8 +1170,12 @@ class ConfirmCodeCall {
   Future<ApiCallResponse> call({
     String? cellphone = '',
     String? code = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1099,8 +1207,12 @@ class ResetpasswordCall {
     String? password = '',
     String? cPassword = '',
     int? id,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1131,8 +1243,12 @@ class ResetpasswordCall {
 class ForgotPasswordCall {
   Future<ApiCallResponse> call({
     String? cellphone = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1165,8 +1281,12 @@ class EditClientCall {
     String? cellphone = '',
     List<int>? packagesList,
     String? status = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
     final packages = _serializeList(packagesList);
 
     final ffApiRequestBody = '''
@@ -1208,8 +1328,12 @@ class EditClientComplementCall {
     String? birthday = '',
     String? gender = '',
     String? email = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1245,8 +1369,12 @@ class PackagesByIdCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? id = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'PackagesById',
@@ -1271,8 +1399,12 @@ class EditClientPackagesCall {
     String? id = '',
     String? authToken = '',
     dynamic packagesJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final packages = _serializeJson(packagesJson, true);
     final ffApiRequestBody = '''
@@ -1302,8 +1434,12 @@ class EditClientPackagesCall {
 class GetServicesCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getServices',
@@ -1343,13 +1479,19 @@ class CreateServiceCall {
     bool? isSingularClient,
     int? maxClients,
     String? authToken = '',
+    String? extraDuration = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
   "name": "$name",
   "duration": "$durantion",
+  "extra_duration": "$extraDuration",
   "is_singular_client": $isSingularClient,
   "max_clients": $maxClients
 }''';
@@ -1377,8 +1519,12 @@ class DeleteServiceCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DeleteService',
@@ -1406,13 +1552,19 @@ class UpdateServiceCall {
     int? duration,
     bool? isSingularClient,
     int? maxClients,
+    String? extraDuration = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
   "name": "$name",
   "duration": $duration,
+  "extra_duration": "$extraDuration",
   "is_singular_client": $isSingularClient,
   "max_clients": $maxClients
 }''';
@@ -1443,8 +1595,12 @@ class CreatePackageCall {
     int? recurrency,
     double? monthlyValue,
     int? serviceIds,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1481,8 +1637,12 @@ class UpdatePackagesCall {
     int? recurrency,
     double? monthlyValue,
     int? serviceIds,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1517,8 +1677,12 @@ class DeletePackageCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DeletePackage',
@@ -1542,8 +1706,12 @@ class GetAppointmentsByClientCall {
   Future<ApiCallResponse> call({
     String? idCliente = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetAppointmentsByClient',
@@ -1566,8 +1734,12 @@ class GetAppointmentsByClientCall {
 class GETSolicitacoesCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GET solicitacoes',
@@ -1673,8 +1845,12 @@ class GETSolicitacoesCall {
 class SubscriptionCurrentCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'SubscriptionCurrent',
@@ -1703,8 +1879,12 @@ class PostSolicitacoesCall {
     List<String>? imagesList,
     String? status = '',
     String? area = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
     final images = _serializeList(imagesList);
 
     final ffApiRequestBody = '''
@@ -1741,8 +1921,12 @@ class GetAppointmentsByDateCall {
     String? dateFrom = '',
     String? dateTo = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAppointmentsByDate',
@@ -1773,8 +1957,13 @@ class CreateAppointmentCall {
     List<int>? professionalClientIdList,
     int? serviceId,
     String? recurrentInterval = '',
+    int? duration,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
     final professionalClientId = _serializeList(professionalClientIdList);
 
     final ffApiRequestBody = '''
@@ -1786,7 +1975,8 @@ class CreateAppointmentCall {
   "scheduled_at": "$scheduledAt",
   "confirmation": "$confirmation",
   "professional_client_id": $professionalClientId,
-  "service_id": $serviceId
+  "service_id": $serviceId,
+  "duration": $duration
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateAppointment',
@@ -1812,8 +2002,12 @@ class AddHoursWorkProfessionalsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic disponibilityJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final disponibility = _serializeJson(disponibilityJson);
     final ffApiRequestBody = '''
@@ -1845,8 +2039,12 @@ class DefaultDaysPaymentCall {
     String? authToken = '',
     String? payMethod = '',
     String? payday = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1877,8 +2075,12 @@ class ListScheduleCall {
   Future<ApiCallResponse> call({
     String? dataFiltro = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'ListSchedule',
@@ -1902,8 +2104,12 @@ class SubscriptionActiveTrialCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     int? featureId,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1941,8 +2147,13 @@ class UpdateAppointmentCall {
     String? idAppointment = '',
     String? recurrentInterval = '',
     String? confirmation = '',
+    int? duration,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
     final professionalClientId = _serializeList(professionalClientIdList);
 
     final ffApiRequestBody = '''
@@ -1954,7 +2165,8 @@ class UpdateAppointmentCall {
   "scheduled_at": "$scheduledAt",
   "professional_client_id": $professionalClientId,
   "service_id": $serviceId,
-  "confirmation": "$confirmation"
+  "confirmation": "$confirmation",
+  "duration": $duration
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateAppointment',
@@ -1984,8 +2196,12 @@ class PUTSolicitacoesCall {
     String? area = '',
     String? title = '',
     String? description = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2021,8 +2237,12 @@ class AddClientAppointmentCall {
     bool? recurrent,
     List<int>? professionalClientIdList,
     String? recurrentInterval = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
     final professionalClientId = _serializeList(professionalClientIdList);
 
     final ffApiRequestBody = '''
@@ -2056,8 +2276,12 @@ class DeleteAppoitmentCall {
     String? idAppointment = '',
     String? authToken = '',
     String? date = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DeleteAppoitment',
@@ -2081,8 +2305,12 @@ class TimelineClientCall {
   Future<ApiCallResponse> call({
     String? idClient = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'TimelineClient',
@@ -2117,8 +2345,12 @@ class AddRatingsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic bodyJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
@@ -2146,8 +2378,12 @@ class DeleteRatingsCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DeleteRatings',
@@ -2170,13 +2406,18 @@ class DeleteRatingsCall {
 class ListRatingsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    String? idClient = '',
+    String? professionalClientId = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'ListRatings',
-      apiUrl: '$baseUrl/ratings?professional_client_id=$idClient',
+      apiUrl:
+          '$baseUrl/ratings?professional_client_id=$professionalClientId',
       callType: ApiCallType.GET,
       headers: {
         'Authorization': 'Bearer $authToken',
@@ -2196,8 +2437,12 @@ class UpdateRatingCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic bodyJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
@@ -2225,8 +2470,12 @@ class AddCommentsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic bodyJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
@@ -2254,8 +2503,12 @@ class DeleteCommentsCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DeleteComments',
@@ -2279,8 +2532,12 @@ class ListCommentsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? appointmentId = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'ListComments',
@@ -2304,8 +2561,12 @@ class UpdateCommentsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     dynamic bodyJson,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
@@ -2333,8 +2594,12 @@ class GetPlanCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetPlan',
@@ -2358,8 +2623,12 @@ class MyFeatureCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? id = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'MyFeature',
@@ -2382,8 +2651,12 @@ class MyFeatureCall {
 class ListSubscriptionCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'ListSubscription',
@@ -2407,8 +2680,12 @@ class DeleteSubscriptionCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? motive = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DeleteSubscription',
@@ -2432,8 +2709,12 @@ class GetAppointmentsByIDCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? id = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetAppointmentsByID',
@@ -2456,8 +2737,12 @@ class GetAppointmentsByIDCall {
 class GetSettingsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Get Settings',
@@ -2481,8 +2766,12 @@ class EnableSettingCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     int? settingId,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2512,8 +2801,12 @@ class DisableSettingCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? id = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'Disable Setting',
@@ -2536,8 +2829,12 @@ class DisableSettingCall {
 class InsightsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'insights',
@@ -2560,8 +2857,12 @@ class InsightsCall {
 class ListConfigClubeWhatsappCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'List Config Clube  Whatsapp',
@@ -2584,8 +2885,12 @@ class ListConfigClubeWhatsappCall {
 class ListClubActivateCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'List Club Activate',
@@ -2609,8 +2914,12 @@ class SaveClubWhatsappCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     bool? active,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2640,8 +2949,12 @@ class SaveConfigClubActivateCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     bool? active,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2670,8 +2983,12 @@ class SaveConfigClubActivateCall {
 class ListClientsClubStatementCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'List clients club statement',
@@ -2696,8 +3013,12 @@ class PutAppointmentsProfessionalCall {
     String? idAppointment = '',
     String? authToken = '',
     List<int>? professionalClientIdList,
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
     final professionalClientId = _serializeList(professionalClientIdList);
 
     final ffApiRequestBody = '''
@@ -2728,8 +3049,12 @@ class DELETEClientCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
+    String? apiURL,
   }) async {
-    final baseUrl = APIOficialGroup.getBaseUrl();
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'DELETE Client',

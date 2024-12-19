@@ -66,6 +66,9 @@ class FFAppState extends ChangeNotifier {
       _configCompleted =
           prefs.getBool('ff_configCompleted') ?? _configCompleted;
     });
+    _safeInit(() {
+      _idUser = prefs.getInt('ff_idUser') ?? _idUser;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -318,6 +321,13 @@ class FFAppState extends ChangeNotifier {
   set configCompleted(bool value) {
     _configCompleted = value;
     prefs.setBool('ff_configCompleted', value);
+  }
+
+  int _idUser = 0;
+  int get idUser => _idUser;
+  set idUser(int value) {
+    _idUser = value;
+    prefs.setInt('ff_idUser', value);
   }
 }
 

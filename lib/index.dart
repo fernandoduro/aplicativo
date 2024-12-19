@@ -134,3 +134,5 @@ export '/pages/schedule/first_access_config/first_access_config_widget.dart'
 export '/pages/schedule/finish_access_config/finish_access_config_widget.dart'
     show FinishAccessConfigWidget;
 export '/pages/home/home_balao2/home_balao2_widget.dart' show HomeBalao2Widget;
+export '/pages/create_site/create_site_etapas18_copy/create_site_etapas18_copy_widget.dart'
+    show CreateSiteEtapas18CopyWidget;

@@ -51,7 +51,10 @@ class _Services04WidgetState extends State<Services04Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -288,18 +291,9 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               () {
                                                                             _model.dayTextController?.text =
                                                                                 '';
-                                                                            _model.dayFocusNode?.requestFocus();
-                                                                            WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                              _model.dayTextController?.selection = TextSelection.collapsed(
-                                                                                offset: _model.dayTextController!.text.length,
-                                                                              );
-                                                                            });
                                                                             _model.dayMask.updateMask(
                                                                               newValue: TextEditingValue(
                                                                                 text: _model.dayTextController!.text,
-                                                                                selection: TextSelection.collapsed(
-                                                                                  offset: _model.dayTextController!.text.length,
-                                                                                ),
                                                                               ),
                                                                             );
                                                                           });

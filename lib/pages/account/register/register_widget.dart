@@ -78,7 +78,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
@@ -1229,7 +1232,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     )) {
                                                       logFirebaseEvent(
                                                           'Button_backend_call');
-                                                      _model.apiResultLogin =
+                                                      _model.apiResultLogin2 =
                                                           await APIOficialGroup
                                                               .loginCall
                                                               .call(
@@ -1243,7 +1246,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       );
 
                                                       shouldSetState = true;
-                                                      if ((_model.apiResultLogin
+                                                      if ((_model
+                                                              .apiResultLogin2
                                                               ?.succeeded ??
                                                           true)) {
                                                         logFirebaseEvent(
@@ -1262,7 +1266,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                               valueOrDefault<
                                                                   String>(
                                                             getJsonField(
-                                                              (_model.apiResultLogin
+                                                              (_model.apiResultLogin2
                                                                       ?.jsonBody ??
                                                                   ''),
                                                               r'''$.data.token''',
@@ -1276,11 +1280,21 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                 context
                                                                     .mounted);
                                                         logFirebaseEvent(
+                                                            'Button_update_app_state');
+                                                        FFAppState().idUser =
+                                                            getJsonField(
+                                                          (_model.apiResultLogin2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                          r'''$.data.professional.id''',
+                                                        );
+                                                        safeSetState(() {});
+                                                        logFirebaseEvent(
                                                             'Button_custom_action');
                                                         await actions
                                                             .onesignalLogin(
                                                           getJsonField(
-                                                            (_model.apiResultLogin
+                                                            (_model.apiResultLogin2
                                                                     ?.jsonBody ??
                                                                 ''),
                                                             r'''$.data.professional.id''',
@@ -1295,7 +1309,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           SnackBar(
                                                             content: Text(
                                                               getJsonField(
-                                                                (_model.apiResultLogin
+                                                                (_model.apiResultLogin2
                                                                         ?.jsonBody ??
                                                                     ''),
                                                                 r'''$.message''',

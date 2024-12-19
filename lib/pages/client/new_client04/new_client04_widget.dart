@@ -62,19 +62,9 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
               _model.dataClient,
               r'''$.professional_clients[*].first_appointment''',
             ).toString().toString()))!;
-            _model.dataPrimeiroAtendFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.dataPrimeiroAtendTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.dataPrimeiroAtendTextController!.text.length,
-              );
-            });
             _model.dataPrimeiroAtendMask.updateMask(
               newValue: TextEditingValue(
                 text: _model.dataPrimeiroAtendTextController!.text,
-                selection: TextSelection.collapsed(
-                  offset: _model.dataPrimeiroAtendTextController!.text.length,
-                ),
               ),
             );
           });
@@ -110,13 +100,6 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                 return '';
               }
             }();
-            _model.vencimentoFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.vencimentoTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.vencimentoTextController!.text.length,
-              );
-            });
           });
         }),
         Future(() async {
@@ -125,21 +108,11 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
             _model.nascimentoTextController?.text = functions
                 .removeNullString(functions.formatDateYYYY(getJsonField(
               _model.dataClient,
-              r'''$.birthday''',
+              r'''$..professional_clients[0].birthday''',
             ).toString().toString()))!;
-            _model.nascimentoFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.nascimentoTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.nascimentoTextController!.text.length,
-              );
-            });
             _model.nascimentoMask.updateMask(
               newValue: TextEditingValue(
                 text: _model.nascimentoTextController!.text,
-                selection: TextSelection.collapsed(
-                  offset: _model.nascimentoTextController!.text.length,
-                ),
               ),
             );
           });
@@ -150,7 +123,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
             _model.generoValueController?.value =
                 functions.removeNullString(getJsonField(
               _model.dataClient,
-              r'''$.gender''',
+              r'''$..professional_clients[0].gender''',
             ).toString().toString())!;
           });
         }),
@@ -160,14 +133,8 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
             _model.emailTextController?.text =
                 functions.removeNullString(getJsonField(
               _model.dataClient,
-              r'''$.email[0]''',
+              r'''$.professional_clients[0].email[0]''',
             ).toString().toString())!;
-            _model.emailFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.emailTextController?.selection = TextSelection.collapsed(
-                offset: _model.emailTextController!.text.length,
-              );
-            });
           });
         }),
       ]);
@@ -198,7 +165,10 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -308,7 +278,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                         Text(
                                                           getJsonField(
                                                             _model.dataClient,
-                                                            r'''$.name''',
+                                                            r'''$.professional_clients[0].name''',
                                                           ).toString(),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -355,7 +325,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                     getJsonField(
                                                                   _model
                                                                       .dataClient,
-                                                                  r'''$.cellphone[0]''',
+                                                                  r'''$.professional_clients[0].cellphone[0]''',
                                                                 ).toString(),
                                                                 style:
                                                                     const TextStyle(),
@@ -407,7 +377,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                     getJsonField(
                                                                   _model
                                                                       .dataClient,
-                                                                  r'''$.cpf''',
+                                                                  r'''$.professional_clients[0].cpf''',
                                                                 ).toString(),
                                                                 style:
                                                                     const TextStyle(),
@@ -643,7 +613,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             ],
                                                             textCapitalization:
                                                                 TextCapitalization
-                                                                    .words,
+                                                                    .none,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
@@ -925,7 +895,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             ],
                                                             textCapitalization:
                                                                 TextCapitalization
-                                                                    .words,
+                                                                    .none,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
@@ -1009,6 +979,9 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .datetime,
                                                             validator: _model
                                                                 .nascimentoTextControllerValidator
                                                                 .asValidator(

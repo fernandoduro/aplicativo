@@ -87,7 +87,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   // Stores action output result for [Backend Call - API (Register)] action in Button widget.
   ApiCallResponse? apiResult;
   // Stores action output result for [Backend Call - API (Login)] action in Button widget.
-  ApiCallResponse? apiResultLogin;
+  ApiCallResponse? apiResultLogin2;
 
   @override
   void initState(BuildContext context) {

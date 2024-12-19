@@ -39,6 +39,10 @@ class Services02Model extends FlutterFlowModel<Services02Widget> {
     return null;
   }
 
+  // State field(s) for extra_duration widget.
+  FocusNode? extraDurationFocusNode;
+  TextEditingController? extraDurationTextController;
+  String? Function(BuildContext, String?)? extraDurationTextControllerValidator;
   // State field(s) for individual widget.
   bool? individualValue;
   // State field(s) for maxclients widget.
@@ -68,6 +72,9 @@ class Services02Model extends FlutterFlowModel<Services02Widget> {
 
     durationFocusNode?.dispose();
     durationTextController?.dispose();
+
+    extraDurationFocusNode?.dispose();
+    extraDurationTextController?.dispose();
 
     maxclientsFocusNode?.dispose();
     maxclientsTextController?.dispose();

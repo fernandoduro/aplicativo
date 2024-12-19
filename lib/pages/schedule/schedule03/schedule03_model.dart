@@ -49,9 +49,39 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   ApiCallResponse? apiResultox6b;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
+  // State field(s) for data widget.
+  FocusNode? dataFocusNode;
+  TextEditingController? dataTextController;
+  final dataMask = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? dataTextControllerValidator;
+  String? _dataTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Campo obrigatório';
+    }
+
+    return null;
+  }
+
+  // State field(s) for hora widget.
+  FocusNode? horaFocusNode;
+  TextEditingController? horaTextController;
+  final horaMask = MaskTextInputFormatter(mask: '##:##');
+  String? Function(BuildContext, String?)? horaTextControllerValidator;
+  String? _horaTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Campo obrigatório';
+    }
+
+    return null;
+  }
+
   // State field(s) for tipocompromisso widget.
   String? tipocompromissoValue;
   FormFieldController<String>? tipocompromissoValueController;
+  // State field(s) for duration widget.
+  FocusNode? durationFocusNode;
+  TextEditingController? durationTextController;
+  String? Function(BuildContext, String?)? durationTextControllerValidator;
   // State field(s) for clientes widget.
   int? clientesValue;
   FormFieldController<int>? clientesValueController;
@@ -67,16 +97,6 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   // State field(s) for situacaoDropDown widget.
   String? situacaoDropDownValue;
   FormFieldController<String>? situacaoDropDownValueController;
-  // State field(s) for data widget.
-  FocusNode? dataFocusNode;
-  TextEditingController? dataTextController;
-  final dataMask = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? dataTextControllerValidator;
-  // State field(s) for hora widget.
-  FocusNode? horaFocusNode;
-  TextEditingController? horaTextController;
-  final horaMask = MaskTextInputFormatter(mask: '##:##');
-  String? Function(BuildContext, String?)? horaTextControllerValidator;
   // State field(s) for descricao widget.
   FocusNode? descricaoFocusNode;
   TextEditingController? descricaoTextController;
@@ -98,6 +118,8 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
+    dataTextControllerValidator = _dataTextControllerValidator;
+    horaTextControllerValidator = _horaTextControllerValidator;
     footerWhiteModel = createModel(context, () => FooterWhiteModel());
   }
 
@@ -109,6 +131,9 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
 
     horaFocusNode?.dispose();
     horaTextController?.dispose();
+
+    durationFocusNode?.dispose();
+    durationTextController?.dispose();
 
     descricaoFocusNode?.dispose();
     descricaoTextController?.dispose();

@@ -7,16 +7,22 @@ import 'package:flutter/material.dart';
 
 class CreateSiteEtapas18Model
     extends FlutterFlowModel<CreateSiteEtapas18Widget> {
+  ///  Local state fields for this page.
+
+  int? totalHours = 0;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // State field(s) for descricao widget.
-  FocusNode? descricaoFocusNode;
-  TextEditingController? descricaoTextController;
-  String? Function(BuildContext, String?)? descricaoTextControllerValidator;
-  // Stores action output result for [Backend Call - API (UpdateSite)] action in Button widget.
-  ApiCallResponse? updatesite18;
+  // Stores action output result for [Custom Action - removeJsonToJsonAction] action in IconButton widget.
+  dynamic removeWork;
+  // Stores action output result for [Custom Action - addJsonToJsonAction] action in IconButton widget.
+  dynamic hoursAdd;
+  // Stores action output result for [Custom Action - addJsonToJsonAction] action in IconButton widget.
+  dynamic hoursAdd2;
+  // Stores action output result for [Backend Call - API (addHoursWorkProfessionals)] action in Button widget.
+  ApiCallResponse? apiResultlsp2;
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -29,9 +35,6 @@ class CreateSiteEtapas18Model
   @override
   void dispose() {
     headerHelpModel.dispose();
-    descricaoFocusNode?.dispose();
-    descricaoTextController?.dispose();
-
     footerModel.dispose();
   }
 }

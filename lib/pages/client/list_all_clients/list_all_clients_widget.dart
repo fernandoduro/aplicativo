@@ -47,7 +47,10 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -328,20 +331,12 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                           .bold,
                                                                 ),
                                                       ),
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
+                                                      FFButtonWidget(
+                                                        onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'LIST_ALL_CLIENTS_Text_nccoib4g_ON_TAP');
+                                                              'LIST_ALL_CLIENTS_ADICIONAR_BTN_ON_TAP');
                                                           logFirebaseEvent(
-                                                              'Text_navigate_to');
+                                                              'Button_navigate_to');
 
                                                           context.pushNamed(
                                                             'NewClient01',
@@ -354,24 +349,54 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                             }.withoutNulls,
                                                           );
                                                         },
-                                                        child: Text(
-                                                          '+Adicionar',
-                                                          style: FlutterFlowTheme
+                                                        text: 'Adicionar',
+                                                        icon: const Icon(
+                                                          Icons.add,
+                                                          size: 15.0,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          height: 40.0,
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      0.0,
+                                                                      12.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Manrope',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
+                                                              .primary,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                       ),
                                                     ],
@@ -379,12 +404,14 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                 ),
                                                 Builder(
                                                   builder: (context) {
-                                                    final clients =
-                                                        getJsonField(
-                                                      columnListAllClientsResponse
-                                                          .jsonBody,
-                                                      r'''$.data''',
-                                                    ).toList();
+                                                    final clients = functions
+                                                        .handleNullList(
+                                                            getJsonField(
+                                                          columnListAllClientsResponse
+                                                              .jsonBody,
+                                                          r'''$.data''',
+                                                        ))
+                                                        .toList();
 
                                                     return ListView.builder(
                                                       padding: EdgeInsets.zero,
@@ -494,7 +521,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                 ),
                                                                                 if (functions.convertJsonToString(getJsonField(
                                                                                       clientsItem,
-                                                                                      r'''$.professional_clients[0].status''',
+                                                                                      r'''$.status''',
                                                                                     )) ==
                                                                                     'inactive')
                                                                                   Padding(
@@ -538,10 +565,12 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     ),
                                                                                   Builder(
                                                                                     builder: (context) {
-                                                                                      final packages = getJsonField(
-                                                                                        clientsItem,
-                                                                                        r'''$.professional_clients[*].packages''',
-                                                                                      ).toList();
+                                                                                      final packages = functions
+                                                                                          .handleNullList(getJsonField(
+                                                                                            clientsItem,
+                                                                                            r'''$.packages''',
+                                                                                          ))
+                                                                                          .toList();
 
                                                                                       return Column(
                                                                                         mainAxisSize: MainAxisSize.max,
@@ -702,6 +731,13 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                       context.pushNamed(
                                                                                         'Ratings',
                                                                                         queryParameters: {
+                                                                                          'professionalclientid': serializeParam(
+                                                                                            getJsonField(
+                                                                                              clientsItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            ParamType.int,
+                                                                                          ),
                                                                                           'idClient': serializeParam(
                                                                                             getJsonField(
                                                                                               clientsItem,
@@ -732,7 +768,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                 ),
                                                                                 if (getJsonField(
                                                                                       clientsItem,
-                                                                                      r'''$.cellphone[0]''',
+                                                                                      r'''$.professional_clients[0].cellphone[0]''',
                                                                                     ) !=
                                                                                     null)
                                                                                   Padding(
@@ -745,7 +781,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                             'https://wa.me/55',
                                                                                             functions.clearMaskPhone(getJsonField(
                                                                                               clientsItem,
-                                                                                              r'''$.cellphone[0]''',
+                                                                                              r'''$.professional_clients[0].cellphone[0]''',
                                                                                             ).toString()))!);
                                                                                       },
                                                                                       text: '',

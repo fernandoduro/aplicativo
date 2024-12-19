@@ -62,7 +62,10 @@ class _Services03WidgetState extends State<Services03Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -237,6 +240,9 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             .nameFocusNode,
                                                                     autofocus:
                                                                         false,
+                                                                    textCapitalization:
+                                                                        TextCapitalization
+                                                                            .words,
                                                                     obscureText:
                                                                         false,
                                                                     decoration:
@@ -1292,12 +1298,6 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             packagesItem,
                                                                                                             r'''$.name''',
                                                                                                           ).toString();
-                                                                                                          _model.nameFocusNode?.requestFocus();
-                                                                                                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                            _model.nameTextController?.selection = TextSelection.collapsed(
-                                                                                                              offset: _model.nameTextController!.text.length,
-                                                                                                            );
-                                                                                                          });
                                                                                                         });
                                                                                                       }),
                                                                                                       Future(() async {
@@ -1307,12 +1307,6 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             packagesItem,
                                                                                                             r'''$.recurrency''',
                                                                                                           ).toString();
-                                                                                                          _model.recorrenciaFocusNode?.requestFocus();
-                                                                                                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                            _model.recorrenciaTextController?.selection = TextSelection.collapsed(
-                                                                                                              offset: _model.recorrenciaTextController!.text.length,
-                                                                                                            );
-                                                                                                          });
                                                                                                         });
                                                                                                       }),
                                                                                                       Future(() async {
@@ -1322,12 +1316,6 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             packagesItem,
                                                                                                             r'''$.monthly_value''',
                                                                                                           ).toString();
-                                                                                                          _model.valorMensalFocusNode?.requestFocus();
-                                                                                                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                            _model.valorMensalTextController?.selection = TextSelection.collapsed(
-                                                                                                              offset: _model.valorMensalTextController!.text.length,
-                                                                                                            );
-                                                                                                          });
                                                                                                         });
                                                                                                       }),
                                                                                                       Future(() async {

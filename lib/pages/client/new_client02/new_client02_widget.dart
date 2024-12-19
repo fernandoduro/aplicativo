@@ -78,7 +78,10 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -315,12 +318,6 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                         (_model.apiResultbn2?.jsonBody ?? ''),
                                                                                         r'''$.data.monthly_value''',
                                                                                       ).toString())!;
-                                                                                      _model.valorCobrancaFocusNode?.requestFocus();
-                                                                                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                        _model.valorCobrancaTextController?.selection = TextSelection.collapsed(
-                                                                                          offset: _model.valorCobrancaTextController!.text.length,
-                                                                                        );
-                                                                                      });
                                                                                     });
                                                                                     logFirebaseEvent('Pacote_update_page_state');
                                                                                     _model.packagesAdd = getJsonField(

@@ -15,6 +15,8 @@ export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
 
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
+
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
 
@@ -72,6 +74,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
           appStateNotifier.loggedIn ? const HomeWidget() : const HomeBalaoWidget(),
       routes: [
@@ -394,6 +397,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Ratings',
           path: '/ratings',
           builder: (context, params) => RatingsWidget(
+            professionalclientid: params.getParam(
+              'professionalclientid',
+              ParamType.int,
+            ),
             idClient: params.getParam(
               'idClient',
               ParamType.int,
@@ -459,10 +466,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'situacao',
               ParamType.String,
             ),
-            idAppointmentSelected: params.getParam(
-              'idAppointmentSelected',
-              ParamType.int,
-            ),
             idProfessionalClientSelected: params.getParam(
               'idProfessionalClientSelected',
               ParamType.int,
@@ -470,6 +473,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             professionalClientJSON: params.getParam(
               'professionalClientJSON',
               ParamType.JSON,
+            ),
+            idAppointmentSelected: params.getParam(
+              'idAppointmentSelected',
+              ParamType.int,
+            ),
+            duration: params.getParam(
+              'duration',
+              ParamType.int,
             ),
           ),
         ),
@@ -631,6 +642,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomeBalao2',
           path: '/homeBalao2',
           builder: (context, params) => const HomeBalao2Widget(),
+        ),
+        FFRoute(
+          name: 'CreateSiteEtapas18Copy',
+          path: '/createSiteEtapas18Copy',
+          builder: (context, params) => const CreateSiteEtapas18CopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

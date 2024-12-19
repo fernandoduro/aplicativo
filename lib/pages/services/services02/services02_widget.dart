@@ -43,6 +43,9 @@ class _Services02WidgetState extends State<Services02Widget> {
     _model.durationTextController ??= TextEditingController();
     _model.durationFocusNode ??= FocusNode();
 
+    _model.extraDurationTextController ??= TextEditingController();
+    _model.extraDurationFocusNode ??= FocusNode();
+
     _model.individualValue = true;
     _model.maxclientsTextController ??= TextEditingController();
     _model.maxclientsFocusNode ??= FocusNode();
@@ -60,7 +63,10 @@ class _Services02WidgetState extends State<Services02Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -246,6 +252,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                     controller: _model.nameTextController,
                                                                                     focusNode: _model.nameFocusNode,
                                                                                     autofocus: false,
+                                                                                    textCapitalization: TextCapitalization.words,
                                                                                     obscureText: false,
                                                                                     decoration: InputDecoration(
                                                                                       isDense: true,
@@ -370,6 +377,81 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                     keyboardType: TextInputType.number,
                                                                                     cursorColor: FlutterFlowTheme.of(context).primaryText,
                                                                                     validator: _model.durationTextControllerValidator.asValidator(context),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              Align(
+                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                  child: Text(
+                                                                                    'Tempo de intervalo (em minutos)',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Manrope',
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.bold,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                child: SizedBox(
+                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                  child: TextFormField(
+                                                                                    controller: _model.extraDurationTextController,
+                                                                                    focusNode: _model.extraDurationFocusNode,
+                                                                                    autofocus: false,
+                                                                                    obscureText: false,
+                                                                                    decoration: InputDecoration(
+                                                                                      isDense: true,
+                                                                                      labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                      hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                      enabledBorder: OutlineInputBorder(
+                                                                                        borderSide: const BorderSide(
+                                                                                          color: Color(0x00000000),
+                                                                                          width: 1.0,
+                                                                                        ),
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                      ),
+                                                                                      focusedBorder: OutlineInputBorder(
+                                                                                        borderSide: const BorderSide(
+                                                                                          color: Color(0x00000000),
+                                                                                          width: 1.0,
+                                                                                        ),
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                      ),
+                                                                                      errorBorder: OutlineInputBorder(
+                                                                                        borderSide: BorderSide(
+                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                          width: 1.0,
+                                                                                        ),
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                      ),
+                                                                                      focusedErrorBorder: OutlineInputBorder(
+                                                                                        borderSide: BorderSide(
+                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                          width: 1.0,
+                                                                                        ),
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                      ),
+                                                                                      filled: true,
+                                                                                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    ),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Manrope',
+                                                                                          letterSpacing: 0.0,
+                                                                                        ),
+                                                                                    keyboardType: TextInputType.number,
+                                                                                    cursorColor: FlutterFlowTheme.of(context).primaryText,
+                                                                                    validator: _model.extraDurationTextControllerValidator.asValidator(context),
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -514,12 +596,6 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                               logFirebaseEvent('Button_set_form_field');
                                                                                               safeSetState(() {
                                                                                                 _model.maxclientsTextController?.text = '';
-                                                                                                _model.maxclientsFocusNode?.requestFocus();
-                                                                                                WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                  _model.maxclientsTextController?.selection = TextSelection.collapsed(
-                                                                                                    offset: _model.maxclientsTextController!.text.length,
-                                                                                                  );
-                                                                                                });
                                                                                               });
                                                                                             }
                                                                                             if (_model.editService.toString() == '0') {
@@ -530,6 +606,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                 durantion: int.tryParse(_model.durationTextController.text),
                                                                                                 isSingularClient: _model.individualValue,
                                                                                                 maxClients: int.tryParse(_model.maxclientsTextController.text),
+                                                                                                extraDuration: _model.extraDurationTextController.text,
                                                                                               );
 
                                                                                               logFirebaseEvent('Button_show_snack_bar');
@@ -554,6 +631,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                 duration: int.tryParse(_model.durationTextController.text),
                                                                                                 isSingularClient: _model.individualValue,
                                                                                                 maxClients: int.tryParse(_model.maxclientsTextController.text),
+                                                                                                extraDuration: _model.extraDurationTextController.text,
                                                                                               );
 
                                                                                               logFirebaseEvent('Button_show_snack_bar');
@@ -576,6 +654,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                               _model.nameTextController?.clear();
                                                                                               _model.durationTextController?.clear();
                                                                                               _model.maxclientsTextController?.clear();
+                                                                                              _model.extraDurationTextController?.clear();
                                                                                             });
                                                                                             logFirebaseEvent('Button_reset_form_fields');
                                                                                             safeSetState(() {
@@ -865,12 +944,6 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                             servicesListItem,
                                                                                                                             r'''$.name''',
                                                                                                                           ).toString();
-                                                                                                                          _model.nameFocusNode?.requestFocus();
-                                                                                                                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                            _model.nameTextController?.selection = TextSelection.collapsed(
-                                                                                                                              offset: _model.nameTextController!.text.length,
-                                                                                                                            );
-                                                                                                                          });
                                                                                                                         });
                                                                                                                       }),
                                                                                                                       Future(() async {
@@ -878,14 +951,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                         safeSetState(() {
                                                                                                                           _model.durationTextController?.text = getJsonField(
                                                                                                                             servicesListItem,
-                                                                                                                            r'''$.duration''',
+                                                                                                                            r'''$.original_duration''',
                                                                                                                           ).toString();
-                                                                                                                          _model.durationFocusNode?.requestFocus();
-                                                                                                                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                            _model.durationTextController?.selection = TextSelection.collapsed(
-                                                                                                                              offset: _model.durationTextController!.text.length,
-                                                                                                                            );
-                                                                                                                          });
                                                                                                                         });
                                                                                                                       }),
                                                                                                                       Future(() async {
@@ -895,12 +962,6 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                             servicesListItem,
                                                                                                                             r'''$.max_clients''',
                                                                                                                           ).toString())!;
-                                                                                                                          _model.maxclientsFocusNode?.requestFocus();
-                                                                                                                          WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                                                                            _model.maxclientsTextController?.selection = TextSelection.collapsed(
-                                                                                                                              offset: _model.maxclientsTextController!.text.length,
-                                                                                                                            );
-                                                                                                                          });
                                                                                                                         });
                                                                                                                       }),
                                                                                                                       Future(() async {
@@ -918,6 +979,15 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                                 : false,
                                                                                                                             true,
                                                                                                                           );
+                                                                                                                        });
+                                                                                                                      }),
+                                                                                                                      Future(() async {
+                                                                                                                        logFirebaseEvent('Icon_set_form_field');
+                                                                                                                        safeSetState(() {
+                                                                                                                          _model.extraDurationTextController?.text = getJsonField(
+                                                                                                                            servicesListItem,
+                                                                                                                            r'''$.extra_duration''',
+                                                                                                                          ).toString();
                                                                                                                         });
                                                                                                                       }),
                                                                                                                     ]);

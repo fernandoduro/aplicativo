@@ -145,7 +145,10 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
@@ -485,7 +488,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                   child: Stack(
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(1.05, 0.0),
+                        alignment: const AlignmentDirectional(1.06, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(

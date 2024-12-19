@@ -60,12 +60,6 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
             (_model.apiResult?.jsonBody ?? ''),
             r'''$.cellphone''',
           ).toString().toString())!;
-          _model.whatsappFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.whatsappTextController?.selection = TextSelection.collapsed(
-              offset: _model.whatsappTextController!.text.length,
-            );
-          });
         });
       }
     });
@@ -125,7 +119,10 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

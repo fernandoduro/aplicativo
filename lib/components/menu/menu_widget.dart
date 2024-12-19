@@ -963,6 +963,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                               logFirebaseEvent('Button_update_app_state');
                               FFAppState().existSite = false;
                               FFAppState().configCompleted = false;
+                              FFAppState().hoursWork = jsonDecode(
+                                  '{\"days\":[{\"dayWeek\":\"Segunda-Feira\",\"hours\":[]},{\"dayWeek\":\"Terça-Feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-Feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
                               safeSetState(() {});
                               logFirebaseEvent('Button_auth');
                               GoRouter.of(context).prepareAuthEvent();

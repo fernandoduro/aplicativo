@@ -67,34 +67,19 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
         safeSetState(() {
           _model.nomeTextController?.text = getJsonField(
             (_model.apiResultEditClient?.jsonBody ?? ''),
-            r'''$.data.name''',
+            r'''$.data.professional_clients[0].name''',
           ).toString().toString();
-          _model.nomeFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.nomeTextController?.selection = TextSelection.collapsed(
-              offset: _model.nomeTextController!.text.length,
-            );
-          });
         });
         logFirebaseEvent('NewClient01_set_form_field');
         safeSetState(() {
           _model.whatsappTextController?.text =
               functions.removeNullString(getJsonField(
             (_model.apiResultEditClient?.jsonBody ?? ''),
-            r'''$.data.cellphone[0]''',
+            r'''$.data.professional_clients[0].cellphone[0]''',
           ).toString().toString())!;
-          _model.whatsappFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.whatsappTextController?.selection = TextSelection.collapsed(
-              offset: _model.whatsappTextController!.text.length,
-            );
-          });
           _model.whatsappMask.updateMask(
             newValue: TextEditingValue(
               text: _model.whatsappTextController!.text,
-              selection: TextSelection.collapsed(
-                offset: _model.whatsappTextController!.text.length,
-              ),
             ),
           );
         });
@@ -103,20 +88,11 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
           _model.cpfTextController?.text =
               functions.removeNullString(getJsonField(
             (_model.apiResultEditClient?.jsonBody ?? ''),
-            r'''$.data.cpf''',
+            r'''$.data.professional_clients[0].cpf''',
           ).toString().toString())!;
-          _model.cpfFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.cpfTextController?.selection = TextSelection.collapsed(
-              offset: _model.cpfTextController!.text.length,
-            );
-          });
           _model.cpfMask.updateMask(
             newValue: TextEditingValue(
               text: _model.cpfTextController!.text,
-              selection: TextSelection.collapsed(
-                offset: _model.cpfTextController!.text.length,
-              ),
             ),
           );
         });
@@ -156,7 +132,10 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -995,13 +974,24 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                           ),
                                                                           'idClientSelected':
                                                                               serializeParam(
-                                                                            widget.idClientSelected,
+                                                                            getJsonField(
+                                                                              (_model.apiResultuit?.jsonBody ?? ''),
+                                                                              r'''$.data.id''',
+                                                                            ),
                                                                             ParamType.int,
                                                                           ),
                                                                           'situacao':
                                                                               serializeParam(
                                                                             widget.situacao,
                                                                             ParamType.String,
+                                                                          ),
+                                                                          'idProfessionalClientSelected':
+                                                                              serializeParam(
+                                                                            getJsonField(
+                                                                              (_model.apiResultuit?.jsonBody ?? ''),
+                                                                              r'''$.data.id''',
+                                                                            ),
+                                                                            ParamType.int,
                                                                           ),
                                                                         }.withoutNulls,
                                                                       );

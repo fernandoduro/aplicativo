@@ -18,10 +18,10 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "serve": "firebase -P blubem-c0a17 emulators:start --only functions",
-    "shell": "firebase -P blubem-c0a17 functions:shell",
+    "serve": "firebase -P blubem-hml emulators:start --only functions",
+    "shell": "firebase -P blubem-hml functions:shell",
     "start": "npm run shell",
-    "logs": "firebase -P blubem-c0a17 functions:log",
+    "logs": "firebase -P blubem-hml functions:log",
     "compile": "cp ../../tsconfig.template.json ./tsconfig-compile.json && tsc --project tsconfig-compile.json"
   },
   "engines": {

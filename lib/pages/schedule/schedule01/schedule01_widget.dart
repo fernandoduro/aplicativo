@@ -85,7 +85,10 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -690,10 +693,13 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                       Builder(
                                                         builder: (context) {
                                                           final schedule =
-                                                              getJsonField(
-                                                            _model.listSchedule,
-                                                            r'''$''',
-                                                          )
+                                                              functions
+                                                                  .handleNullList(
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .listSchedule,
+                                                                    r'''$''',
+                                                                  ))
                                                                   .toList()
                                                                   .take(100000)
                                                                   .toList();
@@ -765,45 +771,111 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                             r'''$.schedule.id''',
                                                                           ) !=
                                                                           null) {
-                                                                        logFirebaseEvent(
-                                                                            'Row_navigate_to');
+                                                                        if (functions.convertJsonToString(getJsonField(
+                                                                              scheduleItem,
+                                                                              r'''$.schedule.type''',
+                                                                            )) !=
+                                                                            'personal') {
+                                                                          logFirebaseEvent(
+                                                                              'Row_navigate_to');
 
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'Schedule02',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'dateSelected':
-                                                                                serializeParam(
-                                                                              _model.dateSelected,
-                                                                              ParamType.DateTime,
-                                                                            ),
-                                                                            'hourSelected':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                scheduleItem,
-                                                                                r'''$.time''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'scheduleSelected':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                scheduleItem,
-                                                                                r'''$''',
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'Schedule02',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'dateSelected': serializeParam(
+                                                                                _model.dateSelected,
+                                                                                ParamType.DateTime,
                                                                               ),
-                                                                              ParamType.JSON,
-                                                                            ),
-                                                                            'scheduleJson':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                scheduleItem,
-                                                                                r'''$.schedule''',
+                                                                              'hourSelected': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.time''',
+                                                                                ).toString(),
+                                                                                ParamType.String,
                                                                               ),
-                                                                              ParamType.JSON,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
+                                                                              'scheduleSelected': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$''',
+                                                                                ),
+                                                                                ParamType.JSON,
+                                                                              ),
+                                                                              'scheduleJson': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.schedule''',
+                                                                                ),
+                                                                                ParamType.JSON,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+                                                                        } else {
+                                                                          logFirebaseEvent(
+                                                                              'Row_navigate_to');
+
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'Schedule03',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'dateSelected': serializeParam(
+                                                                                _model.dateSelected,
+                                                                                ParamType.DateTime,
+                                                                              ),
+                                                                              'hourSelected': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.time''',
+                                                                                ).toString(),
+                                                                                ParamType.String,
+                                                                              ),
+                                                                              'scheduleCabecalho': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.schedule''',
+                                                                                ),
+                                                                                ParamType.JSON,
+                                                                              ),
+                                                                              'isAddNewClient': serializeParam(
+                                                                                getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.id''',
+                                                                                        ) !=
+                                                                                        null
+                                                                                    ? false
+                                                                                    : true,
+                                                                                ParamType.bool,
+                                                                              ),
+                                                                              'situacao': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.schedule.professional_client[0].pivot.confirmation''',
+                                                                                ).toString(),
+                                                                                ParamType.String,
+                                                                              ),
+                                                                              'existAppointment': serializeParam(
+                                                                                false,
+                                                                                ParamType.bool,
+                                                                              ),
+                                                                              'duration': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.schedule.duration''',
+                                                                                ),
+                                                                                ParamType.int,
+                                                                              ),
+                                                                              'idAppointmentSelected': serializeParam(
+                                                                                getJsonField(
+                                                                                  scheduleItem,
+                                                                                  r'''$.schedule.id''',
+                                                                                ),
+                                                                                ParamType.int,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+                                                                        }
                                                                       } else {
                                                                         logFirebaseEvent(
                                                                             'Row_navigate_to');
@@ -852,6 +924,11 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                 r'''$.schedule.professional_client[0].pivot.confirmation''',
                                                                               ).toString(),
                                                                               ParamType.String,
+                                                                            ),
+                                                                            'existAppointment':
+                                                                                serializeParam(
+                                                                              false,
+                                                                              ParamType.bool,
                                                                             ),
                                                                           }.withoutNulls,
                                                                         );
@@ -925,25 +1002,20 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.schedule.id''',
-                                                                                    ) !=
-                                                                                    null)
+                                                                                if ((getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.id''',
+                                                                                        ) !=
+                                                                                        null) &&
+                                                                                    (getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.service.name''',
+                                                                                        ) !=
+                                                                                        null))
                                                                                   RichText(
                                                                                     textScaler: MediaQuery.of(context).textScaler,
                                                                                     text: TextSpan(
                                                                                       children: [
-                                                                                        TextSpan(
-                                                                                          text: 'Serviço: ',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                fontSize: 12.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                              ),
-                                                                                        ),
                                                                                         TextSpan(
                                                                                           text: getJsonField(
                                                                                             scheduleItem,
@@ -972,7 +1044,12 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                               r'''$.schedule.service.is_singular_client''',
                                                                                             ).toString())
                                                                                             .toString() ==
-                                                                                        '0'))
+                                                                                        '0') &&
+                                                                                    (getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.service.max_clients''',
+                                                                                        ) !=
+                                                                                        null))
                                                                                   RichText(
                                                                                     textScaler: MediaQuery.of(context).textScaler,
                                                                                     text: TextSpan(
@@ -1026,6 +1103,97 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                           ),
                                                                                     ),
                                                                                   ),
+                                                                                if ((getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.id''',
+                                                                                        ) !=
+                                                                                        null) &&
+                                                                                    (functions.convertJsonToString(getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.type''',
+                                                                                        )) ==
+                                                                                        'personal'))
+                                                                                  RichText(
+                                                                                    textScaler: MediaQuery.of(context).textScaler,
+                                                                                    text: TextSpan(
+                                                                                      children: [
+                                                                                        TextSpan(
+                                                                                          text: 'Agenda pessoal - duração de ',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Manrope',
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                fontSize: 12.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w600,
+                                                                                              ),
+                                                                                        ),
+                                                                                        TextSpan(
+                                                                                          text: getJsonField(
+                                                                                            scheduleItem,
+                                                                                            r'''$.schedule.duration''',
+                                                                                          ).toString(),
+                                                                                          style: const TextStyle(),
+                                                                                        ),
+                                                                                        const TextSpan(
+                                                                                          text: ' minutos',
+                                                                                          style: TextStyle(),
+                                                                                        )
+                                                                                      ],
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            fontSize: 12.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                if ((getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.id''',
+                                                                                        ) !=
+                                                                                        null) &&
+                                                                                    (functions.convertJsonToString(getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.type''',
+                                                                                        )) ==
+                                                                                        'personal') &&
+                                                                                    (getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.description''',
+                                                                                        ) !=
+                                                                                        null))
+                                                                                  RichText(
+                                                                                    textScaler: MediaQuery.of(context).textScaler,
+                                                                                    text: TextSpan(
+                                                                                      children: [
+                                                                                        TextSpan(
+                                                                                          text: 'Descrição: ',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Manrope',
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                fontSize: 12.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w800,
+                                                                                              ),
+                                                                                        ),
+                                                                                        TextSpan(
+                                                                                          text: getJsonField(
+                                                                                            scheduleItem,
+                                                                                            r'''$.schedule.description''',
+                                                                                          ).toString(),
+                                                                                          style: const TextStyle(),
+                                                                                        )
+                                                                                      ],
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            fontSize: 12.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
                                                                                 if (getJsonField(
                                                                                       scheduleItem,
                                                                                       r'''$.schedule.id''',
@@ -1038,6 +1206,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                             scheduleItem,
                                                                                             r'''$.schedule.professional_client''',
                                                                                           ))
+                                                                                          .toList()
+                                                                                          .take(10000)
                                                                                           .toList();
 
                                                                                       return Column(
@@ -1120,7 +1290,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                     TextSpan(
                                                                                                       text: getJsonField(
                                                                                                         clientesItem,
-                                                                                                        r'''$.client.name''',
+                                                                                                        r'''$.name''',
                                                                                                       ).toString(),
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Manrope',
@@ -1183,153 +1353,15 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                   children: [
-                                                                                    if (functions
-                                                                                            .convertStrintToInt(getJsonField(
-                                                                                              scheduleItem,
-                                                                                              r'''$.schedule.service.is_singular_client''',
-                                                                                            ).toString())
-                                                                                            .toString() ==
-                                                                                        '1')
-                                                                                      InkWell(
-                                                                                        splashColor: Colors.transparent,
-                                                                                        focusColor: Colors.transparent,
-                                                                                        hoverColor: Colors.transparent,
-                                                                                        highlightColor: Colors.transparent,
-                                                                                        onTap: () async {
-                                                                                          logFirebaseEvent('SCHEDULE01_PAGE_Icon_27u88my1_ON_TAP');
-                                                                                          logFirebaseEvent('Icon_navigate_to');
-
-                                                                                          context.pushNamed(
-                                                                                            'Comments',
-                                                                                            queryParameters: {
-                                                                                              'idAppointment': serializeParam(
-                                                                                                getJsonField(
-                                                                                                  scheduleItem,
-                                                                                                  r'''$.schedule.id''',
-                                                                                                ),
-                                                                                                ParamType.int,
-                                                                                              ),
-                                                                                              'idClient': serializeParam(
-                                                                                                getJsonField(
-                                                                                                  scheduleItem,
-                                                                                                  r'''$.schedule.professional_client[0].client.id''',
-                                                                                                ),
-                                                                                                ParamType.int,
-                                                                                              ),
-                                                                                            }.withoutNulls,
-                                                                                          );
-                                                                                        },
-                                                                                        child: Icon(
-                                                                                          Icons.comment,
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          size: 24.0,
-                                                                                        ),
-                                                                                      ),
-                                                                                    if (functions
-                                                                                            .convertStrintToInt(getJsonField(
-                                                                                              scheduleItem,
-                                                                                              r'''$.schedule.service.is_singular_client''',
-                                                                                            ).toString())
-                                                                                            .toString() ==
-                                                                                        '0')
-                                                                                      InkWell(
-                                                                                        splashColor: Colors.transparent,
-                                                                                        focusColor: Colors.transparent,
-                                                                                        hoverColor: Colors.transparent,
-                                                                                        highlightColor: Colors.transparent,
-                                                                                        onTap: () async {
-                                                                                          logFirebaseEvent('SCHEDULE01_PAGE_Icon_upub087e_ON_TAP');
-                                                                                          if ((getJsonField(
-                                                                                                    scheduleItem,
-                                                                                                    r'''$.schedule.id''',
-                                                                                                  ) !=
-                                                                                                  null) &&
-                                                                                              (functions
-                                                                                                      .convertStrintToInt(getJsonField(
-                                                                                                        scheduleItem,
-                                                                                                        r'''$.schedule.service.is_singular_client''',
-                                                                                                      ).toString())
-                                                                                                      .toString() ==
-                                                                                                  '0')) {
-                                                                                            logFirebaseEvent('Icon_navigate_to');
-
-                                                                                            context.pushNamed(
-                                                                                              'Schedule02',
-                                                                                              queryParameters: {
-                                                                                                'dateSelected': serializeParam(
-                                                                                                  _model.dateSelected,
-                                                                                                  ParamType.DateTime,
-                                                                                                ),
-                                                                                                'hourSelected': serializeParam(
-                                                                                                  getJsonField(
-                                                                                                    scheduleItem,
-                                                                                                    r'''$.time''',
-                                                                                                  ).toString(),
-                                                                                                  ParamType.String,
-                                                                                                ),
-                                                                                                'scheduleSelected': serializeParam(
-                                                                                                  getJsonField(
-                                                                                                    scheduleItem,
-                                                                                                    r'''$''',
-                                                                                                  ),
-                                                                                                  ParamType.JSON,
-                                                                                                ),
-                                                                                                'scheduleJson': serializeParam(
-                                                                                                  getJsonField(
-                                                                                                    scheduleItem,
-                                                                                                    r'''$.schedule''',
-                                                                                                  ),
-                                                                                                  ParamType.JSON,
-                                                                                                ),
-                                                                                              }.withoutNulls,
-                                                                                            );
-                                                                                          } else {
-                                                                                            logFirebaseEvent('Icon_navigate_to');
-
-                                                                                            context.pushNamed(
-                                                                                              'Schedule03',
-                                                                                              queryParameters: {
-                                                                                                'dateSelected': serializeParam(
-                                                                                                  _model.dateSelected,
-                                                                                                  ParamType.DateTime,
-                                                                                                ),
-                                                                                                'hourSelected': serializeParam(
-                                                                                                  getJsonField(
-                                                                                                    scheduleItem,
-                                                                                                    r'''$.time''',
-                                                                                                  ).toString(),
-                                                                                                  ParamType.String,
-                                                                                                ),
-                                                                                                'scheduleCabecalho': serializeParam(
-                                                                                                  getJsonField(
-                                                                                                    scheduleItem,
-                                                                                                    r'''$.schedule''',
-                                                                                                  ),
-                                                                                                  ParamType.JSON,
-                                                                                                ),
-                                                                                                'isAddNewClient': serializeParam(
-                                                                                                  getJsonField(
-                                                                                                            scheduleItem,
-                                                                                                            r'''$.schedule.id''',
-                                                                                                          ) !=
-                                                                                                          null
-                                                                                                      ? false
-                                                                                                      : true,
-                                                                                                  ParamType.bool,
-                                                                                                ),
-                                                                                                'situacao': serializeParam(
-                                                                                                  'confirmed',
-                                                                                                  ParamType.String,
-                                                                                                ),
-                                                                                              }.withoutNulls,
-                                                                                            );
-                                                                                          }
-                                                                                        },
-                                                                                        child: Icon(
-                                                                                          Icons.people,
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          size: 24.0,
-                                                                                        ),
+                                                                                    if (getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.schedule.id''',
+                                                                                        ) !=
+                                                                                        null)
+                                                                                      Icon(
+                                                                                        Icons.edit,
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        size: 24.0,
                                                                                       ),
                                                                                   ],
                                                                                 ),

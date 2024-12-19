@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -108,7 +109,10 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -250,22 +254,6 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                 ''),
                                                             r'''$.logradouro''',
                                                           ).toString();
-                                                          _model.ruaFocusNode
-                                                              ?.requestFocus();
-                                                          WidgetsBinding
-                                                              .instance
-                                                              .addPostFrameCallback(
-                                                                  (_) {
-                                                            _model.ruaTextController
-                                                                    ?.selection =
-                                                                TextSelection
-                                                                    .collapsed(
-                                                              offset: _model
-                                                                  .ruaTextController!
-                                                                  .text
-                                                                  .length,
-                                                            );
-                                                          });
                                                         });
                                                         logFirebaseEvent(
                                                             'CEP_set_form_field');
@@ -278,22 +266,6 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                 ''),
                                                             r'''$.bairro''',
                                                           ).toString();
-                                                          _model.bairroFocusNode
-                                                              ?.requestFocus();
-                                                          WidgetsBinding
-                                                              .instance
-                                                              .addPostFrameCallback(
-                                                                  (_) {
-                                                            _model.bairroTextController
-                                                                    ?.selection =
-                                                                TextSelection
-                                                                    .collapsed(
-                                                              offset: _model
-                                                                  .bairroTextController!
-                                                                  .text
-                                                                  .length,
-                                                            );
-                                                          });
                                                         });
                                                         logFirebaseEvent(
                                                             'CEP_set_form_field');
@@ -306,22 +278,6 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                 ''),
                                                             r'''$.uf''',
                                                           ).toString();
-                                                          _model.estadoFocusNode
-                                                              ?.requestFocus();
-                                                          WidgetsBinding
-                                                              .instance
-                                                              .addPostFrameCallback(
-                                                                  (_) {
-                                                            _model.estadoTextController
-                                                                    ?.selection =
-                                                                TextSelection
-                                                                    .collapsed(
-                                                              offset: _model
-                                                                  .estadoTextController!
-                                                                  .text
-                                                                  .length,
-                                                            );
-                                                          });
                                                         });
                                                         logFirebaseEvent(
                                                             'CEP_set_form_field');
@@ -334,22 +290,6 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                 ''),
                                                             r'''$.localidade''',
                                                           ).toString();
-                                                          _model.cidadeFocusNode
-                                                              ?.requestFocus();
-                                                          WidgetsBinding
-                                                              .instance
-                                                              .addPostFrameCallback(
-                                                                  (_) {
-                                                            _model.cidadeTextController
-                                                                    ?.selection =
-                                                                TextSelection
-                                                                    .collapsed(
-                                                              offset: _model
-                                                                  .cidadeTextController!
-                                                                  .text
-                                                                  .length,
-                                                            );
-                                                          });
                                                         });
                                                       }
                                                       logFirebaseEvent(
@@ -1226,12 +1166,6 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                         );
 
                                                                         logFirebaseEvent(
-                                                                            'Button_navigate_to');
-
-                                                                        context.pushNamed(
-                                                                            'CreateSiteEtapas18');
-
-                                                                        logFirebaseEvent(
                                                                             'Button_update_app_state');
                                                                         FFAppState().dataSite =
                                                                             getJsonField(
@@ -1241,6 +1175,39 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                         );
                                                                         safeSetState(
                                                                             () {});
+                                                                        logFirebaseEvent(
+                                                                            'Button_backend_call');
+                                                                        _model.listScheduleCode3 = await APIOficialGroup
+                                                                            .listScheduleCall
+                                                                            .call(
+                                                                          authToken:
+                                                                              currentAuthenticationToken,
+                                                                          dataFiltro:
+                                                                              dateTimeFormat(
+                                                                            "y-MM-d",
+                                                                            random_data.randomDate(),
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          ),
+                                                                        );
+
+                                                                        if (functions.convertJsonToString(getJsonField(
+                                                                              (_model.listScheduleCode3?.jsonBody ?? ''),
+                                                                              r'''$.error_code''',
+                                                                            )) ==
+                                                                            'no_schedule') {
+                                                                          logFirebaseEvent(
+                                                                              'Button_navigate_to');
+
+                                                                          context
+                                                                              .pushNamed('CreateSiteEtapas18');
+                                                                        } else {
+                                                                          logFirebaseEvent(
+                                                                              'Button_navigate_to');
+
+                                                                          context
+                                                                              .pushNamed('CreateSiteEtapas19');
+                                                                        }
 
                                                                         safeSetState(
                                                                             () {});

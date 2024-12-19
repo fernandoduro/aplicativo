@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -71,7 +72,10 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -449,10 +453,45 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
                                                         );
 
                                                         logFirebaseEvent(
-                                                            'Button_navigate_to');
+                                                            'Button_backend_call');
+                                                        _model.listScheduleCode4 =
+                                                            await APIOficialGroup
+                                                                .listScheduleCall
+                                                                .call(
+                                                          authToken:
+                                                              currentAuthenticationToken,
+                                                          dataFiltro:
+                                                              dateTimeFormat(
+                                                            "y-MM-d",
+                                                            random_data
+                                                                .randomDate(),
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
+                                                        );
 
-                                                        context.pushNamed(
-                                                            'CreateSiteEtapas18');
+                                                        if (functions
+                                                                .convertJsonToString(
+                                                                    getJsonField(
+                                                              (_model.listScheduleCode4
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                              r'''$.error_code''',
+                                                            )) ==
+                                                            'no_schedule') {
+                                                          logFirebaseEvent(
+                                                              'Button_navigate_to');
+
+                                                          context.pushNamed(
+                                                              'CreateSiteEtapas18');
+                                                        } else {
+                                                          logFirebaseEvent(
+                                                              'Button_navigate_to');
+
+                                                          context.pushNamed(
+                                                              'CreateSiteEtapas19');
+                                                        }
                                                       }
 
                                                       logFirebaseEvent(
