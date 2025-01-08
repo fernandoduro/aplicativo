@@ -2,7 +2,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
-import '/backend/push_notifications/push_notifications_util.dart';
+// import '/backend/push_notifications/push_notifications_util.dart';
 
 const kPermissionStateToBool = {
   PermissionStatus.granted: true,
