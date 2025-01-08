@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/footer_white/footer_white_widget.dart';
+import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'convites_widget.dart' show ConvitesWidget;
@@ -12,18 +12,18 @@ class ConvitesModel extends FlutterFlowModel<ConvitesWidget> {
   ApiCallResponse? apiResultnn5;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // Model for FooterWhite component.
-  late FooterWhiteModel footerWhiteModel;
+  // Model for Footer component.
+  late FooterModel footerModel;
 
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
-    footerWhiteModel = createModel(context, () => FooterWhiteModel());
+    footerModel = createModel(context, () => FooterModel());
   }
 
   @override
   void dispose() {
     headerHelpModel.dispose();
-    footerWhiteModel.dispose();
+    footerModel.dispose();
   }
 }

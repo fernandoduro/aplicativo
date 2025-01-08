@@ -1215,7 +1215,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: List.generate(clientes.length, (clientesIndex) {
                                                                                           final clientesItem = clientes[clientesIndex];
-                                                                                          return Stack(
+                                                                                          return Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
                                                                                             children: [
                                                                                               if (functions.convertJsonToString(getJsonField(
                                                                                                     clientesItem,
@@ -1229,7 +1230,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                       TextSpan(
                                                                                                         text: getJsonField(
                                                                                                           clientesItem,
-                                                                                                          r'''$.client.name''',
+                                                                                                          r'''$.name''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Manrope',
@@ -1283,33 +1284,38 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                         ),
                                                                                                   ),
                                                                                                 ),
-                                                                                              RichText(
-                                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                                text: TextSpan(
-                                                                                                  children: [
-                                                                                                    TextSpan(
-                                                                                                      text: getJsonField(
-                                                                                                        clientesItem,
-                                                                                                        r'''$.name''',
-                                                                                                      ).toString(),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Manrope',
-                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                            fontSize: 12.0,
-                                                                                                            letterSpacing: 0.0,
-                                                                                                            fontWeight: FontWeight.bold,
-                                                                                                          ),
-                                                                                                    )
-                                                                                                  ],
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Manrope',
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 12.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w900,
-                                                                                                      ),
+                                                                                              if (functions.convertJsonToString(getJsonField(
+                                                                                                    clientesItem,
+                                                                                                    r'''$.pivot.confirmation''',
+                                                                                                  )) ==
+                                                                                                  'confirmed')
+                                                                                                RichText(
+                                                                                                  textScaler: MediaQuery.of(context).textScaler,
+                                                                                                  text: TextSpan(
+                                                                                                    children: [
+                                                                                                      TextSpan(
+                                                                                                        text: getJsonField(
+                                                                                                          clientesItem,
+                                                                                                          r'''$.name''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              fontFamily: 'Manrope',
+                                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                              fontSize: 12.0,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FontWeight.bold,
+                                                                                                            ),
+                                                                                                      )
+                                                                                                    ],
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Manrope',
+                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          fontSize: 12.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FontWeight.w900,
+                                                                                                        ),
+                                                                                                  ),
                                                                                                 ),
-                                                                                              ),
                                                                                             ],
                                                                                           );
                                                                                         }),

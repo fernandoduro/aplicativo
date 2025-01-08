@@ -13,7 +13,6 @@ import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'comments_model.dart';
@@ -192,6 +191,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
                                                                 children: [
                                                                   Flexible(
                                                                     child:
@@ -209,20 +211,13 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                             TextSpan(
                                                                           children: [
                                                                             TextSpan(
-                                                                              text: 'Quais são os seus comentários ',
+                                                                              text: 'Comentários ',
                                                                               style: FlutterFlowTheme.of(context).displaySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                     fontSize: 30.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
-                                                                            ),
-                                                                            TextSpan(
-                                                                              text: 'dos clientes',
-                                                                              style: GoogleFonts.getFont(
-                                                                                'Gloria Hallelujah',
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                              ),
                                                                             )
                                                                           ],
                                                                           style: FlutterFlowTheme.of(context)

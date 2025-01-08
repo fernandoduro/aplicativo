@@ -470,10 +470,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'idProfessionalClientSelected',
               ParamType.int,
             ),
-            professionalClientJSON: params.getParam(
-              'professionalClientJSON',
-              ParamType.JSON,
-            ),
             idAppointmentSelected: params.getParam(
               'idAppointmentSelected',
               ParamType.int,
@@ -481,26 +477,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             duration: params.getParam(
               'duration',
               ParamType.int,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'Solicitacoes',
-          path: '/solicitacoes',
-          builder: (context, params) => const SolicitacoesWidget(),
-        ),
-        FFRoute(
-          name: 'novaSolicitacao',
-          path: '/novaSolicitacao',
-          builder: (context, params) => const NovaSolicitacaoWidget(),
-        ),
-        FFRoute(
-          name: 'enviarSolicitacao',
-          path: '/enviarSolicitacao',
-          builder: (context, params) => EnviarSolicitacaoWidget(
-            areaName: params.getParam(
-              'areaName',
-              ParamType.String,
             ),
           ),
         ),
@@ -647,6 +623,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateSiteEtapas18Copy',
           path: '/createSiteEtapas18Copy',
           builder: (context, params) => const CreateSiteEtapas18CopyWidget(),
+        ),
+        FFRoute(
+          name: 'Request',
+          path: '/request',
+          builder: (context, params) => const RequestWidget(),
+        ),
+        FFRoute(
+          name: 'FirstService',
+          path: '/firstService',
+          builder: (context, params) => FirstServiceWidget(
+            adicionadoPeloMais: params.getParam(
+              'adicionadoPeloMais',
+              ParamType.bool,
+            ),
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'FirstPackage',
+          path: '/firstPackage',
+          builder: (context, params) => FirstPackageWidget(
+            adicionadoPeloMais: params.getParam(
+              'adicionadoPeloMais',
+              ParamType.bool,
+            ),
+            originConfig: params.getParam(
+              'originConfig',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

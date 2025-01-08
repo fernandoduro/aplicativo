@@ -729,7 +729,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                               )) ==
                                                                                               'appointments')
                                                                                             Text(
-                                                                                              'Agendamento',
+                                                                                              'Agendamento realizado',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Manrope',
                                                                                                     fontSize: 16.0,
@@ -758,6 +758,20 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                               'register')
                                                                                             Text(
                                                                                               'Cliente cadastrado',
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Manrope',
+                                                                                                    fontSize: 16.0,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.w800,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          if (functions.convertJsonToString(getJsonField(
+                                                                                                itensItem,
+                                                                                                r'''$.kind''',
+                                                                                              )) ==
+                                                                                              'rating')
+                                                                                            Text(
+                                                                                              'Avaliação realizada',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Manrope',
                                                                                                     fontSize: 16.0,

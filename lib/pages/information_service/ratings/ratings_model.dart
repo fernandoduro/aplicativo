@@ -50,7 +50,7 @@ class RatingsModel extends FlutterFlowModel<RatingsWidget> {
   String? Function(BuildContext, String?)? horaTextControllerValidator;
   String? _horaTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Campo obrigatório';
+      return 'Obrigatório';
     }
 
     return null;

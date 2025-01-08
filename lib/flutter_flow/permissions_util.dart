@@ -2,6 +2,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
+import '/backend/push_notifications/push_notifications_util.dart';
 
 const kPermissionStateToBool = {
   PermissionStatus.granted: true,
@@ -14,6 +15,7 @@ const kPermissionStateToBool = {
 const cameraPermission = Permission.camera;
 const photoLibraryPermission = Permission.photos;
 const microphonePermission = Permission.microphone;
+const notificationsPermission = Permission.notification;
 
 Future<bool> getPermissionStatus(Permission setting) async {
   final status = await setting.status;
@@ -30,4 +32,7 @@ Future<void> requestPermission(Permission setting) async {
     }
   }
   await setting.request();
+  if (setting == Permission.notification) {
+    kNotificationsBehaviorSubject.add(false);
+  }
 }

@@ -18,7 +18,7 @@ class TextFieldHoursModel extends FlutterFlowModel<TextFieldHoursWidget> {
     }
 
     if (val.length < 5) {
-      return 'Obrigatório';
+      return 'Ex.: 14:00';
     }
 
     return null;

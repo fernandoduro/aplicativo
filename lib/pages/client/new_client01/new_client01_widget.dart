@@ -868,11 +868,8 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                         {
                                                                       'idClient':
                                                                           serializeParam(
-                                                                        getJsonField(
-                                                                          (_model.apiResultEditClients?.jsonBody ??
-                                                                              ''),
-                                                                          r'''$.data.id''',
-                                                                        ),
+                                                                        widget
+                                                                            .idClient,
                                                                         ParamType
                                                                             .int,
                                                                       ),

@@ -10,8 +10,6 @@ class FirstAccessLoyaltyModel
 
   // Model for HeaderBalao component.
   late HeaderBalaoModel headerBalaoModel;
-  // Stores action output result for [Action Block - CheckSubscription] action in Button widget.
-  bool? subscriptionResultLoyalt;
   // Model for Footer component.
   late FooterModel footerModel;
 

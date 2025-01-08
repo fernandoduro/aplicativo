@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_help/header_help_widget.dart';
+import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -142,13 +142,10 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.headerHelpModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.headerBalaoModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(

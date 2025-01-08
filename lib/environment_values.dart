@@ -21,6 +21,8 @@ class FFDevEnvironmentValues {
           await rootBundle.loadString(environmentValuesPath);
       final data = await json.decode(response);
       _apiURL = data['apiURL'];
+      _ApiUrlPlan = data['ApiUrlPlan'];
+      _ApiUrlChangePlan = data['ApiUrlChangePlan'];
     } catch (e) {
       print('Error loading environment values: $e');
     }
@@ -28,4 +30,10 @@ class FFDevEnvironmentValues {
 
   String _apiURL = '';
   String get apiURL => _apiURL;
+
+  String _ApiUrlPlan = '';
+  String get ApiUrlPlan => _ApiUrlPlan;
+
+  String _ApiUrlChangePlan = '';
+  String get ApiUrlChangePlan => _ApiUrlChangePlan;
 }

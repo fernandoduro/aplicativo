@@ -59,7 +59,8 @@
     <string>Precisamos da permissão de acesso de sua galeria para que seja possível receber sua marca e foto para seu site gratuito.</string>
 	<key>NSMicrophoneUsageDescription</key>
     <string>Precisamos da permissão do seu microfone para que você possa gravar áudios nos registros de seus clientes.</string>
-
+	<key>PermissionGroupNotification</key>
+    <string>Precisamos da permissão de notificação para te enviar os lembretes.</string>
 
 
 	<key>UILaunchStoryboardName</key>

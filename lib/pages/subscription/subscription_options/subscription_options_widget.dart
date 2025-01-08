@@ -167,9 +167,11 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                 'SUBSCRIPTION_OPTIONS_Row_w5pus2u2_ON_TAP');
                                             logFirebaseEvent(
                                                 'Row_launch_u_r_l');
-                                            await launchURL(functions.concateStrings(
-                                                'https://api.blubem.com.br/select-plan/voucher?t=',
-                                                currentAuthenticationToken)!);
+                                            await launchURL(
+                                                functions.concateStrings(
+                                                    FFDevEnvironmentValues()
+                                                        .ApiUrlPlan,
+                                                    currentAuthenticationToken)!);
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -359,9 +361,11 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                   'SUBSCRIPTION_OPTIONS_Row_wtan1mhu_ON_TAP');
                                               logFirebaseEvent(
                                                   'Row_launch_u_r_l');
-                                              await launchURL(functions.concateStrings(
-                                                  'https://api.blubem.com.br/change-payment-method?t=',
-                                                  currentAuthenticationToken)!);
+                                              await launchURL(
+                                                  functions.concateStrings(
+                                                      FFDevEnvironmentValues()
+                                                          .ApiUrlChangePlan,
+                                                      currentAuthenticationToken)!);
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -463,9 +467,11 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                   'SUBSCRIPTION_OPTIONS_Row_yuhbylr5_ON_TAP');
                                               logFirebaseEvent(
                                                   'Row_launch_u_r_l');
-                                              await launchURL(functions.concateStrings(
-                                                  'https://api.blubem.com.br/change-payment-method?t=',
-                                                  currentAuthenticationToken)!);
+                                              await launchURL(
+                                                  functions.concateStrings(
+                                                      FFDevEnvironmentValues()
+                                                          .ApiUrlChangePlan,
+                                                      currentAuthenticationToken)!);
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,

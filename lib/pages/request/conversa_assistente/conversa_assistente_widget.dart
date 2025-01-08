@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -722,32 +721,15 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                       logFirebaseEvent(
                                                           'CONVERSA_ASSISTENTE_VAMOS_L_BTN_ON_TAP');
                                                       logFirebaseEvent(
-                                                          'Button_action_block');
-                                                      _model.subscriptionResultSolicCopy =
-                                                          await action_blocks
-                                                              .checkSubscription(
-                                                        context,
-                                                        featureID: FFAppConstants
-                                                            .FeatureCalculadora,
-                                                        pageNavigateTo:
-                                                            'Solicitacoes',
-                                                      );
-                                                      if (_model
-                                                          .subscriptionResultSolicCopy!) {
-                                                        logFirebaseEvent(
-                                                            'Button_update_app_state');
-                                                        FFAppState()
-                                                                .firstRequest =
-                                                            false;
-                                                        safeSetState(() {});
-                                                        logFirebaseEvent(
-                                                            'Button_navigate_to');
-
-                                                        context.pushNamed(
-                                                            'Solicitacoes');
-                                                      }
-
+                                                          'Button_update_app_state');
+                                                      FFAppState()
+                                                          .firstRequest = false;
                                                       safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
+
+                                                      context
+                                                          .pushNamed('Request');
                                                     },
                                                     text: 'Vamos lá!',
                                                     options: FFButtonOptions(

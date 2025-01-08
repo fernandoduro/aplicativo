@@ -14,7 +14,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'ratings_model.dart';
@@ -92,6 +92,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -136,6 +138,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                       padding: const EdgeInsets.all(16.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Flexible(
                                             child: Padding(
@@ -149,8 +153,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
-                                                      text:
-                                                          'Quais são as suas ',
+                                                      text: 'Avaliações',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -165,17 +168,6 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                    ),
-                                                    TextSpan(
-                                                      text: 'avaliações',
-                                                      style:
-                                                          GoogleFonts.getFont(
-                                                        'Gloria Hallelujah',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
                                                     )
                                                   ],
                                                   style: FlutterFlowTheme.of(
@@ -590,91 +582,99 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                16.0, 16.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            if (getJsonField(
-                                                                  containerGetClientByIDResponse
-                                                                      .jsonBody,
-                                                                  r'''$.data.client.packages[*].items[0].name''',
-                                                                ) !=
-                                                                null)
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Text(
-                                                                        'Pacotes: ',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Manrope',
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w800,
-                                                                            ),
-                                                                      ),
-                                                                      Builder(
-                                                                        builder:
-                                                                            (context) {
-                                                                          final packsItems =
-                                                                              getJsonField(
-                                                                            containerGetClientByIDResponse.jsonBody,
-                                                                            r'''$.data.client.packages''',
-                                                                          ).toList();
+                                                  if (getJsonField(
+                                                        containerGetClientByIDResponse
+                                                            .jsonBody,
+                                                        r'''$.data.professional_clients[0].packages[0].id''',
+                                                      ) !=
+                                                      null)
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  16.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              if (getJsonField(
+                                                                    containerGetClientByIDResponse
+                                                                        .jsonBody,
+                                                                    r'''$.data.professional_clients[0].packages[0].id''',
+                                                                  ) !=
+                                                                  null)
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Text(
+                                                                          'Pacotes: ',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Manrope',
+                                                                                fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w800,
+                                                                              ),
+                                                                        ),
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            final packsItems =
+                                                                                getJsonField(
+                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                              r'''$.data.professional_clients[0].packages''',
+                                                                            ).toList();
 
-                                                                          return Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children:
-                                                                                List.generate(packsItems.length, (packsItemsIndex) {
-                                                                              final packsItemsItem = packsItems[packsItemsIndex];
-                                                                              return Text(
-                                                                                '${getJsonField(
-                                                                                  packsItemsItem,
-                                                                                  r'''$.name''',
-                                                                                ).toString()} | ',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
-                                                                                      fontSize: 12.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              );
-                                                                            }),
-                                                                          );
-                                                                        },
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ],
+                                                                            return Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: List.generate(packsItems.length, (packsItemsIndex) {
+                                                                                final packsItemsItem = packsItems[packsItemsIndex];
+                                                                                return Text(
+                                                                                  '${getJsonField(
+                                                                                    packsItemsItem,
+                                                                                    r'''$.name''',
+                                                                                  ).toString()} ',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Manrope',
+                                                                                        fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                );
+                                                                              }),
+                                                                            );
+                                                                          },
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -854,21 +854,39 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             onTap:
                                                                                 () async {
                                                                               logFirebaseEvent('RATINGS_PAGE_Icon_mqnocqly_ON_TAP');
-                                                                              logFirebaseEvent('Icon_navigate_to');
+                                                                              if (FFAppState().FirstService == true) {
+                                                                                logFirebaseEvent('Icon_navigate_to');
 
-                                                                              context.pushNamed(
-                                                                                'Services02',
-                                                                                queryParameters: {
-                                                                                  'adicionadoPeloMais': serializeParam(
-                                                                                    true,
-                                                                                    ParamType.bool,
-                                                                                  ),
-                                                                                  'originConfig': serializeParam(
-                                                                                    '',
-                                                                                    ParamType.String,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                              );
+                                                                                context.pushNamed(
+                                                                                  'FirstService',
+                                                                                  queryParameters: {
+                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                      true,
+                                                                                      ParamType.bool,
+                                                                                    ),
+                                                                                    'originConfig': serializeParam(
+                                                                                      '',
+                                                                                      ParamType.String,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                );
+                                                                              } else {
+                                                                                logFirebaseEvent('Icon_navigate_to');
+
+                                                                                context.pushNamed(
+                                                                                  'Services02',
+                                                                                  queryParameters: {
+                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                      true,
+                                                                                      ParamType.bool,
+                                                                                    ),
+                                                                                    'originConfig': serializeParam(
+                                                                                      '',
+                                                                                      ParamType.String,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                );
+                                                                              }
                                                                             },
                                                                             child:
                                                                                 Icon(
@@ -942,21 +960,39 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             onTap:
                                                                                 () async {
                                                                               logFirebaseEvent('RATINGS_PAGE_Icon_3k40qgds_ON_TAP');
-                                                                              logFirebaseEvent('Icon_navigate_to');
+                                                                              if (FFAppState().FirstService == true) {
+                                                                                logFirebaseEvent('Icon_navigate_to');
 
-                                                                              context.pushNamed(
-                                                                                'Services02',
-                                                                                queryParameters: {
-                                                                                  'adicionadoPeloMais': serializeParam(
-                                                                                    true,
-                                                                                    ParamType.bool,
-                                                                                  ),
-                                                                                  'originConfig': serializeParam(
-                                                                                    '',
-                                                                                    ParamType.String,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                              );
+                                                                                context.pushNamed(
+                                                                                  'FirstService',
+                                                                                  queryParameters: {
+                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                      true,
+                                                                                      ParamType.bool,
+                                                                                    ),
+                                                                                    'originConfig': serializeParam(
+                                                                                      '',
+                                                                                      ParamType.String,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                );
+                                                                              } else {
+                                                                                logFirebaseEvent('Icon_navigate_to');
+
+                                                                                context.pushNamed(
+                                                                                  'Services02',
+                                                                                  queryParameters: {
+                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                      true,
+                                                                                      ParamType.bool,
+                                                                                    ),
+                                                                                    'originConfig': serializeParam(
+                                                                                      '',
+                                                                                      ParamType.String,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                );
+                                                                              }
                                                                             },
                                                                             child:
                                                                                 Icon(

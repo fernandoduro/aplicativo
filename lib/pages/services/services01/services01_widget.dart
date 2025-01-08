@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'services01_model.dart';
 export 'services01_model.dart';
 
@@ -47,6 +48,8 @@ class _Services01WidgetState extends State<Services01Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -146,22 +149,46 @@ class _Services01WidgetState extends State<Services01Widget> {
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'SERVICES01_PAGE_Row_l3q4cozh_ON_TAP');
-                                            logFirebaseEvent('Row_navigate_to');
+                                            if (FFAppState().FirstService ==
+                                                true) {
+                                              logFirebaseEvent(
+                                                  'Row_navigate_to');
 
-                                            context.pushNamed(
-                                              'Services02',
-                                              queryParameters: {
-                                                'adicionadoPeloMais':
-                                                    serializeParam(
-                                                  false,
-                                                  ParamType.bool,
-                                                ),
-                                                'originConfig': serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
+                                              context.pushNamed(
+                                                'FirstService',
+                                                queryParameters: {
+                                                  'adicionadoPeloMais':
+                                                      serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'originConfig':
+                                                      serializeParam(
+                                                    '',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            } else {
+                                              logFirebaseEvent(
+                                                  'Row_navigate_to');
+
+                                              context.pushNamed(
+                                                'Services02',
+                                                queryParameters: {
+                                                  'adicionadoPeloMais':
+                                                      serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'originConfig':
+                                                      serializeParam(
+                                                    '',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            }
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -251,22 +278,46 @@ class _Services01WidgetState extends State<Services01Widget> {
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'SERVICES01_PAGE_Row_qpf193ag_ON_TAP');
-                                            logFirebaseEvent('Row_navigate_to');
+                                            if (FFAppState().FirstPackage ==
+                                                true) {
+                                              logFirebaseEvent(
+                                                  'Row_navigate_to');
 
-                                            context.pushNamed(
-                                              'Services03',
-                                              queryParameters: {
-                                                'adicionadoPeloMais':
-                                                    serializeParam(
-                                                  false,
-                                                  ParamType.bool,
-                                                ),
-                                                'originConfig': serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
+                                              context.pushNamed(
+                                                'FirstPackage',
+                                                queryParameters: {
+                                                  'adicionadoPeloMais':
+                                                      serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'originConfig':
+                                                      serializeParam(
+                                                    '',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            } else {
+                                              logFirebaseEvent(
+                                                  'Row_navigate_to');
+
+                                              context.pushNamed(
+                                                'Services03',
+                                                queryParameters: {
+                                                  'adicionadoPeloMais':
+                                                      serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'originConfig':
+                                                      serializeParam(
+                                                    '',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            }
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,

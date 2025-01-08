@@ -120,7 +120,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
         effectsBuilder: () => [
           FadeEffect(
             curve: Curves.easeInOut,
-            delay: 8000.0.ms,
+            delay: 6000.0.ms,
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
@@ -619,9 +619,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                           FFAppState()
                                                               .loyalt01 = false;
                                                           FFAppState()
-                                                                  .loyalt02 =
-                                                              _model
-                                                                  .statusValue!;
+                                                              .loyalt02 = false;
                                                           safeSetState(() {});
                                                           logFirebaseEvent(
                                                               'Button_backend_call');

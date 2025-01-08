@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 class InsightsModel extends FlutterFlowModel<InsightsWidget> {
   ///  Local state fields for this page.
 
-  String? generalinfo;
+  String? generalinfo = ' ';
 
-  String? lastweekinfo;
+  String? lastweekinfo = ' ';
 
-  String? siteinfo;
+  String? siteinfo = ' ';
 
   ///  State fields for stateful widgets in this page.
 

@@ -79,7 +79,6 @@ Future<bool?> checkSubscription(
 }
 
 Future seuSite(BuildContext context) async {
-  bool? subscriptionResult44;
   ApiCallResponse? siteResult2;
 
   logFirebaseEvent('seuSite_custom_action');
@@ -91,80 +90,41 @@ Future seuSite(BuildContext context) async {
 
     return;
   } else {
-    logFirebaseEvent('seuSite_action_block');
-    subscriptionResult44 = await action_blocks.checkSubscription(
-      context,
-      featureID: FFAppConstants.FeatureProgramaBeneficios,
-      pageNavigateTo: 'fidelidade',
+    logFirebaseEvent('seuSite_backend_call');
+    siteResult2 = await APIOficialGroup.getSiteCall.call(
+      authToken: currentAuthenticationToken,
     );
-    if (subscriptionResult44!) {
-      if (FFAppState().firstLoyault == true) {
-        logFirebaseEvent('seuSite_update_app_state');
-        FFAppState().firstLoyault = false;
-        logFirebaseEvent('seuSite_navigate_to');
 
-        context.pushNamed('FirstAccessLoyalty');
-      } else {
-        if (FFAppState().loyalt01) {
-          logFirebaseEvent('seuSite_update_app_state');
-          FFAppState().firstLoyault = false;
-          FFAppState().loyalt01 = false;
-          logFirebaseEvent('seuSite_navigate_to');
-
-          context.pushNamed('Loyalty01');
-        } else {
-          if (FFAppState().loyalt02) {
-            logFirebaseEvent('seuSite_update_app_state');
-            FFAppState().firstLoyault = false;
-            FFAppState().loyalt01 = false;
-            FFAppState().loyalt02 = false;
-            logFirebaseEvent('seuSite_navigate_to');
-
-            context.pushNamed('Loyalty02');
-          } else {
-            logFirebaseEvent('seuSite_navigate_to');
-
-            context.pushNamed('LoyaltyHistory');
-          }
-        }
-      }
-    }
-  }
-
-  logFirebaseEvent('seuSite_backend_call');
-  siteResult2 = await APIOficialGroup.getSiteCall.call(
-    authToken: currentAuthenticationToken,
-  );
-
-  if (getJsonField(
-        (siteResult2.jsonBody ?? ''),
-        r'''$.data.domain''',
-      ) !=
-      null) {
-    logFirebaseEvent('seuSite_update_app_state');
-    FFAppState().existSite = true;
-    FFAppState().dataSite = getJsonField(
-      (siteResult2.jsonBody ?? ''),
-      r'''$.data''',
-    );
-    logFirebaseEvent('seuSite_navigate_to');
-
-    context.pushNamed('CreateSiteEtapa6');
-  } else {
-    if (FFAppState().codigoSiteUsado == true) {
-      logFirebaseEvent('seuSite_navigate_to');
-
-      context.pushNamed('CreateSiteEtapa6');
-    } else {
+    if (getJsonField(
+          (siteResult2.jsonBody ?? ''),
+          r'''$.data.domain''',
+        ) !=
+        null) {
       logFirebaseEvent('seuSite_update_app_state');
-      FFAppState().existSite = false;
+      FFAppState().existSite = true;
       FFAppState().dataSite = getJsonField(
         (siteResult2.jsonBody ?? ''),
         r'''$.data''',
       );
       logFirebaseEvent('seuSite_navigate_to');
 
-      context.pushNamed('CreateSiteEtapa1');
+      context.pushNamed('CreateSiteEtapa6');
+    } else {
+      if (FFAppState().codigoSiteUsado == true) {
+        logFirebaseEvent('seuSite_navigate_to');
+
+        context.pushNamed('CreateSiteEtapa6');
+      } else {
+        logFirebaseEvent('seuSite_update_app_state');
+        FFAppState().existSite = false;
+        FFAppState().dataSite = getJsonField(
+          (siteResult2.jsonBody ?? ''),
+          r'''$.data''',
+        );
+        logFirebaseEvent('seuSite_navigate_to');
+
+        context.pushNamed('CreateSiteEtapa1');
+      }
     }
   }
 }
@@ -336,18 +296,28 @@ Future resumoSemanal(BuildContext context) async {
         authToken: currentAuthenticationToken,
       );
 
-      if (getJsonField(
-            (apiResultu561.jsonBody ?? ''),
-            r'''$.data[*].general_info[*]''',
-          ) !=
-          null) {
-        logFirebaseEvent('resumoSemanal_navigate_to');
-
-        context.pushNamed('Insights');
-      } else {
+      if ((getJsonField(
+                (apiResultu561.jsonBody ?? ''),
+                r'''$.data[*].general_info[*]''',
+              ) ==
+              null) &&
+          (getJsonField(
+                (apiResultu561.jsonBody ?? ''),
+                r'''$.data[*].last_week_info[*]''',
+              ) ==
+              null) &&
+          (getJsonField(
+                (apiResultu561.jsonBody ?? ''),
+                r'''$.data[*].site_info[*]''',
+              ) ==
+              null)) {
         logFirebaseEvent('resumoSemanal_navigate_to');
 
         context.pushNamed('NotInsights');
+      } else {
+        logFirebaseEvent('resumoSemanal_navigate_to');
+
+        context.pushNamed('Insights');
       }
     }
   }
@@ -379,7 +349,7 @@ Future assistente(BuildContext context) async {
       } else {
         logFirebaseEvent('assistente_navigate_to');
 
-        context.pushNamed('Solicitacoes');
+        context.pushNamed('Request');
       }
     }
   }
@@ -411,7 +381,7 @@ Future fidelidade(BuildContext context) async {
 
         context.pushNamed('FirstAccessLoyalty');
       } else {
-        if (FFAppState().loyalt01) {
+        if (FFAppState().loyalt01 == true) {
           logFirebaseEvent('fidelidade_update_app_state');
           FFAppState().firstLoyault = false;
           FFAppState().loyalt01 = false;
@@ -419,7 +389,7 @@ Future fidelidade(BuildContext context) async {
 
           context.pushNamed('Loyalty01');
         } else {
-          if (FFAppState().loyalt02) {
+          if (FFAppState().loyalt02 == true) {
             logFirebaseEvent('fidelidade_update_app_state');
             FFAppState().firstLoyault = false;
             FFAppState().loyalt01 = false;
@@ -485,36 +455,11 @@ Future firstConfigNavigation(
             r'''$.data[0].name''',
           ) ==
           null) {
-        logFirebaseEvent('firstConfigNavigation_navigate_to');
-
-        context.pushNamed(
-          'Services02',
-          queryParameters: {
-            'adicionadoPeloMais': serializeParam(
-              false,
-              ParamType.bool,
-            ),
-            'originConfig': serializeParam(
-              originConfig,
-              ParamType.String,
-            ),
-          }.withoutNulls,
-        );
-      } else {
-        logFirebaseEvent('firstConfigNavigation_backend_call');
-        getpackagsResult = await APIOficialGroup.getPackagesCall.call(
-          authToken: currentAuthenticationToken,
-        );
-
-        if (getJsonField(
-              (getpackagsResult.jsonBody ?? ''),
-              r'''$.data[0].name''',
-            ) ==
-            null) {
+        if (FFAppState().FirstService == true) {
           logFirebaseEvent('firstConfigNavigation_navigate_to');
 
           context.pushNamed(
-            'Services03',
+            'FirstService',
             queryParameters: {
               'adicionadoPeloMais': serializeParam(
                 false,
@@ -526,6 +471,67 @@ Future firstConfigNavigation(
               ),
             }.withoutNulls,
           );
+        } else {
+          logFirebaseEvent('firstConfigNavigation_navigate_to');
+
+          context.pushNamed(
+            'Services02',
+            queryParameters: {
+              'adicionadoPeloMais': serializeParam(
+                false,
+                ParamType.bool,
+              ),
+              'originConfig': serializeParam(
+                originConfig,
+                ParamType.String,
+              ),
+            }.withoutNulls,
+          );
+        }
+      } else {
+        logFirebaseEvent('firstConfigNavigation_backend_call');
+        getpackagsResult = await APIOficialGroup.getPackagesCall.call(
+          authToken: currentAuthenticationToken,
+        );
+
+        if (getJsonField(
+              (getpackagsResult.jsonBody ?? ''),
+              r'''$.data[0].name''',
+            ) ==
+            null) {
+          if (FFAppState().FirstPackage == true) {
+            logFirebaseEvent('firstConfigNavigation_navigate_to');
+
+            context.pushNamed(
+              'FirstPackage',
+              queryParameters: {
+                'adicionadoPeloMais': serializeParam(
+                  false,
+                  ParamType.bool,
+                ),
+                'originConfig': serializeParam(
+                  originConfig,
+                  ParamType.String,
+                ),
+              }.withoutNulls,
+            );
+          } else {
+            logFirebaseEvent('firstConfigNavigation_navigate_to');
+
+            context.pushNamed(
+              'Services03',
+              queryParameters: {
+                'adicionadoPeloMais': serializeParam(
+                  false,
+                  ParamType.bool,
+                ),
+                'originConfig': serializeParam(
+                  originConfig,
+                  ParamType.String,
+                ),
+              }.withoutNulls,
+            );
+          }
         } else {
           logFirebaseEvent('firstConfigNavigation_backend_call');
           apiGetUserConfig = await APIOficialGroup.getUserCall.call(

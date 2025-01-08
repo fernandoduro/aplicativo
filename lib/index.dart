@@ -88,12 +88,6 @@ export '/pages/schedule/schedule02/schedule02_widget.dart'
     show Schedule02Widget;
 export '/pages/schedule/schedule03/schedule03_widget.dart'
     show Schedule03Widget;
-export '/pages/request/solicitacoes/solicitacoes_widget.dart'
-    show SolicitacoesWidget;
-export '/pages/request/nova_solicitacao/nova_solicitacao_widget.dart'
-    show NovaSolicitacaoWidget;
-export '/pages/request/enviar_solicitacao/enviar_solicitacao_widget.dart'
-    show EnviarSolicitacaoWidget;
 export '/franco/solicitacoes_a_d_m/solicitacoes_a_d_m_widget.dart'
     show SolicitacoesADMWidget;
 export '/pages/reminders/first_access_reminder/first_access_reminder_widget.dart'
@@ -136,3 +130,8 @@ export '/pages/schedule/finish_access_config/finish_access_config_widget.dart'
 export '/pages/home/home_balao2/home_balao2_widget.dart' show HomeBalao2Widget;
 export '/pages/create_site/create_site_etapas18_copy/create_site_etapas18_copy_widget.dart'
     show CreateSiteEtapas18CopyWidget;
+export '/pages/request/request/request_widget.dart' show RequestWidget;
+export '/pages/services/first_service/first_service_widget.dart'
+    show FirstServiceWidget;
+export '/pages/services/first_package/first_package_widget.dart'
+    show FirstPackageWidget;

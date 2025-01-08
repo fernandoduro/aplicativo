@@ -41,6 +41,8 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Backend Call - API (GetAppointmentsByID)] action in Schedule03 widget.
+  ApiCallResponse? getAppointmet1;
   // Stores action output result for [Backend Call - API (ListAllClients)] action in Schedule03 widget.
   ApiCallResponse? apiResultox6;
   // Stores action output result for [Custom Action - filterJsonNotINAction] action in Schedule03 widget.

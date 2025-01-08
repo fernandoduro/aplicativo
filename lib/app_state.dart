@@ -69,6 +69,12 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _idUser = prefs.getInt('ff_idUser') ?? _idUser;
     });
+    _safeInit(() {
+      _FirstService = prefs.getBool('ff_FirstService') ?? _FirstService;
+    });
+    _safeInit(() {
+      _FirstPackage = prefs.getBool('ff_FirstPackage') ?? _FirstPackage;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -223,7 +229,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   dynamic _hoursWork = jsonDecode(
-      '{\"days\":[{\"dayWeek\":\"Segunda-Feira\",\"hours\":[]},{\"dayWeek\":\"Terça-Feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-Feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
+      '{\"days\":[{\"dayWeek\":\"Segunda-feira\",\"hours\":[]},{\"dayWeek\":\"Terça-feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
   dynamic get hoursWork => _hoursWork;
   set hoursWork(dynamic value) {
     _hoursWork = value;
@@ -328,6 +334,20 @@ class FFAppState extends ChangeNotifier {
   set idUser(int value) {
     _idUser = value;
     prefs.setInt('ff_idUser', value);
+  }
+
+  bool _FirstService = true;
+  bool get FirstService => _FirstService;
+  set FirstService(bool value) {
+    _FirstService = value;
+    prefs.setBool('ff_FirstService', value);
+  }
+
+  bool _FirstPackage = true;
+  bool get FirstPackage => _FirstPackage;
+  set FirstPackage(bool value) {
+    _FirstPackage = value;
+    prefs.setBool('ff_FirstPackage', value);
   }
 }
 

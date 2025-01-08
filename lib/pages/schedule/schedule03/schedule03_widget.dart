@@ -11,6 +11,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'schedule03_model.dart';
 export 'schedule03_model.dart';
 
@@ -25,7 +26,6 @@ class Schedule03Widget extends StatefulWidget {
     this.idClientSelected,
     required this.situacao,
     this.idProfessionalClientSelected,
-    this.professionalClientJSON,
     this.idAppointmentSelected,
     this.duration,
   }) : existAppointment = existAppointment ?? false;
@@ -38,7 +38,6 @@ class Schedule03Widget extends StatefulWidget {
   final int? idClientSelected;
   final String? situacao;
   final int? idProfessionalClientSelected;
-  final dynamic professionalClientJSON;
   final int? idAppointmentSelected;
   final int? duration;
 
@@ -65,10 +64,59 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
             r'''$.professional_client[*].client_id''',
           ) !=
           null) {
+        logFirebaseEvent('Schedule03_backend_call');
+        _model.getAppointmet1 =
+            await APIOficialGroup.getAppointmentsByIDCall.call(
+          authToken: currentAuthenticationToken,
+          id: getJsonField(
+            widget.scheduleCabecalho,
+            r'''$.id''',
+          ).toString().toString(),
+        );
+
+        logFirebaseEvent('Schedule03_set_form_field');
+        safeSetState(() {
+          _model.prazoRecorrenteValueController?.value = () {
+            if ((_model.statusValue == true) &&
+                (functions.convertJsonToString(getJsonField(
+                      (_model.getAppointmet1?.jsonBody ?? ''),
+                      r'''$.frequency''',
+                    )) ==
+                    'WEEKLY') &&
+                (functions.convertStrintToInt(getJsonField(
+                      (_model.getAppointmet1?.jsonBody ?? ''),
+                      r'''$.interval_num''',
+                    ).toString().toString()) ==
+                    1)) {
+              return 'weekly';
+            } else if ((_model.statusValue == true) &&
+                (functions.convertJsonToString(getJsonField(
+                      (_model.getAppointmet1?.jsonBody ?? ''),
+                      r'''$.frequency''',
+                    )) ==
+                    'WEEKLY') &&
+                (functions.convertStrintToInt(getJsonField(
+                      (_model.getAppointmet1?.jsonBody ?? ''),
+                      r'''$.interval_num''',
+                    ).toString().toString()) ==
+                    2)) {
+              return 'fortnightly';
+            } else if ((_model.statusValue == true) &&
+                (functions.convertJsonToString(getJsonField(
+                      (_model.getAppointmet1?.jsonBody ?? ''),
+                      r'''$.frequency''',
+                    )) ==
+                    'MONTHLY')) {
+              return 'monthly';
+            } else {
+              return '';
+            }
+          }();
+        });
         logFirebaseEvent('Schedule03_update_page_state');
         _model.idsClientsSchedule = getJsonField(
           widget.scheduleCabecalho,
-          r'''$.professional_client[*].client_id''',
+          r'''$.professional_client[*].pivot.professional_client_id''',
           true,
         )!
             .toList()
@@ -134,28 +182,20 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
         TextEditingController(text: widget.duration?.toString());
     _model.durationFocusNode ??= FocusNode();
 
-    _model.descricaoTextController ??= TextEditingController(text: () {
-      if (!widget.isAddNewClient!) {
-        return functions.removeNullString(getJsonField(
-          widget.scheduleCabecalho,
-          r'''$.description''',
-        ).toString().toString());
-      } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
-        return functions.removeNullString(getJsonField(
-          widget.scheduleCabecalho,
-          r'''$.description''',
-        ).toString().toString());
-      } else {
-        return '';
-      }
-    }());
+    _model.descricaoTextController ??= TextEditingController(
+        text: !widget.isAddNewClient!
+            ? functions.removeNullString(getJsonField(
+                widget.scheduleCabecalho,
+                r'''$.description''',
+              ).toString().toString())
+            : '');
     _model.descricaoFocusNode ??= FocusNode();
 
     _model.statusValue = () {
       if (!widget.isAddNewClient!) {
         return (functions
                 .convertStrintToInt(getJsonField(
-                  widget.professionalClientJSON,
+                  widget.scheduleCabecalho,
                   r'''$.recurrent''',
                 ).toString().toString())
                 .toString() ==
@@ -184,6 +224,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -1040,21 +1082,39 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             highlightColor: Colors.transparent,
                                                                                             onTap: () async {
                                                                                               logFirebaseEvent('SCHEDULE03_PAGE_Icon_lo5im8j9_ON_TAP');
-                                                                                              logFirebaseEvent('Icon_navigate_to');
+                                                                                              if (FFAppState().FirstService == true) {
+                                                                                                logFirebaseEvent('Icon_navigate_to');
 
-                                                                                              context.pushNamed(
-                                                                                                'Services02',
-                                                                                                queryParameters: {
-                                                                                                  'adicionadoPeloMais': serializeParam(
-                                                                                                    true,
-                                                                                                    ParamType.bool,
-                                                                                                  ),
-                                                                                                  'originConfig': serializeParam(
-                                                                                                    '',
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                }.withoutNulls,
-                                                                                              );
+                                                                                                context.pushNamed(
+                                                                                                  'FirstService',
+                                                                                                  queryParameters: {
+                                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                                      true,
+                                                                                                      ParamType.bool,
+                                                                                                    ),
+                                                                                                    'originConfig': serializeParam(
+                                                                                                      '',
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                  }.withoutNulls,
+                                                                                                );
+                                                                                              } else {
+                                                                                                logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                context.pushNamed(
+                                                                                                  'Services02',
+                                                                                                  queryParameters: {
+                                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                                      true,
+                                                                                                      ParamType.bool,
+                                                                                                    ),
+                                                                                                    'originConfig': serializeParam(
+                                                                                                      '',
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                  }.withoutNulls,
+                                                                                                );
+                                                                                              }
                                                                                             },
                                                                                             child: Icon(
                                                                                               Icons.add_box,
@@ -1115,21 +1175,39 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             highlightColor: Colors.transparent,
                                                                                             onTap: () async {
                                                                                               logFirebaseEvent('SCHEDULE03_PAGE_Icon_a00r7bow_ON_TAP');
-                                                                                              logFirebaseEvent('Icon_navigate_to');
+                                                                                              if (FFAppState().FirstService == true) {
+                                                                                                logFirebaseEvent('Icon_navigate_to');
 
-                                                                                              context.pushNamed(
-                                                                                                'Services02',
-                                                                                                queryParameters: {
-                                                                                                  'adicionadoPeloMais': serializeParam(
-                                                                                                    true,
-                                                                                                    ParamType.bool,
-                                                                                                  ),
-                                                                                                  'originConfig': serializeParam(
-                                                                                                    '',
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                }.withoutNulls,
-                                                                                              );
+                                                                                                context.pushNamed(
+                                                                                                  'FirstService',
+                                                                                                  queryParameters: {
+                                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                                      true,
+                                                                                                      ParamType.bool,
+                                                                                                    ),
+                                                                                                    'originConfig': serializeParam(
+                                                                                                      '',
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                  }.withoutNulls,
+                                                                                                );
+                                                                                              } else {
+                                                                                                logFirebaseEvent('Icon_navigate_to');
+
+                                                                                                context.pushNamed(
+                                                                                                  'Services02',
+                                                                                                  queryParameters: {
+                                                                                                    'adicionadoPeloMais': serializeParam(
+                                                                                                      true,
+                                                                                                      ParamType.bool,
+                                                                                                    ),
+                                                                                                    'originConfig': serializeParam(
+                                                                                                      '',
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                  }.withoutNulls,
+                                                                                                );
+                                                                                              }
                                                                                             },
                                                                                             child: Icon(
                                                                                               Icons.add_box,
@@ -1209,92 +1287,91 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          if (!widget
-                                                                              .existAppointment)
-                                                                            Align(
-                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                              child: Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                                child: Text(
-                                                                                  'Descrição',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                      ),
-                                                                                ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                              child: Text(
+                                                                                'Descrição',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Manrope',
+                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                    ),
                                                                               ),
                                                                             ),
+                                                                          ),
                                                                           Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.spaceAround,
                                                                             children: [
-                                                                              if (!widget.existAppointment)
-                                                                                Flexible(
-                                                                                  child: Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                    child: SizedBox(
-                                                                                      width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                      child: TextFormField(
-                                                                                        controller: _model.descricaoTextController,
-                                                                                        focusNode: _model.descricaoFocusNode,
-                                                                                        autofocus: false,
-                                                                                        obscureText: false,
-                                                                                        decoration: InputDecoration(
-                                                                                          isDense: true,
-                                                                                          labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                fontFamily: 'Manrope',
-                                                                                                letterSpacing: 0.0,
-                                                                                              ),
-                                                                                          hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                fontFamily: 'Manrope',
-                                                                                                letterSpacing: 0.0,
-                                                                                              ),
-                                                                                          enabledBorder: OutlineInputBorder(
-                                                                                            borderSide: const BorderSide(
-                                                                                              color: Color(0x00000000),
-                                                                                              width: 1.0,
-                                                                                            ),
-                                                                                            borderRadius: BorderRadius.circular(8.0),
-                                                                                          ),
-                                                                                          focusedBorder: OutlineInputBorder(
-                                                                                            borderSide: const BorderSide(
-                                                                                              color: Color(0x00000000),
-                                                                                              width: 1.0,
-                                                                                            ),
-                                                                                            borderRadius: BorderRadius.circular(8.0),
-                                                                                          ),
-                                                                                          errorBorder: OutlineInputBorder(
-                                                                                            borderSide: BorderSide(
-                                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                                              width: 1.0,
-                                                                                            ),
-                                                                                            borderRadius: BorderRadius.circular(8.0),
-                                                                                          ),
-                                                                                          focusedErrorBorder: OutlineInputBorder(
-                                                                                            borderSide: BorderSide(
-                                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                                              width: 1.0,
-                                                                                            ),
-                                                                                            borderRadius: BorderRadius.circular(8.0),
-                                                                                          ),
-                                                                                          filled: true,
-                                                                                          fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                              Flexible(
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                  child: SizedBox(
+                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                    child: TextFormField(
+                                                                                      controller: _model.descricaoTextController,
+                                                                                      focusNode: _model.descricaoFocusNode,
+                                                                                      autofocus: false,
+                                                                                      obscureText: false,
+                                                                                      decoration: InputDecoration(
+                                                                                        isDense: true,
+                                                                                        labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                               fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
-                                                                                        maxLines: 4,
-                                                                                        cursorColor: FlutterFlowTheme.of(context).primaryText,
-                                                                                        validator: _model.descricaoTextControllerValidator.asValidator(context),
+                                                                                        hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Manrope',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
+                                                                                        enabledBorder: OutlineInputBorder(
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0x00000000),
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                        ),
+                                                                                        focusedBorder: OutlineInputBorder(
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0x00000000),
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                        ),
+                                                                                        errorBorder: OutlineInputBorder(
+                                                                                          borderSide: BorderSide(
+                                                                                            color: FlutterFlowTheme.of(context).error,
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                        ),
+                                                                                        focusedErrorBorder: OutlineInputBorder(
+                                                                                          borderSide: BorderSide(
+                                                                                            color: FlutterFlowTheme.of(context).error,
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                        ),
+                                                                                        filled: true,
+                                                                                        fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Manrope',
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                      maxLines: 4,
+                                                                                      cursorColor: FlutterFlowTheme.of(context).primaryText,
+                                                                                      validator: _model.descricaoTextControllerValidator.asValidator(context),
                                                                                     ),
                                                                                   ),
                                                                                 ),
+                                                                              ),
                                                                             ],
                                                                           ),
                                                                           Padding(
@@ -1354,42 +1431,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                   Flexible(
                                                                                     child: FlutterFlowDropDown<String>(
                                                                                       controller: _model.prazoRecorrenteValueController ??= FormFieldController<String>(
-                                                                                        _model.prazoRecorrenteValue ??= () {
-                                                                                          if ((_model.statusValue == true) &&
-                                                                                              (functions.convertJsonToString(getJsonField(
-                                                                                                    widget.professionalClientJSON,
-                                                                                                    r'''$.frequency''',
-                                                                                                  )) ==
-                                                                                                  'WEEKLY') &&
-                                                                                              (functions.convertStrintToInt(getJsonField(
-                                                                                                    widget.professionalClientJSON,
-                                                                                                    r'''$.interval_num''',
-                                                                                                  ).toString()) ==
-                                                                                                  1)) {
-                                                                                            return 'weekly';
-                                                                                          } else if ((_model.statusValue == true) &&
-                                                                                              (functions.convertJsonToString(getJsonField(
-                                                                                                    widget.professionalClientJSON,
-                                                                                                    r'''$.frequency''',
-                                                                                                  )) ==
-                                                                                                  'WEEKLY') &&
-                                                                                              (functions.convertStrintToInt(getJsonField(
-                                                                                                    widget.professionalClientJSON,
-                                                                                                    r'''$.interval_num''',
-                                                                                                  ).toString()) ==
-                                                                                                  2)) {
-                                                                                            return 'fortnightly';
-                                                                                          } else if ((_model.statusValue == true) &&
-                                                                                              (functions.convertJsonToString(getJsonField(
-                                                                                                    widget.professionalClientJSON,
-                                                                                                    r'''$.frequency''',
-                                                                                                  )) ==
-                                                                                                  'MONTHLY')) {
-                                                                                            return 'monthly';
-                                                                                          } else {
-                                                                                            return '';
-                                                                                          }
-                                                                                        }(),
+                                                                                        _model.prazoRecorrenteValue ??= '',
                                                                                       ),
                                                                                       options: List<String>.from([
                                                                                         'weekly',
@@ -1449,12 +1491,12 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       if (_model.formKey.currentState == null || !_model.formKey.currentState!.validate()) {
                                                                                         return;
                                                                                       }
-                                                                                      if ((_model.tipocompromissoValue == 'personal') && (_model.descricaoTextController.text == '') && (_model.durationTextController.text == '')) {
+                                                                                      if ((_model.statusValue == true) && (_model.prazoRecorrenteValue == '')) {
                                                                                         logFirebaseEvent('Button_show_snack_bar');
                                                                                         ScaffoldMessenger.of(context).showSnackBar(
                                                                                           SnackBar(
                                                                                             content: Text(
-                                                                                              'Campo descrição e duração obrigatório',
+                                                                                              'Preencha o campo repetição.',
                                                                                               style: TextStyle(
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                               ),
@@ -1464,33 +1506,177 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           ),
                                                                                         );
                                                                                       } else {
-                                                                                        if (getJsonField(
-                                                                                              widget.scheduleCabecalho,
-                                                                                              r'''$.id''',
-                                                                                            ) !=
-                                                                                            null) {
-                                                                                          if ((widget.isAddNewClient == true) && widget.existAppointment) {
-                                                                                            logFirebaseEvent('Button_backend_call');
-                                                                                            _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
-                                                                                              authToken: currentAuthenticationToken,
-                                                                                              type: getJsonField(
+                                                                                        if ((_model.tipocompromissoValue == 'personal') && (_model.descricaoTextController.text == '') && (_model.durationTextController.text == '')) {
+                                                                                          logFirebaseEvent('Button_show_snack_bar');
+                                                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                                                            SnackBar(
+                                                                                              content: Text(
+                                                                                                'Campo descrição e duração obrigatórios',
+                                                                                                style: TextStyle(
+                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                ),
+                                                                                              ),
+                                                                                              duration: const Duration(milliseconds: 4000),
+                                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                            ),
+                                                                                          );
+                                                                                        } else {
+                                                                                          if (getJsonField(
                                                                                                 widget.scheduleCabecalho,
-                                                                                                r'''$.type''',
-                                                                                              ).toString(),
+                                                                                                r'''$.id''',
+                                                                                              ) !=
+                                                                                              null) {
+                                                                                            if ((widget.isAddNewClient == true) && widget.existAppointment) {
+                                                                                              logFirebaseEvent('Button_backend_call');
+                                                                                              _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
+                                                                                                authToken: currentAuthenticationToken,
+                                                                                                type: getJsonField(
+                                                                                                  widget.scheduleCabecalho,
+                                                                                                  r'''$.type''',
+                                                                                                ).toString(),
+                                                                                                description: _model.descricaoTextController.text,
+                                                                                                recurrent: _model.statusValue,
+                                                                                                scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
+                                                                                                serviceId: getJsonField(
+                                                                                                  widget.scheduleCabecalho,
+                                                                                                  r'''$.service.id''',
+                                                                                                ),
+                                                                                                professionalClientIdList: _model.idsClientsSchedule,
+                                                                                                recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
+                                                                                                confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
+                                                                                                duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
+                                                                                              );
+
+                                                                                              if ((_model.apiResulttd2?.succeeded ?? true)) {
+                                                                                                logFirebaseEvent('Button_navigate_to');
+
+                                                                                                context.pushNamed('Schedule01');
+
+                                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'Tudo certo! Registramos estas informações.',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                  ),
+                                                                                                );
+                                                                                              } else {
+                                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      getJsonField(
+                                                                                                        (_model.apiResulttd2?.jsonBody ?? ''),
+                                                                                                        r'''$.message''',
+                                                                                                      ).toString(),
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+                                                                                            } else {
+                                                                                              logFirebaseEvent('Button_backend_call');
+                                                                                              _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
+                                                                                                authToken: currentAuthenticationToken,
+                                                                                                idAppointment: widget.idAppointmentSelected?.toString(),
+                                                                                                type: () {
+                                                                                                  if (!widget.isAddNewClient!) {
+                                                                                                    return getJsonField(
+                                                                                                      widget.scheduleCabecalho,
+                                                                                                      r'''$.type''',
+                                                                                                    ).toString();
+                                                                                                  } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
+                                                                                                    return getJsonField(
+                                                                                                      widget.scheduleCabecalho,
+                                                                                                      r'''$.type''',
+                                                                                                    ).toString();
+                                                                                                  } else {
+                                                                                                    return 'professional';
+                                                                                                  }
+                                                                                                }(),
+                                                                                                description: _model.descricaoTextController.text,
+                                                                                                recurrent: _model.statusValue,
+                                                                                                serviceId: getJsonField(
+                                                                                                  widget.scheduleCabecalho,
+                                                                                                  r'''$.service_id''',
+                                                                                                ),
+                                                                                                professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), widget.idProfessionalClientSelected),
+                                                                                                scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
+                                                                                                recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
+                                                                                                confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
+                                                                                                duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
+                                                                                              );
+
+                                                                                              if ((_model.apiResultvdr?.succeeded ?? true)) {
+                                                                                                logFirebaseEvent('Button_navigate_to');
+
+                                                                                                context.pushNamed('Schedule01');
+
+                                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      'Tudo certo! Atualizamos estas informações.',
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                  ),
+                                                                                                );
+                                                                                              } else {
+                                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                  SnackBar(
+                                                                                                    content: Text(
+                                                                                                      getJsonField(
+                                                                                                        (_model.apiResultvdr?.jsonBody ?? ''),
+                                                                                                        r'''$.message''',
+                                                                                                      ).toString(),
+                                                                                                      style: TextStyle(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+                                                                                            }
+                                                                                          } else {
+                                                                                            logFirebaseEvent('Button_update_page_state');
+                                                                                            _model.idsClientsSchedule = [];
+                                                                                            safeSetState(() {});
+                                                                                            if (_model.tipocompromissoValue == 'professional') {
+                                                                                              logFirebaseEvent('Button_update_page_state');
+                                                                                              _model.addToIdsClientsSchedule(_model.clientesValue!);
+                                                                                              safeSetState(() {});
+                                                                                            }
+                                                                                            logFirebaseEvent('Button_backend_call');
+                                                                                            _model.apiResulttd1 = await APIOficialGroup.createAppointmentCall.call(
+                                                                                              authToken: currentAuthenticationToken,
+                                                                                              type: _model.tipocompromissoValue,
                                                                                               description: _model.descricaoTextController.text,
                                                                                               recurrent: _model.statusValue,
                                                                                               scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                              serviceId: getJsonField(
-                                                                                                widget.scheduleCabecalho,
-                                                                                                r'''$.service.id''',
-                                                                                              ),
+                                                                                              serviceId: _model.servicosValue,
                                                                                               professionalClientIdList: _model.idsClientsSchedule,
                                                                                               recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
                                                                                               confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
                                                                                               duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
                                                                                             );
 
-                                                                                            if ((_model.apiResulttd2?.succeeded ?? true)) {
+                                                                                            if ((_model.apiResulttd1?.succeeded ?? true)) {
                                                                                               logFirebaseEvent('Button_navigate_to');
 
                                                                                               context.pushNamed('Schedule01');
@@ -1514,7 +1700,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 SnackBar(
                                                                                                   content: Text(
                                                                                                     getJsonField(
-                                                                                                      (_model.apiResulttd2?.jsonBody ?? ''),
+                                                                                                      (_model.apiResulttd1?.jsonBody ?? ''),
                                                                                                       r'''$.message''',
                                                                                                     ).toString(),
                                                                                                     style: TextStyle(
@@ -1526,126 +1712,6 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 ),
                                                                                               );
                                                                                             }
-                                                                                          } else {
-                                                                                            logFirebaseEvent('Button_backend_call');
-                                                                                            _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
-                                                                                              authToken: currentAuthenticationToken,
-                                                                                              idAppointment: widget.idAppointmentSelected?.toString(),
-                                                                                              type: () {
-                                                                                                if (!widget.isAddNewClient!) {
-                                                                                                  return getJsonField(
-                                                                                                    widget.scheduleCabecalho,
-                                                                                                    r'''$.type''',
-                                                                                                  ).toString();
-                                                                                                } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
-                                                                                                  return getJsonField(
-                                                                                                    widget.scheduleCabecalho,
-                                                                                                    r'''$.type''',
-                                                                                                  ).toString();
-                                                                                                } else {
-                                                                                                  return 'professional';
-                                                                                                }
-                                                                                              }(),
-                                                                                              description: _model.descricaoTextController.text,
-                                                                                              recurrent: _model.statusValue,
-                                                                                              serviceId: getJsonField(
-                                                                                                widget.scheduleCabecalho,
-                                                                                                r'''$.service_id''',
-                                                                                              ),
-                                                                                              professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), widget.idProfessionalClientSelected),
-                                                                                              scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                              recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
-                                                                                              confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
-                                                                                              duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
-                                                                                            );
-
-                                                                                            if ((_model.apiResultvdr?.succeeded ?? true)) {
-                                                                                              logFirebaseEvent('Button_navigate_to');
-
-                                                                                              context.pushNamed('Schedule01');
-
-                                                                                              logFirebaseEvent('Button_show_snack_bar');
-                                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                SnackBar(
-                                                                                                  content: Text(
-                                                                                                    'Tudo certo! Atualizamos estas informações.',
-                                                                                                    style: TextStyle(
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  duration: const Duration(milliseconds: 4000),
-                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                ),
-                                                                                              );
-                                                                                            } else {
-                                                                                              logFirebaseEvent('Button_show_snack_bar');
-                                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                SnackBar(
-                                                                                                  content: Text(
-                                                                                                    getJsonField(
-                                                                                                      (_model.apiResultvdr?.jsonBody ?? ''),
-                                                                                                      r'''$.message''',
-                                                                                                    ).toString(),
-                                                                                                    style: TextStyle(
-                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  duration: const Duration(milliseconds: 4000),
-                                                                                                  backgroundColor: FlutterFlowTheme.of(context).error,
-                                                                                                ),
-                                                                                              );
-                                                                                            }
-                                                                                          }
-                                                                                        } else {
-                                                                                          logFirebaseEvent('Button_backend_call');
-                                                                                          _model.apiResulttd1 = await APIOficialGroup.createAppointmentCall.call(
-                                                                                            authToken: currentAuthenticationToken,
-                                                                                            type: _model.tipocompromissoValue,
-                                                                                            description: _model.descricaoTextController.text,
-                                                                                            recurrent: _model.statusValue,
-                                                                                            scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                            serviceId: _model.servicosValue,
-                                                                                            professionalClientIdList: _model.idsClientsSchedule,
-                                                                                            recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
-                                                                                            confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
-                                                                                            duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
-                                                                                          );
-
-                                                                                          if ((_model.apiResulttd1?.succeeded ?? true)) {
-                                                                                            logFirebaseEvent('Button_navigate_to');
-
-                                                                                            context.pushNamed('Schedule01');
-
-                                                                                            logFirebaseEvent('Button_show_snack_bar');
-                                                                                            ScaffoldMessenger.of(context).showSnackBar(
-                                                                                              SnackBar(
-                                                                                                content: Text(
-                                                                                                  'Tudo certo! Registramos estas informações.',
-                                                                                                  style: TextStyle(
-                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                  ),
-                                                                                                ),
-                                                                                                duration: const Duration(milliseconds: 4000),
-                                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                              ),
-                                                                                            );
-                                                                                          } else {
-                                                                                            logFirebaseEvent('Button_show_snack_bar');
-                                                                                            ScaffoldMessenger.of(context).showSnackBar(
-                                                                                              SnackBar(
-                                                                                                content: Text(
-                                                                                                  getJsonField(
-                                                                                                    (_model.apiResulttd1?.jsonBody ?? ''),
-                                                                                                    r'''$.message''',
-                                                                                                  ).toString(),
-                                                                                                  style: TextStyle(
-                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                  ),
-                                                                                                ),
-                                                                                                duration: const Duration(milliseconds: 4000),
-                                                                                                backgroundColor: FlutterFlowTheme.of(context).error,
-                                                                                              ),
-                                                                                            );
                                                                                           }
                                                                                         }
                                                                                       }

@@ -1,3 +1,5 @@
 {
-  "apiURL": "https://hml-api.blubem.com.br/api"
+  "apiURL": "https://hml-api.blubem.com.br/api",
+"ApiUrlPlan": "https://blubem.com.br/planos?hml=true&t=",
+"ApiUrlChangePlan": "https://hml-api.blubem.com.br/change-payment-method?t="
 }

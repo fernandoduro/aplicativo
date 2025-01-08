@@ -1288,6 +1288,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                               ''),
                                                           r'''$.data.professional.id''',
                                                         );
+                                                        FFAppState()
+                                                                .nameProfessional =
+                                                            getJsonField(
+                                                          (_model.apiResultLogin2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                          r'''$.data.professional.name''',
+                                                        ).toString();
                                                         safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'Button_custom_action');

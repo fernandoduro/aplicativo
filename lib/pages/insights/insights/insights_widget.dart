@@ -305,128 +305,176 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         animationsMap[
                                                             'containerOnPageLoadAnimation2']!),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 10.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                      ),
-                                                      child: Container(
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets.all(
+                                                  if ((valueOrDefault<
+                                                                  String>(
+                                                                _model
+                                                                    .generalinfo,
+                                                                'general_info',
+                                                              ) !=
+                                                              '') &&
+                                                      (functions.removeNullString(
+                                                                  _model
+                                                                      .generalinfo) !=
+                                                              null &&
+                                                          functions.removeNullString(
+                                                                  _model
+                                                                      .generalinfo) !=
+                                                              ''))
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
                                                                   10.0),
-                                                          child: MarkdownBody(
-                                                            data:
-                                                                valueOrDefault<
-                                                                    String>(
-                                                              _model
-                                                                  .generalinfo,
-                                                              'general_info',
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                        ),
+                                                        child: Container(
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(
+                                                                    10.0),
+                                                            child: MarkdownBody(
+                                                              data: _model
+                                                                  .generalinfo!,
+                                                              selectable: false,
+                                                              onTapLink: (_,
+                                                                      url,
+                                                                      __) =>
+                                                                  launchURL(
+                                                                      url!),
                                                             ),
-                                                            selectable: false,
-                                                            onTapLink: (_, url,
-                                                                    __) =>
-                                                                launchURL(url!),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation3']!),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 10.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                      ),
-                                                      child: Container(
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets.all(
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation3']!),
+                                                    ),
+                                                  if ((valueOrDefault<
+                                                                  String>(
+                                                                _model
+                                                                    .lastweekinfo,
+                                                                ' last_week_info',
+                                                              ) !=
+                                                              '') &&
+                                                      (functions.removeNullString(
+                                                                  _model
+                                                                      .lastweekinfo) !=
+                                                              null &&
+                                                          functions.removeNullString(
+                                                                  _model
+                                                                      .lastweekinfo) !=
+                                                              ''))
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
                                                                   10.0),
-                                                          child: MarkdownBody(
-                                                            data:
-                                                                valueOrDefault<
-                                                                    String>(
-                                                              _model
-                                                                  .lastweekinfo,
-                                                              ' last_week_info',
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                        ),
+                                                        child: Container(
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(
+                                                                    10.0),
+                                                            child: MarkdownBody(
+                                                              data: _model
+                                                                  .lastweekinfo!,
+                                                              selectable: false,
+                                                              onTapLink: (_,
+                                                                      url,
+                                                                      __) =>
+                                                                  launchURL(
+                                                                      url!),
                                                             ),
-                                                            selectable: false,
-                                                            onTapLink: (_, url,
-                                                                    __) =>
-                                                                launchURL(url!),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation4']!),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 10.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                      ),
-                                                      child: Container(
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets.all(
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation4']!),
+                                                    ),
+                                                  if ((valueOrDefault<
+                                                                  String>(
+                                                                _model.siteinfo,
+                                                                'site_info',
+                                                              ) !=
+                                                              '') &&
+                                                      (functions.removeNullString(
+                                                                  _model
+                                                                      .siteinfo) !=
+                                                              null &&
+                                                          functions.removeNullString(
+                                                                  _model
+                                                                      .siteinfo) !=
+                                                              ''))
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
                                                                   10.0),
-                                                          child: MarkdownBody(
-                                                            data:
-                                                                valueOrDefault<
-                                                                    String>(
-                                                              _model.siteinfo,
-                                                              'site_info',
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                        ),
+                                                        child: Container(
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(
+                                                                    10.0),
+                                                            child: MarkdownBody(
+                                                              data: _model
+                                                                  .siteinfo!,
+                                                              selectable: false,
+                                                              onTapLink: (_,
+                                                                      url,
+                                                                      __) =>
+                                                                  launchURL(
+                                                                      url!),
                                                             ),
-                                                            selectable: false,
-                                                            onTapLink: (_, url,
-                                                                    __) =>
-                                                                launchURL(url!),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation5']!),
-                                                  ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation5']!),
+                                                    ),
                                                 ],
                                               ),
                                             ),

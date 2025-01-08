@@ -4,9 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -637,105 +635,109 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      shape: BoxShape.rectangle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(10.0),
-                                                      child:
-                                                          SingleChildScrollView(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0),
-                                                              child: RichText(
-                                                                textScaler: MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                                text: TextSpan(
-                                                                  children: [
-                                                                    TextSpan(
-                                                                      text:
-                                                                          'Para ver a lista detalhada de tudo isso acesse: ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                const Color(0xFF12151C),
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                          ),
-                                                                    ),
-                                                                    TextSpan(
-                                                                      text:
-                                                                          'meus beneficios.',
-                                                                      style:
-                                                                          const TextStyle(
-                                                                        decoration:
-                                                                            TextDecoration.underline,
-                                                                      ),
-                                                                      mouseCursor:
-                                                                          SystemMouseCursors
-                                                                              .click,
-                                                                      recognizer:
-                                                                          TapGestureRecognizer()
-                                                                            ..onTap =
-                                                                                () async {
-                                                                              logFirebaseEvent('FIRST_ACCESS_LOYALTY_RichTextSpan_k1mxlj');
-                                                                              logFirebaseEvent('RichTextSpan_launch_u_r_l');
-                                                                              await launchURL('https://blubem.com.br/clube-pontos-beneficios');
-                                                                            },
-                                                                    )
-                                                                  ],
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'FIRST_ACCESS_LOYALTY_Container_fqxl6jcq_');
+                                                      logFirebaseEvent(
+                                                          'Container_launch_u_r_l');
+                                                      await launchURL(
+                                                          'https://blubem.com.br/clube');
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10.0),
+                                                        shape:
+                                                            BoxShape.rectangle,
+                                                      ),
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
                                                                             0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
+                                                                            5.0,
+                                                                            0.0),
+                                                                child: RichText(
+                                                                  textScaler: MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
+                                                                  text:
+                                                                      TextSpan(
+                                                                    children: [
+                                                                      TextSpan(
+                                                                        text:
+                                                                            'Para ver a lista detalhada de tudo isso acesse: ',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: const Color(0xFF12151C),
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
                                                                       ),
+                                                                      const TextSpan(
+                                                                        text:
+                                                                            'meus beneficios.',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          decoration:
+                                                                              TextDecoration.underline,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ],
+                                                            ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -812,36 +814,19 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                     logFirebaseEvent(
                                                         'FIRST_ACCESS_LOYALTY_VAMOS_L_BTN_ON_TAP');
                                                     logFirebaseEvent(
-                                                        'Button_action_block');
-                                                    _model.subscriptionResultLoyalt =
-                                                        await action_blocks
-                                                            .checkSubscription(
-                                                      context,
-                                                      featureID: FFAppConstants
-                                                          .FeatureCalculadora,
-                                                      pageNavigateTo:
-                                                          'loyalt01',
-                                                    );
-                                                    if (_model
-                                                            .subscriptionResultLoyalt ==
-                                                        true) {
-                                                      logFirebaseEvent(
-                                                          'Button_update_app_state');
-                                                      FFAppState()
-                                                          .firstLoyault = false;
-                                                      FFAppState().loyalt01 =
-                                                          true;
-                                                      FFAppState().loyalt02 =
-                                                          false;
-                                                      safeSetState(() {});
-                                                      logFirebaseEvent(
-                                                          'Button_navigate_to');
-
-                                                      context.pushNamed(
-                                                          'Loyalty01');
-                                                    }
-
+                                                        'Button_update_app_state');
+                                                    FFAppState().firstLoyault =
+                                                        false;
+                                                    FFAppState().loyalt01 =
+                                                        true;
+                                                    FFAppState().loyalt02 =
+                                                        false;
                                                     safeSetState(() {});
+                                                    logFirebaseEvent(
+                                                        'Button_navigate_to');
+
+                                                    context
+                                                        .pushNamed('Loyalty01');
                                                   },
                                                   text: 'Vamos lá!',
                                                   options: FFButtonOptions(

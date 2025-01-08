@@ -11,6 +11,7 @@ import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'services03_model.dart';
 export 'services03_model.dart';
@@ -61,6 +62,8 @@ class _Services03WidgetState extends State<Services03Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -465,21 +468,39 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 logFirebaseEvent('SERVICES03_PAGE_Icon_tfqxz7df_ON_TAP');
-                                                                                logFirebaseEvent('Icon_navigate_to');
+                                                                                if (FFAppState().FirstService == true) {
+                                                                                  logFirebaseEvent('Icon_navigate_to');
 
-                                                                                context.pushNamed(
-                                                                                  'Services02',
-                                                                                  queryParameters: {
-                                                                                    'adicionadoPeloMais': serializeParam(
-                                                                                      true,
-                                                                                      ParamType.bool,
-                                                                                    ),
-                                                                                    'originConfig': serializeParam(
-                                                                                      '',
-                                                                                      ParamType.String,
-                                                                                    ),
-                                                                                  }.withoutNulls,
-                                                                                );
+                                                                                  context.pushNamed(
+                                                                                    'FirstService',
+                                                                                    queryParameters: {
+                                                                                      'adicionadoPeloMais': serializeParam(
+                                                                                        true,
+                                                                                        ParamType.bool,
+                                                                                      ),
+                                                                                      'originConfig': serializeParam(
+                                                                                        '',
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
+                                                                                } else {
+                                                                                  logFirebaseEvent('Icon_navigate_to');
+
+                                                                                  context.pushNamed(
+                                                                                    'Services02',
+                                                                                    queryParameters: {
+                                                                                      'adicionadoPeloMais': serializeParam(
+                                                                                        true,
+                                                                                        ParamType.bool,
+                                                                                      ),
+                                                                                      'originConfig': serializeParam(
+                                                                                        '',
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
+                                                                                }
                                                                               },
                                                                               child: Icon(
                                                                                 Icons.add_box,
@@ -542,21 +563,39 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 logFirebaseEvent('SERVICES03_PAGE_Icon_024lyvm4_ON_TAP');
-                                                                                logFirebaseEvent('Icon_navigate_to');
+                                                                                if (FFAppState().FirstService == true) {
+                                                                                  logFirebaseEvent('Icon_navigate_to');
 
-                                                                                context.pushNamed(
-                                                                                  'Services02',
-                                                                                  queryParameters: {
-                                                                                    'adicionadoPeloMais': serializeParam(
-                                                                                      true,
-                                                                                      ParamType.bool,
-                                                                                    ),
-                                                                                    'originConfig': serializeParam(
-                                                                                      '',
-                                                                                      ParamType.String,
-                                                                                    ),
-                                                                                  }.withoutNulls,
-                                                                                );
+                                                                                  context.pushNamed(
+                                                                                    'FirstService',
+                                                                                    queryParameters: {
+                                                                                      'adicionadoPeloMais': serializeParam(
+                                                                                        true,
+                                                                                        ParamType.bool,
+                                                                                      ),
+                                                                                      'originConfig': serializeParam(
+                                                                                        '',
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
+                                                                                } else {
+                                                                                  logFirebaseEvent('Icon_navigate_to');
+
+                                                                                  context.pushNamed(
+                                                                                    'Services02',
+                                                                                    queryParameters: {
+                                                                                      'adicionadoPeloMais': serializeParam(
+                                                                                        true,
+                                                                                        ParamType.bool,
+                                                                                      ),
+                                                                                      'originConfig': serializeParam(
+                                                                                        '',
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
+                                                                                }
                                                                               },
                                                                               child: Icon(
                                                                                 Icons.add_box,

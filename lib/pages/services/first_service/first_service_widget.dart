@@ -8,25 +8,26 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'finish_access_config_model.dart';
-export 'finish_access_config_model.dart';
+import 'first_service_model.dart';
+export 'first_service_model.dart';
 
-class FinishAccessConfigWidget extends StatefulWidget {
-  const FinishAccessConfigWidget({
+class FirstServiceWidget extends StatefulWidget {
+  const FirstServiceWidget({
     super.key,
+    required this.adicionadoPeloMais,
     required this.originConfig,
   });
 
+  final bool? adicionadoPeloMais;
   final String? originConfig;
 
   @override
-  State<FinishAccessConfigWidget> createState() =>
-      _FinishAccessConfigWidgetState();
+  State<FirstServiceWidget> createState() => _FirstServiceWidgetState();
 }
 
-class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
+class _FirstServiceWidgetState extends State<FirstServiceWidget>
     with TickerProviderStateMixin {
-  late FinishAccessConfigModel _model;
+  late FirstServiceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,14 +36,14 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FinishAccessConfigModel());
+    _model = createModel(context, () => FirstServiceModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'FinishAccessConfig'});
+        parameters: {'screen_name': 'FirstService'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('FINISH_ACCESS_CONFIG_FinishAccessConfig_');
-      logFirebaseEvent('FinishAccessConfig_custom_action');
+      logFirebaseEvent('FIRST_SERVICE_FirstService_ON_INIT_STATE');
+      logFirebaseEvent('FirstService_custom_action');
       await actions.lockOrientation();
     });
 
@@ -83,12 +84,48 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation': AnimationInfo(
+      'containerOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 3000.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 4000.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 5000.0.ms,
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
@@ -208,7 +245,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                           5.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'Maravilha! Configurações realizadas.',
+                                                                'Agora precisamos cadastrar os seus serviços.',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -248,97 +285,222 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
                                                         padding: const EdgeInsets.all(
                                                             10.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  'A qualquer momento você pode alterá-las, acessando o menu \"Minhas informações padrões\".',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        color: const Color(
-                                                                            0xFF12151C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Nesta seção não temos a intenção que você cadastre todas as suas especialidades, a não ser que elas tenham diferenciação em relação ao tempo de trabalho, pessoas por horário ou valor que cobra pelo serviço.',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: const Color(
+                                                                          0xFF12151C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'containerOnPageLoadAnimation3']!),
                                                   ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 10.0),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10.0),
+                                                      ),
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'É comum vermos cadastros como: Sessão, Consulta, Avaliação, Aula...',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: const Color(
+                                                                          0xFF12151C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation4']!),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 10.0),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10.0),
+                                                      ),
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Qualquer dúvida adicional que tiver, clique no ícone de ajuda, no topo superior.',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: const Color(
+                                                                          0xFF12151C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation5']!),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 10.0),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10.0),
+                                                        shape:
+                                                            BoxShape.rectangle,
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation6']!),
+                                                  ),
                                                   FFButtonWidget(
                                                     onPressed: () async {
                                                       logFirebaseEvent(
-                                                          'FINISH_ACCESS_CONFIG_AVANAR_BTN_ON_TAP');
-                                                      if (widget
-                                                              .originConfig ==
-                                                          'schedule') {
-                                                        logFirebaseEvent(
-                                                            'Button_navigate_to');
+                                                          'FIRST_SERVICE_PAGE_AVANAR_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_update_app_state');
+                                                      FFAppState()
+                                                          .FirstService = false;
+                                                      safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
 
-                                                        context.pushNamed(
-                                                            'Schedule01');
-                                                      } else if (widget
-                                                              .originConfig ==
-                                                          'client') {
-                                                        logFirebaseEvent(
-                                                            'Button_navigate_to');
-
-                                                        context.pushNamed(
-                                                            'listAllClients');
-                                                      } else if (widget
-                                                              .originConfig ==
-                                                          'newClient') {
-                                                        logFirebaseEvent(
-                                                            'Button_navigate_to');
-
-                                                        context.pushNamed(
-                                                          'NewClient01',
-                                                          queryParameters: {
-                                                            'adicionadoPeloMais':
-                                                                serializeParam(
-                                                              false,
-                                                              ParamType.bool,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      }
+                                                      context.pushNamed(
+                                                        'Services02',
+                                                        queryParameters: {
+                                                          'adicionadoPeloMais':
+                                                              serializeParam(
+                                                            widget
+                                                                .adicionadoPeloMais,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'originConfig':
+                                                              serializeParam(
+                                                            widget
+                                                                .originConfig,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
                                                     },
                                                     text: 'Avançar',
                                                     options: FFButtonOptions(

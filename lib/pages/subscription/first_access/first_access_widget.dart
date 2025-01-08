@@ -503,7 +503,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             'Container_launch_u_r_l');
                                                         await launchURL(functions
                                                             .concateStrings(
-                                                                'https://api.blubem.com.br/select-plan/voucher?t=',
+                                                                FFDevEnvironmentValues()
+                                                                    .ApiUrlPlan,
                                                                 currentAuthenticationToken)!);
                                                       },
                                                       child: Container(

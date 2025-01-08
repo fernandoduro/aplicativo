@@ -1,12 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/footer/footer_widget.dart';
+import '/components/footer_white/footer_white_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'enviar_solicitacao_widget.dart' show EnviarSolicitacaoWidget;
+import '/flutter_flow/form_field_controller.dart';
+import 'request_widget.dart' show RequestWidget;
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
 
-class EnviarSolicitacaoModel extends FlutterFlowModel<EnviarSolicitacaoWidget> {
+class RequestModel extends FlutterFlowModel<RequestWidget> {
   ///  Local state fields for this page.
 
   bool isRecording = false;
@@ -43,10 +44,13 @@ class EnviarSolicitacaoModel extends FlutterFlowModel<EnviarSolicitacaoWidget> {
   final formKey = GlobalKey<FormState>();
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for Area widget.
+  String? areaValue;
+  FormFieldController<String>? areaValueController;
+  // State field(s) for Descricao widget.
+  FocusNode? descricaoFocusNode;
+  TextEditingController? descricaoTextController;
+  String? Function(BuildContext, String?)? descricaoTextControllerValidator;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -61,21 +65,23 @@ class EnviarSolicitacaoModel extends FlutterFlowModel<EnviarSolicitacaoWidget> {
   String? base64Sound;
   // Stores action output result for [Backend Call - API (Post Solicitacoes)] action in Button widget.
   ApiCallResponse? resultPostSolicitacao;
-  // Model for Footer component.
-  late FooterModel footerModel;
+  // Stores action output result for [Backend Call - API (PUT Solicitacoes)] action in Icon widget.
+  ApiCallResponse? apiResult2ogCopy2;
+  // Model for FooterWhite component.
+  late FooterWhiteModel footerWhiteModel;
 
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
-    footerModel = createModel(context, () => FooterModel());
+    footerWhiteModel = createModel(context, () => FooterWhiteModel());
   }
 
   @override
   void dispose() {
     headerHelpModel.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    descricaoFocusNode?.dispose();
+    descricaoTextController?.dispose();
 
-    footerModel.dispose();
+    footerWhiteModel.dispose();
   }
 }

@@ -422,6 +422,27 @@ class _MenuWidgetState extends State<MenuWidget> {
                               ),
                             ].divide(const SizedBox(height: 12.0)),
                           ),
+                        ].divide(const SizedBox(height: 12.0)),
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'Otimize sua rotina',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Yi',
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                            ),
+                          ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -479,27 +500,6 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 ),
                               ),
                             ].divide(const SizedBox(height: 12.0)),
-                          ),
-                        ].divide(const SizedBox(height: 12.0)),
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Fidelize seus clientes',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Noto Sans Yi',
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                            ),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -616,6 +616,27 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 ),
                               ),
                             ].divide(const SizedBox(height: 12.0)),
+                          ),
+                        ].divide(const SizedBox(height: 12.0)),
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'Fidelize seus clientes',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Yi',
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                            ),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -964,7 +985,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                               FFAppState().existSite = false;
                               FFAppState().configCompleted = false;
                               FFAppState().hoursWork = jsonDecode(
-                                  '{\"days\":[{\"dayWeek\":\"Segunda-Feira\",\"hours\":[]},{\"dayWeek\":\"Terça-Feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-Feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-Feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
+                                  '{\"days\":[{\"dayWeek\":\"Segunda-feira\",\"hours\":[]},{\"dayWeek\":\"Terça-feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
+                              FFAppState().nameProfessional = '';
                               safeSetState(() {});
                               logFirebaseEvent('Button_auth');
                               GoRouter.of(context).prepareAuthEvent();
