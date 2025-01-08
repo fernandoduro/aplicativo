@@ -32,7 +32,7 @@ Future<void> requestPermission(Permission setting) async {
     }
   }
   await setting.request();
-  if (setting == Permission.notification) {
-    kNotificationsBehaviorSubject.add(false);
-  }
+  // if (setting == Permission.notification) {
+  //   kNotificationsBehaviorSubject.add(false);
+  // }
 }
