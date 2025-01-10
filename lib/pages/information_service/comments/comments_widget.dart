@@ -148,6 +148,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                           ),
                                           Expanded(
                                             child: SingleChildScrollView(
+                                              controller: _model.body,
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -175,6 +176,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                   0.0),
                                                       child:
                                                           SingleChildScrollView(
+                                                        controller: _model
+                                                            .columnController1,
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -681,6 +684,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                               16.0),
                                                                   child:
                                                                       SingleChildScrollView(
+                                                                    controller:
+                                                                        _model
+                                                                            .columnController2,
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -1381,6 +1387,12 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                           r'''$.comment''',
                                                                                                                                         ).toString();
                                                                                                                                       });
+                                                                                                                                      logFirebaseEvent('Button_scroll_to');
+                                                                                                                                      await _model.body?.animateTo(
+                                                                                                                                        0,
+                                                                                                                                        duration: const Duration(milliseconds: 100),
+                                                                                                                                        curve: Curves.ease,
+                                                                                                                                      );
                                                                                                                                     },
                                                                                                                                     text: 'Editar',
                                                                                                                                     icon: const Icon(

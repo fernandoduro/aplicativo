@@ -137,7 +137,6 @@ class _MenuWidgetState extends State<MenuWidget> {
                     ),
                   ),
                 Container(
-                  height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -1065,7 +1064,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                       if (!loggedIn)
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
+                              24.0, 0.0, 24.0, 32.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(

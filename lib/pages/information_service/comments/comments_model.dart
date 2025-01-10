@@ -30,6 +30,12 @@ class CommentsModel extends FlutterFlowModel<CommentsWidget> {
   ApiCallResponse? apiResult8nd;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
+  // State field(s) for body widget.
+  ScrollController? body;
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // State field(s) for comentario widget.
   FocusNode? comentarioFocusNode;
   TextEditingController? comentarioTextController;
@@ -54,12 +60,18 @@ class CommentsModel extends FlutterFlowModel<CommentsWidget> {
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
+    body = ScrollController();
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
     footerWhiteModel = createModel(context, () => FooterWhiteModel());
   }
 
   @override
   void dispose() {
     headerHelpModel.dispose();
+    body?.dispose();
+    columnController1?.dispose();
+    columnController2?.dispose();
     comentarioFocusNode?.dispose();
     comentarioTextController?.dispose();
 

@@ -115,6 +115,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                   ),
                   Expanded(
                     child: SingleChildScrollView(
+                      controller: _model.body,
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -130,6 +131,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: SingleChildScrollView(
+                                controller: _model.columnController1,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -695,6 +697,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                         child: Padding(
                                           padding: const EdgeInsets.all(16.0),
                                           child: SingleChildScrollView(
+                                            controller:
+                                                _model.columnController2,
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2253,6 +2257,12 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                                   });
                                                                                                                 }),
                                                                                                               ]);
+                                                                                                              logFirebaseEvent('Button_scroll_to');
+                                                                                                              await _model.body?.animateTo(
+                                                                                                                0,
+                                                                                                                duration: const Duration(milliseconds: 100),
+                                                                                                                curve: Curves.ease,
+                                                                                                              );
                                                                                                             },
                                                                                                             text: 'Editar',
                                                                                                             icon: const Icon(
@@ -2284,7 +2294,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                                       builder: (alertDialogContext) {
                                                                                                                         return WebViewAware(
                                                                                                                           child: AlertDialog(
-                                                                                                                            content: const Text('Deseja excluir o serviço?'),
+                                                                                                                            content: const Text('Deseja excluir esta avaliação?'),
                                                                                                                             actions: [
                                                                                                                               TextButton(
                                                                                                                                 onPressed: () => Navigator.pop(alertDialogContext, false),

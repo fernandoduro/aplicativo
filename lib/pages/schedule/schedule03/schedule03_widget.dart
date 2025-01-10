@@ -68,12 +68,29 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
         _model.getAppointmet1 =
             await APIOficialGroup.getAppointmentsByIDCall.call(
           authToken: currentAuthenticationToken,
-          id: getJsonField(
-            widget.scheduleCabecalho,
-            r'''$.id''',
-          ).toString().toString(),
+          id: widget.idAppointmentSelected?.toString(),
         );
 
+        logFirebaseEvent('Schedule03_set_form_field');
+        safeSetState(() {
+          _model.statusValue = () {
+            if (!widget.isAddNewClient!) {
+              return (functions
+                      .convertStrintToInt(getJsonField(
+                        (_model.getAppointmet1?.jsonBody ?? ''),
+                        r'''$.recurrent''',
+                      ).toString().toString())
+                      .toString() ==
+                  '1');
+            } else if (widget.isAddNewClient!) {
+              return false;
+            } else {
+              return false;
+            }
+          }();
+        });
+        logFirebaseEvent('Schedule03_wait__delay');
+        await Future.delayed(const Duration(milliseconds: 300));
         logFirebaseEvent('Schedule03_set_form_field');
         safeSetState(() {
           _model.prazoRecorrenteValueController?.value = () {
@@ -191,21 +208,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
             : '');
     _model.descricaoFocusNode ??= FocusNode();
 
-    _model.statusValue = () {
-      if (!widget.isAddNewClient!) {
-        return (functions
-                .convertStrintToInt(getJsonField(
-                  widget.scheduleCabecalho,
-                  r'''$.recurrent''',
-                ).toString().toString())
-                .toString() ==
-            '1');
-      } else if (widget.isAddNewClient!) {
-        return false;
-      } else {
-        return false;
-      }
-    }();
+    _model.statusValue = false;
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.dataTextController?.text = dateTimeFormat(
             "d/M/y",

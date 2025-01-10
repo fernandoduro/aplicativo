@@ -201,18 +201,7 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.85,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                              ),
-                            ),
-                          ),
                           Container(
-                            height: MediaQuery.sizeOf(context).height * 1.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -226,7 +215,7 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 16.0, 0.0, 0.0),
+                                          0.0, 16.0, 0.0, 32.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -820,7 +809,7 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                     FFAppState().loyalt01 =
                                                         true;
                                                     FFAppState().loyalt02 =
-                                                        false;
+                                                        true;
                                                     safeSetState(() {});
                                                     logFirebaseEvent(
                                                         'Button_navigate_to');

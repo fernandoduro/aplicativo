@@ -63,7 +63,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
         body: SafeArea(
           top: true,
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Align(
                 alignment: const AlignmentDirectional(0.0, -1.0),
@@ -77,20 +77,9 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.95,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                        ),
-                      ),
                       Container(
-                        height: MediaQuery.sizeOf(context).height * 0.75,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
@@ -98,7 +87,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 1.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -111,7 +100,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
-                                        fontSize: 28.0,
+                                        fontSize: 26.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
