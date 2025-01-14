@@ -562,7 +562,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                     authToken:
                                                                         currentAuthenticationToken,
                                                                     settingId:
-                                                                        1,
+                                                                        -1,
                                                                   );
 
                                                                   safeSetState(
@@ -578,7 +578,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                           .call(
                                                                     authToken:
                                                                         currentAuthenticationToken,
-                                                                    id: '1',
+                                                                    id: '-1',
                                                                   );
 
                                                                   safeSetState(
