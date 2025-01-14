@@ -1,7 +1,0 @@
-workflows:
-  ios-client-release:
-    name: iOS client release   
-    scripts: 
-
-      - name: Create Icons
-        script: flutter pub run flutter_launcher_icons:main
