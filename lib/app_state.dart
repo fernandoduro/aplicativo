@@ -41,9 +41,6 @@ class FFAppState extends ChangeNotifier {
       _firstReminder = prefs.getBool('ff_firstReminder') ?? _firstReminder;
     });
     _safeInit(() {
-      _routerPage = prefs.getString('ff_routerPage') ?? _routerPage;
-    });
-    _safeInit(() {
       _FirstInsights = prefs.getBool('ff_FirstInsights') ?? _FirstInsights;
     });
     _safeInit(() {
@@ -77,6 +74,9 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _appId = prefs.getString('ff_appId') ?? _appId;
+    });
+    _safeInit(() {
+      _activePage = prefs.getString('ff_activePage') ?? _activePage;
     });
   }
 
@@ -270,13 +270,6 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_firstReminder', value);
   }
 
-  String _routerPage = '';
-  String get routerPage => _routerPage;
-  set routerPage(String value) {
-    _routerPage = value;
-    prefs.setString('ff_routerPage', value);
-  }
-
   bool _FirstInsights = true;
   bool get FirstInsights => _FirstInsights;
   set FirstInsights(bool value) {
@@ -358,6 +351,13 @@ class FFAppState extends ChangeNotifier {
   set appId(String value) {
     _appId = value;
     prefs.setString('ff_appId', value);
+  }
+
+  String _activePage = '';
+  String get activePage => _activePage;
+  set activePage(String value) {
+    _activePage = value;
+    prefs.setString('ff_activePage', value);
   }
 }
 

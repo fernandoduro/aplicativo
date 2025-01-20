@@ -14,15 +14,15 @@ import 'package:universal_html/html.dart';
 
 class SwitchApiInterceptor extends FFApiInterceptor {
   @override
-  Future<ApiCallOptions> onRequest({
-    required ApiCallOptions options,
-  }) async {
+  Future<ApiCallOptions> onRequest({required ApiCallOptions options}) async {
     // var url = window.location.href;
-    var currentUrl = Uri.base;
+    // var currentUrl = Uri.base;
+
+    // ignore: unnecessary_null_comparison
 
     final updatedHeaders = Map<String, String>.from(options.headers)
       ..['appID'] = FFAppState().appId
-      ..['url'] = currentUrl.toString(); // Adiciona a URL atual ao cabeçalho
+      ..['url'] = FFAppState().activePage; // Adiciona a URL atual ao cabeçalho
 
     // Cria novas opções com o cabeçalho atualizado.
     var newOptions = ApiCallOptions(

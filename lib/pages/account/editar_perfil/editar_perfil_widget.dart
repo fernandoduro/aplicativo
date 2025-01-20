@@ -48,6 +48,12 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
         (_model.apiResultCategories?.jsonBody ?? ''),
         r'''$.data''',
       );
+      FFAppState().base64 =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+      logFirebaseEvent('EditarPerfil_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
     });
 

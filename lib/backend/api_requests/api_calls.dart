@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
-import 'interceptors.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
@@ -115,10 +114,6 @@ class APIOficialGroup {
   static PutAppointmentsProfessionalCall putAppointmentsProfessionalCall =
       PutAppointmentsProfessionalCall();
   static DELETEClientCall dELETEClientCall = DELETEClientCall();
-
-  static final interceptors = [
-    SwitchApiInterceptor(),
-  ];
 }
 
 class LoginCall {
@@ -137,23 +132,20 @@ class LoginCall {
   "cellphone": "$cellphone",
   "password": "$password"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Login',
-        apiUrl: '$baseUrl/login',
-        callType: ApiCallType.POST,
-        headers: const {},
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Login',
+      apiUrl: '$baseUrl/login',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -197,23 +189,20 @@ class RegisterCall {
   "code": "$code",
   "gender": "$gender"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Register',
-        apiUrl: '$baseUrl/register',
-        callType: ApiCallType.POST,
-        headers: const {},
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Register',
+      apiUrl: '$baseUrl/register',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -240,21 +229,18 @@ class CategoriesCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Categories',
-        apiUrl: '$baseUrl/categories',
-        callType: ApiCallType.GET,
-        headers: const {},
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Categories',
+      apiUrl: '$baseUrl/categories',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -283,23 +269,20 @@ class ColorsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Colors',
-        apiUrl: '$baseUrl/site/colors',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Colors',
+      apiUrl: '$baseUrl/site/colors',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -328,23 +311,20 @@ class LayoutsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Layouts',
-        apiUrl: '$baseUrl/site/layouts',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Layouts',
+      apiUrl: '$baseUrl/site/layouts',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -373,23 +353,20 @@ class SpecializationsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Specializations',
-        apiUrl: '$baseUrl/site/specializations',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Specializations',
+      apiUrl: '$baseUrl/site/specializations',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -418,23 +395,20 @@ class GetSiteCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'GetSite',
-        apiUrl: '$baseUrl/site',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetSite',
+      apiUrl: '$baseUrl/site',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -465,25 +439,22 @@ class UpdateSiteCall {
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdateSite',
-        apiUrl: '$baseUrl/site/update',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateSite',
+      apiUrl: '$baseUrl/site/update',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -511,23 +482,20 @@ class DomainsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Domains',
-        apiUrl: '$baseUrl/site/domains',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Domains',
+      apiUrl: '$baseUrl/site/domains',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -565,23 +533,20 @@ class CepCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'CEP',
-        apiUrl: '$baseUrl/tools/cep/$cep',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'CEP',
+      apiUrl: '$baseUrl/tools/cep/$cep',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -620,21 +585,18 @@ class StateCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'State',
-        apiUrl: '$baseUrl/state',
-        callType: ApiCallType.GET,
-        headers: const {},
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'State',
+      apiUrl: '$baseUrl/state',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -663,21 +625,18 @@ class CityCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'City',
-        apiUrl: '$baseUrl/city?state=$idCity',
-        callType: ApiCallType.GET,
-        headers: const {},
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'City',
+      apiUrl: '$baseUrl/city?state=$idCity',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -707,23 +666,20 @@ class DomainCheckCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DomainCheck',
-        apiUrl: '$baseUrl/site/domain-check?domain=$url',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DomainCheck',
+      apiUrl: '$baseUrl/site/domain-check?domain=$url',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -755,23 +711,20 @@ class GetUserCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'GetUser',
-        apiUrl: '$baseUrl/user',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetUser',
+      apiUrl: '$baseUrl/user',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -818,25 +771,22 @@ class UpdateProfessionalCall {
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdateProfessional',
-        apiUrl: '$baseUrl/professionals',
-        callType: ApiCallType.PATCH,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateProfessional',
+      apiUrl: '$baseUrl/professionals',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -852,23 +802,20 @@ class EncerrarContaCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'EncerrarConta',
-        apiUrl: '$baseUrl/professionals?motive=$motive',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'EncerrarConta',
+      apiUrl: '$baseUrl/professionals?motive=$motive',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -884,24 +831,21 @@ class InvitesCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Invites',
-        apiUrl: '$baseUrl/invites/$invite/use',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Invites',
+      apiUrl: '$baseUrl/invites/$invite/use',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -937,23 +881,20 @@ class MyInvitesCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'MyInvites',
-        apiUrl: '$baseUrl/my-invites',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'MyInvites',
+      apiUrl: '$baseUrl/my-invites',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -986,24 +927,21 @@ class RequestInviteCustomWebsiteCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'RequestInviteCustomWebsite',
-        apiUrl: '$baseUrl/request-invite/custom-website',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'RequestInviteCustomWebsite',
+      apiUrl: '$baseUrl/request-invite/custom-website',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1018,23 +956,20 @@ class GetPackagesCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'getPackages',
-        apiUrl: '$baseUrl/packages',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPackages',
+      apiUrl: '$baseUrl/packages',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1068,23 +1003,20 @@ class ViewsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Views',
-        apiUrl: '$baseUrl/site/views',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Views',
+      apiUrl: '$baseUrl/site/views',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1125,25 +1057,22 @@ class CreateClientCall {
   ],
   "status": "$status"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'CreateClient',
-        apiUrl: '$baseUrl/clients',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateClient',
+      apiUrl: '$baseUrl/clients',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1172,23 +1101,20 @@ class ListAllClientsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ListAllClients',
-        apiUrl: '$baseUrl/clients?q=$filter',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ListAllClients',
+      apiUrl: '$baseUrl/clients?q=$filter',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1222,23 +1148,20 @@ class GetClientByIDCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'getClientByID',
-        apiUrl: '$baseUrl/clients/$id',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'getClientByID',
+      apiUrl: '$baseUrl/clients/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1259,23 +1182,20 @@ class ConfirmCodeCall {
   "cellphone": "$cellphone",
   "code": "$code"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ConfirmCode',
-        apiUrl: '$baseUrl/confirm-code',
-        callType: ApiCallType.POST,
-        headers: const {},
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ConfirmCode',
+      apiUrl: '$baseUrl/confirm-code',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1302,23 +1222,20 @@ class ResetpasswordCall {
   "c_password": "$cPassword",
   "id": $id
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Resetpassword',
-        apiUrl: '$baseUrl/reset-password',
-        callType: ApiCallType.POST,
-        headers: const {},
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Resetpassword',
+      apiUrl: '$baseUrl/reset-password',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1337,23 +1254,20 @@ class ForgotPasswordCall {
 {
   "cellphone": "$cellphone"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ForgotPassword',
-        apiUrl: '$baseUrl/forgot-password',
-        callType: ApiCallType.POST,
-        headers: const {},
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ForgotPassword',
+      apiUrl: '$baseUrl/forgot-password',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1385,25 +1299,22 @@ class EditClientCall {
   "status": "$status"
   
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'editClient',
-        apiUrl: '$baseUrl/clients/$id',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'editClient',
+      apiUrl: '$baseUrl/clients/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1434,25 +1345,22 @@ class EditClientComplementCall {
     "$email"
   ]
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'editClientComplement',
-        apiUrl: '$baseUrl/clients/$id',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'editClientComplement',
+      apiUrl: '$baseUrl/clients/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1468,23 +1376,20 @@ class PackagesByIdCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'PackagesById',
-        apiUrl: '$baseUrl/packages/$id',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'PackagesById',
+      apiUrl: '$baseUrl/packages/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1506,25 +1411,22 @@ class EditClientPackagesCall {
 {
   "packages":$packages
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'editClientPackages',
-        apiUrl: '$baseUrl/clients/$id',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'editClientPackages',
+      apiUrl: '$baseUrl/clients/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1539,23 +1441,20 @@ class GetServicesCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'getServices',
-        apiUrl: '$baseUrl/services',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'getServices',
+      apiUrl: '$baseUrl/services',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1596,25 +1495,22 @@ class CreateServiceCall {
   "is_singular_client": $isSingularClient,
   "max_clients": $maxClients
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'CreateService',
-        apiUrl: '$baseUrl/services',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateService',
+      apiUrl: '$baseUrl/services',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1630,23 +1526,20 @@ class DeleteServiceCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DeleteService',
-        apiUrl: '$baseUrl/services/$id',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DeleteService',
+      apiUrl: '$baseUrl/services/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1675,25 +1568,22 @@ class UpdateServiceCall {
   "is_singular_client": $isSingularClient,
   "max_clients": $maxClients
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdateService',
-        apiUrl: '$baseUrl/services/$id',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateService',
+      apiUrl: '$baseUrl/services/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1719,25 +1609,22 @@ class CreatePackageCall {
   "monthly_value": $monthlyValue,
   "service_ids": [$serviceIds]
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'CreatePackage',
-        apiUrl: '$baseUrl/packages',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreatePackage',
+      apiUrl: '$baseUrl/packages',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1766,25 +1653,22 @@ class UpdatePackagesCall {
     $serviceIds
   ]
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdatePackages',
-        apiUrl: '$baseUrl/packages/$id',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdatePackages',
+      apiUrl: '$baseUrl/packages/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1800,23 +1684,20 @@ class DeletePackageCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DeletePackage',
-        apiUrl: '$baseUrl/packages/$id',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DeletePackage',
+      apiUrl: '$baseUrl/packages/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1832,23 +1713,20 @@ class GetAppointmentsByClientCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'GetAppointmentsByClient',
-        apiUrl: '$baseUrl/appointments?client=$idCliente',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetAppointmentsByClient',
+      apiUrl: '$baseUrl/appointments?client=$idCliente',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1863,23 +1741,20 @@ class GETSolicitacoesCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'GET solicitacoes',
-        apiUrl: '$baseUrl/solicitations',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'GET solicitacoes',
+      apiUrl: '$baseUrl/solicitations',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1977,23 +1852,20 @@ class SubscriptionCurrentCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'SubscriptionCurrent',
-        apiUrl: '$baseUrl/subscription/current',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'SubscriptionCurrent',
+      apiUrl: '$baseUrl/subscription/current',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2024,25 +1896,22 @@ class PostSolicitacoesCall {
   "status": "$status",
   "area": "$area"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Post Solicitacoes',
-        apiUrl: '$baseUrl/solicitations',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Post Solicitacoes',
+      apiUrl: '$baseUrl/solicitations',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2059,24 +1928,20 @@ class GetAppointmentsByDateCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'getAppointmentsByDate',
-        apiUrl:
-            '$baseUrl/appointments?date_from=$dateFrom&date_to=$dateTo',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'getAppointmentsByDate',
+      apiUrl: '$baseUrl/appointments?date_from=$dateFrom&date_to=$dateTo',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2113,25 +1978,22 @@ class CreateAppointmentCall {
   "service_id": $serviceId,
   "duration": $duration
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'CreateAppointment',
-        apiUrl: '$baseUrl/appointments',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateAppointment',
+      apiUrl: '$baseUrl/appointments',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2152,25 +2014,22 @@ class AddHoursWorkProfessionalsCall {
 {
   "disponibility": $disponibility
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'addHoursWorkProfessionals',
-        apiUrl: '$baseUrl/professionals',
-        callType: ApiCallType.PATCH,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'addHoursWorkProfessionals',
+      apiUrl: '$baseUrl/professionals',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2192,25 +2051,22 @@ class DefaultDaysPaymentCall {
   "pay_method": "$payMethod",
   "payday": "$payday"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DefaultDaysPayment',
-        apiUrl: '$baseUrl/professionals',
-        callType: ApiCallType.PATCH,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DefaultDaysPayment',
+      apiUrl: '$baseUrl/professionals',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2226,23 +2082,20 @@ class ListScheduleCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ListSchedule',
-        apiUrl: '$baseUrl/schedule?date=$dataFiltro',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ListSchedule',
+      apiUrl: '$baseUrl/schedule?date=$dataFiltro',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2262,25 +2115,22 @@ class SubscriptionActiveTrialCall {
 {
   "feature_id": $featureId
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'SubscriptionActiveTrial',
-        apiUrl: '$baseUrl/subscription/active-trial',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'SubscriptionActiveTrial',
+      apiUrl: '$baseUrl/subscription/active-trial',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2318,25 +2168,22 @@ class UpdateAppointmentCall {
   "confirmation": "$confirmation",
   "duration": $duration
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdateAppointment',
-        apiUrl: '$baseUrl/appointments/$idAppointment',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateAppointment',
+      apiUrl: '$baseUrl/appointments/$idAppointment',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2363,25 +2210,22 @@ class PUTSolicitacoesCall {
   "area": "$area",
   "description": "$description"
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'PUT Solicitacoes',
-        apiUrl: '$baseUrl/solicitations/$id',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'PUT Solicitacoes',
+      apiUrl: '$baseUrl/solicitations/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2407,25 +2251,22 @@ class AddClientAppointmentCall {
   "recurrence_interval": "$recurrentInterval",
   "professional_client_id": $professionalClientId
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'AddClientAppointment',
-        apiUrl: '$baseUrl/appointments/$idAppointment',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'AddClientAppointment',
+      apiUrl: '$baseUrl/appointments/$idAppointment',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2442,23 +2283,20 @@ class DeleteAppoitmentCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DeleteAppoitment',
-        apiUrl: '$baseUrl/appointments/$idAppointment?date=$date',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DeleteAppoitment',
+      apiUrl: '$baseUrl/appointments/$idAppointment?date=$date',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2474,23 +2312,20 @@ class TimelineClientCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'TimelineClient',
-        apiUrl: '$baseUrl/client/timeline/$idClient',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'TimelineClient',
+      apiUrl: '$baseUrl/client/timeline/$idClient',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -2519,25 +2354,22 @@ class AddRatingsCall {
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'AddRatings',
-        apiUrl: '$baseUrl/ratings',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'AddRatings',
+      apiUrl: '$baseUrl/ratings',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2553,23 +2385,20 @@ class DeleteRatingsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DeleteRatings',
-        apiUrl: '$baseUrl/ratings/$id',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DeleteRatings',
+      apiUrl: '$baseUrl/ratings/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2585,24 +2414,21 @@ class ListRatingsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ListRatings',
-        apiUrl:
-            '$baseUrl/ratings?professional_client_id=$professionalClientId',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ListRatings',
+      apiUrl:
+          '$baseUrl/ratings?professional_client_id=$professionalClientId',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2620,25 +2446,22 @@ class UpdateRatingCall {
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdateRating',
-        apiUrl: '$baseUrl/ratings',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateRating',
+      apiUrl: '$baseUrl/ratings',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2656,25 +2479,22 @@ class AddCommentsCall {
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'AddComments',
-        apiUrl: '$baseUrl/comments',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'AddComments',
+      apiUrl: '$baseUrl/comments',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2690,23 +2510,20 @@ class DeleteCommentsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DeleteComments',
-        apiUrl: '$baseUrl/comments/$id',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DeleteComments',
+      apiUrl: '$baseUrl/comments/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2722,23 +2539,20 @@ class ListCommentsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ListComments',
-        apiUrl: '$baseUrl/comments?appointment_id=$appointmentId',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ListComments',
+      apiUrl: '$baseUrl/comments?appointment_id=$appointmentId',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2756,25 +2570,22 @@ class UpdateCommentsCall {
 
     final body = _serializeJson(bodyJson);
     final ffApiRequestBody = body;
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'UpdateComments',
-        apiUrl: '$baseUrl/comments',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateComments',
+      apiUrl: '$baseUrl/comments',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2790,23 +2601,20 @@ class GetPlanCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'GetPlan',
-        apiUrl: '$baseUrl/plan/$id',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetPlan',
+      apiUrl: '$baseUrl/plan/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2822,23 +2630,20 @@ class MyFeatureCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'MyFeature',
-        apiUrl: '$baseUrl/features/my?feature_id=$id',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'MyFeature',
+      apiUrl: '$baseUrl/features/my?feature_id=$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2853,23 +2658,20 @@ class ListSubscriptionCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'ListSubscription',
-        apiUrl: '$baseUrl/subscription',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'ListSubscription',
+      apiUrl: '$baseUrl/subscription',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2885,23 +2687,20 @@ class DeleteSubscriptionCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DeleteSubscription',
-        apiUrl: '$baseUrl/subscription?reason_cancel=$motive',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DeleteSubscription',
+      apiUrl: '$baseUrl/subscription?reason_cancel=$motive',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2917,23 +2716,20 @@ class GetAppointmentsByIDCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'GetAppointmentsByID',
-        apiUrl: '$baseUrl/appointments/$id',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetAppointmentsByID',
+      apiUrl: '$baseUrl/appointments/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2948,23 +2744,20 @@ class GetSettingsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Get Settings',
-        apiUrl: '$baseUrl/settings',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Settings',
+      apiUrl: '$baseUrl/settings',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2984,25 +2777,22 @@ class EnableSettingCall {
 {
   "setting_id": $settingId
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Enable Setting',
-        apiUrl: '$baseUrl/settings',
-        callType: ApiCallType.POST,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Enable Setting',
+      apiUrl: '$baseUrl/settings',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3018,23 +2808,20 @@ class DisableSettingCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Disable Setting',
-        apiUrl: '$baseUrl/settings/$id',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Disable Setting',
+      apiUrl: '$baseUrl/settings/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3049,23 +2836,20 @@ class InsightsCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'insights',
-        apiUrl: '$baseUrl/insights/weekly-summary',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'insights',
+      apiUrl: '$baseUrl/insights/weekly-summary',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3080,23 +2864,20 @@ class ListConfigClubeWhatsappCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'List Config Clube  Whatsapp',
-        apiUrl: '$baseUrl/club/config/whatsapp',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'List Config Clube  Whatsapp',
+      apiUrl: '$baseUrl/club/config/whatsapp',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3111,23 +2892,20 @@ class ListClubActivateCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'List Club Activate',
-        apiUrl: '$baseUrl/club/config/activate',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'List Club Activate',
+      apiUrl: '$baseUrl/club/config/activate',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3147,25 +2925,22 @@ class SaveClubWhatsappCall {
 {
 "active":  $active
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Save club Whatsapp',
-        apiUrl: '$baseUrl/club/config/whatsapp',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Save club Whatsapp',
+      apiUrl: '$baseUrl/club/config/whatsapp',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3185,25 +2960,22 @@ class SaveConfigClubActivateCall {
 {
 "active":  $active
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'Save config club activate',
-        apiUrl: '$baseUrl/club/config/activate',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'Save config club activate',
+      apiUrl: '$baseUrl/club/config/activate',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3218,23 +2990,20 @@ class ListClientsClubStatementCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'List clients club statement',
-        apiUrl: '$baseUrl/club/clients-statement',
-        callType: ApiCallType.GET,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'List clients club statement',
+      apiUrl: '$baseUrl/club/clients-statement',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3256,25 +3025,22 @@ class PutAppointmentsProfessionalCall {
 {
   "professional_client_id": $professionalClientId
 }''';
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'PutAppointmentsProfessional',
-        apiUrl: '$baseUrl/appointments/$idAppointment',
-        callType: ApiCallType.PUT,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        body: ffApiRequestBody,
-        bodyType: BodyType.JSON,
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'PutAppointmentsProfessional',
+      apiUrl: '$baseUrl/appointments/$idAppointment',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3290,23 +3056,20 @@ class DELETEClientCall {
       apiURL: apiURL,
     );
 
-    return FFApiInterceptor.makeApiCall(
-      ApiCallOptions(
-        callName: 'DELETE Client',
-        apiUrl: '$baseUrl/clients/$id',
-        callType: ApiCallType.DELETE,
-        headers: {
-          'Authorization': 'Bearer $authToken',
-        },
-        params: const {},
-        returnBody: true,
-        encodeBodyUtf8: false,
-        decodeUtf8: false,
-        cache: false,
-        isStreamingApi: false,
-        alwaysAllowBody: false,
-      ),
-      APIOficialGroup.interceptors,
+    return ApiManager.instance.makeApiCall(
+      callName: 'DELETE Client',
+      apiUrl: '$baseUrl/clients/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
     );
   }
 }
