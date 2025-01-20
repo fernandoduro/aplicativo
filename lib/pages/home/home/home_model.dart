@@ -9,6 +9,12 @@ import 'package:flutter/material.dart';
 class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - appBuild] action in Home widget.
+  int? appBuild;
+  // Stores action output result for [Custom Action - showUpdateModal] action in Home widget.
+  bool? showUpdateModalAndroid;
+  // Stores action output result for [Custom Action - showUpdateModal] action in Home widget.
+  bool? showUpdateModalIOS;
   // Stores action output result for [Backend Call - API (Views)] action in Home widget.
   ApiCallResponse? apiResultView;
   // Stores action output result for [Backend Call - API (GetUser)] action in Home widget.

@@ -32,6 +32,7 @@ void main() async {
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
+  await initializeFirebaseRemoteConfig();
 
   // Start final custom actions code
   await actions.onesignalInitialise();
@@ -111,6 +112,15 @@ class _MyAppState extends State<MyApp> {
       ),
       themeMode: _themeMode,
       routerConfig: _router,
+      builder: (_, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          textScaler: MediaQuery.of(context).textScaler.clamp(
+                minScaleFactor: 1.0,
+                maxScaleFactor: 1.0,
+              ),
+        ),
+        child: child!,
+      ),
     );
   }
 }

@@ -8,6 +8,10 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Backend Call - API (GetSite)] action in Login widget.
+  ApiCallResponse? siteResultAdmin;
+  // Stores action output result for [Backend Call - API (Views)] action in Login widget.
+  ApiCallResponse? apiResultViewLoginAdmin;
   // State field(s) for cellphone widget.
   FocusNode? cellphoneFocusNode;
   TextEditingController? cellphoneTextController;

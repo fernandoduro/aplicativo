@@ -13,6 +13,8 @@ class SubscriptionOptionsModel
   ApiCallResponse? apiResult0bs2;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
+  // Stores action output result for [Backend Call - API (GetUser)] action in Row widget.
+  ApiCallResponse? apiUserPlan;
   // Model for Footer component.
   late FooterModel footerModel;
 

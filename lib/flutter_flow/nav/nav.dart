@@ -620,11 +620,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const HomeBalao2Widget(),
         ),
         FFRoute(
-          name: 'CreateSiteEtapas18Copy',
-          path: '/createSiteEtapas18Copy',
-          builder: (context, params) => const CreateSiteEtapas18CopyWidget(),
-        ),
-        FFRoute(
           name: 'Request',
           path: '/request',
           builder: (context, params) => const RequestWidget(),
@@ -656,6 +651,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'ForceUpgrade',
+          path: '/forceUpgrade',
+          builder: (context, params) => const ForceUpgradeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

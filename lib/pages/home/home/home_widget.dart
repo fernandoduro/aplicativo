@@ -44,6 +44,38 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
       logFirebaseEvent('HOME_PAGE_Home_ON_INIT_STATE');
       logFirebaseEvent('Home_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Home_custom_action');
+      _model.appBuild = await actions.appBuild();
+      if (isAndroid) {
+        logFirebaseEvent('Home_custom_action');
+        _model.showUpdateModalAndroid = await actions.showUpdateModal(
+          getRemoteConfigInt('minAndroidVersion'),
+          _model.appBuild!,
+        );
+        if (_model.showUpdateModalAndroid!) {
+          logFirebaseEvent('Home_navigate_to');
+
+          context.pushNamed('ForceUpgrade');
+
+          return;
+        }
+      } else {
+        if (isiOS) {
+          logFirebaseEvent('Home_custom_action');
+          _model.showUpdateModalIOS = await actions.showUpdateModal(
+            getRemoteConfigInt('minIosVersion'),
+            _model.appBuild!,
+          );
+          if (_model.showUpdateModalIOS!) {
+            logFirebaseEvent('Home_navigate_to');
+
+            context.pushNamed('ForceUpgrade');
+
+            return;
+          }
+        }
+      }
+
       logFirebaseEvent('Home_backend_call');
       _model.apiResultView = await APIOficialGroup.viewsCall.call(
         authToken: currentAuthenticationToken,

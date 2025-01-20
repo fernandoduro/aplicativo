@@ -151,101 +151,112 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            40.0, 0.0, 40.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'SUBSCRIPTION_OPTIONS_Row_w5pus2u2_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Row_launch_u_r_l');
-                                            await launchURL(
-                                                functions.concateStrings(
-                                                    FFDevEnvironmentValues()
-                                                        .ApiUrlPlan,
-                                                    currentAuthenticationToken)!);
-                                          },
-                                          child: Row(
+                                  if (functions.existElementList(getJsonField(
+                                        FFAppState().listJson,
+                                        r'''$''',
+                                        true,
+                                      )) ==
+                                      false)
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  40.0, 0.0, 40.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              logFirebaseEvent(
+                                                  'SUBSCRIPTION_OPTIONS_Row_w5pus2u2_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Row_launch_u_r_l');
+                                              await launchURL(
+                                                  functions.concateStrings(
+                                                      FFDevEnvironmentValues()
+                                                          .ApiUrlPlan,
+                                                      currentAuthenticationToken)!);
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Icon(
+                                                  Icons.playlist_add_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 50.0,
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Contratar plano',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Gloria Hallelujah',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        'Contratar um novo plano',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Manrope',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  40.0, 0.0, 40.0, 0.0),
+                                          child: Column(
                                             mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
                                             children: [
-                                              Icon(
-                                                Icons.playlist_add_rounded,
+                                              Divider(
+                                                thickness: 2.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 50.0,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Contratar plano',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Gloria Hallelujah',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                    ),
-                                                    Text(
-                                                      'Contratar um novo plano',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Manrope',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                        .alternate,
                                               ),
                                             ],
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            40.0, 0.0, 40.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Divider(
-                                              thickness: 2.0,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                      ],
+                                    ),
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -466,12 +477,33 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                               logFirebaseEvent(
                                                   'SUBSCRIPTION_OPTIONS_Row_yuhbylr5_ON_TAP');
                                               logFirebaseEvent(
+                                                  'Row_backend_call');
+                                              _model.apiUserPlan =
+                                                  await APIOficialGroup
+                                                      .getUserCall
+                                                      .call(
+                                                authToken:
+                                                    currentAuthenticationToken,
+                                              );
+
+                                              logFirebaseEvent(
                                                   'Row_launch_u_r_l');
                                               await launchURL(
                                                   functions.concateStrings(
-                                                      FFDevEnvironmentValues()
-                                                          .ApiUrlChangePlan,
-                                                      currentAuthenticationToken)!);
+                                                      functions.concateStrings(
+                                                          functions.concateStrings(
+                                                              FFDevEnvironmentValues()
+                                                                  .ApiUrlChangePlan,
+                                                              currentAuthenticationToken),
+                                                          '&selectplan='),
+                                                      getJsonField(
+                                                        (_model.apiUserPlan
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                        r'''$.subscription.plan_id''',
+                                                      ).toString())!);
+
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,

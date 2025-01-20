@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,6 +10,8 @@ class TrialFinishedModel extends FlutterFlowModel<TrialFinishedWidget> {
 
   // Model for HeaderBalao component.
   late HeaderBalaoModel headerBalaoModel;
+  // Stores action output result for [Backend Call - API (GetUser)] action in Button widget.
+  ApiCallResponse? apiUserPlanTrial;
   // Model for Footer component.
   late FooterModel footerModel;
 

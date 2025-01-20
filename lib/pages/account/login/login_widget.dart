@@ -7,6 +7,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -47,6 +48,38 @@ class _LoginWidgetState extends State<LoginWidget> {
         logFirebaseEvent('Login_navigate_to');
 
         context.pushNamedAuth('Home', context.mounted);
+
+        logFirebaseEvent('Login_backend_call');
+        _model.siteResultAdmin = await APIOficialGroup.getSiteCall.call(
+          authToken: currentAuthenticationToken,
+        );
+
+        if (getJsonField(
+              (_model.siteResultAdmin?.jsonBody ?? ''),
+              r'''$.data''',
+            ) !=
+            null) {
+          logFirebaseEvent('Login_update_app_state');
+          FFAppState().existSite = true;
+          safeSetState(() {});
+        } else {
+          logFirebaseEvent('Login_update_app_state');
+          FFAppState().existSite = false;
+          safeSetState(() {});
+        }
+
+        logFirebaseEvent('Login_backend_call');
+        _model.apiResultViewLoginAdmin = await APIOficialGroup.viewsCall.call(
+          authToken: currentAuthenticationToken,
+        );
+
+        logFirebaseEvent('Login_update_app_state');
+        FFAppState().historySite = getJsonField(
+          (_model.apiResultViewLoginAdmin?.jsonBody ?? ''),
+          r'''$.data''',
+        );
+        FFAppState().codigoSiteUsado = true;
+        safeSetState(() {});
       }
     });
 
@@ -68,6 +101,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -416,6 +451,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           ?.jsonBody ??
                                                       ''),
                                                   r'''$.data.professional.name''',
+                                                ).toString();
+                                                FFAppState().appId =
+                                                    getJsonField(
+                                                  (_model.apiResultLogin
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                  r'''$.data.professional.id''',
                                                 ).toString();
                                                 safeSetState(() {});
                                                 logFirebaseEvent('Button_auth');

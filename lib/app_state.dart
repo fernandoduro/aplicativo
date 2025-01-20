@@ -75,6 +75,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _FirstPackage = prefs.getBool('ff_FirstPackage') ?? _FirstPackage;
     });
+    _safeInit(() {
+      _appId = prefs.getString('ff_appId') ?? _appId;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -348,6 +351,13 @@ class FFAppState extends ChangeNotifier {
   set FirstPackage(bool value) {
     _FirstPackage = value;
     prefs.setBool('ff_FirstPackage', value);
+  }
+
+  String _appId = '';
+  String get appId => _appId;
+  set appId(String value) {
+    _appId = value;
+    prefs.setString('ff_appId', value);
   }
 }
 

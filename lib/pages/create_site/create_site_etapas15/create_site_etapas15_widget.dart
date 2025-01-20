@@ -125,273 +125,287 @@ class _CreateSiteEtapas15WidgetState extends State<CreateSiteEtapas15Widget> {
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                               ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 20.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
-                                          child: Padding(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 50.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Text(
+                                                'Preencha uma chamada principal para que seus visitantes conheçam seu serviço. \n',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          fontSize: (isWeb
+                                                                  ? MediaQuery.viewInsetsOf(
+                                                                              context)
+                                                                          .bottom >
+                                                                      0
+                                                                  : _isKeyboardVisible)
+                                                              ? 20.0
+                                                              : 30.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
-                                            child: Text(
-                                              'Preencha uma chamada principal para que seus visitantes conheçam seu serviço. \n',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Manrope',
+                                                    15.0, 0.0, 8.0, 0.0),
+                                            child: TextFormField(
+                                              controller: _model
+                                                  .descricaoTextController,
+                                              focusNode:
+                                                  _model.descricaoFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.descricaoTextController',
+                                                const Duration(milliseconds: 30),
+                                                () async {
+                                                  logFirebaseEvent(
+                                                      'CREATE_SITE_ETAPAS15_descricao_ON_TEXTFI');
+                                                  logFirebaseEvent(
+                                                      'descricao_update_app_state');
+
+                                                  safeSetState(() {});
+                                                },
+                                              ),
+                                              autofocus: false,
+                                              textCapitalization:
+                                                  TextCapitalization.sentences,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: 'Digite aqui...',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                focusedBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
-                                                    fontSize: (isWeb
-                                                            ? MediaQuery.viewInsetsOf(
-                                                                        context)
-                                                                    .bottom >
-                                                                0
-                                                            : _isKeyboardVisible)
-                                                        ? 20.0
-                                                        : 30.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
+                                                    width: 2.0,
                                                   ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                errorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              maxLines: 5,
+                                              keyboardType:
+                                                  TextInputType.multiline,
+                                              validator: _model
+                                                  .descricaoTextControllerValidator
+                                                  .asValidator(context),
                                             ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 0.0, 8.0, 0.0),
-                                          child: TextFormField(
-                                            controller:
-                                                _model.descricaoTextController,
-                                            focusNode:
-                                                _model.descricaoFocusNode,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.descricaoTextController',
-                                              const Duration(milliseconds: 30),
-                                              () async {
-                                                logFirebaseEvent(
-                                                    'CREATE_SITE_ETAPAS15_descricao_ON_TEXTFI');
-                                                logFirebaseEvent(
-                                                    'descricao_update_app_state');
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 40.0, 0.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              FFButtonWidget(
+                                                onPressed:
+                                                    (_model.descricaoTextController
+                                                                    .text ==
+                                                                '')
+                                                        ? null
+                                                        : () async {
+                                                            logFirebaseEvent(
+                                                                'CREATE_SITE_ETAPAS15_AVANAR_BTN_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'Button_backend_call');
+                                                            _model.updatesite16 =
+                                                                await APIOficialGroup
+                                                                    .updateSiteCall
+                                                                    .call(
+                                                              authToken:
+                                                                  currentAuthenticationToken,
+                                                              bodyJson: <String,
+                                                                  String?>{
+                                                                'main_call_to_action':
+                                                                    _model
+                                                                        .descricaoTextController
+                                                                        .text,
+                                                              },
+                                                            );
 
-                                                safeSetState(() {});
-                                              },
-                                            ),
-                                            autofocus: false,
-                                            textCapitalization:
-                                                TextCapitalization.sentences,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              labelText: 'Digite aqui...',
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
+                                                            logFirebaseEvent(
+                                                                'Button_navigate_to');
+
+                                                            context.pushNamed(
+                                                                'CreateSiteEtapas16');
+
+                                                            logFirebaseEvent(
+                                                                'Button_update_app_state');
+                                                            FFAppState()
+                                                                    .dataSite =
+                                                                getJsonField(
+                                                              (_model.updatesite16
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                              r'''$.data''',
+                                                            );
+                                                            safeSetState(() {});
+
+                                                            safeSetState(() {});
+                                                          },
+                                                text: 'Avançar',
+                                                options: FFButtonOptions(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.8,
+                                                  height: 40.0,
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  width: 2.0,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: Colors.white,
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  elevation: 3.0,
+                                                  borderSide: const BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  disabledColor:
+                                                      const Color(0xFFACACAC),
+                                                  disabledTextColor:
+                                                      const Color(0xFFD9D9D9),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
                                               ),
-                                              errorBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Manrope',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                            maxLines: 5,
-                                            keyboardType:
-                                                TextInputType.multiline,
-                                            validator: _model
-                                                .descricaoTextControllerValidator
-                                                .asValidator(context),
+                                            ],
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 40.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            FFButtonWidget(
-                                              onPressed:
-                                                  (_model.descricaoTextController
-                                                                  .text ==
-                                                              '')
-                                                      ? null
-                                                      : () async {
-                                                          logFirebaseEvent(
-                                                              'CREATE_SITE_ETAPAS15_AVANAR_BTN_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'Button_backend_call');
-                                                          _model.updatesite16 =
-                                                              await APIOficialGroup
-                                                                  .updateSiteCall
-                                                                  .call(
-                                                            authToken:
-                                                                currentAuthenticationToken,
-                                                            bodyJson: <String,
-                                                                String?>{
-                                                              'main_call_to_action':
-                                                                  _model
-                                                                      .descricaoTextController
-                                                                      .text,
-                                                            },
-                                                          );
-
-                                                          logFirebaseEvent(
-                                                              'Button_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'CreateSiteEtapas16');
-
-                                                          logFirebaseEvent(
-                                                              'Button_update_app_state');
-                                                          FFAppState()
-                                                                  .dataSite =
-                                                              getJsonField(
-                                                            (_model.updatesite16
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                            r'''$.data''',
-                                                          );
-                                                          safeSetState(() {});
-
-                                                          safeSetState(() {});
-                                                        },
-                                              text: 'Avançar',
-                                              options: FFButtonOptions(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.8,
-                                                height: 40.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          color: Colors.white,
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: const BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                disabledColor:
-                                                    const Color(0xFFACACAC),
-                                                disabledTextColor:
-                                                    const Color(0xFFD9D9D9),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 100.0,
-                                      height: (isWeb
-                                              ? MediaQuery.viewInsetsOf(context)
-                                                      .bottom >
-                                                  0
-                                              : _isKeyboardVisible)
-                                          ? 300.0
-                                          : 0.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 100.0,
+                                        height: (isWeb
+                                                ? MediaQuery.viewInsetsOf(
+                                                            context)
+                                                        .bottom >
+                                                    0
+                                                : _isKeyboardVisible)
+                                            ? 300.0
+                                            : 0.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

@@ -1,4 +1,5 @@
 import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -593,11 +594,49 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                       logFirebaseEvent(
                                                           'TRIAL_FINISHED_CONTRATAR_AGORA_BTN_ON_TA');
                                                       logFirebaseEvent(
-                                                          'Button_launch_u_r_l');
-                                                      await launchURL(functions
-                                                          .concateStrings(
-                                                              'https://api.blubem.com.br/select-plan/voucher?t=',
-                                                              currentAuthenticationToken)!);
+                                                          'Button_backend_call');
+                                                      _model.apiUserPlanTrial =
+                                                          await APIOficialGroup
+                                                              .getUserCall
+                                                              .call(
+                                                        authToken:
+                                                            currentAuthenticationToken,
+                                                      );
+
+                                                      if (getJsonField(
+                                                            (_model.apiUserPlanTrial
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.plan_id''',
+                                                          ) !=
+                                                          null) {
+                                                        logFirebaseEvent(
+                                                            'Button_launch_u_r_l');
+                                                        await launchURL(functions
+                                                            .concateStrings(
+                                                                functions.concateStrings(
+                                                                    functions.concateStrings(
+                                                                        FFDevEnvironmentValues()
+                                                                            .ApiUrlChangePlan,
+                                                                        currentAuthenticationToken),
+                                                                    '&selectplan='),
+                                                                getJsonField(
+                                                                  (_model.apiUserPlanTrial
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                  r'''$.subscription.plan_id''',
+                                                                ).toString())!);
+                                                      } else {
+                                                        logFirebaseEvent(
+                                                            'Button_launch_u_r_l');
+                                                        await launchURL(functions
+                                                            .concateStrings(
+                                                                FFDevEnvironmentValues()
+                                                                    .ApiUrlPlan,
+                                                                currentAuthenticationToken)!);
+                                                      }
+
+                                                      safeSetState(() {});
                                                     },
                                                     text: 'Contratar agora',
                                                     options: FFButtonOptions(
