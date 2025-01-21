@@ -7,6 +7,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
 
@@ -34,6 +35,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
       logFirebaseEvent('FORGOT_PASSWORD_ForgotPassword_ON_INIT_S');
       logFirebaseEvent('ForgotPassword_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('ForgotPassword_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     _model.cellphoneTextController ??= TextEditingController();
@@ -51,6 +56,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

@@ -7,8 +7,16 @@ import 'package:flutter/material.dart';
 
 class SubscriptionOptionsModel
     extends FlutterFlowModel<SubscriptionOptionsWidget> {
+  ///  Local state fields for this page.
+
+  dynamic planCurrent;
+
+  bool isLoading = false;
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (SubscriptionCurrent)] action in SubscriptionOptions widget.
+  ApiCallResponse? currentResult;
   // Stores action output result for [Backend Call - API (ListSubscription)] action in SubscriptionOptions widget.
   ApiCallResponse? apiResult0bs2;
   // Model for HeaderHelp component.

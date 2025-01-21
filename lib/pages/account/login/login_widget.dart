@@ -39,6 +39,10 @@ class _LoginWidgetState extends State<LoginWidget> {
       logFirebaseEvent('LOGIN_PAGE_Login_ON_INIT_STATE');
       logFirebaseEvent('Login_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Login_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       if (widget.tokenAdmin != null && widget.tokenAdmin != '') {
         logFirebaseEvent('Login_auth');
         GoRouter.of(context).prepareAuthEvent();

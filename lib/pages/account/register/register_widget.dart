@@ -46,6 +46,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       safeSetState(() {});
       logFirebaseEvent('Register_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Register_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     _model.nomeTextController ??= TextEditingController();

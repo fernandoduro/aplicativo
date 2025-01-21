@@ -34,6 +34,10 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
       logFirebaseEvent('FORGOT_PASSWORD3_ForgotPassword3_ON_INIT');
       logFirebaseEvent('ForgotPassword3_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('ForgotPassword3_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     _model.passwordTextController ??= TextEditingController();

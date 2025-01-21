@@ -111,305 +111,248 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                     true,
                                   )) ==
                                   true)
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 5.0),
-                                      child: Container(
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  3.0, 0.0, 3.0, 0.0),
-                                          child: Builder(
-                                            builder: (context) {
-                                              final hist = getJsonField(
-                                                FFAppState().listJson,
-                                                r'''$''',
-                                              ).toList();
+                                Container(
+                                  decoration: const BoxDecoration(),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        3.0, 0.0, 3.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final hist = getJsonField(
+                                          FFAppState().listJson,
+                                          r'''$''',
+                                        ).toList();
 
-                                              return FlutterFlowDataTable<
-                                                  dynamic>(
-                                                controller: _model
-                                                    .paginatedDataTableController,
-                                                data: hist,
-                                                columnsBuilder:
-                                                    (onSortChanged) => [
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Data e hora',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                        return FlutterFlowDataTable<dynamic>(
+                                          controller: _model
+                                              .paginatedDataTableController,
+                                          data: hist,
+                                          columnsBuilder: (onSortChanged) => [
+                                            DataColumn2(
+                                              label: DefaultTextStyle.merge(
+                                                softWrap: true,
+                                                child: Text(
+                                                  'Data e hora',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        letterSpacing: 0.0,
                                                       ),
-                                                    ),
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Status',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                ),
+                                              ),
+                                            ),
+                                            DataColumn2(
+                                              label: DefaultTextStyle.merge(
+                                                softWrap: true,
+                                                child: Text(
+                                                  'Status',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        letterSpacing: 0.0,
                                                       ),
-                                                    ),
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Valor',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Tipo',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                                dataRowBuilder: (histItem,
-                                                        histIndex,
-                                                        selected,
-                                                        onSelectChanged) =>
-                                                    DataRow(
-                                                  color:
-                                                      WidgetStateProperty.all(
-                                                    histIndex % 2 == 0
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground
-                                                        : FlutterFlowTheme.of(
-                                                                context)
+                                                ),
+                                              ),
+                                            ),
+                                            DataColumn2(
+                                              label: DefaultTextStyle.merge(
+                                                softWrap: true,
+                                                child: Text(
+                                                  'Valor',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
                                                             .primaryBackground,
-                                                  ),
-                                                  cells: [
-                                                    Text(
-                                                      functions.formatDateHour(
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                            DataColumn2(
+                                              label: DefaultTextStyle.merge(
+                                                softWrap: true,
+                                                child: Text(
+                                                  'Tipo',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                          dataRowBuilder: (histItem, histIndex,
+                                                  selected, onSelectChanged) =>
+                                              DataRow(
+                                            color: WidgetStateProperty.all(
+                                              histIndex % 2 == 0
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .secondaryBackground
+                                                  : FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                            ),
+                                            cells: [
+                                              Text(
+                                                functions.formatDateHour(
+                                                    getJsonField(
+                                                  histItem,
+                                                  r'''$.created_at''',
+                                                ).toString())!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                () {
+                                                  if (functions.convertString(
                                                           getJsonField(
                                                         histItem,
-                                                        r'''$.created_at''',
-                                                      ).toString())!,
+                                                        r'''$.status''',
+                                                      ).toString()) ==
+                                                      'error') {
+                                                    return 'Pagamento recusado';
+                                                  } else if (functions
+                                                          .convertString(
+                                                              getJsonField(
+                                                        histItem,
+                                                        r'''$.status''',
+                                                      ).toString()) ==
+                                                      'active') {
+                                                    return 'Pagamento realizado';
+                                                  } else {
+                                                    return ' Pagamento sendo processado';
+                                                  }
+                                                }(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              RichText(
+                                                textScaler:
+                                                    MediaQuery.of(context)
+                                                        .textScaler,
+                                                text: TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text: 'R\$ ',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Manrope',
-                                                            fontSize: 12.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                    Text(
-                                                      () {
-                                                        if (functions
-                                                                .convertString(
-                                                                    getJsonField(
-                                                              histItem,
-                                                              r'''$.status''',
-                                                            ).toString()) ==
-                                                            'blocked') {
-                                                          return 'Bloqueado';
-                                                        } else if (functions
-                                                                .convertString(
-                                                                    getJsonField(
-                                                              histItem,
-                                                              r'''$.status''',
-                                                            ).toString()) ==
-                                                            'waiting_gateway') {
-                                                          return 'Em processamento';
-                                                        } else if (functions
-                                                                .convertString(
-                                                                    getJsonField(
-                                                              histItem,
-                                                              r'''$.status''',
-                                                            ).toString()) ==
-                                                            'inactive') {
-                                                          return 'Inativo';
-                                                        } else if (functions
-                                                                .convertString(
-                                                                    getJsonField(
-                                                              histItem,
-                                                              r'''$.status''',
-                                                            ).toString()) ==
-                                                            'active') {
-                                                          return 'Ativo';
-                                                        } else {
-                                                          return ' ';
-                                                        }
-                                                      }(),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Manrope',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    RichText(
-                                                      textScaler:
-                                                          MediaQuery.of(context)
-                                                              .textScaler,
-                                                      text: TextSpan(
-                                                        children: [
-                                                          TextSpan(
-                                                            text: 'R\$ ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
-                                                          TextSpan(
-                                                            text: getJsonField(
-                                                              histItem,
-                                                              r'''$.plan_value''',
-                                                            ).toString(),
-                                                            style: const TextStyle(),
-                                                          )
-                                                        ],
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Manrope',
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                    TextSpan(
+                                                      text:
+                                                          functions.replaceAll(
+                                                              getJsonField(
+                                                                histItem,
+                                                                r'''$.plan_value''',
+                                                              ).toString(),
+                                                              '.',
+                                                              ',')!,
+                                                      style: const TextStyle(),
+                                                    )
+                                                  ],
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      () {
-                                                        if (functions
-                                                                .convertString(
-                                                                    getJsonField(
-                                                              histItem,
-                                                              r'''$.method''',
-                                                            ).toString()) ==
-                                                            'CREDIT_CARD') {
-                                                          return 'Cartão de crédito';
-                                                        } else if (functions
-                                                                .convertString(
-                                                                    getJsonField(
-                                                              histItem,
-                                                              r'''$.method''',
-                                                            ).toString()) ==
-                                                            'PIX') {
-                                                          return 'PIX';
-                                                        } else {
-                                                          return ' ';
-                                                        }
-                                                      }(),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Manrope',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ]
-                                                      .map((c) => DataCell(c))
-                                                      .toList(),
                                                 ),
-                                                paginated: false,
-                                                selectable: false,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.6,
-                                                headingRowHeight: 56.0,
-                                                dataRowHeight: 48.0,
-                                                columnSpacing: 20.0,
-                                                headingRowColor:
+                                              ),
+                                              Text(
+                                                () {
+                                                  if (functions.convertString(
+                                                          getJsonField(
+                                                        histItem,
+                                                        r'''$.method''',
+                                                      ).toString()) ==
+                                                      'CREDIT_CARD') {
+                                                    return 'Cartão de crédito';
+                                                  } else if (functions
+                                                          .convertString(
+                                                              getJsonField(
+                                                        histItem,
+                                                        r'''$.method''',
+                                                      ).toString()) ==
+                                                      'PIX') {
+                                                    return 'PIX';
+                                                  } else {
+                                                    return ' ';
+                                                  }
+                                                }(),
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                addHorizontalDivider: true,
-                                                addTopAndBottomDivider: false,
-                                                hideDefaultHorizontalDivider:
-                                                    true,
-                                                horizontalDividerColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                horizontalDividerThickness: 1.0,
-                                                addVerticalDivider: false,
-                                              );
-                                            },
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ].map((c) => DataCell(c)).toList(),
                                           ),
-                                        ),
-                                      ),
+                                          paginated: false,
+                                          selectable: false,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.7,
+                                          headingRowHeight: 56.0,
+                                          dataRowHeight: 48.0,
+                                          columnSpacing: 20.0,
+                                          headingRowColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          addHorizontalDivider: true,
+                                          addTopAndBottomDivider: false,
+                                          hideDefaultHorizontalDivider: true,
+                                          horizontalDividerColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          horizontalDividerThickness: 1.0,
+                                          addVerticalDivider: false,
+                                        );
+                                      },
                                     ),
-                                  ],
+                                  ),
                                 ),
                               if (functions.existElementList(getJsonField(
                                     FFAppState().listJson,

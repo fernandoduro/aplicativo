@@ -94,15 +94,6 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
 
   @override
   void dispose() {
-    // On component dispose action.
-    () async {
-      logFirebaseEvent('FOOTER_WHITE_COMP_FooterWhite_ON_DISPOSE');
-      logFirebaseEvent('FooterWhite_update_app_state');
-      FFAppState().activePage =
-          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
-      safeSetState(() {});
-    }();
-
     _model.maybeDispose();
 
     super.dispose();

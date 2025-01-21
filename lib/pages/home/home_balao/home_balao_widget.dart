@@ -41,6 +41,10 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
       }
       logFirebaseEvent('HomeBalao_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('HomeBalao_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({

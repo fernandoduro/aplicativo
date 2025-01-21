@@ -36,6 +36,10 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
       logFirebaseEvent('FORGOT_PASSWORD2_ForgotPassword2_ON_INIT');
       logFirebaseEvent('ForgotPassword2_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('ForgotPassword2_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('ForgotPassword2_timer');
       _model.timerController.onStartTimer();
     });

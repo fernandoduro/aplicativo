@@ -3,7 +3,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'force_upgrade_model.dart';
 export 'force_upgrade_model.dart';
 
@@ -29,6 +31,15 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ForceUpgrade'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('FORCE_UPGRADE_ForceUpgrade_ON_INIT_STATE');
+      logFirebaseEvent('ForceUpgrade_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -92,6 +103,8 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
