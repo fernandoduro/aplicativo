@@ -4,7 +4,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'footer_model.dart';
 export 'footer_model.dart';
@@ -32,6 +34,15 @@ class _FooterWidgetState extends State<FooterWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => FooterModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('FOOTER_COMP_Footer_ON_INIT_STATE');
+      logFirebaseEvent('Footer_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -83,6 +94,15 @@ class _FooterWidgetState extends State<FooterWidget>
 
   @override
   void dispose() {
+    // On component dispose action.
+    () async {
+      logFirebaseEvent('FOOTER_COMP_Footer_ON_DISPOSE');
+      logFirebaseEvent('Footer_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    }();
+
     _model.maybeDispose();
 
     super.dispose();
@@ -90,6 +110,8 @@ class _FooterWidgetState extends State<FooterWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: const AlignmentDirectional(0.0, 1.0),
       child: Container(
