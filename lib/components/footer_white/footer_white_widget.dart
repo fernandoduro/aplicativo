@@ -4,10 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'footer_white_model.dart';
 export 'footer_white_model.dart';
@@ -35,15 +33,6 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => FooterWhiteModel());
-
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('FOOTER_WHITE_FooterWhite_ON_INIT_STATE');
-      logFirebaseEvent('FooterWhite_update_app_state');
-      FFAppState().activePage =
-          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
-      safeSetState(() {});
-    });
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -102,8 +91,6 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Stack(
       children: [
         Container(
