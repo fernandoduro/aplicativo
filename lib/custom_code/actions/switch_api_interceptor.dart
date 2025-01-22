@@ -15,21 +15,21 @@ import 'package:universal_html/html.dart';
 class SwitchApiInterceptor extends FFApiInterceptor {
   @override
   Future<ApiCallOptions> onRequest({required ApiCallOptions options}) async {
-    // var url = window.location.href;
-    // var currentUrl = Uri.base;
-
-    // ignore: unnecessary_null_comparison
+    // Evitar loop: adicionar um identificador no header para saber se a requisição já foi interceptada
+    if (options.headers.containsKey('Intercepted')) {
+      return options; // Se já foi interceptado, retorne as opções originais
+    }
 
     final updatedHeaders = Map<String, String>.from(options.headers)
       ..['appID'] = FFAppState().appId
-      ..['url'] = FFAppState().activePage; // Adiciona a URL atual ao cabeçalho
+      ..['url'] = FFAppState().activePage
+      ..['Intercepted'] = 'true'; // Marca a requisição como interceptada.
 
-    // Cria novas opções com o cabeçalho atualizado.
     var newOptions = ApiCallOptions(
       callName: options.callName,
       callType: options.callType,
       apiUrl: options.apiUrl,
-      headers: updatedHeaders, // Passa o cabeçalho atualizado.
+      headers: updatedHeaders,
       params: options.params,
       bodyType: options.bodyType,
       body: options.body,
