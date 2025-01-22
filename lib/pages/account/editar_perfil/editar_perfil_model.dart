@@ -82,35 +82,20 @@ class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
 
   /// Query cache managers for this widget.
 
-  final _usersManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> users({
+  final _categoriesAPPManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> categoriesAPP({
     String? uniqueQueryKey,
     bool? overrideCache,
     required Future<ApiCallResponse> Function() requestFn,
   }) =>
-      _usersManager.performRequest(
+      _categoriesAPPManager.performRequest(
         uniqueQueryKey: uniqueQueryKey,
         overrideCache: overrideCache,
         requestFn: requestFn,
       );
-  void clearUsersCache() => _usersManager.clear();
-  void clearUsersCacheKey(String? uniqueKey) =>
-      _usersManager.clearRequest(uniqueKey);
-
-  final _categoriesManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> categories({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _categoriesManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearCategoriesCache() => _categoriesManager.clear();
-  void clearCategoriesCacheKey(String? uniqueKey) =>
-      _categoriesManager.clearRequest(uniqueKey);
+  void clearCategoriesAPPCache() => _categoriesAPPManager.clear();
+  void clearCategoriesAPPCacheKey(String? uniqueKey) =>
+      _categoriesAPPManager.clearRequest(uniqueKey);
 
   @override
   void initState(BuildContext context) {
@@ -145,8 +130,6 @@ class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
 
     /// Dispose query cache managers for this widget.
 
-    clearUsersCache();
-
-    clearCategoriesCache();
+    clearCategoriesAPPCache();
   }
 }

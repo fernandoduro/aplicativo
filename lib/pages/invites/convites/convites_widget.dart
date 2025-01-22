@@ -460,6 +460,12 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                               ),
                                                                             ),
                                                                           ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
                                                                           Flexible(
                                                                             child:
                                                                                 Align(

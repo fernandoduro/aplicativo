@@ -141,18 +141,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                             padding: const EdgeInsets.all(16.0),
                                             child:
                                                 FutureBuilder<ApiCallResponse>(
-                                              future: _model.users(
-                                                uniqueQueryKey: getJsonField(
-                                                  columnGetUserResponse
-                                                      .jsonBody,
-                                                  r'''$.id''',
-                                                ).toString(),
-                                                requestFn: () => APIOficialGroup
-                                                    .getUserCall
-                                                    .call(
-                                                  authToken:
-                                                      currentAuthenticationToken,
-                                                ),
+                                              future: APIOficialGroup
+                                                  .getUserCall
+                                                  .call(
+                                                authToken:
+                                                    currentAuthenticationToken,
                                               ),
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
@@ -543,7 +536,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               child: FutureBuilder<
                                                                   ApiCallResponse>(
                                                                 future: _model
-                                                                    .categories(
+                                                                    .categoriesAPP(
                                                                   uniqueQueryKey:
                                                                       getJsonField(
                                                                     FFAppState()
