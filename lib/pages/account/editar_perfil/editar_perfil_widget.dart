@@ -45,14 +45,20 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
       logFirebaseEvent('EditarPerfil_backend_call');
       _model.apiResultCategories = await APIOficialGroup.categoriesCall.call();
 
-      logFirebaseEvent('EditarPerfil_update_app_state');
-      FFAppState().CategoriesJson = getJsonField(
-        (_model.apiResultCategories?.jsonBody ?? ''),
-        r'''$.data''',
-      );
-      FFAppState().base64 =
-          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
-      safeSetState(() {});
+      if ((_model.apiResultCategories?.succeeded ?? true)) {
+        logFirebaseEvent('EditarPerfil_update_app_state');
+        FFAppState().CategoriesJson = getJsonField(
+          (_model.apiResultCategories?.jsonBody ?? ''),
+          r'''$.data''',
+        );
+        FFAppState().base64 =
+            'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+        safeSetState(() {});
+        logFirebaseEvent('EditarPerfil_update_app_state');
+        FFAppState().activePage =
+            'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+        safeSetState(() {});
+      }
     });
 
     _model.nomeFocusNode ??= FocusNode();

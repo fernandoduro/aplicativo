@@ -740,7 +740,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     return;
                                   } else {
                                     logFirebaseEvent('Row_navigate_to');
-
+                                    if (Navigator.of(context).canPop()) {
+                                      context.pop();
+                                    }
                                     context.pushNamed('EditarPerfil');
                                   }
                                 },

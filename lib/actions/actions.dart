@@ -202,7 +202,9 @@ Future seusServicos(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('seusServicos_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Services01');
   }
 }
@@ -247,7 +249,9 @@ Future assinatura(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('assinatura_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('SubscriptionOptions');
   }
 }

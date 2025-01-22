@@ -12,33 +12,40 @@ import 'package:flutter/material.dart';
 import '/backend/api_requests/api_interceptor.dart';
 import 'package:universal_html/html.dart';
 
+bool isRequestInProgress = false;
+
 class SwitchApiInterceptor extends FFApiInterceptor {
   @override
   Future<ApiCallOptions> onRequest({required ApiCallOptions options}) async {
-    // Evitar loop: adicionar um identificador no header para saber se a requisição já foi interceptada
-    if (options.headers.containsKey('Intercepted')) {
-      return options; // Se já foi interceptado, retorne as opções originais
+    if (isRequestInProgress) {
+      print('Ignorando requisição duplicada: ${options.apiUrl}');
+      return options;
     }
 
-    final updatedHeaders = Map<String, String>.from(options.headers)
-      ..['appID'] = FFAppState().appId
-      ..['url'] = FFAppState().activePage
-      ..['Intercepted'] = 'true'; // Marca a requisição como interceptada.
+    isRequestInProgress = true;
+    try {
+      final updatedHeaders = Map<String, String>.from(options.headers)
+        ..['appID'] = FFAppState().appId
+        ..['url'] = FFAppState().activePage;
 
-    var newOptions = ApiCallOptions(
-      callName: options.callName,
-      callType: options.callType,
-      apiUrl: options.apiUrl,
-      headers: updatedHeaders,
-      params: options.params,
-      bodyType: options.bodyType,
-      body: options.body,
-      returnBody: options.returnBody,
-      encodeBodyUtf8: options.encodeBodyUtf8,
-      decodeUtf8: options.decodeUtf8,
-      alwaysAllowBody: options.alwaysAllowBody,
-      cache: options.cache,
-    );
-    return newOptions;
+      print('Processando requisição: ${options.apiUrl}');
+
+      return ApiCallOptions(
+        callName: options.callName,
+        callType: options.callType,
+        apiUrl: options.apiUrl,
+        headers: updatedHeaders,
+        params: options.params,
+        bodyType: options.bodyType,
+        body: options.body,
+        returnBody: options.returnBody,
+        encodeBodyUtf8: options.encodeBodyUtf8,
+        decodeUtf8: options.decodeUtf8,
+        alwaysAllowBody: options.alwaysAllowBody,
+        cache: options.cache,
+      );
+    } finally {
+      isRequestInProgress = false;
+    }
   }
 }
