@@ -120,8 +120,6 @@ class _FooterWidgetState extends State<FooterWidget>
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('FOOTER_COMP_Container_7koktesa_ON_TAP');
-                  logFirebaseEvent('Container_dismiss_dialog');
-                  Navigator.pop(context);
                   logFirebaseEvent('Container_navigate_to');
 
                   context.pushNamed('Home');

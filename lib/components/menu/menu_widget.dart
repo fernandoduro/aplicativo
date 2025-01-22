@@ -746,6 +746,10 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       context.pop();
                                     }
                                     context.pushNamed('EditarPerfil');
+
+                                    logFirebaseEvent('Row_navigate_to');
+
+                                    context.pushNamed('CreateSiteEtapas12');
                                   }
                                 },
                                 child: Row(

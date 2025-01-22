@@ -43,6 +43,9 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
       logFirebaseEvent('EditarPerfil_custom_action');
       await actions.lockOrientation();
       logFirebaseEvent('EditarPerfil_backend_call');
+      await APIOficialGroup.categoriesCall.call();
+
+      logFirebaseEvent('EditarPerfil_backend_call');
       _model.apiResultCategories = await APIOficialGroup.categoriesCall.call();
 
       if ((_model.apiResultCategories?.succeeded ?? true)) {
