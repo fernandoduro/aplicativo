@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -236,6 +235,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   onTap: () async {
                                     logFirebaseEvent(
                                         'MENU_COMP_Row_3cix1yld_ON_TAP');
+                                    logFirebaseEvent('Row_dismiss_dialog');
+                                    Navigator.pop(context);
                                     logFirebaseEvent('Row_action_block');
                                     await action_blocks.calculadora(context);
                                   },
@@ -729,28 +730,10 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 onTap: () async {
                                   logFirebaseEvent(
                                       'MENU_COMP_Row_evy6atmm_ON_TAP');
-                                  logFirebaseEvent('Row_custom_action');
-                                  await actions.lockOrientation();
-                                  if (currentAuthenticationToken == null ||
-                                      currentAuthenticationToken == '') {
-                                    logFirebaseEvent('Row_navigate_to');
-
-                                    context.pushNamed('Login');
-
-                                    return;
-                                  } else {
-                                    logFirebaseEvent('Row_dismiss_dialog');
-                                    Navigator.pop(context);
-                                    logFirebaseEvent('Row_navigate_to');
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed('EditarPerfil');
-
-                                    logFirebaseEvent('Row_navigate_to');
-
-                                    context.pushNamed('CreateSiteEtapas12');
-                                  }
+                                  logFirebaseEvent('Row_dismiss_dialog');
+                                  Navigator.pop(context);
+                                  logFirebaseEvent('Row_action_block');
+                                  await action_blocks.perfil(context);
                                 },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -931,6 +914,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 onTap: () async {
                                   logFirebaseEvent(
                                       'MENU_COMP_Row_4pjiigmy_ON_TAP');
+                                  logFirebaseEvent('Row_dismiss_dialog');
+                                  Navigator.pop(context);
                                   logFirebaseEvent('Row_action_block');
                                   await action_blocks.meusConvites(context);
                                 },

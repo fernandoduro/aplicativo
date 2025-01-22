@@ -110,12 +110,16 @@ Future seuSite(BuildContext context) async {
         r'''$.data''',
       );
       logFirebaseEvent('seuSite_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed('CreateSiteEtapa6');
     } else {
       if (FFAppState().codigoSiteUsado == true) {
         logFirebaseEvent('seuSite_navigate_to');
-
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
         context.pushNamed('CreateSiteEtapa6');
       } else {
         logFirebaseEvent('seuSite_update_app_state');
@@ -125,7 +129,9 @@ Future seuSite(BuildContext context) async {
           r'''$.data''',
         );
         logFirebaseEvent('seuSite_navigate_to');
-
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
         context.pushNamed('CreateSiteEtapa1');
       }
     }
@@ -143,7 +149,9 @@ Future calculadora(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('calculadora_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Calculadora');
   }
 }
@@ -157,7 +165,9 @@ Future meusConvites(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('meusConvites_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Convites');
   }
 }
@@ -196,7 +206,9 @@ Future seusServicos(BuildContext context) async {
   await actions.lockOrientation();
   if (currentAuthenticationToken == null || currentAuthenticationToken == '') {
     logFirebaseEvent('seusServicos_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Login');
 
     return;
@@ -351,11 +363,15 @@ Future assistente(BuildContext context) async {
     if (subscriptionResult43!) {
       if (FFAppState().firstRequest == true) {
         logFirebaseEvent('assistente_navigate_to');
-
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
         context.pushNamed('conversaAssistente');
       } else {
         logFirebaseEvent('assistente_navigate_to');
-
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
         context.pushNamed('Request');
       }
     }
@@ -778,5 +794,23 @@ Future firstConfigValidation(
         }.withoutNulls,
       );
     }
+  }
+}
+
+Future perfil(BuildContext context) async {
+  logFirebaseEvent('Perfil_custom_action');
+  await actions.lockOrientation();
+  if (currentAuthenticationToken == null || currentAuthenticationToken == '') {
+    logFirebaseEvent('Perfil_navigate_to');
+
+    context.pushNamed('Login');
+
+    return;
+  } else {
+    logFirebaseEvent('Perfil_navigate_to');
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
+    context.pushNamed('EditarPerfil');
   }
 }

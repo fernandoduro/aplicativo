@@ -38,6 +38,15 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
     super.initState();
     _model = createModel(context, () => FooterWhiteModel());
 
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('FOOTER_WHITE_FooterWhite_ON_INIT_STATE');
+      logFirebaseEvent('FooterWhite_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
         loop: true,
@@ -95,6 +104,8 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Stack(
       children: [
         Container(
@@ -157,6 +168,8 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                           onTap: () async {
                             logFirebaseEvent(
                                 'FOOTER_WHITE_Container_v43pesmm_ON_TAP');
+                            logFirebaseEvent('Container_dismiss_dialog');
+                            Navigator.pop(context);
                             logFirebaseEvent('Container_navigate_to');
 
                             context.pushNamed('Home');

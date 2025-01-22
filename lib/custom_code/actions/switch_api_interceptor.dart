@@ -17,35 +17,37 @@ bool isRequestInProgress = false;
 class SwitchApiInterceptor extends FFApiInterceptor {
   @override
   Future<ApiCallOptions> onRequest({required ApiCallOptions options}) async {
-    if (isRequestInProgress) {
-      print('Ignorando requisição duplicada: ${options.apiUrl}');
+    print('Interceptando chamada: ${options.callName}, URL: ${options.apiUrl}');
+
+    // Verificar se a chamada já foi interceptada
+    if (options.headers.containsKey('Intercepted')) {
+      print('Requisição já interceptada: ${options.apiUrl}');
       return options;
     }
 
-    isRequestInProgress = true;
-    try {
-      final updatedHeaders = Map<String, String>.from(options.headers)
-        ..['appID'] = FFAppState().appId
-        ..['url'] = FFAppState().activePage;
+    // Adicionar cabeçalhos e marcar como interceptada
+    final updatedHeaders = Map<String, String>.from(options.headers)
+      ..['appID'] = FFAppState().appId
+      ..['url'] = FFAppState().activePage
+      ..['Intercepted'] = 'true';
 
-      print('Processando requisição: ${options.apiUrl}');
+    print('Adicionando cabeçalhos: $updatedHeaders');
 
-      return ApiCallOptions(
-        callName: options.callName,
-        callType: options.callType,
-        apiUrl: options.apiUrl,
-        headers: updatedHeaders,
-        params: options.params,
-        bodyType: options.bodyType,
-        body: options.body,
-        returnBody: options.returnBody,
-        encodeBodyUtf8: options.encodeBodyUtf8,
-        decodeUtf8: options.decodeUtf8,
-        alwaysAllowBody: options.alwaysAllowBody,
-        cache: options.cache,
-      );
-    } finally {
-      isRequestInProgress = false;
-    }
+    var newOptions = ApiCallOptions(
+      callName: options.callName,
+      callType: options.callType,
+      apiUrl: options.apiUrl,
+      headers: updatedHeaders,
+      params: options.params,
+      bodyType: options.bodyType,
+      body: options.body,
+      returnBody: options.returnBody,
+      encodeBodyUtf8: options.encodeBodyUtf8,
+      decodeUtf8: options.decodeUtf8,
+      alwaysAllowBody: options.alwaysAllowBody,
+      cache: options.cache,
+    );
+
+    return newOptions;
   }
 }
