@@ -141,11 +141,18 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                             padding: const EdgeInsets.all(16.0),
                                             child:
                                                 FutureBuilder<ApiCallResponse>(
-                                              future: APIOficialGroup
-                                                  .getUserCall
-                                                  .call(
-                                                authToken:
-                                                    currentAuthenticationToken,
+                                              future: _model.users(
+                                                uniqueQueryKey: getJsonField(
+                                                  columnGetUserResponse
+                                                      .jsonBody,
+                                                  r'''$.id''',
+                                                ).toString(),
+                                                requestFn: () => APIOficialGroup
+                                                    .getUserCall
+                                                    .call(
+                                                  authToken:
+                                                      currentAuthenticationToken,
+                                                ),
                                               ),
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
@@ -535,9 +542,19 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                       0.0, 0.0),
                                                               child: FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: APIOficialGroup
-                                                                    .categoriesCall
-                                                                    .call(),
+                                                                future: _model
+                                                                    .categories(
+                                                                  uniqueQueryKey:
+                                                                      getJsonField(
+                                                                    FFAppState()
+                                                                        .CategoriesJson,
+                                                                    r'''$[:].id''',
+                                                                  ).toString(),
+                                                                  requestFn: () =>
+                                                                      APIOficialGroup
+                                                                          .categoriesCall
+                                                                          .call(),
+                                                                ),
                                                                 builder: (context,
                                                                     snapshot) {
                                                                   // Customize what your widget looks like when it's loading.
