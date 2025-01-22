@@ -801,6 +801,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     onTap: () async {
                                       logFirebaseEvent(
                                           'MENU_COMP_Row_qfex0im2_ON_TAP');
+                                      logFirebaseEvent('Row_dismiss_dialog');
+                                      Navigator.pop(context);
                                       logFirebaseEvent('Row_action_block');
                                       await action_blocks.seusServicos(context);
                                     },
@@ -865,6 +867,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 onTap: () async {
                                   logFirebaseEvent(
                                       'MENU_COMP_Row_0nuswlrp_ON_TAP');
+                                  logFirebaseEvent('Row_dismiss_dialog');
+                                  Navigator.pop(context);
                                   logFirebaseEvent('Row_action_block');
                                   await action_blocks.assinatura(context);
                                 },
