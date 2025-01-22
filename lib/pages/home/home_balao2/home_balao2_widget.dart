@@ -2,6 +2,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -173,9 +175,9 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                       color: FlutterFlowTheme.of(context).primary,
                       borderRadius: BorderRadius.circular(0.0),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -187,7 +189,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.9,
                       constraints: BoxConstraints(
@@ -198,14 +200,14 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: EdgeInsets.all(20.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -215,7 +217,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -226,7 +228,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Ótimo! ',
@@ -235,7 +237,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                   .bodyMedium
                                                   .override(
                                                     font: GoogleFonts.inter(),
-                                                    color: const Color(0xFF12151C),
+                                                    color: Color(0xFF12151C),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -251,7 +253,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     'containerOnPageLoadAnimation2']!),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -261,7 +263,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -272,7 +274,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Deixa eu me apresentar primeiro, me chamo Blu, sou a especialista em IA (Inteligência para Autônomas) da Blubem.',
@@ -281,7 +283,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                   .bodyMedium
                                                   .override(
                                                     font: GoogleFonts.inter(),
-                                                    color: const Color(0xFF12151C),
+                                                    color: Color(0xFF12151C),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -297,7 +299,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     'containerOnPageLoadAnimation3']!),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -307,7 +309,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -318,7 +320,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Estarei aqui no aplicativo para guiar seu uso e te ajudar em vários assuntos.',
@@ -327,7 +329,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                   .bodyMedium
                                                   .override(
                                                     font: GoogleFonts.inter(),
-                                                    color: const Color(0xFF12151C),
+                                                    color: Color(0xFF12151C),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -343,7 +345,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     'containerOnPageLoadAnimation4']!),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -353,7 +355,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -364,7 +366,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'A Blubem cuida de tudo para que você possa focar no que mais importa: seu atendimento e o seu crescimento profissional.',
@@ -373,7 +375,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                   .bodyMedium
                                                   .override(
                                                     font: GoogleFonts.inter(),
-                                                    color: const Color(0xFF12151C),
+                                                    color: Color(0xFF12151C),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -389,7 +391,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     'containerOnPageLoadAnimation5']!),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -399,7 +401,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -410,7 +412,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Vamos começar?',
@@ -419,7 +421,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                   .bodyMedium
                                                   .override(
                                                     font: GoogleFonts.inter(),
-                                                    color: const Color(0xFF12151C),
+                                                    color: Color(0xFF12151C),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -449,9 +451,9 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 44.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -462,7 +464,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -484,11 +486,11 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
                   child: Stack(
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(1.06, 0.0),
+                        alignment: AlignmentDirectional(1.06, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(

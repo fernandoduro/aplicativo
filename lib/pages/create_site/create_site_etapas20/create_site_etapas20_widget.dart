@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -122,23 +123,23 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerHelpModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
+                      child: HeaderHelpWidget(),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 decoration: BoxDecoration(
@@ -158,7 +159,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -166,10 +167,10 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 15.0, 16.0),
                                             child: Text(
                                               'Selecione como gostaria que ficasse o domínio do seu site.',
@@ -197,7 +198,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 15.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
@@ -217,7 +218,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                       domains[domainsIndex];
                                                   return Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: InkWell(
@@ -314,7 +315,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                 'Outra opção')
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           15.0, 0.0, 15.0, 0.0),
                                                   child: TextFormField(
@@ -416,7 +417,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 40.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -432,7 +433,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                               onPressed: () async {
                                                 logFirebaseEvent(
                                                     'CREATE_SITE_ETAPAS20_FINALIZAR_BTN_ON_TA');
-                                                var shouldSetState = false;
+                                                var _shouldSetState = false;
                                                 if (functions
                                                         .convertJsonToString(
                                                             getJsonField(
@@ -452,7 +453,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                         .textController.text,
                                                   );
 
-                                                  shouldSetState = true;
+                                                  _shouldSetState = true;
                                                   if (APIOficialGroup
                                                       .domainCheckCall
                                                       .exists(
@@ -474,7 +475,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                                 .primaryText,
                                                           ),
                                                         ),
-                                                        duration: const Duration(
+                                                        duration: Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -482,9 +483,8 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                                 .secondary,
                                                       ),
                                                     );
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       safeSetState(() {});
-                                                    }
                                                     return;
                                                   } else {
                                                     logFirebaseEvent(
@@ -529,7 +529,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                       currentAuthenticationToken,
                                                 );
 
-                                                shouldSetState = true;
+                                                _shouldSetState = true;
                                                 logFirebaseEvent(
                                                     'Button_update_app_state');
                                                 FFAppState().existSite = true;
@@ -549,9 +549,8 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                 context.pushNamed(
                                                     'CreateSiteEtapas21');
 
-                                                if (shouldSetState) {
+                                                if (_shouldSetState)
                                                   safeSetState(() {});
-                                                }
                                               },
                                               text: 'Finalizar',
                                               options: FFButtonOptions(
@@ -560,11 +559,11 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                             .width *
                                                         0.8,
                                                 height: 40.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -581,7 +580,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                                 elevation: 3.0,
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -595,7 +594,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: Container(
                                       width: 100.0,
@@ -624,11 +623,11 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const FooterWidget(),
+                          child: FooterWidget(),
                         ),
                       ),
                     ],

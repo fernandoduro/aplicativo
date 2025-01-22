@@ -5,6 +5,7 @@ import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -98,17 +99,17 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerHelpModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
+                      child: HeaderHelpWidget(),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -119,14 +120,14 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                     .primaryBackground,
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 36.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 20.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -135,9 +136,9 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 0.0, 15.0, 0.0),
                                               child: Text(
@@ -177,7 +178,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                       colors[colorsIndex];
                                                   return Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 15.0,
                                                                 10.0,
@@ -234,7 +235,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                             ).toString(),
                                                           ),
                                                           borderRadius:
-                                                              const BorderRadius.only(
+                                                              BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     5.0),
@@ -258,11 +259,11 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                               ).toString(),
                                                           child: Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, 0.0),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -289,7 +290,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -353,11 +354,11 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                               .width *
                                                           0.8,
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -375,7 +376,7 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                             letterSpacing: 0.0,
                                                           ),
                                                   elevation: 3.0,
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -383,9 +384,9 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                                                       BorderRadius.circular(
                                                           8.0),
                                                   disabledColor:
-                                                      const Color(0xFFACACAC),
+                                                      Color(0xFFACACAC),
                                                   disabledTextColor:
-                                                      const Color(0xFFD9D9D9),
+                                                      Color(0xFFD9D9D9),
                                                 ),
                                               ),
                                             ],
@@ -406,11 +407,11 @@ class _CreateSiteEtapas12WidgetState extends State<CreateSiteEtapas12Widget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const FooterWidget(),
+                          child: FooterWidget(),
                         ),
                       ),
                     ],

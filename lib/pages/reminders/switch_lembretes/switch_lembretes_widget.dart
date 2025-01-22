@@ -2,8 +2,10 @@ import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'switch_lembretes_model.dart';
 export 'switch_lembretes_model.dart';
 
@@ -37,7 +39,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
     super.initState();
     _model = createModel(context, () => SwitchLembretesModel());
 
-    _model.statusValue = widget.ativo!;
+    _model.statusValue = widget!.ativo!;
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -56,14 +58,14 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
         Switch.adaptive(
           value: _model.statusValue!,
           onChanged: (newValue) async {
-            safeSetState(() => _model.statusValue = newValue);
-            if (newValue) {
+            safeSetState(() => _model.statusValue = newValue!);
+            if (newValue!) {
               logFirebaseEvent('SWITCH_LEMBRETES_status_ON_TOGGLE_ON');
               logFirebaseEvent('status_backend_call');
               _model.apiResult4ia =
                   await APIOficialGroup.enableSettingCall.call(
                 authToken: currentAuthenticationToken,
-                settingId: widget.id,
+                settingId: widget!.id,
               );
 
               if ((_model.apiResult4ia?.succeeded ?? true)) {
@@ -76,7 +78,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
                     ),
-                    duration: const Duration(milliseconds: 4000),
+                    duration: Duration(milliseconds: 4000),
                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                   ),
                 );
@@ -93,7 +95,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                     ),
-                    duration: const Duration(milliseconds: 4000),
+                    duration: Duration(milliseconds: 4000),
                     backgroundColor: FlutterFlowTheme.of(context).error,
                   ),
                 );
@@ -110,7 +112,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
               _model.apiResultndw =
                   await APIOficialGroup.disableSettingCall.call(
                 authToken: currentAuthenticationToken,
-                id: widget.id?.toString(),
+                id: widget!.id?.toString(),
               );
 
               if ((_model.apiResultndw?.succeeded ?? true)) {
@@ -123,7 +125,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
                     ),
-                    duration: const Duration(milliseconds: 4000),
+                    duration: Duration(milliseconds: 4000),
                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                   ),
                 );
@@ -140,7 +142,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
                     ),
-                    duration: const Duration(milliseconds: 4000),
+                    duration: Duration(milliseconds: 4000),
                     backgroundColor: FlutterFlowTheme.of(context).error,
                   ),
                 );
@@ -160,7 +162,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
         ),
         Expanded(
           child: Text(
-            widget.descricao!,
+            widget!.descricao!,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   font: GoogleFonts.manrope(),
                   color: FlutterFlowTheme.of(context).primary,

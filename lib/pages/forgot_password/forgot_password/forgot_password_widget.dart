@@ -2,12 +2,14 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
@@ -76,7 +78,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primary,
                 ),
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -87,16 +89,16 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         height: 200.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primary,
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(16.0),
                             bottomRight: Radius.circular(16.0),
                             topLeft: Radius.circular(0.0),
                             topRight: Radius.circular(0.0),
                           ),
                         ),
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
@@ -107,16 +109,16 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             40.0, 0.0, 40.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          constraints: const BoxConstraints(
+                          constraints: BoxConstraints(
                             maxWidth: 430.0,
                           ),
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).info,
-                            borderRadius: const BorderRadius.only(
+                            borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(15.0),
                               bottomRight: Radius.circular(15.0),
                               topLeft: Radius.circular(15.0),
@@ -129,9 +131,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 key: _model.formKey,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(24.0),
+                                    padding: EdgeInsets.all(24.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -139,10 +141,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 10.0),
                                             child: Text(
                                               'Digite seu celular abaixo .',
@@ -163,9 +165,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
-                                          child: SizedBox(
+                                          child: Container(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -173,7 +175,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                               focusNode:
                                                   _model.cellphoneFocusNode,
                                               autofocus: true,
-                                              autofillHints: const [
+                                              autofillHints: [
                                                 AutofillHints.email
                                               ],
                                               obscureText: false,
@@ -258,7 +260,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -315,7 +317,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                                                 .primaryText,
                                                       ),
                                                     ),
-                                                    duration: const Duration(
+                                                    duration: Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -331,9 +333,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                             options: FFButtonOptions(
                                               width: double.infinity,
                                               height: 44.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -347,7 +349,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               elevation: 3.0,
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -360,14 +362,14 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                         // You will have to add an action on this rich text to go to your login page.
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 12.0),
                                           child: RichText(
                                             textScaler: MediaQuery.of(context)
                                                 .textScaler,
                                             text: TextSpan(
                                               children: [
-                                                const TextSpan(
+                                                TextSpan(
                                                   text: 'Lembrou de sua senha?',
                                                   style: TextStyle(),
                                                 ),

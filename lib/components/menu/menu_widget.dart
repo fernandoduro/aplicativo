@@ -2,6 +2,7 @@ import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -47,7 +48,7 @@ class _MenuWidgetState extends State<MenuWidget> {
     context.watch<FFAppState>();
 
     return Stack(
-      alignment: const AlignmentDirectional(1.0, 0.0),
+      alignment: AlignmentDirectional(1.0, 0.0),
       children: [
         Container(
           decoration: BoxDecoration(
@@ -61,7 +62,7 @@ class _MenuWidgetState extends State<MenuWidget> {
               children: [
                 if (loggedIn)
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,11 +70,11 @@ class _MenuWidgetState extends State<MenuWidget> {
                         Container(
                           width: 52.0,
                           height: 52.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Color(0xFFF2F2F2),
                             shape: BoxShape.circle,
                           ),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             functions.returnFirstCaracter(
                                 FFAppState().nameProfessional)!,
@@ -106,12 +107,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                             ],
                           ),
                         ),
-                      ].divide(const SizedBox(width: 16.0)),
+                      ].divide(SizedBox(width: 16.0)),
                     ),
                   ),
                 if (!loggedIn)
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,7 +135,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             ],
                           ),
                         ),
-                      ].divide(const SizedBox(width: 16.0)),
+                      ].divide(SizedBox(width: 16.0)),
                     ),
                   ),
                 Container(
@@ -147,13 +148,13 @@ class _MenuWidgetState extends State<MenuWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Recursos gratuitos',
@@ -196,7 +197,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     30.0, 0.0, 10.0, 0.0),
                                             child: Icon(
                                               Icons.web,
@@ -251,7 +252,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     30.0, 0.0, 10.0, 0.0),
                                             child: Icon(
                                               Icons.calculate_outlined,
@@ -282,9 +283,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].divide(const SizedBox(height: 12.0)),
+                          ].divide(SizedBox(height: 12.0)),
                         ),
                       ),
                       Column(
@@ -292,7 +293,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Organize seus atendimentos',
@@ -332,7 +333,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.people_outline,
@@ -362,7 +363,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -390,7 +391,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.calendar_month_rounded,
@@ -420,16 +421,16 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
-                        ].divide(const SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Otimize sua rotina',
@@ -469,7 +470,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.menu_open_rounded,
@@ -499,7 +500,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -527,7 +528,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.app_shortcut_outlined,
@@ -557,7 +558,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -585,7 +586,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.doorbell_outlined,
@@ -615,16 +616,16 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
-                        ].divide(const SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Fidelize seus clientes',
@@ -664,7 +665,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.card_giftcard,
@@ -694,16 +695,16 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
-                        ].divide(const SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
                               ' Atualize seu cadastro',
@@ -755,7 +756,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.person_outlined,
@@ -812,7 +813,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       30.0, 0.0, 10.0, 0.0),
                                               child: Icon(
@@ -845,9 +846,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 12.0)),
+                                ].divide(SizedBox(height: 12.0)),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -875,7 +876,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.local_atm,
@@ -905,7 +906,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -933,7 +934,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.person_add_outlined,
@@ -963,9 +964,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 12.0)),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
-                        ].divide(const SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
                       ),
                       Divider(
                         height: 1.0,
@@ -976,7 +977,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                       ),
                       if (loggedIn)
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -1006,9 +1007,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 48.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1026,7 +1027,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                         ),
                       if (!loggedIn)
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -1044,9 +1045,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 48.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1064,7 +1065,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                         ),
                       if (!loggedIn)
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 32.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -1083,9 +1084,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 48.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1101,7 +1102,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             ),
                           ),
                         ),
-                    ].divide(const SizedBox(height: 24.0)),
+                    ].divide(SizedBox(height: 24.0)),
                   ),
                 ),
               ],

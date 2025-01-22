@@ -9,12 +9,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -112,7 +117,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                   wrapWithModel(
                     model: _model.headerHelpModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const HeaderHelpWidget(),
+                    child: HeaderHelpWidget(),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -129,7 +134,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                               color: FlutterFlowTheme.of(context).primary,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: SingleChildScrollView(
                                 controller: _model.columnController1,
@@ -138,7 +143,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(16.0),
+                                      padding: EdgeInsets.all(16.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -146,7 +151,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                         children: [
                                           Flexible(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: RichText(
@@ -195,14 +200,14 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 20.0, 0.0),
                                       child: FutureBuilder<ApiCallResponse>(
                                         future: APIOficialGroup
                                             .getClientByIDCall
                                             .call(
                                           authToken: currentAuthenticationToken,
-                                          id: widget.idClient?.toString(),
+                                          id: widget!.idClient?.toString(),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -243,7 +248,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -293,7 +298,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             queryParameters: {
                                                               'idClient':
                                                                   serializeParam(
-                                                                widget
+                                                                widget!
                                                                     .professionalclientid,
                                                                 ParamType.int,
                                                               ),
@@ -328,7 +333,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 16.0),
                                                     child: Column(
@@ -361,7 +366,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -376,7 +381,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         .start,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             3.0,
@@ -405,7 +410,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -426,10 +431,10 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             null)
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                                AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                               child: Container(
                                                                                 width: 15.0,
                                                                                 height: 15.0,
@@ -446,7 +451,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             ) !=
                                                                             null)
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 8.0,
@@ -472,10 +477,10 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             null)
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                                AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                               child: Container(
                                                                                 width: 15.0,
                                                                                 height: 15.0,
@@ -492,7 +497,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             ) !=
                                                                             null)
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 8.0,
@@ -515,7 +520,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -536,10 +541,10 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             null)
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                                AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                               child: Container(
                                                                                 width: 15.0,
                                                                                 height: 15.0,
@@ -556,7 +561,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             ) !=
                                                                             null)
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 8.0,
@@ -594,7 +599,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                       null)
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -687,7 +692,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 16.0, 20.0, 36.0),
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -697,7 +702,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                               BorderRadius.circular(16.0),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: SingleChildScrollView(
                                             controller:
                                                 _model.columnController2,
@@ -716,7 +721,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -724,7 +729,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Text(
@@ -802,7 +807,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           Flexible(
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                               child: FlutterFlowDropDown<int>(
                                                                                 controller: _model.servicosValueController ??= FormFieldController<int>(null),
                                                                                 options: List<int>.from(getJsonField(
@@ -816,7 +821,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                   true,
                                                                                 ) as List)
                                                                                     .map<String>((s) => s.toString())
-                                                                                    .toList(),
+                                                                                    .toList()!,
                                                                                 onChanged: (val) => safeSetState(() => _model.servicosValue = val),
                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                 height: 40.0,
@@ -835,7 +840,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 borderColor: Colors.transparent,
                                                                                 borderWidth: 0.0,
                                                                                 borderRadius: 8.0,
-                                                                                margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                 hidesUnderline: true,
                                                                                 isOverButton: false,
                                                                                 isSearchable: false,
@@ -919,10 +924,10 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           Flexible(
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                               child: FlutterFlowDropDown<String>(
                                                                                 controller: _model.servicosEmptyValueController ??= FormFieldController<String>(null),
-                                                                                options: const <String>[],
+                                                                                options: <String>[],
                                                                                 onChanged: (val) => safeSetState(() => _model.servicosEmptyValue = val),
                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                 height: 40.0,
@@ -941,7 +946,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 borderColor: Colors.transparent,
                                                                                 borderWidth: 0.0,
                                                                                 borderRadius: 8.0,
-                                                                                margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                 hidesUnderline: true,
                                                                                 isOverButton: false,
                                                                                 isSearchable: false,
@@ -1015,7 +1020,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Text(
@@ -1039,7 +1044,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Row(
@@ -1053,13 +1058,13 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                   Flexible(
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           0.0,
                                                                           8.0),
                                                                       child:
-                                                                          SizedBox(
+                                                                          Container(
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.65,
                                                                         child:
@@ -1070,7 +1075,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                               _model.dataFocusNode,
                                                                           autofocus:
                                                                               true,
-                                                                          autofillHints: const [
+                                                                          autofillHints: [
                                                                             AutofillHints.email
                                                                           ],
                                                                           obscureText:
@@ -1142,14 +1147,14 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             8.0,
                                                                             0.0,
                                                                             8.0),
                                                                     child:
-                                                                        SizedBox(
+                                                                        Container(
                                                                       width: MediaQuery.sizeOf(context)
                                                                               .width *
                                                                           0.2,
@@ -1161,7 +1166,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             _model.horaFocusNode,
                                                                         autofocus:
                                                                             true,
-                                                                        autofillHints: const [
+                                                                        autofillHints: [
                                                                           AutofillHints
                                                                               .email
                                                                         ],
@@ -1246,7 +1251,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Text(
@@ -1270,13 +1275,13 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           0.0,
                                                                           8.0),
-                                                              child: SizedBox(
+                                                              child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1318,7 +1323,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                     enabledBorder:
                                                                         OutlineInputBorder(
                                                                       borderSide:
-                                                                          const BorderSide(
+                                                                          BorderSide(
                                                                         color: Color(
                                                                             0x00000000),
                                                                         width:
@@ -1396,7 +1401,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Text(
@@ -1420,7 +1425,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -1438,7 +1443,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                       .isRecording)
                                                                     Padding(
                                                                       padding:
-                                                                          const EdgeInsets.all(
+                                                                          EdgeInsets.all(
                                                                               20.0),
                                                                       child:
                                                                           Row(
@@ -1448,7 +1453,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             MainAxisAlignment.center,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 10.0,
@@ -1465,7 +1470,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           ),
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 Text(
                                                                               'REC',
@@ -1483,7 +1488,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                       ),
                                                                     ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             24.0,
@@ -1529,7 +1534,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                           ),
                                                                                         ),
-                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                        duration: Duration(milliseconds: 4000),
                                                                                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                       ),
                                                                                     );
@@ -1544,12 +1549,12 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 100.0,
                                                                             height:
                                                                                 50.0,
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0),
-                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -1612,18 +1617,18 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 100.0,
                                                                             height:
                                                                                 50.0,
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0),
-                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0),
                                                                             color:
-                                                                                const Color(0xFFFF5963),
+                                                                                Color(0xFFFF5963),
                                                                             textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                   font: GoogleFonts.manrope(),
                                                                                   color: Colors.white,
@@ -1645,7 +1650,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                   if (_model
                                                                       .isShowPlayer)
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           30.0,
                                                                           0.0,
@@ -1691,7 +1696,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           16.0,
@@ -1706,7 +1711,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         .spaceEvenly,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1718,7 +1723,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           () async {
                                                                         logFirebaseEvent(
                                                                             'RATINGS_PAGE_SALVAR_AVALIAO_BTN_ON_TAP');
-                                                                        var shouldSetState =
+                                                                        var _shouldSetState =
                                                                             false;
                                                                         logFirebaseEvent(
                                                                             'Button_validate_form');
@@ -1738,7 +1743,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                 ),
                                                                               ),
-                                                                              duration: const Duration(milliseconds: 4000),
+                                                                              duration: Duration(milliseconds: 4000),
                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                             ),
                                                                           );
@@ -1756,12 +1761,12 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 bodyJson: <String, String?>{
                                                                                   'rating': _model.comentarioTextController.text,
                                                                                   'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                  'professional_client_id': widget.professionalclientid?.toString(),
+                                                                                  'professional_client_id': widget!.professionalclientid?.toString(),
                                                                                   'service_id': _model.servicosValue?.toString(),
                                                                                 },
                                                                               );
 
-                                                                              shouldSetState = true;
+                                                                              _shouldSetState = true;
                                                                               if ((_model.apiResultqa9?.succeeded ?? true)) {
                                                                                 logFirebaseEvent('Button_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -1772,7 +1777,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1786,11 +1791,11 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
-                                                                                if (shouldSetState) safeSetState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             } else {
@@ -1800,13 +1805,13 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 bodyJson: <String, String?>{
                                                                                   'rating': _model.comentarioTextController.text,
                                                                                   'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                  'professional_client_id': widget.professionalclientid?.toString(),
+                                                                                  'professional_client_id': widget!.professionalclientid?.toString(),
                                                                                   'service_id': _model.servicosValue?.toString(),
                                                                                   'audio_file': functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                 },
                                                                               );
 
-                                                                              shouldSetState = true;
+                                                                              _shouldSetState = true;
                                                                               if ((_model.apiResultqa9Audio?.succeeded ?? true)) {
                                                                                 logFirebaseEvent('Button_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -1817,7 +1822,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1831,11 +1836,11 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
-                                                                                if (shouldSetState) safeSetState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             }
@@ -1848,13 +1853,13 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 bodyJson: <String, String?>{
                                                                                   'rating': _model.comentarioTextController.text,
                                                                                   'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                  'professional_client_id': widget.professionalclientid?.toString(),
+                                                                                  'professional_client_id': widget!.professionalclientid?.toString(),
                                                                                   'service_id': _model.servicosValue?.toString(),
                                                                                   'rating_id': _model.idRating?.toString(),
                                                                                 },
                                                                               );
 
-                                                                              shouldSetState = true;
+                                                                              _shouldSetState = true;
                                                                               if ((_model.apiResultqa93?.succeeded ?? true)) {
                                                                                 logFirebaseEvent('Button_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -1865,7 +1870,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1879,11 +1884,11 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
-                                                                                if (shouldSetState) safeSetState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             } else {
@@ -1893,14 +1898,14 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 bodyJson: <String, String?>{
                                                                                   'rating': _model.comentarioTextController.text,
                                                                                   'date_reference': functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                  'professional_client_id': widget.professionalclientid?.toString(),
+                                                                                  'professional_client_id': widget!.professionalclientid?.toString(),
                                                                                   'service_id': _model.servicosValue?.toString(),
                                                                                   'audio_file': functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                   'rating_id': _model.idRating?.toString(),
                                                                                 },
                                                                               );
 
-                                                                              shouldSetState = true;
+                                                                              _shouldSetState = true;
                                                                               if ((_model.apiResultqa9Audio2?.succeeded ?? true)) {
                                                                                 logFirebaseEvent('Button_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -1911,7 +1916,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1925,11 +1930,11 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
-                                                                                if (shouldSetState) safeSetState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             }
@@ -1965,16 +1970,15 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                 ),
                                                                               ),
-                                                                              duration: const Duration(milliseconds: 4000),
+                                                                              duration: Duration(milliseconds: 4000),
                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                             ),
                                                                           );
                                                                         }
 
-                                                                        if (shouldSetState) {
+                                                                        if (_shouldSetState)
                                                                           safeSetState(
                                                                               () {});
-                                                                        }
                                                                       },
                                                                       text:
                                                                           'Salvar avaliação',
@@ -1984,12 +1988,12 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             0.7,
                                                                         height:
                                                                             44.0,
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -2006,7 +2010,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         elevation:
                                                                             3.0,
                                                                         borderSide:
-                                                                            const BorderSide(
+                                                                            BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                           width:
@@ -2032,7 +2036,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                       .call(
                                                                     authToken:
                                                                         currentAuthenticationToken,
-                                                                    professionalClientId: widget
+                                                                    professionalClientId: widget!
                                                                         .professionalclientid
                                                                         ?.toString(),
                                                                   ),
@@ -2086,7 +2090,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                               children: [
                                                                                 if (ratingListIndex.toString() == '0')
                                                                                   Align(
-                                                                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                     child: Text(
                                                                                       'Suas avaliações',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2098,9 +2102,9 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                     ),
                                                                                   ),
                                                                                 Align(
-                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 19.0, 0.0, 8.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 19.0, 0.0, 8.0),
                                                                                     child: Container(
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2109,7 +2113,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                           color: FlutterFlowTheme.of(context).alternate,
                                                                                         ),
                                                                                       ),
-                                                                                      child: SizedBox(
+                                                                                      child: Container(
                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                         child: Stack(
                                                                                           children: [
@@ -2118,9 +2122,9 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                                               children: [
                                                                                                 Align(
-                                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                   child: Padding(
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                                                                                                     child: Column(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -2131,7 +2135,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             ratingListItem,
                                                                                                             r'''$.date_reference''',
                                                                                                           ).toString())!,
-                                                                                                          style: const TextStyle(
+                                                                                                          style: TextStyle(
                                                                                                             fontWeight: FontWeight.w800,
                                                                                                           ),
                                                                                                         ),
@@ -2140,9 +2144,9 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                   ),
                                                                                                 ),
                                                                                                 Align(
-                                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                   child: Padding(
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                                                                                                     child: Column(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -2197,7 +2201,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                                   children: [
                                                                                                     Padding(
-                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 10.0),
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 10.0),
                                                                                                       child: Row(
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         mainAxisAlignment: MainAxisAlignment.center,
@@ -2262,19 +2266,19 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                               logFirebaseEvent('Button_scroll_to');
                                                                                                               await _model.body?.animateTo(
                                                                                                                 0,
-                                                                                                                duration: const Duration(milliseconds: 100),
+                                                                                                                duration: Duration(milliseconds: 100),
                                                                                                                 curve: Curves.ease,
                                                                                                               );
                                                                                                             },
                                                                                                             text: 'Editar',
-                                                                                                            icon: const Icon(
+                                                                                                            icon: Icon(
                                                                                                               Icons.edit,
                                                                                                               size: 15.0,
                                                                                                             ),
                                                                                                             options: FFButtonOptions(
                                                                                                               height: 40.0,
-                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                     font: GoogleFonts.manrope(),
@@ -2286,7 +2290,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             ),
                                                                                                           ),
                                                                                                           Padding(
-                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
                                                                                                             child: FFButtonWidget(
                                                                                                               onPressed: () async {
                                                                                                                 logFirebaseEvent('RATINGS_PAGE_EXCLUIR_BTN_ON_TAP');
@@ -2296,15 +2300,15 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                                       builder: (alertDialogContext) {
                                                                                                                         return WebViewAware(
                                                                                                                           child: AlertDialog(
-                                                                                                                            content: const Text('Deseja excluir esta avaliação?'),
+                                                                                                                            content: Text('Deseja excluir esta avaliação?'),
                                                                                                                             actions: [
                                                                                                                               TextButton(
                                                                                                                                 onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                child: const Text('Não'),
+                                                                                                                                child: Text('Não'),
                                                                                                                               ),
                                                                                                                               TextButton(
                                                                                                                                 onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                child: const Text('Sim'),
+                                                                                                                                child: Text('Sim'),
                                                                                                                               ),
                                                                                                                             ],
                                                                                                                           ),
@@ -2331,7 +2335,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                         ),
                                                                                                                       ),
-                                                                                                                      duration: const Duration(milliseconds: 4000),
+                                                                                                                      duration: Duration(milliseconds: 4000),
                                                                                                                       backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                                     ),
                                                                                                                   );
@@ -2341,14 +2345,14 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                                 }
                                                                                                               },
                                                                                                               text: 'Excluir',
-                                                                                                              icon: const Icon(
+                                                                                                              icon: Icon(
                                                                                                                 Icons.delete_sharp,
                                                                                                                 size: 15.0,
                                                                                                               ),
                                                                                                               options: FFButtonOptions(
                                                                                                                 height: 40.0,
-                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                 color: FlutterFlowTheme.of(context).error,
                                                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                       font: GoogleFonts.manrope(),
@@ -2410,7 +2414,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                       wrapWithModel(
                         model: _model.footerWhiteModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: const FooterWhiteWidget(),
+                        child: FooterWhiteWidget(),
                       ),
                     ],
                   ),

@@ -1,5 +1,8 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_manager.dart';
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
@@ -20,13 +23,13 @@ Future<bool?> checkSubscription(
     logFirebaseEvent('CheckSubscription_backend_call');
     apiResultMyFeature = await APIOficialGroup.myFeatureCall.call(
       authToken: currentAuthenticationToken,
-      id: featureID.toString(),
+      id: featureID?.toString(),
     );
 
-    if ((apiResultMyFeature.succeeded ?? true)) {
+    if ((apiResultMyFeature?.succeeded ?? true)) {
       if (functions
               .lengthElements(getJsonField(
-                (apiResultMyFeature.jsonBody ?? ''),
+                (apiResultMyFeature?.jsonBody ?? ''),
                 r'''$.data''',
                 true,
               ))
@@ -47,7 +50,7 @@ Future<bool?> checkSubscription(
         return false;
       } else {
         if (functions.convertString(getJsonField(
-              (apiResultMyFeature.jsonBody ?? ''),
+              (apiResultMyFeature?.jsonBody ?? ''),
               r'''$.data[0].active''',
             ).toString().toString()) ==
             'true') {
@@ -61,7 +64,7 @@ Future<bool?> checkSubscription(
         return false;
       }
     } else {
-      if ((apiResultMyFeature.statusCode ?? 200).toString() == '401') {
+      if ((apiResultMyFeature?.statusCode ?? 200).toString() == '401') {
         logFirebaseEvent('CheckSubscription_navigate_to');
 
         context.pushNamed('Login');
@@ -96,14 +99,14 @@ Future seuSite(BuildContext context) async {
     );
 
     if (getJsonField(
-          (siteResult2.jsonBody ?? ''),
+          (siteResult2?.jsonBody ?? ''),
           r'''$.data.domain''',
         ) !=
         null) {
       logFirebaseEvent('seuSite_update_app_state');
       FFAppState().existSite = true;
       FFAppState().dataSite = getJsonField(
-        (siteResult2.jsonBody ?? ''),
+        (siteResult2?.jsonBody ?? ''),
         r'''$.data''',
       );
       logFirebaseEvent('seuSite_navigate_to');
@@ -118,7 +121,7 @@ Future seuSite(BuildContext context) async {
         logFirebaseEvent('seuSite_update_app_state');
         FFAppState().existSite = false;
         FFAppState().dataSite = getJsonField(
-          (siteResult2.jsonBody ?? ''),
+          (siteResult2?.jsonBody ?? ''),
           r'''$.data''',
         );
         logFirebaseEvent('seuSite_navigate_to');
@@ -297,17 +300,17 @@ Future resumoSemanal(BuildContext context) async {
       );
 
       if ((getJsonField(
-                (apiResultu561.jsonBody ?? ''),
+                (apiResultu561?.jsonBody ?? ''),
                 r'''$.data[*].general_info[*]''',
               ) ==
               null) &&
           (getJsonField(
-                (apiResultu561.jsonBody ?? ''),
+                (apiResultu561?.jsonBody ?? ''),
                 r'''$.data[*].last_week_info[*]''',
               ) ==
               null) &&
           (getJsonField(
-                (apiResultu561.jsonBody ?? ''),
+                (apiResultu561?.jsonBody ?? ''),
                 r'''$.data[*].site_info[*]''',
               ) ==
               null)) {
@@ -429,7 +432,7 @@ Future firstConfigNavigation(
     );
 
     if (functions.convertJsonToString(getJsonField(
-          (listScheduleCode2.jsonBody ?? ''),
+          (listScheduleCode2?.jsonBody ?? ''),
           r'''$.error_code''',
         )) ==
         'no_schedule') {
@@ -451,7 +454,7 @@ Future firstConfigNavigation(
       );
 
       if (getJsonField(
-            (getServicesResultConfig.jsonBody ?? ''),
+            (getServicesResultConfig?.jsonBody ?? ''),
             r'''$.data[0].name''',
           ) ==
           null) {
@@ -495,7 +498,7 @@ Future firstConfigNavigation(
         );
 
         if (getJsonField(
-              (getpackagsResult.jsonBody ?? ''),
+              (getpackagsResult?.jsonBody ?? ''),
               r'''$.data[0].name''',
             ) ==
             null) {
@@ -539,12 +542,12 @@ Future firstConfigNavigation(
           );
 
           if (functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   null ||
               functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   '') {
@@ -634,7 +637,7 @@ Future firstConfigValidation(
     );
 
     if (functions.convertJsonToString(getJsonField(
-          (listScheduleCode2.jsonBody ?? ''),
+          (listScheduleCode2?.jsonBody ?? ''),
           r'''$.error_code''',
         )) ==
         'no_schedule') {
@@ -656,7 +659,7 @@ Future firstConfigValidation(
       );
 
       if (getJsonField(
-            (getServicesResultConfig.jsonBody ?? ''),
+            (getServicesResultConfig?.jsonBody ?? ''),
             r'''$.data[0].name''',
           ) ==
           null) {
@@ -678,7 +681,7 @@ Future firstConfigValidation(
         );
 
         if (getJsonField(
-              (getpackagsResult.jsonBody ?? ''),
+              (getpackagsResult?.jsonBody ?? ''),
               r'''$.data[0].name''',
             ) ==
             null) {
@@ -700,12 +703,12 @@ Future firstConfigValidation(
           );
 
           if (functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   null ||
               functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   '') {

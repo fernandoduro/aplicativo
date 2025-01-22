@@ -7,10 +7,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:provider/provider.dart';
 import 'new_client04_model.dart';
 export 'new_client04_model.dart';
 
@@ -43,7 +47,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
       logFirebaseEvent('NewClient04_backend_call');
       _model.apiResultEditClientPage3 =
           await APIOficialGroup.getClientByIDCall.call(
-        id: widget.idClient?.toString(),
+        id: widget!.idClient?.toString(),
         authToken: currentAuthenticationToken,
       );
 
@@ -181,7 +185,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                   wrapWithModel(
                     model: _model.headerHelpModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const HeaderHelpWidget(),
+                    child: HeaderHelpWidget(),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -197,7 +201,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                               color: FlutterFlowTheme.of(context).primary,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: SingleChildScrollView(
                                 child: Column(
@@ -211,7 +215,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: Text(
                                             'Cadastro',
@@ -231,14 +235,14 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
@@ -253,7 +257,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                     BorderRadius.circular(16.0),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 1.0, 0.0, 0.0),
                                                 child: Row(
@@ -328,7 +332,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   r'''$.professional_clients[0].cellphone[0]''',
                                                                 ).toString(),
                                                                 style:
-                                                                    const TextStyle(),
+                                                                    TextStyle(),
                                                               )
                                                             ],
                                                             style: FlutterFlowTheme
@@ -380,7 +384,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   r'''$.professional_clients[0].cpf''',
                                                                 ).toString(),
                                                                 style:
-                                                                    const TextStyle(),
+                                                                    TextStyle(),
                                                               )
                                                             ],
                                                             style: FlutterFlowTheme
@@ -426,7 +430,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                               queryParameters: {
                                                                 'idClient':
                                                                     serializeParam(
-                                                                  widget
+                                                                  widget!
                                                                       .idClient,
                                                                   ParamType.int,
                                                                 ),
@@ -444,14 +448,14 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                               FFButtonOptions(
                                                             height: 40.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -497,7 +501,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 10.0, 16.0, 0.0),
                                       child: RichText(
                                         textScaler:
@@ -542,7 +546,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(16.0),
+                                      padding: EdgeInsets.all(16.0),
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
@@ -551,7 +555,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                               BorderRadius.circular(16.0),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: SingleChildScrollView(
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -570,7 +574,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           'Data do primeiro atendimento',
@@ -593,13 +597,13 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     16.0,
                                                                     0.0,
                                                                     8.0),
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width: 370.0,
                                                           child: TextFormField(
                                                             controller: _model
@@ -607,7 +611,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             focusNode: _model
                                                                 .dataPrimeiroAtendFocusNode,
                                                             autofocus: true,
-                                                            autofillHints: const [
+                                                            autofillHints: [
                                                               AutofillHints
                                                                   .email
                                                             ],
@@ -713,7 +717,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           'Dia de vencimento do pagamento',
@@ -736,13 +740,13 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     16.0,
                                                                     0.0,
                                                                     8.0),
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width: 370.0,
                                                           child: TextFormField(
                                                             controller: _model
@@ -750,7 +754,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             focusNode: _model
                                                                 .vencimentoFocusNode,
                                                             autofocus: true,
-                                                            autofillHints: const [
+                                                            autofillHints: [
                                                               AutofillHints
                                                                   .email
                                                             ],
@@ -852,7 +856,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           'Data  de nascimento',
@@ -875,13 +879,13 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     16.0,
                                                                     0.0,
                                                                     8.0),
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width: 370.0,
                                                           child: TextFormField(
                                                             controller: _model
@@ -889,7 +893,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             focusNode: _model
                                                                 .nascimentoFocusNode,
                                                             autofocus: true,
-                                                            autofillHints: const [
+                                                            autofillHints: [
                                                               AutofillHints
                                                                   .email
                                                             ],
@@ -995,7 +999,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           'Gênero',
@@ -1018,7 +1022,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     8.0,
@@ -1037,7 +1041,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                           options: List<
                                                                   String>.from(
                                                               ['M', 'H', 'O']),
-                                                          optionLabels: const [
+                                                          optionLabels: [
                                                             'Feminino',
                                                             'Masculino',
                                                             'Outro'
@@ -1079,7 +1083,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                           borderWidth: 0.0,
                                                           borderRadius: 10.0,
                                                           margin:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       0.0,
@@ -1093,7 +1097,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
                                                           'Email',
@@ -1116,13 +1120,13 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     8.0,
                                                                     0.0,
                                                                     8.0),
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
                                                                           context)
@@ -1134,7 +1138,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             focusNode: _model
                                                                 .emailFocusNode,
                                                             autofocus: true,
-                                                            autofillHints: const [
+                                                            autofillHints: [
                                                               AutofillHints
                                                                   .email
                                                             ],
@@ -1235,7 +1239,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     16.0,
@@ -1250,7 +1254,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1268,7 +1272,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                       await APIOficialGroup
                                                                           .editClientComplementCall
                                                                           .call(
-                                                                    id: widget
+                                                                    id: widget!
                                                                         .idClient
                                                                         ?.toString(),
                                                                     authToken:
@@ -1306,7 +1310,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                           {
                                                                         'idClient':
                                                                             serializeParam(
-                                                                          widget
+                                                                          widget!
                                                                               .idClient,
                                                                           ParamType
                                                                               .int,
@@ -1330,7 +1334,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                           ),
                                                                         ),
                                                                         duration:
-                                                                            const Duration(milliseconds: 4000),
+                                                                            Duration(milliseconds: 4000),
                                                                         backgroundColor:
                                                                             FlutterFlowTheme.of(context).secondary,
                                                                       ),
@@ -1349,13 +1353,13 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                           .width *
                                                                       0.8,
                                                                   height: 44.0,
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  iconPadding: const EdgeInsetsDirectional
+                                                                  iconPadding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1378,7 +1382,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   elevation:
                                                                       3.0,
                                                                   borderSide:
-                                                                      const BorderSide(
+                                                                      BorderSide(
                                                                     color: Colors
                                                                         .transparent,
                                                                     width: 1.0,
@@ -1417,7 +1421,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                       wrapWithModel(
                         model: _model.footerWhiteModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: const FooterWhiteWidget(),
+                        child: FooterWhiteWidget(),
                       ),
                     ],
                   ),
