@@ -739,6 +739,8 @@ class _MenuWidgetState extends State<MenuWidget> {
 
                                     return;
                                   } else {
+                                    logFirebaseEvent('Row_dismiss_dialog');
+                                    Navigator.pop(context);
                                     logFirebaseEvent('Row_navigate_to');
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
