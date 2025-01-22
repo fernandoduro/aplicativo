@@ -12,6 +12,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapa6_model.dart';
 export 'create_site_etapa6_model.dart';
@@ -166,7 +167,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -212,14 +213,14 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Manrope',
+                                                    font: GoogleFonts.manrope(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Manrope',
+                                                    font: GoogleFonts.manrope(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -267,7 +268,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Manrope',
+                                              font: GoogleFonts.manrope(),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -350,7 +351,8 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      fontFamily: 'Manrope',
+                                                      font:
+                                                          GoogleFonts.manrope(),
                                                       color: Colors.white,
                                                       fontSize: 18.0,
                                                       letterSpacing: 0.0,

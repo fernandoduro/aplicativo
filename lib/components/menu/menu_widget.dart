@@ -6,6 +6,7 @@ import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
@@ -79,7 +80,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Manrope',
+                                  font: GoogleFonts.manrope(),
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -95,7 +96,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Manrope',
+                                      font: GoogleFonts.manrope(),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 18.0,
@@ -159,7 +160,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Noto Sans Yi',
+                                      font: GoogleFonts.notoSansYi(),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       fontSize: 16.0,
@@ -217,7 +218,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Manrope',
+                                                  font: GoogleFonts.manrope(),
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -272,7 +273,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Manrope',
+                                                  font: GoogleFonts.manrope(),
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -298,7 +299,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -352,7 +353,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -410,7 +411,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -435,7 +436,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -489,7 +490,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -547,7 +548,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -605,7 +606,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -630,7 +631,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -684,7 +685,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -709,7 +710,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -775,7 +776,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -831,13 +832,13 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           children: [
                                             Text(
                                               'Minhas informações padrões',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.manrope(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -895,7 +896,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -953,7 +954,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -1013,7 +1014,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
                                     letterSpacing: 0.0,
@@ -1051,7 +1052,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
                                     letterSpacing: 0.0,
@@ -1090,7 +1091,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Noto Sans Yi',
+                                    font: GoogleFonts.notoSansYi(),
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
                                     letterSpacing: 0.0,

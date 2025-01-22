@@ -8,6 +8,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'loyalty_history_model.dart';
 export 'loyalty_history_model.dart';
 
@@ -104,7 +105,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .displaySmall
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 30.0,
@@ -126,7 +127,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Manrope',
+                                                  font: GoogleFonts.manrope(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
@@ -350,7 +351,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                               )
                                                                             ],
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(),
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.bold,
@@ -387,7 +388,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                                 r'''$.title''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
@@ -396,7 +397,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                             Text(
                                                                               ': ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
@@ -425,7 +426,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                                       '- ',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
@@ -449,7 +450,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                                         ),
                                                                                         ' pontos')!,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
@@ -486,7 +487,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(),
                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.bold,
@@ -525,7 +526,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,

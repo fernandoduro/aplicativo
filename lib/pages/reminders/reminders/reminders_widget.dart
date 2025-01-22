@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/reminders/switch_lembretes/switch_lembretes_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'reminders_model.dart';
 export 'reminders_model.dart';
 
@@ -128,8 +129,8 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,

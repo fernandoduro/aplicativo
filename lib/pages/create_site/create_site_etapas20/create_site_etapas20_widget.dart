@@ -11,6 +11,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas20_model.dart';
 export 'create_site_etapas20_model.dart';
@@ -176,7 +177,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Manrope',
+                                                    font: GoogleFonts.manrope(),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
@@ -287,8 +288,8 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -331,8 +332,8 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -341,8 +342,8 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                                   context)
                                                               .labelMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -399,7 +400,8 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                     validator: _model
@@ -568,15 +570,16 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          color: Colors.white,
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      color: Colors.white,
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,

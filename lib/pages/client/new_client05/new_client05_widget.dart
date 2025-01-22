@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'new_client05_model.dart';
 export 'new_client05_model.dart';
 
@@ -194,8 +195,8 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           letterSpacing:
@@ -248,8 +249,8 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryBackground,
                                                                             letterSpacing:
@@ -309,7 +310,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                               )
                                                                             ],
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
@@ -364,7 +365,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                               r'''$.data.client.birthday''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
@@ -418,7 +419,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                               r'''$.data.client.cpf''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
@@ -481,7 +482,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                 r'''$.data.client.cellphone[0]''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
@@ -601,7 +602,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w900,
                                                                               ),
@@ -649,7 +650,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.bold,
@@ -711,7 +712,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                             r'''$.date''',
                                                                                           ).toString())!,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 fontSize: 20.0,
                                                                                                 letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.w900,
@@ -723,7 +724,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                             r'''$.date''',
                                                                                           ).toString())!,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.bold,
                                                                                               ),
@@ -758,7 +759,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                           Text(
                                                                                             'Agendamento realizado',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   fontSize: 16.0,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w800,
@@ -772,7 +773,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                           Text(
                                                                                             'Cliente excluído',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   fontSize: 16.0,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w800,
@@ -786,7 +787,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                           Text(
                                                                                             'Cliente cadastrado',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   fontSize: 16.0,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w800,
@@ -800,7 +801,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                           Text(
                                                                                             'Avaliação realizada',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   fontSize: 16.0,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w800,
@@ -850,7 +851,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                                   child: Text(
                                                                                                     'Ver comentários',
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                                           letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.bold,

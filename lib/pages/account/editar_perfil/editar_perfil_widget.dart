@@ -12,6 +12,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'editar_perfil_model.dart';
 export 'editar_perfil_model.dart';
@@ -120,7 +121,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
@@ -233,8 +234,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -300,8 +301,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -353,8 +354,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryText,
                                                                           letterSpacing:
@@ -422,8 +423,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -483,8 +484,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryText,
@@ -618,8 +619,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryText,
                                                                           letterSpacing:
@@ -738,8 +739,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryText,
                                                                           letterSpacing:
@@ -807,8 +808,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -852,8 +853,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryText,
                                                                           letterSpacing:
@@ -942,8 +943,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -987,8 +988,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryText,
                                                                           letterSpacing:
@@ -1077,8 +1078,8 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1318,7 +1319,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           textStyle: FlutterFlowTheme.of(context)
                                                                               .titleSmall
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 letterSpacing: 0.0,
                                                                               ),
@@ -1358,7 +1359,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             TextSpan(
                                                                               text: ' Clique aqui',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 16.0,
                                                                                     letterSpacing: 0.0,
@@ -1377,7 +1378,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelLarge
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                 letterSpacing: 0.0,
                                                                               ),

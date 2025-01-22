@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'convites_model.dart';
@@ -143,7 +144,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 30.0,
@@ -173,7 +174,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Manrope',
+                                                  font: GoogleFonts.manrope(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
@@ -335,7 +336,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                           r'''$.title''',
                                                                                         ).toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
+                                                                                              font: GoogleFonts.poppins(),
                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                               fontSize: 21.0,
                                                                                               letterSpacing: 0.0,
@@ -344,7 +345,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                       )
                                                                                     ],
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           fontSize: 21.0,
                                                                                           letterSpacing: 0.0,
@@ -388,7 +389,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                     ).toString(),
                                                                                     textAlign: TextAlign.start,
                                                                                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -431,7 +432,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                         TextSpan(
                                                                                           text: 'Data criação: ',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                 letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.bold,
@@ -451,7 +452,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                     ),
@@ -479,7 +480,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                         TextSpan(
                                                                                           text: 'Data expiração: ',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                 letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.bold,
@@ -499,7 +500,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                     ),
@@ -546,7 +547,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                           TextSpan(
                                                                                             text: 'Consumido: ',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.bold,
@@ -563,7 +564,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                           )
                                                                                         ],
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                       ),
@@ -584,7 +585,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                           TextSpan(
                                                                                             text: 'Limite: ',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.bold,
@@ -601,7 +602,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                           )
                                                                                         ],
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                       ),
@@ -668,7 +669,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -722,7 +723,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        fontFamily: 'Manrope',
+                                                                                        font: GoogleFonts.manrope(),
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         fontSize: 15.0,
                                                                                         letterSpacing: 0.0,
@@ -790,7 +791,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        fontFamily: 'Manrope',
+                                                                                        font: GoogleFonts.manrope(),
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         letterSpacing: 0.0,
                                                                                       ),

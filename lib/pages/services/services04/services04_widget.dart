@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'services04_model.dart';
 export 'services04_model.dart';
 
@@ -118,8 +119,8 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -135,8 +136,8 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                     context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -234,8 +235,8 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             letterSpacing:
@@ -308,8 +309,8 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -374,7 +375,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                                 Text(
                                                                               'Qual dia?',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
@@ -406,11 +407,11 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               decoration: InputDecoration(
                                                                                 isDense: true,
                                                                                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 enabledBorder: OutlineInputBorder(
@@ -445,7 +446,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                                 fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               keyboardType: TextInputType.number,
@@ -551,7 +552,7 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                               iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                     letterSpacing: 0.0,
                                                                                   ),

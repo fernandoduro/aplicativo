@@ -408,7 +408,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -460,7 +460,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .displaySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -489,17 +490,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   )
                                                 ],
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displaySmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .displaySmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -582,8 +584,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         fontSize:
@@ -715,8 +717,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -799,7 +801,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -831,8 +834,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondary,
@@ -858,8 +861,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -890,8 +893,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondary,
@@ -917,8 +920,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
@@ -945,8 +948,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondary,
@@ -972,8 +975,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -1008,7 +1011,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -1080,8 +1083,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -1112,7 +1115,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -1195,8 +1199,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -1243,7 +1247,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -1315,8 +1319,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -1348,7 +1352,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -1432,8 +1437,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -1480,7 +1485,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -1553,8 +1558,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -1585,7 +1590,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -1667,8 +1673,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -1808,8 +1814,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1857,7 +1863,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -1930,8 +1936,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -1970,7 +1976,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -2054,8 +2061,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -2102,7 +2109,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -2188,8 +2195,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -2207,7 +2214,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -2291,8 +2299,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -2339,7 +2347,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -2411,8 +2419,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -2451,7 +2459,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -2534,8 +2543,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -2582,7 +2591,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -2654,8 +2663,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -2694,7 +2703,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -2776,8 +2786,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -2825,7 +2835,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -2897,8 +2907,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -2930,7 +2940,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -3013,8 +3024,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -3061,7 +3072,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -3142,8 +3153,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Gloria Hallelujah',
+                                                                    font: GoogleFonts
+                                                                        .gloriaHallelujah(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondary,
@@ -3171,8 +3182,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
@@ -3255,8 +3266,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -3304,7 +3315,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Manrope',
+                                        font: GoogleFonts.manrope(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 17.0,
@@ -3377,8 +3388,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -3409,7 +3420,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -3493,8 +3505,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:

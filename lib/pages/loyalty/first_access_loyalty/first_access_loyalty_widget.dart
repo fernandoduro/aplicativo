@@ -8,6 +8,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'first_access_loyalty_model.dart';
 export 'first_access_loyalty_model.dart';
 
@@ -275,8 +276,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Inter',
+                                                                    font: GoogleFonts
+                                                                        .inter(),
                                                                     color: const Color(
                                                                         0xFF12151C),
                                                                     fontSize:
@@ -339,8 +340,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -404,8 +405,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -469,8 +470,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -534,8 +535,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -599,8 +600,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -690,7 +691,7 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Inter',
+                                                                              font: GoogleFonts.inter(),
                                                                               color: const Color(0xFF12151C),
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
@@ -711,8 +712,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Inter',
+                                                                          font:
+                                                                              GoogleFonts.inter(),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           fontSize:
@@ -777,8 +778,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -839,7 +840,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: Colors.white,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,

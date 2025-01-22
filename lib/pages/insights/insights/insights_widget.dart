@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'insights_model.dart';
 export 'insights_model.dart';
 
@@ -267,8 +268,8 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Inter',
+                                                                          font:
+                                                                              GoogleFonts.inter(),
                                                                           color:
                                                                               const Color(0xFF12151C),
                                                                           fontSize:
@@ -284,8 +285,8 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:

@@ -11,6 +11,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'trial_finished_model.dart';
 export 'trial_finished_model.dart';
 
@@ -256,8 +257,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -324,8 +325,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -392,8 +393,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -460,8 +461,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -554,7 +555,7 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Inter',
+                                                                                font: GoogleFonts.inter(),
                                                                                 color: const Color(0xFF12151C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
@@ -566,8 +567,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Inter',
+                                                                            font:
+                                                                                GoogleFonts.inter(),
                                                                             color:
                                                                                 const Color(0xFF12151C),
                                                                             fontSize:
@@ -668,8 +669,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 18.0,

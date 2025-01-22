@@ -12,6 +12,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'services05_model.dart';
 export 'services05_model.dart';
@@ -157,8 +158,8 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
@@ -174,8 +175,8 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                     context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -262,7 +263,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                   r'''$.dayWeek''',
                                                                                 ).toString(),
                                                                                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       fontSize: 18.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -405,7 +406,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                       Text(
                                                                                         ' Nenhum horário cadastrado',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                       ),
@@ -567,8 +568,8 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                               context)
                                                                           .titleSmall
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             color:
                                                                                 Colors.white,
                                                                             letterSpacing:

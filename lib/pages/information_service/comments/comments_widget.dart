@@ -13,6 +13,7 @@ import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'comments_model.dart';
@@ -216,7 +217,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                             TextSpan(
                                                                               text: 'Comentários ',
                                                                               style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(),
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                     fontSize: 30.0,
                                                                                     letterSpacing: 0.0,
@@ -226,7 +227,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(),
                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                 fontSize: 30.0,
                                                                                 letterSpacing: 0.0,
@@ -323,7 +324,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                   Text(
                                                                                     'Cliente',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w800,
@@ -355,7 +356,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                     child: Text(
                                                                                       'Editar',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.bold,
@@ -400,7 +401,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       r'''$.data.professional_clients[0].name''',
                                                                                                     ).toString(),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           fontSize: 17.0,
                                                                                                           letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.w900,
@@ -447,7 +448,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                           r'''$.data.professional_clients[0].birthday''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
+                                                                                                              font: GoogleFonts.manrope(),
                                                                                                               fontSize: 12.0,
                                                                                                               letterSpacing: 0.0,
                                                                                                               fontWeight: FontWeight.w600,
@@ -486,7 +487,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                           r'''$.data.professional_clients[0].cpf''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
+                                                                                                              font: GoogleFonts.manrope(),
                                                                                                               fontSize: 12.0,
                                                                                                               letterSpacing: 0.0,
                                                                                                               fontWeight: FontWeight.w600,
@@ -534,7 +535,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                           r'''$.data.professional_clients[0].cellphone[0]''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
+                                                                                                              font: GoogleFonts.manrope(),
                                                                                                               fontSize: 12.0,
                                                                                                               letterSpacing: 0.0,
                                                                                                               fontWeight: FontWeight.w600,
@@ -584,7 +585,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                             Text(
                                                                                               'Data e hora: ',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Manrope',
+                                                                                                    font: GoogleFonts.manrope(),
                                                                                                     fontSize: 12.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
@@ -596,7 +597,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                 Text(
                                                                                                   '${_model.data} ${_model.hora}',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Manrope',
+                                                                                                        font: GoogleFonts.manrope(),
                                                                                                         fontSize: 12.0,
                                                                                                         letterSpacing: 0.0,
                                                                                                       ),
@@ -611,7 +612,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                             Text(
                                                                                               'Pacotes: ',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Manrope',
+                                                                                                    font: GoogleFonts.manrope(),
                                                                                                     fontSize: 12.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
@@ -634,7 +635,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                         r'''$.name''',
                                                                                                       ).toString()} | ',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Manrope',
+                                                                                                            font: GoogleFonts.manrope(),
                                                                                                             fontSize: 12.0,
                                                                                                             letterSpacing: 0.0,
                                                                                                           ),
@@ -717,7 +718,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                       child: Text(
                                                                                         'Comentários',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.bold,
@@ -736,12 +737,12 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                           decoration: InputDecoration(
                                                                                             isDense: true,
                                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   letterSpacing: 0.0,
                                                                                                 ),
                                                                                             hintText: 'Faça seus comentários',
                                                                                             hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   letterSpacing: 0.0,
                                                                                                 ),
                                                                                             enabledBorder: OutlineInputBorder(
@@ -776,7 +777,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                             fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           ),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           maxLines: 5,
@@ -790,7 +791,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                       child: Text(
                                                                                         'Gravar áudio',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.bold,
@@ -826,7 +827,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     child: Text(
                                                                                                       'REC',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Manrope',
+                                                                                                            font: GoogleFonts.manrope(),
                                                                                                             letterSpacing: 0.0,
                                                                                                             fontWeight: FontWeight.bold,
                                                                                                           ),
@@ -889,7 +890,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                     textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           color: Colors.white,
                                                                                                           letterSpacing: 0.0,
                                                                                                         ),
@@ -940,7 +941,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                     color: const Color(0xFFFF5963),
                                                                                                     textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           color: Colors.white,
                                                                                                           letterSpacing: 0.0,
                                                                                                         ),
@@ -964,11 +965,11 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                   ),
                                                                                                 ),
                                                                                                 titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                                      fontFamily: 'Poppins',
+                                                                                                      font: GoogleFonts.poppins(),
                                                                                                       letterSpacing: 0.0,
                                                                                                     ),
                                                                                                 playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                      fontFamily: 'Manrope',
+                                                                                                      font: GoogleFonts.manrope(),
                                                                                                       letterSpacing: 0.0,
                                                                                                     ),
                                                                                                 fillColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1188,7 +1189,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                      fontFamily: 'Manrope',
+                                                                                                      font: GoogleFonts.manrope(),
                                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                       letterSpacing: 0.0,
                                                                                                     ),
@@ -1254,7 +1255,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             child: Text(
                                                                                                               'Seus Comentários',
                                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    font: GoogleFonts.manrope(),
                                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                                     letterSpacing: 0.0,
                                                                                                                     fontWeight: FontWeight.bold,
@@ -1323,7 +1324,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                       r'''$.comment''',
                                                                                                                                     ).toString(),
                                                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                          fontFamily: 'Manrope',
+                                                                                                                                          font: GoogleFonts.manrope(),
                                                                                                                                           letterSpacing: 0.0,
                                                                                                                                         ),
                                                                                                                                   ),
@@ -1345,11 +1346,11 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                 ),
                                                                                                                               ),
                                                                                                                               titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                                    font: GoogleFonts.poppins(),
                                                                                                                                     letterSpacing: 0.0,
                                                                                                                                   ),
                                                                                                                               playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                                    font: GoogleFonts.manrope(),
                                                                                                                                     letterSpacing: 0.0,
                                                                                                                                   ),
                                                                                                                               fillColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1405,7 +1406,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                       iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                                            fontFamily: 'Manrope',
+                                                                                                                                            font: GoogleFonts.manrope(),
                                                                                                                                             color: Colors.white,
                                                                                                                                             letterSpacing: 0.0,
                                                                                                                                           ),
@@ -1479,7 +1480,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                         iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                                         color: FlutterFlowTheme.of(context).error,
                                                                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                                              fontFamily: 'Manrope',
+                                                                                                                                              font: GoogleFonts.manrope(),
                                                                                                                                               color: Colors.white,
                                                                                                                                               letterSpacing: 0.0,
                                                                                                                                             ),

@@ -14,6 +14,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -161,8 +162,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                   context)
                                                               .displaySmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
@@ -176,7 +177,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -259,8 +261,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -309,8 +311,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -393,7 +395,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 fontSize: 17.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w900,
@@ -456,7 +458,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 r'''$.data.professional_clients[0].birthday''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
@@ -502,7 +504,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 r'''$.data.professional_clients[0].cpf''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
@@ -566,7 +568,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 r'''$.data.professional_clients[0].cellphone[0]''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
@@ -634,7 +636,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w800,
@@ -659,7 +661,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                     r'''$.name''',
                                                                                   ).toString()} ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
+                                                                                        font: GoogleFonts.manrope(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -731,8 +733,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -819,7 +821,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                 height: 40.0,
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 hintText: 'Meus serviços',
@@ -925,7 +927,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                 height: 40.0,
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 hintText: 'Meus serviços',
@@ -1022,8 +1024,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1078,7 +1080,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             labelText:
                                                                                 'Qual o dia?',
                                                                             labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
@@ -1122,7 +1124,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                           textAlign:
@@ -1172,7 +1174,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           labelStyle: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Manrope',
+                                                                                font: GoogleFonts.manrope(),
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                 letterSpacing: 0.0,
                                                                               ),
@@ -1224,7 +1226,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                         keyboardType:
@@ -1253,8 +1255,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1297,8 +1299,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1308,8 +1310,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1375,8 +1377,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1403,8 +1405,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1468,7 +1470,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                 Text(
                                                                               'REC',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
@@ -1555,7 +1557,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: Colors.white,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
@@ -1623,7 +1625,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                             color:
                                                                                 const Color(0xFFFF5963),
                                                                             textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: Colors.white,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
@@ -1663,13 +1665,13 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         titleTextStyle: FlutterFlowTheme.of(context)
                                                                             .titleLarge
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(),
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                         playbackDurationTextStyle: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                         fillColor:
@@ -1997,7 +1999,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .titleSmall
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               letterSpacing: 0.0,
                                                                             ),
@@ -2088,7 +2090,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                     child: Text(
                                                                                       'Suas avaliações',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.bold,
@@ -2152,7 +2154,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                             r'''$.rating''',
                                                                                                           ).toString(),
                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Manrope',
+                                                                                                                font: GoogleFonts.manrope(),
                                                                                                                 letterSpacing: 0.0,
                                                                                                               ),
                                                                                                         ),
@@ -2174,11 +2176,11 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                       titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                                            fontFamily: 'Poppins',
+                                                                                                            font: GoogleFonts.poppins(),
                                                                                                             letterSpacing: 0.0,
                                                                                                           ),
                                                                                                       playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                            fontFamily: 'Manrope',
+                                                                                                            font: GoogleFonts.manrope(),
                                                                                                             letterSpacing: 0.0,
                                                                                                           ),
                                                                                                       fillColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2275,7 +2277,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                               iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    font: GoogleFonts.manrope(),
                                                                                                                     color: Colors.white,
                                                                                                                     letterSpacing: 0.0,
                                                                                                                   ),
@@ -2349,7 +2351,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                 color: FlutterFlowTheme.of(context).error,
                                                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      font: GoogleFonts.manrope(),
                                                                                                                       color: Colors.white,
                                                                                                                       letterSpacing: 0.0,
                                                                                                                     ),

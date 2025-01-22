@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'schedule01_model.dart';
 export 'schedule01_model.dart';
 
@@ -214,38 +215,42 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
 
                                                   safeSetState(() {});
                                                 },
-                                                titleStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
-                                                dayOfWeekStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          fontSize: 11.0,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
-                                                        ),
-                                                dateStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                titleStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelSmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                    ),
+                                                dayOfWeekStyle: FlutterFlowTheme
+                                                        .of(context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      fontSize: 11.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.0,
+                                                    ),
+                                                dateStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 selectedDateStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -253,7 +258,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                 locale:
@@ -347,44 +353,49 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
 
                                                   safeSetState(() {});
                                                 },
-                                                titleStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
-                                                dayOfWeekStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          fontSize: 11.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                dateStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                titleStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelSmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                    ),
+                                                dayOfWeekStyle: FlutterFlowTheme
+                                                        .of(context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      fontSize: 11.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                dateStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 selectedDateStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                 inactiveDateStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                 locale:
@@ -488,8 +499,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Manrope',
+                                                            font: GoogleFonts
+                                                                .manrope(),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -553,8 +564,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
@@ -638,8 +649,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         fontSize:
                                                                             18.0,
                                                                         letterSpacing:
@@ -671,8 +682,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     fontSize:
                                                                         18.0,
                                                                     letterSpacing:
@@ -962,7 +973,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                           r'''$.time''',
                                                                                         ).toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               fontSize: 20.0,
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.w900,
@@ -1025,7 +1036,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 12.0,
                                                                                             letterSpacing: 0.0,
@@ -1057,7 +1068,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         TextSpan(
                                                                                           text: 'Disponíveis: ',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                                 fontSize: 12.0,
                                                                                                 letterSpacing: 0.0,
@@ -1095,7 +1106,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 12.0,
                                                                                             letterSpacing: 0.0,
@@ -1120,7 +1131,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         TextSpan(
                                                                                           text: 'Agenda pessoal - duração de ',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                                 fontSize: 12.0,
                                                                                                 letterSpacing: 0.0,
@@ -1140,7 +1151,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 12.0,
                                                                                             letterSpacing: 0.0,
@@ -1170,7 +1181,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         TextSpan(
                                                                                           text: 'Descrição: ',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Manrope',
+                                                                                                font: GoogleFonts.manrope(),
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                                 fontSize: 12.0,
                                                                                                 letterSpacing: 0.0,
@@ -1186,7 +1197,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 12.0,
                                                                                             letterSpacing: 0.0,
@@ -1233,7 +1244,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                           r'''$.name''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
+                                                                                                              font: GoogleFonts.manrope(),
                                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                                               fontSize: 12.0,
                                                                                                               letterSpacing: 0.0,
@@ -1276,7 +1287,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                       )
                                                                                                     ],
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           fontSize: 12.0,
                                                                                                           letterSpacing: 0.0,
@@ -1299,7 +1310,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                           r'''$.name''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
+                                                                                                              font: GoogleFonts.manrope(),
                                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                                               fontSize: 12.0,
                                                                                                               letterSpacing: 0.0,
@@ -1308,7 +1319,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                       )
                                                                                                     ],
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           fontSize: 12.0,
                                                                                                           letterSpacing: 0.0,
@@ -1330,7 +1341,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                   Text(
                                                                                     'Clique aqui para adicionar um agendamento.',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           fontSize: 12.0,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w800,

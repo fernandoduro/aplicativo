@@ -8,6 +8,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'forgot_password2_model.dart';
 export 'forgot_password2_model.dart';
@@ -152,7 +153,7 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Manrope',
+                                                    font: GoogleFonts.manrope(),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
@@ -180,13 +181,14 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Código',
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelLarge
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
@@ -239,13 +241,13 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyLarge
+                                                  .override(
+                                                    font: GoogleFonts.manrope(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               maxLength: 6,
                                               keyboardType: TextInputType.phone,
                                               validator: _model
@@ -276,7 +278,8 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -323,8 +326,8 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                               .of(context)
                                                           .headlineSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 13.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -423,14 +426,14 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font: GoogleFonts.manrope(),
+                                                    color: Colors.white,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               elevation: 3.0,
                                               borderSide: const BorderSide(
                                                 color: Colors.transparent,
@@ -463,7 +466,8 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
@@ -507,13 +511,14 @@ class _ForgotPassword2WidgetState extends State<ForgotPassword2Widget> {
                                                           },
                                                   )
                                                 ],
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelLarge
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ),
                                           ),

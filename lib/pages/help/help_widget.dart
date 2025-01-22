@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'help_model.dart';
 export 'help_model.dart';
 
@@ -191,7 +192,8 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        font:
+                                                            GoogleFonts.inter(),
                                                         color:
                                                             const Color(0xFF12151C),
                                                         fontSize: 14.0,
@@ -238,7 +240,8 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            font: GoogleFonts
+                                                                .inter(),
                                                             color: const Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -288,7 +291,8 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            font: GoogleFonts
+                                                                .inter(),
                                                             color: const Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -335,7 +339,7 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    fontFamily: 'Manrope',
+                                                    font: GoogleFonts.manrope(),
                                                     color: Colors.white,
                                                     letterSpacing: 0.0,
                                                   ),

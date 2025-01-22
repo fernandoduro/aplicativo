@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_balao_model.dart';
 export 'header_balao_model.dart';
@@ -165,8 +166,8 @@ class _HeaderBalaoWidgetState extends State<HeaderBalaoWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Gloria Hallelujah',
+                                                                  font: GoogleFonts
+                                                                      .gloriaHallelujah(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondary,
@@ -187,7 +188,8 @@ class _HeaderBalaoWidgetState extends State<HeaderBalaoWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,

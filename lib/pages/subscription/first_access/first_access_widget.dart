@@ -10,6 +10,7 @@ import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'first_access_model.dart';
 export 'first_access_model.dart';
@@ -257,8 +258,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Inter',
+                                                                      font: GoogleFonts
+                                                                          .inter(),
                                                                       color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -325,8 +326,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -393,8 +394,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -461,8 +462,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -558,7 +559,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Inter',
+                                                                                font: GoogleFonts.inter(),
                                                                                 color: const Color(0xFF12151C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
@@ -581,8 +582,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Inter',
+                                                                            font:
+                                                                                GoogleFonts.inter(),
                                                                             color:
                                                                                 const Color(0xFF12151C),
                                                                             fontSize:
@@ -651,8 +652,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -826,8 +827,8 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 18.0,

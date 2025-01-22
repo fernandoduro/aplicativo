@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_help_model.dart';
 export 'header_help_model.dart';
@@ -103,7 +104,7 @@ class _HeaderHelpWidgetState extends State<HeaderHelpWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Manrope',
+                                                font: GoogleFonts.manrope(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,

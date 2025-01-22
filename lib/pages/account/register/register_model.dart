@@ -54,6 +54,9 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
     return null;
   }
 
+  // State field(s) for desafios widget.
+  List<String>? desafiosValue;
+  FormFieldController<List<String>>? desafiosValueController;
   // State field(s) for Password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;

@@ -10,6 +10,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'loyalty02_model.dart';
 export 'loyalty02_model.dart';
 
@@ -269,8 +270,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Inter',
+                                                                          font:
+                                                                              GoogleFonts.inter(),
                                                                           color:
                                                                               const Color(0xFF12151C),
                                                                           fontSize:
@@ -340,8 +341,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Inter',
+                                                                            font:
+                                                                                GoogleFonts.inter(),
                                                                             color:
                                                                                 const Color(0xFF12151C),
                                                                             fontSize:
@@ -412,8 +413,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Inter',
+                                                                            font:
+                                                                                GoogleFonts.inter(),
                                                                             color:
                                                                                 const Color(0xFF12151C),
                                                                             fontSize:
@@ -484,8 +485,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Inter',
+                                                                            font:
+                                                                                GoogleFonts.inter(),
                                                                             color:
                                                                                 const Color(0xFF12151C),
                                                                             fontSize:
@@ -527,8 +528,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
@@ -673,8 +674,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                       context)
                                                                   .titleSmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     color: Colors
                                                                         .white,
                                                                     fontSize:

@@ -8,6 +8,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'create_site_etapa1_model.dart';
 export 'create_site_etapa1_model.dart';
 
@@ -233,8 +234,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Inter',
+                                                                    font: GoogleFonts
+                                                                        .inter(),
                                                                     color: const Color(
                                                                         0xFF12151C),
                                                                     fontSize:
@@ -300,8 +301,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -368,8 +369,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -436,8 +437,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Inter',
+                                                                        font: GoogleFonts
+                                                                            .inter(),
                                                                         color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -497,8 +498,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 18.0,

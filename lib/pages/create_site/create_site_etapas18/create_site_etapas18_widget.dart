@@ -13,6 +13,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas18_model.dart';
 export 'create_site_etapas18_model.dart';
@@ -131,27 +132,27 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Text(
                                                   'Preencha no campo abaixo seus horários de atendimento:',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .manrope(),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .primary,
-                                                        fontSize: (isWeb
-                                                                ? MediaQuery.viewInsetsOf(
-                                                                            context)
-                                                                        .bottom >
-                                                                    0
-                                                                : _isKeyboardVisible)
-                                                            ? 20.0
-                                                            : 30.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                                            fontSize: (isWeb
+                                                                    ? MediaQuery.viewInsetsOf(context)
+                                                                            .bottom >
+                                                                        0
+                                                                    : _isKeyboardVisible)
+                                                                ? 20.0
+                                                                : 30.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
                                                 ),
                                               ),
                                             ),
@@ -207,8 +208,8 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                             context)
                                                                         .bodyLarge
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           fontSize:
                                                                               18.0,
                                                                           letterSpacing:
@@ -383,7 +384,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                           Text(
                                                                             ' Nenhum horário cadastrado',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -563,7 +564,8 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: Colors.white,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,

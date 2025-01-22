@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'list_all_clients_model.dart';
 export 'list_all_clients_model.dart';
@@ -197,8 +198,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                           context)
                                                                       .labelMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -209,8 +210,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                           context)
                                                                       .labelMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -281,8 +282,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -317,8 +318,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -379,8 +380,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                       context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBackground,
@@ -485,7 +486,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   r'''$.name''',
                                                                                 ).toString(),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(),
                                                                                       color: FlutterFlowTheme.of(context).secondary,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -501,7 +502,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   child: Text(
                                                                                     '(Inativo)',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
+                                                                                          font: GoogleFonts.poppins(),
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
@@ -535,7 +536,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   Text(
                                                                                     'Sem pacotes',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
@@ -576,14 +577,14 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                                           r'''$.name''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
+                                                                                                              font: GoogleFonts.manrope(),
                                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                               letterSpacing: 0.0,
                                                                                                             ),
                                                                                                       )
                                                                                                     ],
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
+                                                                                                          font: GoogleFonts.manrope(),
                                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                           letterSpacing: 0.0,
                                                                                                         ),
@@ -593,7 +594,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                               Text(
                                                                                                 ' - ',
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Manrope',
+                                                                                                      font: GoogleFonts.manrope(),
                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       letterSpacing: 0.0,
                                                                                                     ),
@@ -621,14 +622,14 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                                                   r'''$.name''',
                                                                                                                 ).toString(),
                                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      font: GoogleFonts.manrope(),
                                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                                       letterSpacing: 0.0,
                                                                                                                     ),
                                                                                                               )
                                                                                                             ],
                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                  fontFamily: 'Manrope',
+                                                                                                                  font: GoogleFonts.manrope(),
                                                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                                   letterSpacing: 0.0,
                                                                                                                 ),
@@ -690,7 +691,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           fontSize: 12.0,
                                                                                           letterSpacing: 0.0,
@@ -735,7 +736,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           fontSize: 12.0,
                                                                                           letterSpacing: 0.0,
@@ -776,7 +777,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                       iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Manrope',
+                                                                                            font: GoogleFonts.manrope(),
                                                                                             color: FlutterFlowTheme.of(context).success,
                                                                                             letterSpacing: 0.0,
                                                                                           ),
@@ -821,7 +822,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -896,7 +897,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           color: FlutterFlowTheme.of(context).error,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -948,8 +949,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -1014,8 +1015,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Manrope',
+                                                                font: GoogleFonts
+                                                                    .manrope(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,

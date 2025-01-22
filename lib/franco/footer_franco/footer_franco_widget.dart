@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'footer_franco_model.dart';
 export 'footer_franco_model.dart';
 
@@ -181,7 +182,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Open Sans',
+                                        font: GoogleFonts.openSans(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         letterSpacing: 0.0,
@@ -240,7 +241,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Open Sans',
+                                        font: GoogleFonts.openSans(),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         letterSpacing: 0.0,
@@ -363,7 +364,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Open Sans',
+                                        font: GoogleFonts.openSans(),
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         letterSpacing: 0.0,
@@ -428,7 +429,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Open Sans',
+                                        font: GoogleFonts.openSans(),
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         letterSpacing: 0.0,

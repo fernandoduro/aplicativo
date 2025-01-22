@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'text_field_hours_model.dart';
 export 'text_field_hours_model.dart';
@@ -110,7 +111,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                 decoration: InputDecoration(
                   labelText: widget.hint,
                   hintStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Manrope',
+                        font: GoogleFonts.manrope(),
                         letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
@@ -143,7 +144,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                   ),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Manrope',
+                      font: GoogleFonts.manrope(),
                       letterSpacing: 0.0,
                     ),
                 validator: _model.textControllerValidator.asValidator(context),

@@ -15,6 +15,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'request_model.dart';
@@ -140,7 +141,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                             context)
                                                         .displaySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -149,17 +151,19 @@ class _RequestWidgetState extends State<RequestWidget>
                                                         ),
                                                   )
                                                 ],
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displaySmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .displaySmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primary,
-                                                          fontSize: 30.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontSize: 30.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                               textAlign: TextAlign.start,
                                             ),
@@ -228,8 +232,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             fontSize:
@@ -269,8 +273,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Manrope',
+                                                                          font:
+                                                                              GoogleFonts.manrope(),
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -330,7 +334,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
@@ -362,7 +366,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         labelStyle: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
@@ -372,7 +376,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         hintStyle: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
@@ -434,8 +438,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -476,7 +480,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               TextSpan(
                                                                                 text: 'Anexos',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
+                                                                                      font: GoogleFonts.manrope(),
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
@@ -485,7 +489,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               )
                                                                             ],
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                   fontSize: 21.0,
                                                                                   letterSpacing: 0.0,
@@ -560,7 +564,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 TextSpan(
                                                                                   text: '+adicionar',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
@@ -569,7 +573,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 )
                                                                               ],
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
@@ -700,7 +704,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                             text:
                                                                                 'Se preferir, envie por áudio.',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
+                                                                                  font: GoogleFonts.manrope(),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
@@ -711,7 +715,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Manrope',
+                                                                              font: GoogleFonts.manrope(),
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                               fontSize: 21.0,
                                                                               letterSpacing: 0.0,
@@ -761,7 +765,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                   child: Text(
                                                                                     'REC',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
+                                                                                          font: GoogleFonts.manrope(),
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
                                                                                         ),
@@ -789,11 +793,11 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 ),
                                                                               ),
                                                                               titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(),
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               playbackDurationTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               fillColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -862,7 +866,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                        fontFamily: 'Manrope',
+                                                                                        font: GoogleFonts.manrope(),
                                                                                         color: Colors.white,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -915,7 +919,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: const Color(0xFFFF5963),
                                                                                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                        fontFamily: 'Manrope',
+                                                                                        font: GoogleFonts.manrope(),
                                                                                         color: Colors.white,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -1030,7 +1034,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    fontFamily: 'Manrope',
+                                                                                    font: GoogleFonts.manrope(),
                                                                                     color: Colors.white,
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
@@ -1140,8 +1144,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
+                                                                            font:
+                                                                                GoogleFonts.manrope(),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             fontSize:
@@ -1221,7 +1225,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                               r'''$.title''',
                                                                                             ).toString(),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
+                                                                                                  font: GoogleFonts.manrope(),
                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                   fontSize: 14.0,
                                                                                                   letterSpacing: 0.0,
@@ -1324,7 +1328,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           'null',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               fontSize: 14.0,
                                                                                               letterSpacing: 0.0,
                                                                                             ),
@@ -1335,7 +1339,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           r'''$.status''',
                                                                                         ).toString()),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
+                                                                                              font: GoogleFonts.manrope(),
                                                                                               fontSize: 14.0,
                                                                                               letterSpacing: 0.0,
                                                                                             ),

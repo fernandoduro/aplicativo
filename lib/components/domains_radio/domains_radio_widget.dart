@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'domains_radio_model.dart';
 export 'domains_radio_model.dart';
 
@@ -69,11 +70,11 @@ class _DomainsRadioWidgetState extends State<DomainsRadioWidget> {
               FormFieldController<String>(null),
           optionHeight: 32.0,
           textStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                fontFamily: 'Manrope',
+                font: GoogleFonts.manrope(),
                 letterSpacing: 0.0,
               ),
           selectedTextStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Manrope',
+                font: GoogleFonts.manrope(),
                 letterSpacing: 0.0,
               ),
           buttonPosition: RadioButtonPosition.left,

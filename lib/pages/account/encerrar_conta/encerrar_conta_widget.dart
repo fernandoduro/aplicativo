@@ -12,6 +12,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'encerrar_conta_model.dart';
 export 'encerrar_conta_model.dart';
 
@@ -147,7 +148,8 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
@@ -166,26 +168,28 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                     style: const TextStyle(),
                                                   )
                                                 ],
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primary,
-                                                          fontSize: (isWeb
-                                                                  ? MediaQuery.viewInsetsOf(
-                                                                              context)
-                                                                          .bottom >
-                                                                      0
-                                                                  : _isKeyboardVisible)
-                                                              ? 20.0
-                                                              : 30.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                      fontSize: (isWeb
+                                                              ? MediaQuery.viewInsetsOf(
+                                                                          context)
+                                                                      .bottom >
+                                                                  0
+                                                              : _isKeyboardVisible)
+                                                          ? 20.0
+                                                          : 30.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -217,20 +221,20 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Digite aqui...',
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              labelStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    font: GoogleFonts.manrope(),
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    font: GoogleFonts.manrope(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -278,7 +282,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Manrope',
+                                                  font: GoogleFonts.manrope(),
                                                   letterSpacing: 0.0,
                                                 ),
                                             maxLines: 5,
@@ -389,15 +393,16 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Manrope',
-                                                          color: Colors.white,
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.manrope(),
+                                                      color: Colors.white,
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,

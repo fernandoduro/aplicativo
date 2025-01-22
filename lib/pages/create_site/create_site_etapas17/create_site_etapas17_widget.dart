@@ -11,6 +11,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas17_model.dart';
 export 'create_site_etapas17_model.dart';
@@ -187,7 +188,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
@@ -309,14 +311,16 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                             .of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                     hintStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Manrope',
+                                                          font: GoogleFonts
+                                                              .manrope(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
@@ -376,7 +380,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Manrope',
+                                                        font: GoogleFonts
+                                                            .manrope(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                   validator: _model
@@ -415,8 +420,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -425,8 +430,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -492,8 +497,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -553,8 +558,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                         context)
                                                                     .labelMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -562,8 +567,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                         context)
                                                                     .labelMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -628,8 +633,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -669,8 +674,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                         context)
                                                                     .labelMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -678,8 +683,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                         context)
                                                                     .labelMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -744,8 +749,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -784,8 +789,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -794,8 +799,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -861,8 +866,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -898,8 +903,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -908,8 +913,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -975,8 +980,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1012,8 +1017,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1022,8 +1027,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
+                                                                    font: GoogleFonts
+                                                                        .manrope(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1089,8 +1094,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
+                                                                  font: GoogleFonts
+                                                                      .manrope(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1239,8 +1244,8 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
+                                                                        font: GoogleFonts
+                                                                            .manrope(),
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
