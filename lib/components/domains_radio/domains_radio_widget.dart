@@ -72,11 +72,11 @@ class _DomainsRadioWidgetState extends State<DomainsRadioWidget> {
               FormFieldController<String>(null),
           optionHeight: 32.0,
           textStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                font: GoogleFonts.manrope(),
+                fontFamily: 'Manrope',
                 letterSpacing: 0.0,
               ),
           selectedTextStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                font: GoogleFonts.manrope(),
+                fontFamily: 'Manrope',
                 letterSpacing: 0.0,
               ),
           buttonPosition: RadioButtonPosition.left,

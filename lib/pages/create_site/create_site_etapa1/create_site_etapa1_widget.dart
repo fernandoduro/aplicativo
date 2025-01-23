@@ -243,8 +243,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .inter(),
+                                                                    fontFamily:
+                                                                        'Inter',
                                                                     color: Color(
                                                                         0xFF12151C),
                                                                     fontSize:
@@ -310,8 +310,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -378,8 +378,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -446,8 +446,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -507,8 +507,8 @@ class _CreateSiteEtapa1WidgetState extends State<CreateSiteEtapa1Widget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 18.0,

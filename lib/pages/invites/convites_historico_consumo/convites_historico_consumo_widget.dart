@@ -113,7 +113,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       fontSize: 30.0,
@@ -142,16 +142,16 @@ class _ConvitesHistoricoConsumoWidgetState
                                             softWrap: true,
                                             child: Text(
                                               'Título',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -160,16 +160,16 @@ class _ConvitesHistoricoConsumoWidgetState
                                             softWrap: true,
                                             child: Text(
                                               'Nome do profissional',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -178,16 +178,16 @@ class _ConvitesHistoricoConsumoWidgetState
                                             softWrap: true,
                                             child: Text(
                                               'Data do uso',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -213,7 +213,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -228,7 +228,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -244,7 +244,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),

@@ -168,7 +168,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -228,6 +228,10 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                         FFDevEnvironmentValues()
                                                             .ApiUrlPlan,
                                                         currentAuthenticationToken)!);
+                                                logFirebaseEvent(
+                                                    'Row_navigate_to');
+
+                                                context.pushNamed('Home');
                                               },
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -259,8 +263,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -274,8 +278,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -362,8 +366,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -377,8 +381,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -472,8 +476,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -487,8 +491,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -603,8 +607,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -618,8 +622,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -711,8 +715,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -726,8 +730,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -807,8 +811,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .gloriaHallelujah(),
+                                                                  fontFamily:
+                                                                      'Gloria Hallelujah',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -823,8 +827,8 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),

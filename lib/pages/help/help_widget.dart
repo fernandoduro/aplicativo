@@ -201,8 +201,7 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font:
-                                                            GoogleFonts.inter(),
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             Color(0xFF12151C),
                                                         fontSize: 14.0,
@@ -249,8 +248,7 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -300,8 +298,7 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -348,7 +345,7 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: Colors.white,
                                                     letterSpacing: 0.0,
                                                   ),

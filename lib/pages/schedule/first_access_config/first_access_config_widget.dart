@@ -239,8 +239,8 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -307,8 +307,8 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -375,8 +375,8 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -439,8 +439,8 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 18.0,

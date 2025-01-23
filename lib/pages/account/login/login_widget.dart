@@ -202,13 +202,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Celular',
-                                              labelStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
@@ -258,7 +258,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                             keyboardType: TextInputType.phone,
@@ -288,13 +288,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 !_model.passwordVisibility,
                                             decoration: InputDecoration(
                                               labelText: 'Senha',
-                                              labelStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
@@ -365,7 +365,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                             validator: _model
@@ -397,16 +397,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             },
                                             child: Text(
                                               'Esqueci a senha',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -619,8 +620,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
+                                                      fontFamily: 'Manrope',
                                                       color: Colors.white,
                                                       letterSpacing: 0.0,
                                                     ),
@@ -681,8 +681,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                             context)
                                                         .labelMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .manrope(),
+                                                          fontFamily: 'Manrope',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -716,16 +715,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.manrope(),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Manrope',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(
                                               color:

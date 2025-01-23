@@ -240,8 +240,8 @@ class _FirstAccessReminderWidgetState extends State<FirstAccessReminderWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -308,8 +308,8 @@ class _FirstAccessReminderWidgetState extends State<FirstAccessReminderWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -376,8 +376,8 @@ class _FirstAccessReminderWidgetState extends State<FirstAccessReminderWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -443,8 +443,8 @@ class _FirstAccessReminderWidgetState extends State<FirstAccessReminderWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 18.0,

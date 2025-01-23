@@ -144,8 +144,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                   .of(context)
                                                               .displaySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
@@ -160,8 +160,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                   context)
                                                               .displaySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -221,8 +221,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .manrope(),
+                                                                        fontFamily:
+                                                                            'Manrope',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -269,8 +269,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.manrope(),
+                                                                            fontFamily:
+                                                                                'Manrope',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -278,8 +278,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.manrope(),
+                                                                            fontFamily:
+                                                                                'Manrope',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -341,8 +341,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
+                                                                          fontFamily:
+                                                                              'Manrope',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -367,8 +367,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .manrope(),
+                                                                        fontFamily:
+                                                                            'Manrope',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -448,7 +448,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                 width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                 height: 40.0,
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 hintText: 'Meus serviços',
@@ -542,7 +542,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                 width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                 height: 40.0,
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 hintText: 'Meus serviços',
@@ -640,8 +640,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
+                                                                          fontFamily:
+                                                                              'Manrope',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           letterSpacing:
@@ -686,8 +686,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.manrope(),
+                                                                            fontFamily:
+                                                                                'Manrope',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -695,8 +695,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.manrope(),
+                                                                            fontFamily:
+                                                                                'Manrope',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -758,8 +758,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
+                                                                          fontFamily:
+                                                                              'Manrope',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -794,8 +794,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
+                                                                          fontFamily:
+                                                                              'Manrope',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           letterSpacing:
@@ -934,8 +934,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
+                                                                          fontFamily:
+                                                                              'Manrope',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1126,7 +1126,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                           textStyle: FlutterFlowTheme.of(context)
                                                                               .titleSmall
                                                                               .override(
-                                                                                font: GoogleFonts.manrope(),
+                                                                                fontFamily: 'Manrope',
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 letterSpacing: 0.0,
                                                                               ),
@@ -1211,7 +1211,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                   child: Text(
                                                                                     'Seus pacotes',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
@@ -1255,7 +1255,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                           r'''$.name''',
                                                                                                         ).toString(),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              font: GoogleFonts.manrope(),
+                                                                                                              fontFamily: 'Manrope',
                                                                                                               letterSpacing: 0.0,
                                                                                                               fontWeight: FontWeight.w900,
                                                                                                             ),
@@ -1267,7 +1267,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             TextSpan(
                                                                                                               text: 'Quantidade: ',
                                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                    font: GoogleFonts.manrope(),
+                                                                                                                    fontFamily: 'Manrope',
                                                                                                                     letterSpacing: 0.0,
                                                                                                                     fontWeight: FontWeight.w500,
                                                                                                                   ),
@@ -1281,7 +1281,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             )
                                                                                                           ],
                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                font: GoogleFonts.manrope(),
+                                                                                                                fontFamily: 'Manrope',
                                                                                                                 letterSpacing: 0.0,
                                                                                                                 fontWeight: FontWeight.normal,
                                                                                                               ),
@@ -1294,7 +1294,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             TextSpan(
                                                                                                               text: 'Valor mensal: R\$ ',
                                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                    font: GoogleFonts.manrope(),
+                                                                                                                    fontFamily: 'Manrope',
                                                                                                                     letterSpacing: 0.0,
                                                                                                                     fontWeight: FontWeight.w500,
                                                                                                                   ),
@@ -1311,7 +1311,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                             )
                                                                                                           ],
                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                font: GoogleFonts.manrope(),
+                                                                                                                fontFamily: 'Manrope',
                                                                                                                 letterSpacing: 0.0,
                                                                                                                 fontWeight: FontWeight.normal,
                                                                                                               ),

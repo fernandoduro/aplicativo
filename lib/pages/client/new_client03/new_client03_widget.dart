@@ -123,7 +123,7 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.manrope(),
+                                              fontFamily: 'Manrope',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -200,8 +200,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -215,8 +215,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -302,8 +302,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -317,8 +317,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -411,8 +411,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -426,8 +426,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -511,8 +511,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -526,8 +526,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -602,8 +602,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -617,8 +617,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -693,8 +693,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .gloriaHallelujah(),
+                                                                fontFamily:
+                                                                    'Gloria Hallelujah',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -708,8 +708,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),

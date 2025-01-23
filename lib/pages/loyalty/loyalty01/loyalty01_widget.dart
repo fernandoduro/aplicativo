@@ -282,8 +282,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .inter(),
+                                                                    fontFamily:
+                                                                        'Inter',
                                                                     color: Color(
                                                                         0xFF12151C),
                                                                     fontSize:
@@ -346,8 +346,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -411,8 +411,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -476,8 +476,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -541,8 +541,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -606,8 +606,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -671,8 +671,8 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -733,8 +733,7 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .manrope(),
+                                                          fontFamily: 'Manrope',
                                                           color: Colors.white,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,

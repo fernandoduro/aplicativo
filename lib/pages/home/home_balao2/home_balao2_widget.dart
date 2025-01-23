@@ -232,17 +232,18 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Ótimo! ',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -278,17 +279,18 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Deixa eu me apresentar primeiro, me chamo Blu, sou a especialista em IA (Inteligência para Autônomas) da Blubem.',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -324,17 +326,18 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Estarei aqui no aplicativo para guiar seu uso e te ajudar em vários assuntos.',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -370,17 +373,18 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'A Blubem cuida de tudo para que você possa focar no que mais importa: seu atendimento e o seu crescimento profissional.',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -416,17 +420,18 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Vamos começar?',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -459,7 +464,7 @@ class _HomeBalao2WidgetState extends State<HomeBalao2Widget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.manrope(),
+                                        fontFamily: 'Manrope',
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

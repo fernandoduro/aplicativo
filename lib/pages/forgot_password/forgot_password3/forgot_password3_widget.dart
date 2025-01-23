@@ -153,7 +153,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
@@ -183,14 +183,13 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                   !_model.passwordVisibility,
                                               decoration: InputDecoration(
                                                 labelText: 'Senha',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelLarge
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
@@ -262,13 +261,13 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                   ),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               validator: _model
                                                   .passwordTextControllerValidator
                                                   .asValidator(context),
@@ -294,14 +293,13 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                   .confirmPasswordVisibility,
                                               decoration: InputDecoration(
                                                 labelText: 'Confirmar senha',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelLarge
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
@@ -373,13 +371,13 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                   ),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyLarge
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               validator: _model
                                                   .confirmPasswordTextControllerValidator
                                                   .asValidator(context),
@@ -615,14 +613,14 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,

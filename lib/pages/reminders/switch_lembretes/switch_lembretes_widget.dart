@@ -164,7 +164,7 @@ class _SwitchLembretesWidgetState extends State<SwitchLembretesWidget> {
           child: Text(
             widget!.descricao!,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  font: GoogleFonts.manrope(),
+                  fontFamily: 'Manrope',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 15.0,
                   letterSpacing: 0.0,

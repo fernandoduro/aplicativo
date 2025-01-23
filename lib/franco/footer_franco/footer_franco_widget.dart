@@ -186,7 +186,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.openSans(),
+                                        fontFamily: 'Open Sans',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         letterSpacing: 0.0,
@@ -245,7 +245,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.openSans(),
+                                        fontFamily: 'Open Sans',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         letterSpacing: 0.0,
@@ -368,7 +368,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.openSans(),
+                                        fontFamily: 'Open Sans',
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         letterSpacing: 0.0,
@@ -433,7 +433,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.openSans(),
+                                        fontFamily: 'Open Sans',
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         letterSpacing: 0.0,

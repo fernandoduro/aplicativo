@@ -195,28 +195,26 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                                       15.0, 0.0, 15.0, 0.0),
                                               child: Text(
                                                 'Preencha abaixo quais formas de contato seus visitantes podem usar.',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .primary,
-                                                      fontSize: (isWeb
-                                                              ? MediaQuery.viewInsetsOf(
-                                                                          context)
-                                                                      .bottom >
-                                                                  0
-                                                              : _isKeyboardVisible)
-                                                          ? 20.0
-                                                          : 30.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                                          fontSize: (isWeb
+                                                                  ? MediaQuery.viewInsetsOf(
+                                                                              context)
+                                                                          .bottom >
+                                                                      0
+                                                                  : _isKeyboardVisible)
+                                                              ? 20.0
+                                                              : 30.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
                                               ),
                                             ),
                                           ),
@@ -246,22 +244,20 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'WhatsApp',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -311,13 +307,13 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                                           8.0),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               keyboardType: TextInputType.phone,
                                               validator: _model
                                                   .whatsappTextControllerValidator
@@ -337,22 +333,20 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Instagram',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -402,13 +396,13 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                                           8.0),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               validator: _model
                                                   .instagramTextControllerValidator
                                                   .asValidator(context),
@@ -426,22 +420,20 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'E-mail',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -491,13 +483,13 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                                           8.0),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               keyboardType:
                                                   TextInputType.emailAddress,
                                               validator: _model
@@ -518,22 +510,20 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Agenda online\n',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -583,13 +573,13 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                                           8.0),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               keyboardType: TextInputType.url,
                                               validator: _model
                                                   .agendaOnlineTextControllerValidator
@@ -677,16 +667,15 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      color: Colors.white,
-                                                      fontSize: 18.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          color: Colors.white,
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,

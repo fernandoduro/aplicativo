@@ -125,7 +125,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.manrope(),
+                                              fontFamily: 'Manrope',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -152,13 +152,13 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              font: GoogleFonts.manrope(),
+                                              fontFamily: 'Manrope',
                                               letterSpacing: 0.0,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              font: GoogleFonts.manrope(),
+                                              fontFamily: 'Manrope',
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -202,7 +202,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.manrope(),
+                                            fontFamily: 'Manrope',
                                             letterSpacing: 0.0,
                                           ),
                                       maxLines: 5,
@@ -313,7 +313,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: Colors.white,
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,

@@ -80,7 +80,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  font: GoogleFonts.manrope(),
+                                  fontFamily: 'Manrope',
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -96,7 +96,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.manrope(),
+                                      fontFamily: 'Manrope',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 18.0,
@@ -160,7 +160,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.notoSansYi(),
+                                      fontFamily: 'Noto Sans Yi',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       fontSize: 16.0,
@@ -218,7 +218,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -275,7 +275,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.manrope(),
+                                                  fontFamily: 'Manrope',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -301,7 +301,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    fontFamily: 'Noto Sans Yi',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -355,7 +355,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -413,7 +413,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -438,7 +438,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    fontFamily: 'Noto Sans Yi',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -492,7 +492,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -550,7 +550,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -608,7 +608,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -633,7 +633,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    fontFamily: 'Noto Sans Yi',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -687,7 +687,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -712,7 +712,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    fontFamily: 'Noto Sans Yi',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
@@ -768,7 +768,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -826,13 +826,13 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           children: [
                                             Text(
                                               'Minhas informações padrões',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.manrope(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ],
                                         ),
@@ -892,7 +892,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -952,7 +952,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -972,133 +972,149 @@ class _MenuWidgetState extends State<MenuWidget> {
                         endIndent: 24.0,
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
-                      if (loggedIn)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent('MENU_COMP_SAIR_BTN_ON_TAP');
-                              logFirebaseEvent('Button_update_app_state');
-                              FFAppState().existSite = false;
-                              FFAppState().configCompleted = false;
-                              FFAppState().hoursWork = jsonDecode(
-                                  '{\"days\":[{\"dayWeek\":\"Segunda-feira\",\"hours\":[]},{\"dayWeek\":\"Terça-feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
-                              FFAppState().nameProfessional = '';
-                              safeSetState(() {});
-                              logFirebaseEvent('Button_auth');
-                              GoRouter.of(context).prepareAuthEvent();
-                              await authManager.signOut();
-                              GoRouter.of(context).clearRedirectLocation();
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (loggedIn)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'MENU_COMP_SAIR_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_update_app_state');
+                                    FFAppState().existSite = false;
+                                    FFAppState().configCompleted = false;
+                                    FFAppState().hoursWork = jsonDecode(
+                                        '{\"days\":[{\"dayWeek\":\"Segunda-feira\",\"hours\":[]},{\"dayWeek\":\"Terça-feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
+                                    FFAppState().nameProfessional = '';
+                                    safeSetState(() {});
+                                    logFirebaseEvent('Button_auth');
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
 
-                              logFirebaseEvent('Button_navigate_to');
+                                    logFirebaseEvent('Button_navigate_to');
 
-                              context.pushNamedAuth('Login', context.mounted);
-                            },
-                            text: 'Sair',
-                            icon: Icon(
-                              Icons.login_outlined,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 18.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 48.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    context.pushNamedAuth(
+                                        'Login', context.mounted);
+                                  },
+                                  text: 'Sair',
+                                  icon: Icon(
+                                    Icons.login_outlined,
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    letterSpacing: 0.0,
+                                    size: 18.0,
                                   ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
-                        ),
-                      if (!loggedIn)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent('MENU_COMP_ACESSAR_BTN_ON_TAP');
-                              logFirebaseEvent('Button_navigate_to');
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 48.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Noto Sans Yi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
+                                ),
+                              ),
+                            if (!loggedIn)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'MENU_COMP_ACESSAR_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_navigate_to');
 
-                              context.pushNamed('Login');
-                            },
-                            text: 'Acessar',
-                            icon: Icon(
-                              Icons.logout,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 18.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 48.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    context.pushNamed('Login');
+                                  },
+                                  text: 'Acessar',
+                                  icon: Icon(
+                                    Icons.logout,
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    letterSpacing: 0.0,
+                                    size: 18.0,
                                   ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
-                        ),
-                      if (!loggedIn)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 32.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'MENU_COMP_CRIAR_CONTA_BTN_ON_TAP');
-                              logFirebaseEvent('Button_navigate_to');
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 48.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Noto Sans Yi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
+                                ),
+                              ),
+                            if (!loggedIn)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'MENU_COMP_CRIAR_CONTA_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_navigate_to');
 
-                              context.pushNamed('Register');
-                            },
-                            text: 'Criar conta',
-                            icon: Icon(
-                              Icons.person_add_alt,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 18.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 48.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.notoSansYi(),
+                                    context.pushNamed('Register');
+                                  },
+                                  text: 'Criar conta',
+                                  icon: Icon(
+                                    Icons.person_add_alt,
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    letterSpacing: 0.0,
+                                    size: 18.0,
                                   ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 48.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Noto Sans Yi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
+                                ),
+                              ),
+                          ].divide(SizedBox(height: 13.0)),
                         ),
+                      ),
                     ].divide(SizedBox(height: 24.0)),
                   ),
                 ),

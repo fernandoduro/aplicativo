@@ -168,7 +168,7 @@ class _FooterWidgetState extends State<FooterWidget>
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  font: GoogleFonts.openSans(),
+                                  fontFamily: 'Open Sans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 12.0,
                                   letterSpacing: 0.0,
@@ -231,7 +231,7 @@ class _FooterWidgetState extends State<FooterWidget>
                           'Agenda',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.openSans(),
+                                    fontFamily: 'Open Sans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -313,7 +313,7 @@ class _FooterWidgetState extends State<FooterWidget>
                       child: Text(
                         'Chame a Blu',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.openSans(),
+                              fontFamily: 'Open Sans',
                               color: FlutterFlowTheme.of(context).primary,
                               fontSize: 12.0,
                               letterSpacing: 0.0,
@@ -374,7 +374,7 @@ class _FooterWidgetState extends State<FooterWidget>
                           'Resumo',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.openSans(),
+                                    fontFamily: 'Open Sans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -455,7 +455,7 @@ class _FooterWidgetState extends State<FooterWidget>
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  font: GoogleFonts.openSans(),
+                                  fontFamily: 'Open Sans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 12.0,
                                   letterSpacing: 0.0,

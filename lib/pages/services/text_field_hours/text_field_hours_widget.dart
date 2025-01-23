@@ -112,7 +112,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                 decoration: InputDecoration(
                   labelText: widget!.hint,
                   hintStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                        font: GoogleFonts.manrope(),
+                        fontFamily: 'Manrope',
                         letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
@@ -145,7 +145,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                   ),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.manrope(),
+                      fontFamily: 'Manrope',
                       letterSpacing: 0.0,
                     ),
                 validator: _model.textControllerValidator.asValidator(context),

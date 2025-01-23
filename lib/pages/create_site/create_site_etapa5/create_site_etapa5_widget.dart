@@ -268,8 +268,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font:
-                                                            GoogleFonts.inter(),
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             Color(0xFF12151C),
                                                         fontSize: 14.0,
@@ -316,8 +315,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -367,8 +365,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -418,8 +415,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -469,8 +465,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -520,8 +515,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -571,8 +565,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -622,8 +615,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .inter(),
+                                                            fontFamily: 'Inter',
                                                             color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
@@ -682,7 +674,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: Colors.white,
                                                     letterSpacing: 0.0,
                                                   ),

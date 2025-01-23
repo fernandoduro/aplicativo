@@ -144,8 +144,8 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,

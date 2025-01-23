@@ -137,27 +137,27 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Text(
                                                   'Preencha no campo abaixo seus horários de atendimento:',
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .primary,
-                                                            fontSize: (isWeb
-                                                                    ? MediaQuery.viewInsetsOf(context)
-                                                                            .bottom >
-                                                                        0
-                                                                    : _isKeyboardVisible)
-                                                                ? 20.0
-                                                                : 30.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
+                                                        fontSize: (isWeb
+                                                                ? MediaQuery.viewInsetsOf(
+                                                                            context)
+                                                                        .bottom >
+                                                                    0
+                                                                : _isKeyboardVisible)
+                                                            ? 20.0
+                                                            : 30.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -213,8 +213,8 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                             context)
                                                                         .bodyLarge
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
+                                                                          fontFamily:
+                                                                              'Manrope',
                                                                           fontSize:
                                                                               18.0,
                                                                           letterSpacing:
@@ -389,7 +389,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                           Text(
                                                                             ' Nenhum horário cadastrado',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.manrope(),
+                                                                                  fontFamily: 'Manrope',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -569,8 +569,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .manrope(),
+                                                          fontFamily: 'Manrope',
                                                           color: Colors.white,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,

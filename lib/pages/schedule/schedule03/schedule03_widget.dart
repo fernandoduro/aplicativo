@@ -318,8 +318,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                         fontSize:
@@ -333,8 +333,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                       .of(context)
                                                                   .displaySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
@@ -403,7 +403,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 child: Text(
                                                                                   'Data e hora',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
@@ -430,11 +430,11 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       decoration: InputDecoration(
                                                                                         isDense: true,
                                                                                         labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                              font: GoogleFonts.manrope(),
+                                                                                              fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                              font: GoogleFonts.manrope(),
+                                                                                              fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
@@ -469,7 +469,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.manrope(),
+                                                                                            fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       keyboardType: TextInputType.number,
@@ -495,11 +495,11 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         decoration: InputDecoration(
                                                                                           isDense: true,
                                                                                           labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                font: GoogleFonts.manrope(),
+                                                                                                fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                font: GoogleFonts.manrope(),
+                                                                                                fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           enabledBorder: OutlineInputBorder(
@@ -534,7 +534,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              font: GoogleFonts.manrope(),
+                                                                                              fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         keyboardType: TextInputType.number,
@@ -556,7 +556,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                               child: Text(
                                                                                 'Tipo de compromisso',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -603,7 +603,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                       height: 40.0,
                                                                                       textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.manrope(),
+                                                                                            fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       hintText: 'Selecione uma opção',
@@ -634,7 +634,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                               child: Text(
                                                                                 'Duração (em minutos)',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -655,11 +655,11 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                   decoration: InputDecoration(
                                                                                     isDense: true,
                                                                                     labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                     hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                     enabledBorder: OutlineInputBorder(
@@ -694,7 +694,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   keyboardType: TextInputType.number,
@@ -710,7 +710,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                               child: Text(
                                                                                 'Cliente',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -773,7 +773,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                           height: 40.0,
                                                                                           textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                font: GoogleFonts.manrope(),
+                                                                                                fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           hintText: 'Selecione uma opção',
@@ -885,7 +885,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                           height: 40.0,
                                                                                           textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                font: GoogleFonts.manrope(),
+                                                                                                fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           hintText: 'Selecione uma opção',
@@ -982,7 +982,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                               child: Text(
                                                                                 'Serviços que ofereço',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -1060,7 +1060,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                               height: 40.0,
                                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    font: GoogleFonts.manrope(),
+                                                                                                    fontFamily: 'Manrope',
                                                                                                     letterSpacing: 0.0,
                                                                                                   ),
                                                                                               hintText: 'Selecione uma opção',
@@ -1153,7 +1153,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                               height: 40.0,
                                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    font: GoogleFonts.manrope(),
+                                                                                                    fontFamily: 'Manrope',
                                                                                                     letterSpacing: 0.0,
                                                                                                   ),
                                                                                               hintText: 'Selecione uma opção',
@@ -1241,7 +1241,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 child: Text(
                                                                                   'Situação',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
@@ -1275,7 +1275,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                     height: 40.0,
                                                                                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                     hintText: 'Situação',
@@ -1307,7 +1307,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                               child: Text(
                                                                                 'Descrição',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.bold,
@@ -1334,11 +1334,11 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       decoration: InputDecoration(
                                                                                         isDense: true,
                                                                                         labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                              font: GoogleFonts.manrope(),
+                                                                                              fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              font: GoogleFonts.manrope(),
+                                                                                              fontFamily: 'Manrope',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
@@ -1373,7 +1373,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         fillColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.manrope(),
+                                                                                            fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       maxLines: 4,
@@ -1399,7 +1399,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 Text(
                                                                                   'Agendamento recorrente',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         fontSize: 16.0,
                                                                                         letterSpacing: 0.0,
@@ -1458,7 +1458,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                       height: 40.0,
                                                                                       textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.manrope(),
+                                                                                            fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       hintText: 'Repetição',
@@ -1737,7 +1737,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            font: GoogleFonts.manrope(),
+                                                                                            fontFamily: 'Manrope',
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                             letterSpacing: 0.0,
                                                                                           ),

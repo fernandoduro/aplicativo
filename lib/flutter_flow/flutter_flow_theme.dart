@@ -160,91 +160,106 @@ class ThemeTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Poppins';
-  TextStyle get displayLarge => GoogleFonts.poppins(
+  TextStyle get displayLarge => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
   String get displayMediumFamily => 'Poppins';
-  TextStyle get displayMedium => GoogleFonts.poppins(
+  TextStyle get displayMedium => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'Poppins';
-  TextStyle get displaySmall => GoogleFonts.poppins(
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
   String get headlineLargeFamily => 'Poppins';
-  TextStyle get headlineLarge => GoogleFonts.poppins(
+  TextStyle get headlineLarge => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Poppins';
-  TextStyle get headlineMedium => GoogleFonts.poppins(
+  TextStyle get headlineMedium => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
   String get headlineSmallFamily => 'Poppins';
-  TextStyle get headlineSmall => GoogleFonts.poppins(
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 24.0,
       );
   String get titleLargeFamily => 'Poppins';
-  TextStyle get titleLarge => GoogleFonts.poppins(
+  TextStyle get titleLarge => GoogleFonts.getFont(
+        'Poppins',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Manrope';
-  TextStyle get titleMedium => GoogleFonts.manrope(
+  TextStyle get titleMedium => GoogleFonts.getFont(
+        'Manrope',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
   String get titleSmallFamily => 'Manrope';
-  TextStyle get titleSmall => GoogleFonts.manrope(
+  TextStyle get titleSmall => GoogleFonts.getFont(
+        'Manrope',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelLargeFamily => 'Manrope';
-  TextStyle get labelLarge => GoogleFonts.manrope(
+  TextStyle get labelLarge => GoogleFonts.getFont(
+        'Manrope',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
   String get labelMediumFamily => 'Manrope';
-  TextStyle get labelMedium => GoogleFonts.manrope(
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Manrope',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelSmallFamily => 'Manrope';
-  TextStyle get labelSmall => GoogleFonts.manrope(
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Manrope',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get bodyLargeFamily => 'Manrope';
-  TextStyle get bodyLarge => GoogleFonts.manrope(
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Manrope',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Manrope';
-  TextStyle get bodyMedium => GoogleFonts.manrope(
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Manrope',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Manrope';
-  TextStyle get bodySmall => GoogleFonts.manrope(
+  TextStyle get bodySmall => GoogleFonts.getFont(
+        'Manrope',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
@@ -253,43 +268,38 @@ class ThemeTypography extends Typography {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
-    TextStyle? font,
     String? fontFamily,
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = false,
+    bool useGoogleFonts = true,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
-  }) {
-    if (useGoogleFonts && fontFamily != null) {
-      font = GoogleFonts.getFont(fontFamily);
-    }
-
-    return font != null
-        ? font.copyWith(
-            color: color ?? this.color,
-            fontSize: fontSize ?? this.fontSize,
-            letterSpacing: letterSpacing ?? this.letterSpacing,
-            fontWeight: fontWeight ?? this.fontWeight,
-            fontStyle: fontStyle ?? this.fontStyle,
-            decoration: decoration,
-            height: lineHeight,
-            shadows: shadows,
-          )
-        : copyWith(
-            fontFamily: fontFamily,
-            color: color,
-            fontSize: fontSize,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-            height: lineHeight,
-            shadows: shadows,
-          );
-  }
+  }) =>
+      useGoogleFonts
+          ? GoogleFonts.getFont(
+              fontFamily!,
+              color: color ?? this.color,
+              fontSize: fontSize ?? this.fontSize,
+              letterSpacing: letterSpacing ?? this.letterSpacing,
+              fontWeight: fontWeight ?? this.fontWeight,
+              fontStyle: fontStyle ?? this.fontStyle,
+              decoration: decoration,
+              height: lineHeight,
+              shadows: shadows,
+            )
+          : copyWith(
+              fontFamily: fontFamily,
+              color: color,
+              fontSize: fontSize,
+              letterSpacing: letterSpacing,
+              fontWeight: fontWeight,
+              fontStyle: fontStyle,
+              decoration: decoration,
+              height: lineHeight,
+              shadows: shadows,
+            );
 }

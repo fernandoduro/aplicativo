@@ -121,7 +121,7 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.manrope(),
+                                              fontFamily: 'Manrope',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -174,7 +174,7 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: Colors.white,
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
@@ -231,17 +231,18 @@ class _CreateSiteEtapa7WidgetState extends State<CreateSiteEtapa7Widget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: Colors.white,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.manrope(),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  fontSize: 19.0,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Manrope',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      fontSize: 19.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,

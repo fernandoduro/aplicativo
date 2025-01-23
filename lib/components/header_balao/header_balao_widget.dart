@@ -167,8 +167,8 @@ class _HeaderBalaoWidgetState extends State<HeaderBalaoWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .gloriaHallelujah(),
+                                                                  fontFamily:
+                                                                      'Gloria Hallelujah',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondary,
@@ -189,8 +189,7 @@ class _HeaderBalaoWidgetState extends State<HeaderBalaoWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .manrope(),
+                                                          fontFamily: 'Manrope',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,

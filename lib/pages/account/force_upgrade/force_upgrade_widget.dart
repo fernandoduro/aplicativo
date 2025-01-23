@@ -193,17 +193,18 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Olá! Temos uma nova versão do aplicativo com algumas atualizações importantes.',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -239,17 +240,18 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Acesse por favor o botão abaixo para atualizar e continuar utilizando.',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -285,7 +287,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.manrope(),
+                                        fontFamily: 'Manrope',
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

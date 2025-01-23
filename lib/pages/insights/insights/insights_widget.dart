@@ -279,8 +279,8 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.inter(),
+                                                                          fontFamily:
+                                                                              'Inter',
                                                                           color:
                                                                               Color(0xFF12151C),
                                                                           fontSize:
@@ -296,8 +296,8 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:

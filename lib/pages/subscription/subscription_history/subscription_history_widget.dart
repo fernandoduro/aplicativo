@@ -105,7 +105,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 26.0,
@@ -145,8 +145,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                           context)
                                                       .labelLarge
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
@@ -164,8 +163,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                           context)
                                                       .labelLarge
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
@@ -183,8 +181,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                           context)
                                                       .labelLarge
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -202,8 +199,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                           context)
                                                       .labelLarge
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -230,15 +226,14 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                   histItem,
                                                   r'''$.created_at''',
                                                 ).toString())!,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      fontSize: 12.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               Text(
                                                 () {
@@ -261,15 +256,14 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                     return ' Pagamento sendo processado';
                                                   }
                                                 }(),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      fontSize: 12.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               RichText(
                                                 textScaler:
@@ -283,8 +277,8 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -304,8 +298,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -332,15 +325,14 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                     return ' ';
                                                   }
                                                 }(),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      fontSize: 12.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ].map((c) => DataCell(c)).toList(),
                                           ),
@@ -391,7 +383,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,

@@ -148,7 +148,7 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
@@ -220,14 +220,13 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
                                               ),
                                               Text(
                                                 'Online',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ],
                                           ),
@@ -294,14 +293,13 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
                                               ),
                                               Text(
                                                 'Presencial',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ],
                                           ),
@@ -368,14 +366,13 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
                                               ),
                                               Text(
                                                 'Atendimento domiciliar',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ],
                                           ),
@@ -533,16 +530,15 @@ class _CreateSiteEtapas16WidgetState extends State<CreateSiteEtapas16Widget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      color: Colors.white,
-                                                      fontSize: 18.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          color: Colors.white,
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,

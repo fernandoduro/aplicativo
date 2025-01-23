@@ -260,7 +260,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.manrope(),
+                                    fontFamily: 'Manrope',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     fontSize: 18.0,
@@ -283,7 +283,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 21.0,
                                     letterSpacing: 0.0,
@@ -293,7 +293,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                           ],
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.manrope(),
+                                    fontFamily: 'Manrope',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 21.0,
@@ -315,7 +315,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                           labelText: 'Ajuda solicitada',
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    font: GoogleFonts.manrope(),
+                                    fontFamily: 'Manrope',
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
@@ -324,7 +324,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                               'Apenas nos diga o que precisa, que faremos por você',
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    font: GoogleFonts.manrope(),
+                                    fontFamily: 'Manrope',
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -359,7 +359,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                           filled: true,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.manrope(),
+                              fontFamily: 'Manrope',
                               fontSize: 18.0,
                               letterSpacing: 0.0,
                             ),
@@ -466,8 +466,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -485,8 +485,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .manrope(),
+                                                          fontFamily: 'Manrope',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -512,20 +511,18 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                 unselectedLabelColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.manrope(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily: 'Manrope',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 unselectedLabelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .manrope(),
+                                                          fontFamily: 'Manrope',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 indicatorColor:
@@ -670,7 +667,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[Nome cliente]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
@@ -680,7 +677,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[dado 1]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -688,7 +685,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[dado 2]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -746,7 +743,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[Área relacionada]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
@@ -756,7 +753,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '10/08 22:30',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -764,7 +761,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[status]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -801,7 +798,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).error,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: Colors.white,
                                                                                       fontSize: 18.0,
                                                                                       letterSpacing: 0.0,
@@ -835,7 +832,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    font: GoogleFonts.manrope(),
+                                                                                    fontFamily: 'Manrope',
                                                                                     color: Colors.white,
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
@@ -869,7 +866,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).warning,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    font: GoogleFonts.manrope(),
+                                                                                    fontFamily: 'Manrope',
                                                                                     color: Colors.white,
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
@@ -1006,7 +1003,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[Nome cliente]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
@@ -1016,7 +1013,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[dado 1]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -1024,7 +1021,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[dado 2]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -1082,7 +1079,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[Área relacionada]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
@@ -1092,7 +1089,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '10/08 22:30',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -1100,7 +1097,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               Text(
                                                                                 '[status]',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       fontSize: 16.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -1137,7 +1134,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).error,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                      font: GoogleFonts.manrope(),
+                                                                                      fontFamily: 'Manrope',
                                                                                       color: Colors.white,
                                                                                       fontSize: 18.0,
                                                                                       letterSpacing: 0.0,
@@ -1171,7 +1168,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    font: GoogleFonts.manrope(),
+                                                                                    fontFamily: 'Manrope',
                                                                                     color: Colors.white,
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
@@ -1205,7 +1202,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).warning,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    font: GoogleFonts.manrope(),
+                                                                                    fontFamily: 'Manrope',
                                                                                     color: Colors.white,
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
@@ -1345,7 +1342,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[Nome cliente]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
@@ -1355,7 +1352,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[dado 1]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1363,7 +1360,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[dado 2]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1412,7 +1409,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[Área relacionada]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
@@ -1422,7 +1419,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '10/08 22:30',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1430,7 +1427,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[status]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1463,7 +1460,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                     iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).error,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: Colors.white,
                                                                                           fontSize: 18.0,
                                                                                           letterSpacing: 0.0,
@@ -1493,7 +1490,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: Colors.white,
                                                                                         fontSize: 18.0,
                                                                                         letterSpacing: 0.0,
@@ -1523,7 +1520,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).warning,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: Colors.white,
                                                                                         fontSize: 18.0,
                                                                                         letterSpacing: 0.0,
@@ -1653,7 +1650,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[Nome cliente]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
@@ -1663,7 +1660,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[dado 1]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1671,7 +1668,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[dado 2]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1720,7 +1717,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[Área relacionada]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
@@ -1730,7 +1727,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '10/08 22:30',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1738,7 +1735,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   Text(
                                                                                     '[status]',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -1771,7 +1768,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                     iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).error,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          font: GoogleFonts.manrope(),
+                                                                                          fontFamily: 'Manrope',
                                                                                           color: Colors.white,
                                                                                           fontSize: 18.0,
                                                                                           letterSpacing: 0.0,
@@ -1801,7 +1798,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: Colors.white,
                                                                                         fontSize: 18.0,
                                                                                         letterSpacing: 0.0,
@@ -1831,7 +1828,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).warning,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        font: GoogleFonts.manrope(),
+                                                                                        fontFamily: 'Manrope',
                                                                                         color: Colors.white,
                                                                                         fontSize: 18.0,
                                                                                         letterSpacing: 0.0,

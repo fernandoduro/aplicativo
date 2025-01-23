@@ -220,7 +220,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.inter(),
+                                                  fontFamily: 'Inter',
                                                   color: Color(0xFF12151C),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
@@ -260,17 +260,18 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Se você baixou este aplicativo para utilizar seus pontos em benefícios relacionados a saúde e bem-estar, infelizmente está no lugar errado. Acesse nosso outro aplicativo, o Clube da Blubem. ',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -328,8 +329,8 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -339,8 +340,8 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primary,
@@ -357,8 +358,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -398,17 +398,18 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Agora, se você é uma profissional da saúde, e baixou este aplicativo para ter ajuda em atividades desde atrair e fidelizar novos pacientes até organizar sua agenda, você está no lugar certo. ',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.inter(),
-                                                    color: Color(0xFF12151C),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            Color(0xFF12151C),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -438,7 +439,7 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.manrope(),
+                                        fontFamily: 'Manrope',
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

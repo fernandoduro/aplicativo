@@ -208,7 +208,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.openSans(),
+                                            fontFamily: 'Open Sans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 12.0,
@@ -277,7 +277,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.openSans(),
+                                          fontFamily: 'Open Sans',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 12.0,
@@ -364,7 +364,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.openSans(),
+                                        fontFamily: 'Open Sans',
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 12.0,
@@ -431,7 +431,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.openSans(),
+                                          fontFamily: 'Open Sans',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 12.0,
@@ -518,7 +518,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.openSans(),
+                                            fontFamily: 'Open Sans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 12.0,

@@ -238,8 +238,8 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(),
+                                                                      fontFamily:
+                                                                          'Inter',
                                                                       color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
@@ -306,8 +306,8 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -374,8 +374,8 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
@@ -442,8 +442,8 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(),
+                                                                        fontFamily:
+                                                                            'Inter',
                                                                         color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:

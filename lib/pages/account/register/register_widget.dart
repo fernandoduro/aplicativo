@@ -166,17 +166,18 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                           children: [
                                             Text(
                                               'Crie sua conta',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .displaySmall
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontSize: 30.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 30.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                             Form(
                                               key: _model.formKey,
@@ -213,8 +214,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                       context)
                                                                   .labelMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .manrope(),
+                                                                    fontFamily:
+                                                                        'Manrope',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -284,8 +285,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -319,8 +320,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -393,8 +394,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                       keyboardType:
@@ -440,8 +441,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
@@ -527,8 +528,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
@@ -611,8 +612,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                       context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .manrope(),
+                                                                    fontFamily:
+                                                                        'Manrope',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -685,8 +686,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -725,8 +726,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .manrope(),
+                                                                fontFamily:
+                                                                    'Manrope',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
@@ -796,8 +797,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -892,8 +893,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                       validator: _model
@@ -926,8 +927,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .manrope(),
+                                                                  fontFamily:
+                                                                      'Manrope',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -1022,8 +1023,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
                                                       validator: _model
@@ -1104,8 +1105,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .manrope(),
+                                                                        fontFamily:
+                                                                            'Manrope',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
@@ -1162,8 +1163,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .manrope(),
+                                                                    fontFamily:
+                                                                        'Manrope',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1506,16 +1507,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
-                                                            color: Colors.white,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Manrope',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -1550,8 +1549,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .manrope(),
+                                                            fontFamily:
+                                                                'Manrope',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primary,
@@ -1580,8 +1579,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           context)
                                                       .labelLarge
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .manrope(),
+                                                        fontFamily: 'Manrope',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),

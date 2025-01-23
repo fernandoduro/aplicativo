@@ -144,7 +144,7 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.manrope(),
+                                              fontFamily: 'Manrope',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -163,7 +163,7 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.manrope(),
+                                            fontFamily: 'Manrope',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 14.0,
@@ -210,7 +210,7 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    font: GoogleFonts.manrope(),
+                                                    fontFamily: 'Manrope',
                                                     color: Colors.white,
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,

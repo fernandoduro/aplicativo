@@ -105,7 +105,7 @@ class _HeaderHelpWidgetState extends State<HeaderHelpWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.manrope(),
+                                                fontFamily: 'Manrope',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
