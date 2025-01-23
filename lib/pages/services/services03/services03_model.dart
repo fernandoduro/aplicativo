@@ -10,6 +10,8 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/request_manager.dart';
+
 import 'services03_widget.dart' show Services03Widget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
@@ -82,6 +84,23 @@ class Services03Model extends FlutterFlowModel<Services03Widget> {
   // Model for FooterWhite component.
   late FooterWhiteModel footerWhiteModel;
 
+  /// Query cache managers for this widget.
+
+  final _packageCacheManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> packageCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _packageCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearPackageCacheCache() => _packageCacheManager.clear();
+  void clearPackageCacheCacheKey(String? uniqueKey) =>
+      _packageCacheManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
@@ -104,5 +123,9 @@ class Services03Model extends FlutterFlowModel<Services03Widget> {
     valorMensalTextController?.dispose();
 
     footerWhiteModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearPackageCacheCache();
   }
 }

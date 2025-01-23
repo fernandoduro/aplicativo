@@ -1098,6 +1098,11 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                             );
                                                                           }
 
+                                                                          logFirebaseEvent(
+                                                                              'Button_clear_query_cache');
+                                                                          _model
+                                                                              .clearPackageCacheCache();
+
                                                                           safeSetState(
                                                                               () {});
                                                                         },
@@ -1149,11 +1154,15 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                               ),
                                                               FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: APIOficialGroup
-                                                                    .getPackagesCall
-                                                                    .call(
-                                                                  authToken:
-                                                                      currentAuthenticationToken,
+                                                                future: _model
+                                                                    .packageCache(
+                                                                  requestFn: () =>
+                                                                      APIOficialGroup
+                                                                          .getPackagesCall
+                                                                          .call(
+                                                                    authToken:
+                                                                        currentAuthenticationToken,
+                                                                  ),
                                                                 ),
                                                                 builder: (context,
                                                                     snapshot) {
@@ -1445,6 +1454,8 @@ class _Services03WidgetState extends State<Services03Widget> {
 
                                                                                                         safeSetState(() {});
                                                                                                       }
+                                                                                                      logFirebaseEvent('Icon_clear_query_cache');
+                                                                                                      _model.clearPackageCacheCache();
                                                                                                     },
                                                                                                     child: Icon(
                                                                                                       Icons.delete_outline_outlined,

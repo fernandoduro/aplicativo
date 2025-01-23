@@ -691,6 +691,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                 );
                                                                                               }
                                                                                             }
+
+                                                                                            logFirebaseEvent('Button_clear_query_cache');
+                                                                                            _model.clearServiceCacheCache();
                                                                                           } else {
                                                                                             logFirebaseEvent('Button_show_snack_bar');
                                                                                             ScaffoldMessenger.of(context).showSnackBar(
@@ -734,8 +737,10 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               FutureBuilder<ApiCallResponse>(
-                                                                                future: APIOficialGroup.getServicesCall.call(
-                                                                                  authToken: currentAuthenticationToken,
+                                                                                future: _model.serviceCache(
+                                                                                  requestFn: () => APIOficialGroup.getServicesCall.call(
+                                                                                    authToken: currentAuthenticationToken,
+                                                                                  ),
                                                                                 ),
                                                                                 builder: (context, snapshot) {
                                                                                   // Customize what your widget looks like when it's loading.
@@ -1072,6 +1077,8 @@ class _Services02WidgetState extends State<Services02Widget> {
 
                                                                                                                         safeSetState(() {});
                                                                                                                       }
+                                                                                                                      logFirebaseEvent('Icon_clear_query_cache');
+                                                                                                                      _model.clearServiceCacheCache();
                                                                                                                     },
                                                                                                                     child: Icon(
                                                                                                                       Icons.delete_outline_outlined,

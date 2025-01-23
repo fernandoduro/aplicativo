@@ -1,6 +1,5 @@
 {
   "apiURL": "https://hml-api.blubem.com.br/api",
 "ApiUrlPlan": "https://blubem.com.br/contratacao-de-plano?hml=true&t=",
-"ApiUrlChangePlan": "https://hml-api.blubem.com.br/select-plan/voucher?t=",
-"webAPI": "https://hml-api.blubem.com.br"
+"ApiUrlChangePlan": "https://hml-api.blubem.com.br/select-plan/voucher?t="
 }
