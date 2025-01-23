@@ -43,6 +43,10 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
       logFirebaseEvent('CALCULADORA_Calculadora_ON_INIT_STATE');
       logFirebaseEvent('Calculadora_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Calculadora_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -72,6 +76,8 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

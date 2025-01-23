@@ -40,6 +40,10 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
       logFirebaseEvent('SUBSCRIPTION_OPTIONS_SubscriptionOptions');
       logFirebaseEvent('SubscriptionOptions_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('SubscriptionOptions_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('SubscriptionOptions_update_page_state');
       _model.isLoading = false;
       safeSetState(() {});

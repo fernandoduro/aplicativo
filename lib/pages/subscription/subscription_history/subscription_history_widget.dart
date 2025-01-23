@@ -40,6 +40,10 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
       logFirebaseEvent('SUBSCRIPTION_HISTORY_SubscriptionHistory');
       logFirebaseEvent('SubscriptionHistory_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('SubscriptionHistory_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

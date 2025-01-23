@@ -43,6 +43,10 @@ class _FirstAccessReminderWidgetState extends State<FirstAccessReminderWidget>
       logFirebaseEvent('FIRST_ACCESS_REMINDER_FirstAccessReminde');
       logFirebaseEvent('FirstAccessReminder_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FirstAccessReminder_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -120,6 +124,8 @@ class _FirstAccessReminderWidgetState extends State<FirstAccessReminderWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

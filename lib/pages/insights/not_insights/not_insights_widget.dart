@@ -41,6 +41,10 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
       logFirebaseEvent('NOT_INSIGHTS_NotInsights_ON_INIT_STATE');
       logFirebaseEvent('NotInsights_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('NotInsights_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -118,6 +122,8 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/reminders/switch_lembretes/switch_lembretes_widget.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'reminders_model.dart';
@@ -31,6 +32,15 @@ class _RemindersWidgetState extends State<RemindersWidget> {
     _model = createModel(context, () => RemindersModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Reminders'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('REMINDERS_PAGE_Reminders_ON_INIT_STATE');
+      logFirebaseEvent('Reminders_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -43,6 +53,8 @@ class _RemindersWidgetState extends State<RemindersWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

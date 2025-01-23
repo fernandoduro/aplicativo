@@ -45,6 +45,10 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('NEW_CLIENT02_NewClient02_ON_INIT_STATE');
+      logFirebaseEvent('NewClient02_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('NewClient02_backend_call');
       _model.apiResultEditClientPage3 =
           await APIOficialGroup.getClientByIDCall.call(

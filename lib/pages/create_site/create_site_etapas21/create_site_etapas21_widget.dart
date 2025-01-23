@@ -41,14 +41,17 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS21_CreateSiteEtapas21_');
+      logFirebaseEvent('CreateSiteEtapas21_custom_action');
+      await actions.lockOrientation();
+      logFirebaseEvent('CreateSiteEtapas21_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('CreateSiteEtapas21_wait__delay');
       await Future.delayed(const Duration(milliseconds: 5000));
       logFirebaseEvent('CreateSiteEtapas21_navigate_to');
 
       context.pushNamed('CreateSiteEtapas22');
-
-      logFirebaseEvent('CreateSiteEtapas21_custom_action');
-      await actions.lockOrientation();
     });
 
     animationsMap.addAll({
@@ -79,6 +82,8 @@ class _CreateSiteEtapas21WidgetState extends State<CreateSiteEtapas21Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

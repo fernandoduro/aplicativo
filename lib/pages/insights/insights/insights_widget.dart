@@ -43,6 +43,10 @@ class _InsightsWidgetState extends State<InsightsWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('INSIGHTS_PAGE_Insights_ON_INIT_STATE');
+      logFirebaseEvent('Insights_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Insights_backend_call');
       _model.apiResulte71 = await APIOficialGroup.insightsCall.call(
         authToken: currentAuthenticationToken,
@@ -159,6 +163,8 @@ class _InsightsWidgetState extends State<InsightsWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

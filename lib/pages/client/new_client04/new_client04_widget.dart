@@ -44,6 +44,10 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('NEW_CLIENT04_NewClient04_ON_INIT_STATE');
+      logFirebaseEvent('NewClient04_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('NewClient04_backend_call');
       _model.apiResultEditClientPage3 =
           await APIOficialGroup.getClientByIDCall.call(
@@ -168,6 +172,8 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

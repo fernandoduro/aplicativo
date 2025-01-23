@@ -49,6 +49,10 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SCHEDULE02_PAGE_Schedule02_ON_INIT_STATE');
+      logFirebaseEvent('Schedule02_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Schedule02_update_page_state');
       _model.scheduleJsonPage = widget!.scheduleSelected;
       safeSetState(() {});
@@ -66,6 +70,8 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

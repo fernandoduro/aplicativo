@@ -45,6 +45,10 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
       logFirebaseEvent('ENCERRAR_CONTA_EncerrarConta_ON_INIT_STA');
       logFirebaseEvent('EncerrarConta_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('EncerrarConta_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     if (!isWeb) {
@@ -74,6 +78,8 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

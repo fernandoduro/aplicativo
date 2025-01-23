@@ -45,6 +45,10 @@ class _Services05WidgetState extends State<Services05Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SERVICES05_PAGE_Services05_ON_INIT_STATE');
+      logFirebaseEvent('Services05_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Services05_backend_call');
       _model.apiResultjh62 = await APIOficialGroup.getUserCall.call(
         authToken: currentAuthenticationToken,

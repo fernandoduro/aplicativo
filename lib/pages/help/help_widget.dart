@@ -41,6 +41,10 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
       logFirebaseEvent('HELP_PAGE_Help_ON_INIT_STATE');
       logFirebaseEvent('Help_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Help_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -118,6 +122,8 @@ class _HelpWidgetState extends State<HelpWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

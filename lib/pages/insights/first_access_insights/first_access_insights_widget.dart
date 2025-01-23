@@ -45,6 +45,10 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
       logFirebaseEvent('FIRST_ACCESS_INSIGHTS_FirstAccessInsight');
       logFirebaseEvent('FirstAccessInsights_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FirstAccessInsights_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('FirstAccessInsights_backend_call');
       _model.apiResult48a = await APIOficialGroup.getSettingsCall.call(
         authToken: currentAuthenticationToken,
@@ -161,6 +165,8 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

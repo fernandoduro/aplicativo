@@ -45,6 +45,15 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
     _model = createModel(context, () => FirstAccessModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'FirstAccess'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('FIRST_ACCESS_FirstAccess_ON_INIT_STATE');
+      logFirebaseEvent('FirstAccess_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,

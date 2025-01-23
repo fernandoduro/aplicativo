@@ -38,17 +38,17 @@ class _HomeBalaoWidgetState extends State<HomeBalaoWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('HOME_BALAO_PAGE_HomeBalao_ON_INIT_STATE');
-      if (!FFAppState().firstAccess) {
-        logFirebaseEvent('HomeBalao_navigate_to');
-
-        context.pushNamed('Home');
-      }
       logFirebaseEvent('HomeBalao_custom_action');
       await actions.lockOrientation();
       logFirebaseEvent('HomeBalao_update_app_state');
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      if (!FFAppState().firstAccess) {
+        logFirebaseEvent('HomeBalao_navigate_to');
+
+        context.pushNamed('Home');
+      }
     });
 
     animationsMap.addAll({

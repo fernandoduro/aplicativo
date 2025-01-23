@@ -63,6 +63,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SCHEDULE03_PAGE_Schedule03_ON_INIT_STATE');
+      logFirebaseEvent('Schedule03_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       if (getJsonField(
             widget!.scheduleCabecalho,
             r'''$.professional_client[*].client_id''',

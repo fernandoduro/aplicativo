@@ -210,8 +210,6 @@ Future seusServicos(BuildContext context) async {
       context.pop();
     }
     context.pushNamed('Login');
-
-    return;
   } else {
     logFirebaseEvent('seusServicos_navigate_to');
     if (Navigator.of(context).canPop()) {
@@ -804,8 +802,6 @@ Future perfil(BuildContext context) async {
     logFirebaseEvent('Perfil_navigate_to');
 
     context.pushNamed('Login');
-
-    return;
   } else {
     logFirebaseEvent('Perfil_navigate_to');
     if (Navigator.of(context).canPop()) {

@@ -47,6 +47,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
       logFirebaseEvent('HOME_PAGE_Home_ON_INIT_STATE');
       logFirebaseEvent('Home_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Home_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Home_custom_action');
       _model.appBuild = await actions.appBuild();
       if (isAndroid) {

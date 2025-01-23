@@ -37,6 +37,10 @@ class _Services01WidgetState extends State<Services01Widget> {
       logFirebaseEvent('SERVICES01_PAGE_Services01_ON_INIT_STATE');
       logFirebaseEvent('Services01_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Services01_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

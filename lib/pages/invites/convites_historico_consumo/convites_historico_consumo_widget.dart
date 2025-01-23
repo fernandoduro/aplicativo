@@ -40,6 +40,10 @@ class _ConvitesHistoricoConsumoWidgetState
       logFirebaseEvent('CONVITES_HISTORICO_CONSUMO_ConvitesHisto');
       logFirebaseEvent('ConvitesHistoricoConsumo_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('ConvitesHistoricoConsumo_update_app_stat');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

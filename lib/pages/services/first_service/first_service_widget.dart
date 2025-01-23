@@ -49,6 +49,10 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
       logFirebaseEvent('FIRST_SERVICE_FirstService_ON_INIT_STATE');
       logFirebaseEvent('FirstService_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FirstService_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -150,6 +154,8 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

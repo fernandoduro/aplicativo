@@ -46,6 +46,10 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
       logFirebaseEvent('TRIAL_FINISHED_TrialFinished_ON_INIT_STA');
       logFirebaseEvent('TrialFinished_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('TrialFinished_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -147,6 +151,8 @@ class _TrialFinishedWidgetState extends State<TrialFinishedWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

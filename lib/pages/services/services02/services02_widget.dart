@@ -10,6 +10,7 @@ import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -41,6 +42,15 @@ class _Services02WidgetState extends State<Services02Widget> {
     _model = createModel(context, () => Services02Model());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Services02'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('SERVICES02_PAGE_Services02_ON_INIT_STATE');
+      logFirebaseEvent('Services02_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
 
@@ -66,6 +76,8 @@ class _Services02WidgetState extends State<Services02Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

@@ -38,6 +38,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('REGISTER_PAGE_Register_ON_INIT_STATE');
+      logFirebaseEvent('Register_custom_action');
+      await actions.lockOrientation();
+      logFirebaseEvent('Register_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Register_backend_call');
       _model.apiResultCategories = await APIOficialGroup.categoriesCall.call();
 
@@ -46,12 +52,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         (_model.apiResultCategories?.jsonBody ?? ''),
         r'''$.data''',
       );
-      safeSetState(() {});
-      logFirebaseEvent('Register_custom_action');
-      await actions.lockOrientation();
-      logFirebaseEvent('Register_update_app_state');
-      FFAppState().activePage =
-          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
     });
 

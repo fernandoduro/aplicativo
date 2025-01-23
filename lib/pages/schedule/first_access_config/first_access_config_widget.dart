@@ -49,6 +49,10 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
       logFirebaseEvent('FIRST_ACCESS_CONFIG_FirstAccessConfig_ON');
       logFirebaseEvent('FirstAccessConfig_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FirstAccessConfig_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -126,6 +130,8 @@ class _FirstAccessConfigWidgetState extends State<FirstAccessConfigWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

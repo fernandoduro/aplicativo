@@ -43,6 +43,12 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS14_CreateSiteEtapas14_');
+      logFirebaseEvent('CreateSiteEtapas14_custom_action');
+      await actions.lockOrientation();
+      logFirebaseEvent('CreateSiteEtapas14_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       if (getJsonField(
             FFAppState().dataSite,
             r'''$.services''',
@@ -89,9 +95,6 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
         );
         safeSetState(() {});
       }
-
-      logFirebaseEvent('CreateSiteEtapas14_custom_action');
-      await actions.lockOrientation();
     });
 
     if (!isWeb) {

@@ -44,6 +44,10 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
       logFirebaseEvent('FIRST_ACCESS_LOYALTY_FirstAccessLoyalty_');
       logFirebaseEvent('FirstAccessLoyalty_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FirstAccessLoyalty_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -181,6 +185,8 @@ class _FirstAccessLoyaltyWidgetState extends State<FirstAccessLoyaltyWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

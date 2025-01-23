@@ -45,6 +45,10 @@ class _CreateSiteEtapas15WidgetState extends State<CreateSiteEtapas15Widget> {
       logFirebaseEvent('CREATE_SITE_ETAPAS15_CreateSiteEtapas15_');
       logFirebaseEvent('CreateSiteEtapas15_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('CreateSiteEtapas15_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     if (!isWeb) {

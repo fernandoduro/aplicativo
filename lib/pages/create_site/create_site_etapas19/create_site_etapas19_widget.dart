@@ -45,6 +45,10 @@ class _CreateSiteEtapas19WidgetState extends State<CreateSiteEtapas19Widget> {
       logFirebaseEvent('CREATE_SITE_ETAPAS19_CreateSiteEtapas19_');
       logFirebaseEvent('CreateSiteEtapas19_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('CreateSiteEtapas19_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('CreateSiteEtapas19_backend_call');
       _model.apiResult = await APIOficialGroup.getUserCall.call(
         authToken: currentAuthenticationToken,

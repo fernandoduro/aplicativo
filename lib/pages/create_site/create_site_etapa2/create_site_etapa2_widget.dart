@@ -36,6 +36,10 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
       logFirebaseEvent('CREATE_SITE_ETAPA2_CreateSiteEtapa2_ON_I');
       logFirebaseEvent('CreateSiteEtapa2_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('CreateSiteEtapa2_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -50,6 +54,8 @@ class _CreateSiteEtapa2WidgetState extends State<CreateSiteEtapa2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

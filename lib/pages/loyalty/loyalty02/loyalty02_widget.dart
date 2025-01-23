@@ -43,6 +43,10 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
       logFirebaseEvent('LOYALTY02_PAGE_Loyalty02_ON_INIT_STATE');
       logFirebaseEvent('Loyalty02_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Loyalty02_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     _model.statusValue = false;
@@ -145,6 +149,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

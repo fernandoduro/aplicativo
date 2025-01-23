@@ -40,6 +40,10 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
       logFirebaseEvent('LOYALTY_HISTORY_LoyaltyHistory_ON_INIT_S');
       logFirebaseEvent('LoyaltyHistory_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('LoyaltyHistory_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('LoyaltyHistory_backend_call');
       _model.clientsStatement =
           await APIOficialGroup.listClientsClubStatementCall.call(
@@ -66,6 +70,8 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

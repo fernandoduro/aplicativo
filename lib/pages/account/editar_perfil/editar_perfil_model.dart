@@ -10,8 +10,6 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/request_manager.dart';
-
 import 'editar_perfil_widget.dart' show EditarPerfilWidget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -91,23 +89,6 @@ class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
   // Model for Footer component.
   late FooterModel footerModel;
 
-  /// Query cache managers for this widget.
-
-  final _categoriesAPPManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> categoriesAPP({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _categoriesAPPManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearCategoriesAPPCache() => _categoriesAPPManager.clear();
-  void clearCategoriesAPPCacheKey(String? uniqueKey) =>
-      _categoriesAPPManager.clearRequest(uniqueKey);
-
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
@@ -138,9 +119,5 @@ class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
     confirmPasswordTextController?.dispose();
 
     footerModel.dispose();
-
-    /// Dispose query cache managers for this widget.
-
-    clearCategoriesAPPCache();
   }
 }

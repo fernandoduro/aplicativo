@@ -39,6 +39,10 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
       logFirebaseEvent('SUBSCRIPTION_CANCEL_SubscriptionCancel_O');
       logFirebaseEvent('SubscriptionCancel_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('SubscriptionCancel_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     _model.descricaoTextController ??= TextEditingController();
@@ -56,6 +60,8 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

@@ -10,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -35,6 +36,15 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'listAllClients'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('LIST_ALL_CLIENTS_listAllClients_ON_INIT_');
+      logFirebaseEvent('listAllClients_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -50,6 +60,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

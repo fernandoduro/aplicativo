@@ -40,6 +40,10 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
       logFirebaseEvent('NEW_CLIENT03_NewClient03_ON_INIT_STATE');
       logFirebaseEvent('NewClient03_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('NewClient03_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -54,6 +58,8 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

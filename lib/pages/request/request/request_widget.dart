@@ -47,6 +47,15 @@ class _RequestWidgetState extends State<RequestWidget>
     _model = createModel(context, () => RequestModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Request'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('REQUEST_PAGE_Request_ON_INIT_STATE');
+      logFirebaseEvent('Request_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     _model.descricaoTextController ??= TextEditingController();
     _model.descricaoFocusNode ??= FocusNode();
 
@@ -85,6 +94,8 @@ class _RequestWidgetState extends State<RequestWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

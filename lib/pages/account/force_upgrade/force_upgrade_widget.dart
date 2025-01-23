@@ -41,6 +41,10 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      logFirebaseEvent('ForceUpgrade_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({

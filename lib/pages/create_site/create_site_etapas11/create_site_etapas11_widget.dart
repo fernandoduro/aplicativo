@@ -40,6 +40,12 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS11_CreateSiteEtapas11_');
+      logFirebaseEvent('CreateSiteEtapas11_custom_action');
+      await actions.lockOrientation();
+      logFirebaseEvent('CreateSiteEtapas11_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('CreateSiteEtapas11_update_page_state');
       _model.imageSelected = functions.convertStrintToInt(getJsonField(
         FFAppState().dataSite,
@@ -50,8 +56,6 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
         r'''$.layout_highlight_source''',
       ).toString().toString();
       safeSetState(() {});
-      logFirebaseEvent('CreateSiteEtapas11_custom_action');
-      await actions.lockOrientation();
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

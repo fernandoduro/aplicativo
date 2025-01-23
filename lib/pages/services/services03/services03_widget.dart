@@ -45,6 +45,15 @@ class _Services03WidgetState extends State<Services03Widget> {
     _model = createModel(context, () => Services03Model());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Services03'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('SERVICES03_PAGE_Services03_ON_INIT_STATE');
+      logFirebaseEvent('Services03_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
 

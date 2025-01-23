@@ -9,6 +9,7 @@ import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'new_client05_model.dart';
@@ -37,6 +38,15 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
     _model = createModel(context, () => NewClient05Model());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'NewClient05'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('NEW_CLIENT05_NewClient05_ON_INIT_STATE');
+      logFirebaseEvent('NewClient05_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -49,6 +59,8 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

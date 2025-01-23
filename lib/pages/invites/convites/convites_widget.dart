@@ -47,6 +47,10 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
       logFirebaseEvent('CONVITES_PAGE_Convites_ON_INIT_STATE');
       logFirebaseEvent('Convites_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Convites_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Convites_backend_call');
       _model.apiResultnn5 = await APIOficialGroup.myInvitesCall.call(
         authToken: currentAuthenticationToken,

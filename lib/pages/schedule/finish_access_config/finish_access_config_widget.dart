@@ -48,6 +48,10 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
       logFirebaseEvent('FINISH_ACCESS_CONFIG_FinishAccessConfig_');
       logFirebaseEvent('FinishAccessConfig_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FinishAccessConfig_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -113,6 +117,8 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

@@ -42,6 +42,10 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
       logFirebaseEvent('EDITAR_PERFIL_EditarPerfil_ON_INIT_STATE');
       logFirebaseEvent('EditarPerfil_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('EditarPerfil_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('EditarPerfil_backend_call');
       _model.apiResultCategories = await APIOficialGroup.categoriesCall.call();
 
@@ -51,12 +55,6 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
           (_model.apiResultCategories?.jsonBody ?? ''),
           r'''$.data''',
         );
-        FFAppState().base64 =
-            'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
-        safeSetState(() {});
-        logFirebaseEvent('EditarPerfil_update_app_state');
-        FFAppState().activePage =
-            'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
         safeSetState(() {});
       }
     });
@@ -541,139 +539,95 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               alignment:
                                                                   AlignmentDirectional(
                                                                       0.0, 0.0),
-                                                              child: FutureBuilder<
-                                                                  ApiCallResponse>(
-                                                                future: _model
-                                                                    .categoriesAPP(
-                                                                  uniqueQueryKey:
-                                                                      getJsonField(
-                                                                    FFAppState()
-                                                                        .CategoriesJson,
-                                                                    r'''$[:].id''',
-                                                                  ).toString(),
-                                                                  requestFn: () =>
-                                                                      APIOficialGroup
-                                                                          .categoriesCall
-                                                                          .call(),
-                                                                ),
-                                                                builder: (context,
-                                                                    snapshot) {
-                                                                  // Customize what your widget looks like when it's loading.
-                                                                  if (!snapshot
-                                                                      .hasData) {
-                                                                    return Center(
-                                                                      child:
-                                                                          SizedBox(
-                                                                        width:
-                                                                            50.0,
-                                                                        height:
-                                                                            50.0,
-                                                                        child:
-                                                                            CircularProgressIndicator(
-                                                                          valueColor:
-                                                                              AlwaysStoppedAnimation<Color>(
-                                                                            FlutterFlowTheme.of(context).primary,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    );
-                                                                  }
-                                                                  final profissaoCategoriesResponse =
-                                                                      snapshot
-                                                                          .data!;
-
-                                                                  return FlutterFlowDropDown<
+                                                              child:
+                                                                  FlutterFlowDropDown<
                                                                       String>(
-                                                                    controller: _model
-                                                                            .profissaoValueController ??=
-                                                                        FormFieldController<
-                                                                            String>(
-                                                                      _model.profissaoValue ??=
-                                                                          getJsonField(
-                                                                        columnGetUserResponse
-                                                                            .jsonBody,
-                                                                        r'''$.category_id''',
-                                                                      ).toString(),
-                                                                    ),
-                                                                    options: List<
-                                                                        String>.from((getJsonField(
-                                                                      FFAppState()
-                                                                          .CategoriesJson,
-                                                                      r'''$[:].id''',
-                                                                      true,
-                                                                    ) as List)
-                                                                        .map<String>((s) => s.toString())
+                                                                controller: _model
+                                                                        .profissaoValueController ??=
+                                                                    FormFieldController<
+                                                                        String>(
+                                                                  _model.profissaoValue ??=
+                                                                      getJsonField(
+                                                                    columnGetUserResponse
+                                                                        .jsonBody,
+                                                                    r'''$.category_id''',
+                                                                  ).toString(),
+                                                                ),
+                                                                options: List<
+                                                                        String>.from(
+                                                                    (getJsonField(
+                                                                  FFAppState()
+                                                                      .CategoriesJson,
+                                                                  r'''$[:].id''',
+                                                                  true,
+                                                                ) as List)
+                                                                        .map<String>((s) =>
+                                                                            s.toString())
                                                                         .toList()!),
-                                                                    optionLabels:
-                                                                        (getJsonField(
-                                                                      FFAppState()
-                                                                          .CategoriesJson,
-                                                                      r'''$[:].name''',
-                                                                      true,
-                                                                    ) as List)
-                                                                            .map<String>((s) =>
-                                                                                s.toString())
-                                                                            .toList()!,
-                                                                    onChanged: (val) =>
-                                                                        safeSetState(() =>
-                                                                            _model.profissaoValue =
-                                                                                val),
-                                                                    width:
-                                                                        370.0,
-                                                                    height:
-                                                                        56.0,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.manrope(),
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          lineHeight:
-                                                                              1.0,
-                                                                        ),
-                                                                    hintText:
-                                                                        'Qual a sua especialidade?',
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .keyboard_arrow_down_rounded,
+                                                                optionLabels:
+                                                                    (getJsonField(
+                                                                  FFAppState()
+                                                                      .CategoriesJson,
+                                                                  r'''$[:].name''',
+                                                                  true,
+                                                                ) as List)
+                                                                        .map<String>((s) =>
+                                                                            s.toString())
+                                                                        .toList()!,
+                                                                onChanged: (val) =>
+                                                                    safeSetState(() =>
+                                                                        _model.profissaoValue =
+                                                                            val),
+                                                                width: 370.0,
+                                                                height: 56.0,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .manrope(),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      lineHeight:
+                                                                          1.0,
                                                                     ),
-                                                                    fillColor: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                    elevation:
-                                                                        2.0,
-                                                                    borderColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    borderWidth:
-                                                                        2.0,
-                                                                    borderRadius:
+                                                                hintText:
+                                                                    'Qual a sua especialidade?',
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .keyboard_arrow_down_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  size: 24.0,
+                                                                ),
+                                                                fillColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                elevation: 2.0,
+                                                                borderColor: Colors
+                                                                    .transparent,
+                                                                borderWidth:
+                                                                    2.0,
+                                                                borderRadius:
+                                                                    8.0,
+                                                                margin: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        15.0,
                                                                         8.0,
-                                                                    margin: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15.0,
-                                                                            8.0,
-                                                                            16.0,
-                                                                            8.0),
-                                                                    hidesUnderline:
-                                                                        true,
-                                                                    isOverButton:
-                                                                        true,
-                                                                    isSearchable:
-                                                                        false,
-                                                                    isMultiSelect:
-                                                                        false,
-                                                                  );
-                                                                },
+                                                                        16.0,
+                                                                        8.0),
+                                                                hidesUnderline:
+                                                                    true,
+                                                                isOverButton:
+                                                                    true,
+                                                                isSearchable:
+                                                                    false,
+                                                                isMultiSelect:
+                                                                    false,
                                                               ),
                                                             ),
                                                             Padding(

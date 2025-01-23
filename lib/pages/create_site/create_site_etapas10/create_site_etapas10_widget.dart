@@ -38,6 +38,10 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS10_CreateSiteEtapas10_');
+      logFirebaseEvent('CreateSiteEtapas10_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('CreateSiteEtapas10_clear_uploaded_data');
       safeSetState(() {
         _model.isDataUploading = false;

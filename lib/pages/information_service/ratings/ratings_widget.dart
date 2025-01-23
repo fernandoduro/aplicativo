@@ -54,6 +54,15 @@ class _RatingsWidgetState extends State<RatingsWidget>
     _model = createModel(context, () => RatingsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Ratings'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('RATINGS_PAGE_Ratings_ON_INIT_STATE');
+      logFirebaseEvent('Ratings_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     _model.dataTextController ??= TextEditingController();
     _model.dataFocusNode ??= FocusNode();
 

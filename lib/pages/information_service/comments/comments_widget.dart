@@ -54,6 +54,10 @@ class _CommentsWidgetState extends State<CommentsWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('COMMENTS_PAGE_Comments_ON_INIT_STATE');
+      logFirebaseEvent('Comments_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       if (widget!.idAppointment.toString() != '0') {
         logFirebaseEvent('Comments_backend_call');
         _model.apiResult8nd =
@@ -119,6 +123,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
