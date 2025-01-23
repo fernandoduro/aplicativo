@@ -2754,10 +2754,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             logFirebaseEvent(
                                                                 'HOME_PAGE_CALCULAR_AGORA_BTN_ON_TAP');
                                                             logFirebaseEvent(
-                                                                'Button_dismiss_dialog');
-                                                            Navigator.pop(
-                                                                context);
-                                                            logFirebaseEvent(
                                                                 'Button_action_block');
                                                             await action_blocks
                                                                 .calculadora(
@@ -2996,10 +2992,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 () async {
                                                               logFirebaseEvent(
                                                                   'HOME_PAGE_VER_OPES_BTN_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Button_dismiss_dialog');
-                                                              Navigator.pop(
-                                                                  context);
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks
@@ -3243,14 +3235,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             logFirebaseEvent(
                                                                 'HOME_PAGE_MEUS_CONVITES_BTN_ON_TAP');
                                                             logFirebaseEvent(
-                                                                'Button_dismiss_dialog');
-                                                            Navigator.pop(
-                                                                context);
-                                                            logFirebaseEvent(
                                                                 'Button_action_block');
                                                             await action_blocks
                                                                 .meusConvites(
                                                                     context);
+                                                            safeSetState(() {});
                                                           },
                                                           text: 'Meus convites',
                                                           options:
@@ -3484,10 +3473,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 () async {
                                                               logFirebaseEvent(
                                                                   'HOME_PAGE_ACESSAR_INFORMAES_BTN_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Button_dismiss_dialog');
-                                                              Navigator.pop(
-                                                                  context);
                                                               logFirebaseEvent(
                                                                   'Button_action_block');
                                                               await action_blocks

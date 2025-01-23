@@ -361,6 +361,13 @@ class FFAppState extends ChangeNotifier {
     _activePage = value;
     prefs.setString('ff_activePage', value);
   }
+
+  dynamic _userEditPerfil = jsonDecode(
+      '{\"name\":\"\",\"cellphone\":\"\",\"gender\":\"\",\"category_id\":0,\"code\":\"\"}');
+  dynamic get userEditPerfil => _userEditPerfil;
+  set userEditPerfil(dynamic value) {
+    _userEditPerfil = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

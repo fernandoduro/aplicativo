@@ -18,15 +18,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class EditarPerfilModel extends FlutterFlowModel<EditarPerfilWidget> {
-  ///  Local state fields for this page.
-
-  dynamic editUser;
-
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (Categories)] action in EditarPerfil widget.
   ApiCallResponse? apiResultCategories;
+  // Stores action output result for [Backend Call - API (GetUser)] action in EditarPerfil widget.
+  ApiCallResponse? apiResultUserEdit;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
   // State field(s) for Nome widget.

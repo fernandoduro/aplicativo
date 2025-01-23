@@ -242,6 +242,10 @@ bool? existeElementSpecifcList(
 }
 
 String? formatMaskPhone(String? phone) {
+  if (phone == null || phone.length < 9) {
+    return phone;
+  }
+
   final cleanPhone = phone?.replaceAll(RegExp(r'[^\d]'), '');
   final areaCode = cleanPhone?.substring(0, 2);
   final firstPart = cleanPhone?.substring(2, 7);
