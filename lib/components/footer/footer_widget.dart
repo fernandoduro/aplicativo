@@ -123,7 +123,9 @@ class _FooterWidgetState extends State<FooterWidget>
                   logFirebaseEvent('Container_dismiss_dialog');
                   Navigator.pop(context);
                   logFirebaseEvent('Container_navigate_to');
-
+                  if (Navigator.of(context).canPop()) {
+                    context.pop();
+                  }
                   context.pushNamed('Home');
                 },
                 child: Container(
