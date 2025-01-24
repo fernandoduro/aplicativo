@@ -761,11 +761,15 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                             ),
                                                             FutureBuilder<
                                                                 ApiCallResponse>(
-                                                              future: APIOficialGroup
-                                                                  .getServicesCall
-                                                                  .call(
-                                                                authToken:
-                                                                    currentAuthenticationToken,
+                                                              future: FFAppState()
+                                                                  .serviceCacheGlobal(
+                                                                requestFn: () =>
+                                                                    APIOficialGroup
+                                                                        .getServicesCall
+                                                                        .call(
+                                                                  authToken:
+                                                                      currentAuthenticationToken,
+                                                                ),
                                                               ),
                                                               builder: (context,
                                                                   snapshot) {

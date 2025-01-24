@@ -49,6 +49,8 @@ class _Services02WidgetState extends State<Services02Widget> {
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      logFirebaseEvent('Services02_clear_query_cache');
+      FFAppState().clearServiceCacheGlobalCache();
     });
 
     _model.nameTextController ??= TextEditingController();

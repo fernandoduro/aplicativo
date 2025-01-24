@@ -241,11 +241,15 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                               ),
                                                               FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: APIOficialGroup
-                                                                    .getPackagesCall
-                                                                    .call(
-                                                                  authToken:
-                                                                      currentAuthenticationToken,
+                                                                future: FFAppState()
+                                                                    .packagesCacheGlobal(
+                                                                  requestFn: () =>
+                                                                      APIOficialGroup
+                                                                          .getPackagesCall
+                                                                          .call(
+                                                                    authToken:
+                                                                        currentAuthenticationToken,
+                                                                  ),
                                                                 ),
                                                                 builder: (context,
                                                                     snapshot) {

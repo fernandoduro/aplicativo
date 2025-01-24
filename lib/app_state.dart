@@ -384,6 +384,21 @@ class FFAppState extends ChangeNotifier {
   void clearServiceCacheGlobalCache() => _serviceCacheGlobalManager.clear();
   void clearServiceCacheGlobalCacheKey(String? uniqueKey) =>
       _serviceCacheGlobalManager.clearRequest(uniqueKey);
+
+  final _packagesCacheGlobalManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> packagesCacheGlobal({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _packagesCacheGlobalManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearPackagesCacheGlobalCache() => _packagesCacheGlobalManager.clear();
+  void clearPackagesCacheGlobalCacheKey(String? uniqueKey) =>
+      _packagesCacheGlobalManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

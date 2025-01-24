@@ -54,6 +54,8 @@ class _Services03WidgetState extends State<Services03Widget> {
       safeSetState(() {});
       logFirebaseEvent('Services03_clear_query_cache');
       FFAppState().clearServiceCacheGlobalCache();
+      logFirebaseEvent('Services03_clear_query_cache');
+      FFAppState().clearPackagesCacheGlobalCache();
     });
 
     _model.nameTextController ??= TextEditingController();
@@ -1106,8 +1108,8 @@ class _Services03WidgetState extends State<Services03Widget> {
 
                                                                           logFirebaseEvent(
                                                                               'Button_clear_query_cache');
-                                                                          _model
-                                                                              .clearPackageCacheCache();
+                                                                          FFAppState()
+                                                                              .clearPackagesCacheGlobalCache();
 
                                                                           safeSetState(
                                                                               () {});
@@ -1160,8 +1162,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                               ),
                                                               FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: _model
-                                                                    .packageCache(
+                                                                future: FFAppState()
+                                                                    .packagesCacheGlobal(
                                                                   requestFn: () =>
                                                                       APIOficialGroup
                                                                           .getPackagesCall
@@ -1461,7 +1463,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                                                         safeSetState(() {});
                                                                                                       }
                                                                                                       logFirebaseEvent('Icon_clear_query_cache');
-                                                                                                      _model.clearPackageCacheCache();
+                                                                                                      FFAppState().clearPackagesCacheGlobalCache();
                                                                                                     },
                                                                                                     child: Icon(
                                                                                                       Icons.delete_outline_outlined,
