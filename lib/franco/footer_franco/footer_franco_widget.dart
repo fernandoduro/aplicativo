@@ -2,9 +2,14 @@ import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'footer_franco_model.dart';
 export 'footer_franco_model.dart';
 
@@ -42,8 +47,8 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.95, 0.9),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.95, 0.9),
+            end: Offset(1.0, 1.0),
           ),
           TintEffect(
             curve: Curves.easeInOut,
@@ -57,8 +62,8 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 0.0),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.0, 0.0),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -91,7 +96,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Stack(
         children: [
           Column(
@@ -99,16 +104,16 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
             children: [
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 60.0,
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Material(
                   color: Colors.transparent,
                   elevation: 4.0,
@@ -124,12 +129,12 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
             ],
           ),
           Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -154,7 +159,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,7 +171,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.clinicMedical,
                                     color: FlutterFlowTheme.of(context).primary,
@@ -175,7 +180,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Text(
                                   'Início',
                                   style: FlutterFlowTheme.of(context)
@@ -213,7 +218,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -225,7 +230,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.clinicMedical,
                                     color: FlutterFlowTheme.of(context).primary,
@@ -234,7 +239,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Text(
                                   'Início',
                                   style: FlutterFlowTheme.of(context)
@@ -266,10 +271,10 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                         context.pushNamed('conversaAssistente');
                       },
                       child: Stack(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 4.0,
@@ -285,9 +290,9 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                       FlutterFlowTheme.of(context).primary,
                                       FlutterFlowTheme.of(context).secondary
                                     ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(1.0, -1.0),
-                                    end: const AlignmentDirectional(-1.0, 1.0),
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(1.0, -1.0),
+                                    end: AlignmentDirectional(-1.0, 1.0),
                                   ),
                                   borderRadius: BorderRadius.circular(100.0),
                                 ),
@@ -296,7 +301,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                 animationsMap['containerOnPageLoadAnimation']!),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -336,7 +341,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -348,7 +353,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.signOutAlt,
                                     color: FlutterFlowTheme.of(context).error,
@@ -357,7 +362,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Text(
                                   'Sair',
                                   style: FlutterFlowTheme.of(context)
@@ -401,7 +406,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -413,7 +418,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.signOutAlt,
                                     color: FlutterFlowTheme.of(context).error,
@@ -422,7 +427,7 @@ class _FooterFrancoWidgetState extends State<FooterFrancoWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Text(
                                   'Sair',
                                   style: FlutterFlowTheme.of(context)

@@ -10,12 +10,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -109,7 +113,7 @@ class _RequestWidgetState extends State<RequestWidget>
                   wrapWithModel(
                     model: _model.headerHelpModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const HeaderHelpWidget(),
+                    child: HeaderHelpWidget(),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -125,7 +129,7 @@ class _RequestWidgetState extends State<RequestWidget>
                               color: FlutterFlowTheme.of(context).primary,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: SingleChildScrollView(
                                 child: Column(
@@ -133,7 +137,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(16.0),
+                                      padding: EdgeInsets.all(16.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -141,7 +145,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: RichText(
                                               textScaler: MediaQuery.of(context)
                                                   .textScaler,
@@ -181,7 +185,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           35.0, 0.0, 35.0, 20.0),
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -194,7 +198,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: SingleChildScrollView(
                                                 child: Column(
                                                   mainAxisSize:
@@ -206,7 +210,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.all(16.0),
+                                                          EdgeInsets.all(16.0),
                                                       child:
                                                           SingleChildScrollView(
                                                         child: Column(
@@ -232,7 +236,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child: Text(
@@ -260,7 +264,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         .areaValueController ??= FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                    options: const [
+                                                                    options: [
                                                                       'Site',
                                                                       'Cliente',
                                                                       'Agenda',
@@ -310,7 +314,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         0.0,
                                                                     borderRadius:
                                                                         8.0,
-                                                                    margin: const EdgeInsetsDirectional
+                                                                    margin: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -327,12 +331,12 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           0.0,
@@ -352,7 +356,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  Container(
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
                                                                         1.0,
@@ -393,7 +397,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         enabledBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              const BorderSide(
+                                                                              BorderSide(
                                                                             color:
                                                                                 Color(0x00000000),
                                                                             width:
@@ -405,7 +409,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         focusedBorder:
                                                                             OutlineInputBorder(
                                                                           borderSide:
-                                                                              const BorderSide(
+                                                                              BorderSide(
                                                                             color:
                                                                                 Color(0x00000000),
                                                                             width:
@@ -466,7 +470,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             24.0,
@@ -598,10 +602,10 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                             .width *
                                                                         1.0,
                                                                     decoration:
-                                                                        const BoxDecoration(),
+                                                                        BoxDecoration(),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -643,7 +647,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         ),
                                                                                       ),
                                                                                       child: Align(
-                                                                                        alignment: const AlignmentDirectional(1.0, -1.0),
+                                                                                        alignment: AlignmentDirectional(1.0, -1.0),
                                                                                         child: InkWell(
                                                                                           splashColor: Colors.transparent,
                                                                                           focusColor: Colors.transparent,
@@ -657,15 +661,15 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                                   builder: (alertDialogContext) {
                                                                                                     return WebViewAware(
                                                                                                       child: AlertDialog(
-                                                                                                        content: const Text('Deseja realmente deletar essa imagem?'),
+                                                                                                        content: Text('Deseja realmente deletar essa imagem?'),
                                                                                                         actions: [
                                                                                                           TextButton(
                                                                                                             onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                            child: const Text('Cancelar'),
+                                                                                                            child: Text('Cancelar'),
                                                                                                           ),
                                                                                                           TextButton(
                                                                                                             onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                            child: const Text('Confirmar'),
+                                                                                                            child: Text('Confirmar'),
                                                                                                           ),
                                                                                                         ],
                                                                                                       ),
@@ -689,7 +693,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                     ),
                                                                                   ],
                                                                                 );
-                                                                              }).divide(const SizedBox(width: 8.0)),
+                                                                              }).divide(SizedBox(width: 8.0)),
                                                                             ),
                                                                           );
                                                                         },
@@ -698,7 +702,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child:
@@ -733,7 +737,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -752,14 +756,14 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                             .isRecording)
                                                                           Padding(
                                                                             padding:
-                                                                                const EdgeInsets.all(20.0),
+                                                                                EdgeInsets.all(20.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                                                                                   child: Container(
                                                                                     width: 20.0,
                                                                                     height: 20.0,
@@ -770,7 +774,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Align(
-                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: Text(
                                                                                     'REC',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -788,7 +792,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                         if (_model
                                                                             .isShowPlayer)
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 30.0,
                                                                                 0.0,
@@ -817,7 +821,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                             ),
                                                                           ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               24.0,
                                                                               0.0,
@@ -861,7 +865,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                                 ),
                                                                                               ),
-                                                                                              duration: const Duration(milliseconds: 4000),
+                                                                                              duration: Duration(milliseconds: 4000),
                                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                             ),
                                                                                           );
@@ -871,8 +875,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 options: FFButtonOptions(
                                                                                   width: 100.0,
                                                                                   height: 50.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                         fontFamily: 'Manrope',
@@ -924,9 +928,9 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 options: FFButtonOptions(
                                                                                   width: 100.0,
                                                                                   height: 50.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                  color: const Color(0xFFFF5963),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  color: Color(0xFFFF5963),
                                                                                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                         fontFamily: 'Manrope',
                                                                                         color: Colors.white,
@@ -945,7 +949,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             16.0,
@@ -978,7 +982,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1008,7 +1012,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1025,7 +1029,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: const Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 4000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
@@ -1039,8 +1043,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 1.0,
                                                                               height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Manrope',
@@ -1068,7 +1072,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: FutureBuilder<
@@ -1136,12 +1140,12 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                   '0')
                                                                 Align(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           -1.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -1169,11 +1173,11 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                 ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -1.0,
                                                                         0.0),
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           8.0,
@@ -1202,7 +1206,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                       ),
                                                                     ),
                                                                     child:
-                                                                        SizedBox(
+                                                                        Container(
                                                                       width: MediaQuery.sizeOf(context)
                                                                               .width *
                                                                           1.0,
@@ -1216,9 +1220,9 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 MainAxisAlignment.center,
                                                                             children: [
                                                                               Align(
-                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                 child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                   child: Column(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -1247,7 +1251,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                               )) !=
                                                                                               'canceled')
                                                                                             Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                               child: InkWell(
                                                                                                 splashColor: Colors.transparent,
                                                                                                 focusColor: Colors.transparent,
@@ -1261,15 +1265,15 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                                         builder: (alertDialogContext) {
                                                                                                           return WebViewAware(
                                                                                                             child: AlertDialog(
-                                                                                                              content: const Text('Você tem certeza que quer cancelar essa solicitação?'),
+                                                                                                              content: Text('Você tem certeza que quer cancelar essa solicitação?'),
                                                                                                               actions: [
                                                                                                                 TextButton(
                                                                                                                   onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                  child: const Text('Não'),
+                                                                                                                  child: Text('Não'),
                                                                                                                 ),
                                                                                                                 TextButton(
                                                                                                                   onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                  child: const Text('Sim, Cancelar'),
+                                                                                                                  child: Text('Sim, Cancelar'),
                                                                                                                 ),
                                                                                                               ],
                                                                                                             ),
@@ -1310,7 +1314,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                                             ),
                                                                                                           ),
-                                                                                                          duration: const Duration(milliseconds: 4000),
+                                                                                                          duration: Duration(milliseconds: 4000),
                                                                                                           backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                         ),
                                                                                                       );
@@ -1393,7 +1397,7 @@ class _RequestWidgetState extends State<RequestWidget>
                       wrapWithModel(
                         model: _model.footerWhiteModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: const FooterWhiteWidget(),
+                        child: FooterWhiteWidget(),
                       ),
                     ],
                   ),

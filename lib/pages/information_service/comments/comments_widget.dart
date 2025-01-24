@@ -7,12 +7,16 @@ import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -54,12 +58,12 @@ class _CommentsWidgetState extends State<CommentsWidget>
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
-      if (widget.idAppointment.toString() != '0') {
+      if (widget!.idAppointment.toString() != '0') {
         logFirebaseEvent('Comments_backend_call');
         _model.apiResult8nd =
             await APIOficialGroup.getAppointmentsByIDCall.call(
           authToken: currentAuthenticationToken,
-          id: widget.idAppointment?.toString(),
+          id: widget!.idAppointment?.toString(),
         );
 
         if ((_model.apiResult8nd?.succeeded ?? true)) {
@@ -151,7 +155,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                             model: _model.headerHelpModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: const HeaderHelpWidget(),
+                                            child: HeaderHelpWidget(),
                                           ),
                                           Expanded(
                                             child: SingleChildScrollView(
@@ -175,7 +179,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   20.0,
@@ -194,7 +198,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsets
+                                                                  EdgeInsets
                                                                       .all(
                                                                           16.0),
                                                               child: Row(
@@ -208,7 +212,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                   Flexible(
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           0.0,
                                                                           20.0,
@@ -247,7 +251,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           0.0,
@@ -260,7 +264,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                     .call(
                                                                   authToken:
                                                                       currentAuthenticationToken,
-                                                                  id: widget
+                                                                  id: widget!
                                                                       .idClient
                                                                       ?.toString(),
                                                                 ),
@@ -317,7 +321,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                       children: [
                                                                         Padding(
                                                                           padding:
-                                                                              const EdgeInsets.all(16.0),
+                                                                              EdgeInsets.all(16.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -349,7 +353,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                         'NewClient01',
                                                                                         queryParameters: {
                                                                                           'idClient': serializeParam(
-                                                                                            widget.idClient,
+                                                                                            widget!.idClient,
                                                                                             ParamType.int,
                                                                                           ),
                                                                                           'adicionadoPeloMais': serializeParam(
@@ -391,13 +395,13 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                         ],
                                                                                       ),
                                                                                       Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                         child: Column(
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
@@ -417,7 +421,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -428,9 +432,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Align(
-                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                       child: Padding(
-                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                         child: Container(
                                                                                                           width: 15.0,
                                                                                                           height: 15.0,
@@ -447,7 +451,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Padding(
-                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                       child: Text(
                                                                                                         getJsonField(
                                                                                                           containerGetClientByIDResponse.jsonBody,
@@ -467,9 +471,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Align(
-                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                       child: Padding(
-                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                         child: Container(
                                                                                                           width: 15.0,
                                                                                                           height: 15.0,
@@ -486,7 +490,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Padding(
-                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                       child: Text(
                                                                                                         getJsonField(
                                                                                                           containerGetClientByIDResponse.jsonBody,
@@ -504,7 +508,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -515,9 +519,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Align(
-                                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                       child: Padding(
-                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                         child: Container(
                                                                                                           width: 15.0,
                                                                                                           height: 15.0,
@@ -534,7 +538,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       ) !=
                                                                                                       null)
                                                                                                     Padding(
-                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                       child: Text(
                                                                                                         getJsonField(
                                                                                                           containerGetClientByIDResponse.jsonBody,
@@ -562,7 +566,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               16.0,
                                                                               0.0,
                                                                               16.0,
@@ -667,7 +671,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           16.0,
@@ -686,7 +690,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .all(
                                                                               16.0),
                                                                   child:
@@ -715,12 +719,12 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                               Stack(
                                                                             children: [
                                                                               Align(
-                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                alignment: AlignmentDirectional(0.0, 0.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                       child: Text(
                                                                                         'Comentários',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -732,8 +736,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                                      child: SizedBox(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                      child: Container(
                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                         child: TextFormField(
                                                                                           controller: _model.comentarioTextController,
@@ -752,7 +756,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                   letterSpacing: 0.0,
                                                                                                 ),
                                                                                             enabledBorder: OutlineInputBorder(
-                                                                                              borderSide: const BorderSide(
+                                                                                              borderSide: BorderSide(
                                                                                                 color: Color(0x00000000),
                                                                                                 width: 1.0,
                                                                                               ),
@@ -793,7 +797,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                       ),
                                                                                     ),
                                                                                     Align(
-                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                       child: Text(
                                                                                         'Gravar áudio',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -805,20 +809,20 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: [
                                                                                           if (_model.isRecording)
                                                                                             Padding(
-                                                                                              padding: const EdgeInsets.all(20.0),
+                                                                                              padding: EdgeInsets.all(20.0),
                                                                                               child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                                                                 children: [
                                                                                                   Padding(
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                                                                                                     child: Container(
                                                                                                       width: 20.0,
                                                                                                       height: 20.0,
@@ -829,7 +833,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                     ),
                                                                                                   ),
                                                                                                   Align(
-                                                                                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                                     child: Text(
                                                                                                       'REC',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -845,7 +849,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                               ),
                                                                                             ),
                                                                                           Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                                                             child: Row(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -882,7 +886,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -892,8 +896,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                   options: FFButtonOptions(
                                                                                                     width: 100.0,
                                                                                                     height: 50.0,
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                     textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                           fontFamily: 'Manrope',
@@ -943,9 +947,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                   options: FFButtonOptions(
                                                                                                     width: 100.0,
                                                                                                     height: 50.0,
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    color: const Color(0xFFFF5963),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                    color: Color(0xFFFF5963),
                                                                                                     textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                           fontFamily: 'Manrope',
                                                                                                           color: Colors.white,
@@ -962,7 +966,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                           ),
                                                                                           if (_model.isShowPlayer)
                                                                                             Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                                                                                               child: FlutterFlowAudioPlayer(
                                                                                                 audio: Audio.network(
                                                                                                   _model.recording2!,
@@ -989,18 +993,18 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                             child: FFButtonWidget(
                                                                                               onPressed: () {
                                                                                                 if (_model.isRecording) {
                                                                                                   return true;
-                                                                                                } else if ((_model.comentarioTextController.text == '') && (_model.audioBase64 == null || _model.audioBase64 == '')) {
+                                                                                                } else if ((_model.comentarioTextController.text == null || _model.comentarioTextController.text == '') && (_model.audioBase64 == null || _model.audioBase64 == '')) {
                                                                                                   return true;
                                                                                                 } else {
                                                                                                   return false;
@@ -1016,7 +1020,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             authToken: currentAuthenticationToken,
                                                                                                             bodyJson: <String, String?>{
                                                                                                               'comment': _model.comentarioTextController.text,
-                                                                                                              'appointment_id': widget.idAppointment?.toString(),
+                                                                                                              'appointment_id': widget!.idAppointment?.toString(),
                                                                                                             },
                                                                                                           );
 
@@ -1030,7 +1034,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1044,7 +1048,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1055,7 +1059,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             authToken: currentAuthenticationToken,
                                                                                                             bodyJson: <String, String?>{
                                                                                                               'comment': _model.comentarioTextController.text,
-                                                                                                              'appointment_id': widget.idAppointment?.toString(),
+                                                                                                              'appointment_id': widget!.idAppointment?.toString(),
                                                                                                               'audio_file': functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                                             },
                                                                                                           );
@@ -1070,7 +1074,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1084,7 +1088,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1097,7 +1101,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             authToken: currentAuthenticationToken,
                                                                                                             bodyJson: <String, String?>{
                                                                                                               'comment': _model.comentarioTextController.text,
-                                                                                                              'appointment_id': widget.idAppointment?.toString(),
+                                                                                                              'appointment_id': widget!.idAppointment?.toString(),
                                                                                                               'comment_id': _model.idComment?.toString(),
                                                                                                             },
                                                                                                           );
@@ -1112,7 +1116,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1126,7 +1130,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1137,7 +1141,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             authToken: currentAuthRefreshToken,
                                                                                                             bodyJson: <String, String?>{
                                                                                                               'comment': _model.comentarioTextController.text,
-                                                                                                              'appointment_id': widget.idAppointment?.toString(),
+                                                                                                              'appointment_id': widget!.idAppointment?.toString(),
                                                                                                               'audio_file': functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                                               'comment_id': _model.idComment?.toString(),
                                                                                                             },
@@ -1153,7 +1157,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1167,7 +1171,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                   ),
                                                                                                                 ),
-                                                                                                                duration: const Duration(milliseconds: 4000),
+                                                                                                                duration: Duration(milliseconds: 4000),
                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                               ),
                                                                                                             );
@@ -1191,8 +1195,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                               options: FFButtonOptions(
                                                                                                 width: MediaQuery.sizeOf(context).width * 0.7,
                                                                                                 height: 44.0,
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                       fontFamily: 'Manrope',
@@ -1200,7 +1204,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       letterSpacing: 0.0,
                                                                                                     ),
                                                                                                 elevation: 3.0,
-                                                                                                borderSide: const BorderSide(
+                                                                                                borderSide: BorderSide(
                                                                                                   color: Colors.transparent,
                                                                                                   width: 1.0,
                                                                                                 ),
@@ -1219,7 +1223,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                         FutureBuilder<ApiCallResponse>(
                                                                                           future: APIOficialGroup.listCommentsCall.call(
                                                                                             authToken: currentAuthenticationToken,
-                                                                                            appointmentId: widget.idAppointment?.toString(),
+                                                                                            appointmentId: widget!.idAppointment?.toString(),
                                                                                           ),
                                                                                           builder: (context, snapshot) {
                                                                                             // Customize what your widget looks like when it's loading.
@@ -1257,7 +1261,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                       children: [
                                                                                                         if (commentsListIndex.toString() == '0')
                                                                                                           Align(
-                                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                             child: Text(
                                                                                                               'Seus Comentários',
                                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1269,9 +1273,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             ),
                                                                                                           ),
                                                                                                         Align(
-                                                                                                          alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                                           child: Padding(
-                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                                                                                                             child: Container(
                                                                                                               decoration: BoxDecoration(
                                                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1280,7 +1284,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                   color: FlutterFlowTheme.of(context).alternate,
                                                                                                                 ),
                                                                                                               ),
-                                                                                                              child: SizedBox(
+                                                                                                              child: Container(
                                                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                                                 child: Stack(
                                                                                                                   children: [
@@ -1289,9 +1293,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                                                                                       children: [
                                                                                                                         Align(
-                                                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                                           child: Padding(
-                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                                                                                                                             child: Column(
                                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                                               mainAxisAlignment: MainAxisAlignment.start,
@@ -1302,7 +1306,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                     commentsListItem,
                                                                                                                                     r'''$.appointment.scheduled_at''',
                                                                                                                                   ).toString())!,
-                                                                                                                                  style: const TextStyle(
+                                                                                                                                  style: TextStyle(
                                                                                                                                     fontWeight: FontWeight.w800,
                                                                                                                                   ),
                                                                                                                                 ),
@@ -1311,9 +1315,9 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                           ),
                                                                                                                         ),
                                                                                                                         Align(
-                                                                                                                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                                           child: Padding(
-                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                                                                                                                             child: Column(
                                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                                               mainAxisAlignment: MainAxisAlignment.start,
@@ -1373,7 +1377,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                           mainAxisAlignment: MainAxisAlignment.end,
                                                                                                                           children: [
                                                                                                                             Padding(
-                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 10.0),
+                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 10.0),
                                                                                                                               child: Row(
                                                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -1397,19 +1401,19 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                       logFirebaseEvent('Button_scroll_to');
                                                                                                                                       await _model.body?.animateTo(
                                                                                                                                         0,
-                                                                                                                                        duration: const Duration(milliseconds: 100),
+                                                                                                                                        duration: Duration(milliseconds: 100),
                                                                                                                                         curve: Curves.ease,
                                                                                                                                       );
                                                                                                                                     },
                                                                                                                                     text: 'Editar',
-                                                                                                                                    icon: const Icon(
+                                                                                                                                    icon: Icon(
                                                                                                                                       Icons.edit,
                                                                                                                                       size: 15.0,
                                                                                                                                     ),
                                                                                                                                     options: FFButtonOptions(
                                                                                                                                       height: 40.0,
-                                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                                             fontFamily: 'Manrope',
@@ -1421,7 +1425,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                     ),
                                                                                                                                   ),
                                                                                                                                   Padding(
-                                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
+                                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
                                                                                                                                     child: FFButtonWidget(
                                                                                                                                       onPressed: () async {
                                                                                                                                         logFirebaseEvent('COMMENTS_PAGE_EXCLUIR_BTN_ON_TAP');
@@ -1431,15 +1435,15 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                               builder: (alertDialogContext) {
                                                                                                                                                 return WebViewAware(
                                                                                                                                                   child: AlertDialog(
-                                                                                                                                                    content: const Text('Deseja excluir o comentário?'),
+                                                                                                                                                    content: Text('Deseja excluir o comentário?'),
                                                                                                                                                     actions: [
                                                                                                                                                       TextButton(
                                                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                                        child: const Text('Não'),
+                                                                                                                                                        child: Text('Não'),
                                                                                                                                                       ),
                                                                                                                                                       TextButton(
                                                                                                                                                         onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                                        child: const Text('Sim'),
+                                                                                                                                                        child: Text('Sim'),
                                                                                                                                                       ),
                                                                                                                                                     ],
                                                                                                                                                   ),
@@ -1466,7 +1470,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                                                 ),
                                                                                                                                               ),
-                                                                                                                                              duration: const Duration(milliseconds: 4000),
+                                                                                                                                              duration: Duration(milliseconds: 4000),
                                                                                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                                                             ),
                                                                                                                                           );
@@ -1476,14 +1480,14 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                         }
                                                                                                                                       },
                                                                                                                                       text: 'Excluir',
-                                                                                                                                      icon: const Icon(
+                                                                                                                                      icon: Icon(
                                                                                                                                         Icons.delete_sharp,
                                                                                                                                         size: 15.0,
                                                                                                                                       ),
                                                                                                                                       options: FFButtonOptions(
                                                                                                                                         height: 40.0,
-                                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                                         color: FlutterFlowTheme.of(context).error,
                                                                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                                               fontFamily: 'Manrope',
@@ -1546,7 +1550,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                 model: _model.footerWhiteModel,
                                                 updateCallback: () =>
                                                     safeSetState(() {}),
-                                                child: const FooterWhiteWidget(),
+                                                child: FooterWhiteWidget(),
                                               ),
                                             ],
                                           ),

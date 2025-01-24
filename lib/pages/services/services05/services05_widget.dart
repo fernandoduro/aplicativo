@@ -7,11 +7,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/services/text_field_hours/text_field_hours_widget.dart';
+import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'services05_model.dart';
 export 'services05_model.dart';
@@ -111,7 +114,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                               wrapWithModel(
                                 model: _model.headerHelpModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const HeaderHelpWidget(),
+                                child: HeaderHelpWidget(),
                               ),
                               Expanded(
                                 child: SingleChildScrollView(
@@ -135,7 +138,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 0.0),
                                             child: SingleChildScrollView(
                                               child: Column(
@@ -145,7 +148,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 16.0),
                                                     child: RichText(
@@ -193,7 +196,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 32.0),
                                                     child: Container(
@@ -223,7 +226,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           16.0,
@@ -259,7 +262,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: Text(
                                                                                 getJsonField(
                                                                                   workItem,
@@ -294,7 +297,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                   children: List.generate(hours.length, (hoursIndex) {
                                                                                     final hoursItem = hours[hoursIndex];
                                                                                     return Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                       child: Row(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         mainAxisAlignment: MainAxisAlignment.start,
@@ -328,7 +331,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                               children: [
                                                                                                 Flexible(
                                                                                                   child: Padding(
-                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
                                                                                                     child: FlutterFlowIconButton(
                                                                                                       borderColor: Colors.transparent,
                                                                                                       borderRadius: 30.0,
@@ -458,7 +461,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -502,15 +505,15 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                const Duration(milliseconds: 4000),
+                                                                                Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
                                                                         );
-                                                                        if ((widget.originConfig == 'schedule') ||
-                                                                            (widget.originConfig ==
+                                                                        if ((widget!.originConfig == 'schedule') ||
+                                                                            (widget!.originConfig ==
                                                                                 'client') ||
-                                                                            (widget.originConfig ==
+                                                                            (widget!.originConfig ==
                                                                                 'newClient')) {
                                                                           logFirebaseEvent(
                                                                               'Button_action_block');
@@ -518,7 +521,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                               .firstConfigNavigation(
                                                                             context,
                                                                             originConfig:
-                                                                                widget.originConfig,
+                                                                                widget!.originConfig,
                                                                           );
                                                                         }
                                                                       } else {
@@ -538,7 +541,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                const Duration(milliseconds: 4000),
+                                                                                Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).error,
                                                                           ),
@@ -554,12 +557,12 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                         FFButtonOptions(
                                                                       height:
                                                                           40.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -609,7 +612,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                   wrapWithModel(
                                     model: _model.footerWhiteModel,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const FooterWhiteWidget(),
+                                    child: FooterWhiteWidget(),
                                   ),
                                 ],
                               ),

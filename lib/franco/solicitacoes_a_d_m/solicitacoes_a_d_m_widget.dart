@@ -5,10 +5,15 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/franco/footer_franco/footer_franco_widget.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'solicitacoes_a_d_m_model.dart';
 export 'solicitacoes_a_d_m_model.dart';
@@ -217,13 +222,13 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        endDrawer: SizedBox(
+        endDrawer: Container(
           width: MediaQuery.sizeOf(context).width * 0.9,
           child: Drawer(
             elevation: 16.0,
             child: WebViewAware(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 60.0, 16.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 60.0, 16.0, 16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -239,7 +244,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -268,7 +273,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,
                         text: TextSpan(
@@ -297,7 +302,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                         ),
                       ),
                     ),
-                    SizedBox(
+                    Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       child: TextFormField(
                         controller: _model.textController,
@@ -324,14 +329,14 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                     letterSpacing: 0.0,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0x00000000),
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0x00000000),
                               width: 1.0,
                             ),
@@ -364,7 +369,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                             _model.textControllerValidator.asValidator(context),
                       ),
                     ),
-                    const Padding(
+                    Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Column(
@@ -373,7 +378,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                         children: [],
                       ),
                     ),
-                  ].divide(const SizedBox(height: 16.0)),
+                  ].divide(SizedBox(height: 16.0)),
                 ),
               ),
             ),
@@ -387,22 +392,22 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerHelpModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHelpWidget(),
+                      child: HeaderHelpWidget(),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.85,
                               decoration: BoxDecoration(
@@ -418,9 +423,9 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -437,7 +442,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                               BorderRadius.circular(8.0),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -446,7 +451,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         1.0,
-                                                decoration: const BoxDecoration(),
+                                                decoration: BoxDecoration(),
                                                 child: RichText(
                                                   textScaler:
                                                       MediaQuery.of(context)
@@ -498,7 +503,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                         child: Column(
                                           children: [
                                             Align(
-                                              alignment: const Alignment(0.0, 0),
+                                              alignment: Alignment(0.0, 0),
                                               child: TabBar(
                                                 labelColor:
                                                     FlutterFlowTheme.of(context)
@@ -523,7 +528,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                 indicatorColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                tabs: const [
+                                                tabs: [
                                                   Tab(
                                                     text: 'Pendentes',
                                                   ),
@@ -552,7 +557,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     16.0,
@@ -586,7 +591,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsets
+                                                                    EdgeInsets
                                                                         .all(
                                                                             8.0),
                                                                 child: Wrap(
@@ -612,21 +617,22 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                   children: [
                                                                     Container(
                                                                       constraints:
-                                                                          const BoxConstraints(
+                                                                          BoxConstraints(
                                                                         maxWidth:
                                                                             600.0,
                                                                       ),
                                                                       decoration:
-                                                                          const BoxDecoration(),
+                                                                          BoxDecoration(),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children:
                                                                             [
-                                                                          if (currentUserUid != '')
+                                                                          if (currentUserUid != null &&
+                                                                              currentUserUid != '')
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.check_box_outline_blank,
                                                                                 color: FlutterFlowTheme.of(context).error,
@@ -641,7 +647,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                             clipBehavior:
                                                                                 Clip.antiAlias,
                                                                             decoration:
-                                                                                const BoxDecoration(
+                                                                                BoxDecoration(
                                                                               shape: BoxShape.circle,
                                                                             ),
                                                                             child:
@@ -686,26 +692,27 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(const SizedBox(width: 16.0)),
+                                                                        ].divide(SizedBox(width: 16.0)),
                                                                       ),
                                                                     ),
                                                                     Container(
                                                                       constraints:
-                                                                          const BoxConstraints(
+                                                                          BoxConstraints(
                                                                         maxWidth:
                                                                             600.0,
                                                                       ),
                                                                       decoration:
-                                                                          const BoxDecoration(),
+                                                                          BoxDecoration(),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children:
                                                                             [
-                                                                          if (currentUserUid != '')
+                                                                          if (currentUserUid != null &&
+                                                                              currentUserUid != '')
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.check_box_outline_blank,
                                                                                 color: FlutterFlowTheme.of(context).error,
@@ -713,7 +720,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               ),
                                                                             ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 16.0,
@@ -761,7 +768,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(const SizedBox(width: 0.0)),
+                                                                        ].divide(SizedBox(width: 0.0)),
                                                                       ),
                                                                     ),
                                                                     Row(
@@ -771,6 +778,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                       children:
                                                                           [
                                                                         if (currentUserUid !=
+                                                                                null &&
+                                                                            currentUserUid !=
                                                                                 '')
                                                                           Expanded(
                                                                             child:
@@ -785,8 +794,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               options: FFButtonOptions(
                                                                                 width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                 height: 40.0,
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).error,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Manrope',
@@ -795,7 +804,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: const BorderSide(
+                                                                                borderSide: BorderSide(
                                                                                   color: Colors.transparent,
                                                                                   width: 1.0,
                                                                                 ),
@@ -819,8 +828,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 0.8,
                                                                               height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Manrope',
@@ -829,7 +838,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               elevation: 3.0,
-                                                                              borderSide: const BorderSide(
+                                                                              borderSide: BorderSide(
                                                                                 color: Colors.transparent,
                                                                                 width: 1.0,
                                                                               ),
@@ -853,8 +862,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 0.8,
                                                                               height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).warning,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Manrope',
@@ -863,7 +872,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               elevation: 3.0,
-                                                                              borderSide: const BorderSide(
+                                                                              borderSide: BorderSide(
                                                                                 color: Colors.transparent,
                                                                                 width: 1.0,
                                                                               ),
@@ -871,20 +880,20 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                             ),
                                                                           ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation3']!),
                                                                         ),
-                                                                      ].divide(const SizedBox(
+                                                                      ].divide(SizedBox(
                                                                               width: 8.0)),
                                                                     ),
                                                                   ],
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               height: 16.0)),
                                                         ),
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     16.0,
@@ -918,7 +927,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsets
+                                                                    EdgeInsets
                                                                         .all(
                                                                             8.0),
                                                                 child: Wrap(
@@ -944,21 +953,22 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                   children: [
                                                                     Container(
                                                                       constraints:
-                                                                          const BoxConstraints(
+                                                                          BoxConstraints(
                                                                         maxWidth:
                                                                             600.0,
                                                                       ),
                                                                       decoration:
-                                                                          const BoxDecoration(),
+                                                                          BoxDecoration(),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children:
                                                                             [
-                                                                          if (currentUserUid != '')
+                                                                          if (currentUserUid != null &&
+                                                                              currentUserUid != '')
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.check_box_outline_blank,
                                                                                 color: FlutterFlowTheme.of(context).error,
@@ -973,7 +983,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                             clipBehavior:
                                                                                 Clip.antiAlias,
                                                                             decoration:
-                                                                                const BoxDecoration(
+                                                                                BoxDecoration(
                                                                               shape: BoxShape.circle,
                                                                             ),
                                                                             child:
@@ -1018,26 +1028,27 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(const SizedBox(width: 16.0)),
+                                                                        ].divide(SizedBox(width: 16.0)),
                                                                       ),
                                                                     ),
                                                                     Container(
                                                                       constraints:
-                                                                          const BoxConstraints(
+                                                                          BoxConstraints(
                                                                         maxWidth:
                                                                             600.0,
                                                                       ),
                                                                       decoration:
-                                                                          const BoxDecoration(),
+                                                                          BoxDecoration(),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children:
                                                                             [
-                                                                          if (currentUserUid != '')
+                                                                          if (currentUserUid != null &&
+                                                                              currentUserUid != '')
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.check_box_outline_blank,
                                                                                 color: FlutterFlowTheme.of(context).error,
@@ -1045,7 +1056,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               ),
                                                                             ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 16.0,
@@ -1093,7 +1104,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ].divide(const SizedBox(width: 0.0)),
+                                                                        ].divide(SizedBox(width: 0.0)),
                                                                       ),
                                                                     ),
                                                                     Row(
@@ -1103,6 +1114,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                       children:
                                                                           [
                                                                         if (currentUserUid !=
+                                                                                null &&
+                                                                            currentUserUid !=
                                                                                 '')
                                                                           Expanded(
                                                                             child:
@@ -1117,8 +1130,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               options: FFButtonOptions(
                                                                                 width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                 height: 40.0,
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).error,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Manrope',
@@ -1127,7 +1140,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: const BorderSide(
+                                                                                borderSide: BorderSide(
                                                                                   color: Colors.transparent,
                                                                                   width: 1.0,
                                                                                 ),
@@ -1151,8 +1164,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 0.8,
                                                                               height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Manrope',
@@ -1161,7 +1174,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               elevation: 3.0,
-                                                                              borderSide: const BorderSide(
+                                                                              borderSide: BorderSide(
                                                                                 color: Colors.transparent,
                                                                                 width: 1.0,
                                                                               ),
@@ -1185,8 +1198,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 FFButtonOptions(
                                                                               width: MediaQuery.sizeOf(context).width * 0.8,
                                                                               height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).warning,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Manrope',
@@ -1195,7 +1208,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                               elevation: 3.0,
-                                                                              borderSide: const BorderSide(
+                                                                              borderSide: BorderSide(
                                                                                 color: Colors.transparent,
                                                                                 width: 1.0,
                                                                               ),
@@ -1203,14 +1216,14 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                             ),
                                                                           ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation6']!),
                                                                         ),
-                                                                      ].divide(const SizedBox(
+                                                                      ].divide(SizedBox(
                                                                               width: 8.0)),
                                                                     ),
                                                                   ],
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               height: 16.0)),
                                                         ),
                                                       ),
@@ -1226,7 +1239,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         16.0,
@@ -1262,7 +1275,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             8.0),
                                                                     child: Wrap(
                                                                       spacing:
@@ -1288,21 +1301,21 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                       children: [
                                                                         Container(
                                                                           constraints:
-                                                                              const BoxConstraints(
+                                                                              BoxConstraints(
                                                                             maxWidth:
                                                                                 600.0,
                                                                           ),
                                                                           decoration:
-                                                                              const BoxDecoration(),
+                                                                              BoxDecoration(),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             children:
                                                                                 [
-                                                                              if (currentUserUid != '')
+                                                                              if (currentUserUid != null && currentUserUid != '')
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Icon(
                                                                                     Icons.check_box_outline_blank,
                                                                                     color: FlutterFlowTheme.of(context).error,
@@ -1313,7 +1326,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 width: 60.0,
                                                                                 height: 60.0,
                                                                                 clipBehavior: Clip.antiAlias,
-                                                                                decoration: const BoxDecoration(
+                                                                                decoration: BoxDecoration(
                                                                                   shape: BoxShape.circle,
                                                                                 ),
                                                                                 child: Image.network(
@@ -1354,26 +1367,26 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ].divide(const SizedBox(width: 16.0)),
+                                                                            ].divide(SizedBox(width: 16.0)),
                                                                           ),
                                                                         ),
                                                                         Container(
                                                                           constraints:
-                                                                              const BoxConstraints(
+                                                                              BoxConstraints(
                                                                             maxWidth:
                                                                                 600.0,
                                                                           ),
                                                                           decoration:
-                                                                              const BoxDecoration(),
+                                                                              BoxDecoration(),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             children:
                                                                                 [
-                                                                              if (currentUserUid != '')
+                                                                              if (currentUserUid != null && currentUserUid != '')
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Icon(
                                                                                     Icons.check_box_outline_blank,
                                                                                     color: FlutterFlowTheme.of(context).error,
@@ -1381,7 +1394,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   ),
                                                                                 ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.check_box,
                                                                                   color: FlutterFlowTheme.of(context).success,
@@ -1421,7 +1434,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ].divide(const SizedBox(width: 0.0)),
+                                                                            ].divide(SizedBox(width: 0.0)),
                                                                           ),
                                                                         ),
                                                                         Row(
@@ -1429,7 +1442,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               MainAxisSize.max,
                                                                           children:
                                                                               [
-                                                                            if (currentUserUid != '')
+                                                                            if (currentUserUid != null &&
+                                                                                currentUserUid != '')
                                                                               Expanded(
                                                                                 child: FFButtonWidget(
                                                                                   onPressed: () async {
@@ -1442,8 +1456,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   options: FFButtonOptions(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                     height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).error,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Manrope',
@@ -1452,7 +1466,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                     elevation: 3.0,
-                                                                                    borderSide: const BorderSide(
+                                                                                    borderSide: BorderSide(
                                                                                       color: Colors.transparent,
                                                                                       width: 1.0,
                                                                                     ),
@@ -1472,8 +1486,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 options: FFButtonOptions(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                   height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Manrope',
@@ -1482,7 +1496,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
+                                                                                  borderSide: BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -1502,8 +1516,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 options: FFButtonOptions(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                   height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).warning,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Manrope',
@@ -1512,7 +1526,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
+                                                                                  borderSide: BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -1520,20 +1534,20 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 ),
                                                                               ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation9']!),
                                                                             ),
-                                                                          ].divide(const SizedBox(width: 8.0)),
+                                                                          ].divide(SizedBox(width: 8.0)),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height:
                                                                       16.0)),
                                                             ),
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         16.0,
@@ -1569,7 +1583,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             8.0),
                                                                     child: Wrap(
                                                                       spacing:
@@ -1595,21 +1609,21 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                       children: [
                                                                         Container(
                                                                           constraints:
-                                                                              const BoxConstraints(
+                                                                              BoxConstraints(
                                                                             maxWidth:
                                                                                 600.0,
                                                                           ),
                                                                           decoration:
-                                                                              const BoxDecoration(),
+                                                                              BoxDecoration(),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             children:
                                                                                 [
-                                                                              if (currentUserUid != '')
+                                                                              if (currentUserUid != null && currentUserUid != '')
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Icon(
                                                                                     Icons.check_box_outline_blank,
                                                                                     color: FlutterFlowTheme.of(context).error,
@@ -1620,7 +1634,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 width: 60.0,
                                                                                 height: 60.0,
                                                                                 clipBehavior: Clip.antiAlias,
-                                                                                decoration: const BoxDecoration(
+                                                                                decoration: BoxDecoration(
                                                                                   shape: BoxShape.circle,
                                                                                 ),
                                                                                 child: Image.network(
@@ -1661,26 +1675,26 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ].divide(const SizedBox(width: 16.0)),
+                                                                            ].divide(SizedBox(width: 16.0)),
                                                                           ),
                                                                         ),
                                                                         Container(
                                                                           constraints:
-                                                                              const BoxConstraints(
+                                                                              BoxConstraints(
                                                                             maxWidth:
                                                                                 600.0,
                                                                           ),
                                                                           decoration:
-                                                                              const BoxDecoration(),
+                                                                              BoxDecoration(),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             children:
                                                                                 [
-                                                                              if (currentUserUid != '')
+                                                                              if (currentUserUid != null && currentUserUid != '')
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                   child: Icon(
                                                                                     Icons.check_box_outline_blank,
                                                                                     color: FlutterFlowTheme.of(context).error,
@@ -1688,7 +1702,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   ),
                                                                                 ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.check_box,
                                                                                   color: FlutterFlowTheme.of(context).success,
@@ -1728,7 +1742,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ].divide(const SizedBox(width: 0.0)),
+                                                                            ].divide(SizedBox(width: 0.0)),
                                                                           ),
                                                                         ),
                                                                         Row(
@@ -1736,7 +1750,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                               MainAxisSize.max,
                                                                           children:
                                                                               [
-                                                                            if (currentUserUid != '')
+                                                                            if (currentUserUid != null &&
+                                                                                currentUserUid != '')
                                                                               Expanded(
                                                                                 child: FFButtonWidget(
                                                                                   onPressed: () async {
@@ -1749,8 +1764,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                   options: FFButtonOptions(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                     height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).error,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Manrope',
@@ -1759,7 +1774,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                     elevation: 3.0,
-                                                                                    borderSide: const BorderSide(
+                                                                                    borderSide: BorderSide(
                                                                                       color: Colors.transparent,
                                                                                       width: 1.0,
                                                                                     ),
@@ -1779,8 +1794,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 options: FFButtonOptions(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                   height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Manrope',
@@ -1789,7 +1804,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
+                                                                                  borderSide: BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -1809,8 +1824,8 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 options: FFButtonOptions(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.8,
                                                                                   height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).warning,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Manrope',
@@ -1819,7 +1834,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
+                                                                                  borderSide: BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -1827,13 +1842,13 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                                                                 ),
                                                                               ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation12']!),
                                                                             ),
-                                                                          ].divide(const SizedBox(width: 8.0)),
+                                                                          ].divide(SizedBox(width: 8.0)),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height:
                                                                       16.0)),
                                                             ),
@@ -1848,7 +1863,7 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                                           ],
                                         ),
                                       ),
-                                    ].divide(const SizedBox(height: 8.0)),
+                                    ].divide(SizedBox(height: 8.0)),
                                   ),
                                 ),
                               ),
@@ -1863,11 +1878,11 @@ class _SolicitacoesADMWidgetState extends State<SolicitacoesADMWidget>
                     children: [
                       Container(
                         height: 100.0,
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: wrapWithModel(
                           model: _model.footerFrancoModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const FooterFrancoWidget(),
+                          child: FooterFrancoWidget(),
                         ),
                       ),
                     ],

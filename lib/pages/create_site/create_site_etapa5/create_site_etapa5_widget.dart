@@ -6,10 +6,13 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapa5_model.dart';
 export 'create_site_etapa5_model.dart';
@@ -200,17 +203,17 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
               wrapWithModel(
                 model: _model.headerBalaoModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const HeaderBalaoWidget(),
+                child: HeaderBalaoWidget(),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.85,
                             decoration: BoxDecoration(
@@ -225,7 +228,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 15.0, 20.0, 15.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.9,
@@ -235,7 +238,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                 shape: BoxShape.rectangle,
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(20.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -243,7 +246,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -253,7 +256,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 BorderRadius.circular(10.0),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -267,7 +270,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            const Color(0xFF12151C),
+                                                            Color(0xFF12151C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -281,7 +284,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation2']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -292,7 +295,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -303,7 +306,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -313,7 +316,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -331,7 +334,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation3']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -342,7 +345,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -353,7 +356,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -363,7 +366,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -381,7 +384,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation4']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -392,7 +395,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -403,7 +406,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -413,7 +416,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -431,7 +434,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation5']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -442,7 +445,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -453,7 +456,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -463,7 +466,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -481,7 +484,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation6']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -492,7 +495,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -503,7 +506,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -513,7 +516,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -531,7 +534,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation7']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -542,7 +545,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -553,7 +556,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -563,7 +566,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -581,7 +584,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             'containerOnPageLoadAnimation8']!),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -592,7 +595,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -603,7 +606,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 5.0, 0.0),
                                                     child: Text(
@@ -613,7 +616,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF12151C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -660,10 +663,10 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                           width: double.infinity,
                                           height: 44.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -676,7 +679,7 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                                                     letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -702,11 +705,11 @@ class _CreateSiteEtapa5WidgetState extends State<CreateSiteEtapa5Widget>
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const FooterWidget(),
+                      child: FooterWidget(),
                     ),
                   ),
                 ],
