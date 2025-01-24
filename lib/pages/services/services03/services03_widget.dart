@@ -380,11 +380,15 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                               ),
                                                               FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: APIOficialGroup
-                                                                    .getServicesCall
-                                                                    .call(
-                                                                  authToken:
-                                                                      currentAuthenticationToken,
+                                                                future: _model
+                                                                    .serviceCache(
+                                                                  requestFn: () =>
+                                                                      APIOficialGroup
+                                                                          .getServicesCall
+                                                                          .call(
+                                                                    authToken:
+                                                                        currentAuthenticationToken,
+                                                                  ),
                                                                 ),
                                                                 builder: (context,
                                                                     snapshot) {

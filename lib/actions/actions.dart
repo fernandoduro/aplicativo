@@ -98,32 +98,14 @@ Future seuSite(BuildContext context) async {
       authToken: currentAuthenticationToken,
     );
 
-    if (getJsonField(
-          (siteResult2?.jsonBody ?? ''),
-          r'''$.data.domain''',
-        ) !=
-        null) {
-      logFirebaseEvent('seuSite_update_app_state');
-      FFAppState().existSite = true;
-      FFAppState().dataSite = getJsonField(
-        (siteResult2?.jsonBody ?? ''),
-        r'''$.data''',
-      );
-      logFirebaseEvent('seuSite_navigate_to');
-      if (Navigator.of(context).canPop()) {
-        context.pop();
-      }
-      context.pushNamed('CreateSiteEtapa6');
-    } else {
-      if (FFAppState().codigoSiteUsado == true) {
-        logFirebaseEvent('seuSite_navigate_to');
-        if (Navigator.of(context).canPop()) {
-          context.pop();
-        }
-        context.pushNamed('CreateSiteEtapa6');
-      } else {
+    if ((siteResult2?.succeeded ?? true)) {
+      if (getJsonField(
+            (siteResult2?.jsonBody ?? ''),
+            r'''$.data.domain''',
+          ) !=
+          null) {
         logFirebaseEvent('seuSite_update_app_state');
-        FFAppState().existSite = false;
+        FFAppState().existSite = true;
         FFAppState().dataSite = getJsonField(
           (siteResult2?.jsonBody ?? ''),
           r'''$.data''',
@@ -132,7 +114,33 @@ Future seuSite(BuildContext context) async {
         if (Navigator.of(context).canPop()) {
           context.pop();
         }
-        context.pushNamed('CreateSiteEtapa1');
+        context.pushNamed('CreateSiteEtapa6');
+      } else {
+        if (FFAppState().codigoSiteUsado == true) {
+          logFirebaseEvent('seuSite_navigate_to');
+          if (Navigator.of(context).canPop()) {
+            context.pop();
+          }
+          context.pushNamed('CreateSiteEtapa6');
+        } else {
+          logFirebaseEvent('seuSite_update_app_state');
+          FFAppState().existSite = false;
+          FFAppState().dataSite = getJsonField(
+            (siteResult2?.jsonBody ?? ''),
+            r'''$.data''',
+          );
+          logFirebaseEvent('seuSite_navigate_to');
+          if (Navigator.of(context).canPop()) {
+            context.pop();
+          }
+          context.pushNamed('CreateSiteEtapa1');
+        }
+      }
+    } else {
+      if ((siteResult2?.statusCode ?? 200) == 401) {
+        logFirebaseEvent('seuSite_navigate_to');
+
+        context.pushNamed('Login');
       }
     }
   }

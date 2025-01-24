@@ -114,6 +114,12 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
               });
             }),
           ]);
+        } else {
+          if ((_model.apiResultUserEdit?.statusCode ?? 200) == 401) {
+            logFirebaseEvent('EditarPerfil_navigate_to');
+
+            context.pushNamed('Login');
+          }
         }
       }
     });

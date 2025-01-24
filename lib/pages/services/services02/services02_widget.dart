@@ -680,8 +680,21 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             _model.editService = 0;
                                                                                             safeSetState(() {});
                                                                                             if (widget!.adicionadoPeloMais!) {
-                                                                                              logFirebaseEvent('Button_navigate_back');
-                                                                                              context.safePop();
+                                                                                              logFirebaseEvent('Button_navigate_to');
+
+                                                                                              context.pushNamed(
+                                                                                                'Services03',
+                                                                                                queryParameters: {
+                                                                                                  'adicionadoPeloMais': serializeParam(
+                                                                                                    false,
+                                                                                                    ParamType.bool,
+                                                                                                  ),
+                                                                                                  'originConfig': serializeParam(
+                                                                                                    widget!.originConfig,
+                                                                                                    ParamType.String,
+                                                                                                  ),
+                                                                                                }.withoutNulls,
+                                                                                              );
                                                                                             } else {
                                                                                               if ((widget!.originConfig == 'schedule') || (widget!.originConfig == 'client') || (widget!.originConfig == 'newClient')) {
                                                                                                 logFirebaseEvent('Button_action_block');

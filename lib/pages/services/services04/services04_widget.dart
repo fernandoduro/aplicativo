@@ -200,12 +200,15 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                   .disabled,
                                                           child: FutureBuilder<
                                                               ApiCallResponse>(
-                                                            future:
-                                                                APIOficialGroup
-                                                                    .getUserCall
-                                                                    .call(
-                                                              authToken:
-                                                                  currentAuthenticationToken,
+                                                            future: _model
+                                                                .userCache(
+                                                              requestFn: () =>
+                                                                  APIOficialGroup
+                                                                      .getUserCall
+                                                                      .call(
+                                                                authToken:
+                                                                    currentAuthenticationToken,
+                                                              ),
                                                             ),
                                                             builder: (context,
                                                                 snapshot) {
