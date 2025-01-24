@@ -443,7 +443,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                 await launchURL(
                                                     functions.concateStrings(
                                                         FFDevEnvironmentValues()
-                                                            .ApiUrlChangePlan,
+                                                            .ChangeDataPlan,
                                                         currentAuthenticationToken)!);
                                               },
                                               child: Row(
@@ -562,18 +562,21 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                     'Row_launch_u_r_l');
                                                 await launchURL(
                                                     functions.concateStrings(
-                                                        functions.concateStrings(
-                                                            functions.concateStrings(
-                                                                FFDevEnvironmentValues()
-                                                                    .ApiUrlChangePlan,
-                                                                currentAuthenticationToken),
-                                                            '&selectplan='),
-                                                        getJsonField(
-                                                          (_model.apiUserPlan
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                          r'''$.subscription.plan_id''',
-                                                        ).toString())!);
+                                                        functions
+                                                            .concateStrings(
+                                                                functions.concateStrings(
+                                                                    functions.concateStrings(
+                                                                        FFDevEnvironmentValues()
+                                                                            .ApiUrlChangePlan,
+                                                                        currentAuthenticationToken),
+                                                                    '&selectplan='),
+                                                                getJsonField(
+                                                                  (_model.apiUserPlan
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                  r'''$.subscription.plan_id''',
+                                                                ).toString()),
+                                                        '&changeplan=true')!);
 
                                                 safeSetState(() {});
                                               },

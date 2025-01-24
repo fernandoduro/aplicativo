@@ -24,6 +24,7 @@ class FFDevEnvironmentValues {
       _apiURL = data['apiURL'];
       _ApiUrlPlan = data['ApiUrlPlan'];
       _ApiUrlChangePlan = data['ApiUrlChangePlan'];
+      _ChangeDataPlan = data['ChangeDataPlan'];
     } catch (e) {
       print('Error loading environment values: $e');
     }
@@ -37,4 +38,7 @@ class FFDevEnvironmentValues {
 
   String _ApiUrlChangePlan = '';
   String get ApiUrlChangePlan => _ApiUrlChangePlan;
+
+  String _ChangeDataPlan = '';
+  String get ChangeDataPlan => _ChangeDataPlan;
 }
