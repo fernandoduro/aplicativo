@@ -6,15 +6,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'first_access_model.dart';
 export 'first_access_model.dart';
@@ -185,12 +181,12 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                   wrapWithModel(
                     model: _model.headerBalaoModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderBalaoWidget(),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -202,7 +198,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -210,7 +206,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -223,7 +219,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -234,7 +230,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -248,7 +244,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -259,7 +255,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -273,7 +269,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -294,7 +290,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -310,7 +306,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -327,7 +323,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -341,7 +337,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -362,7 +358,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -378,7 +374,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -395,7 +391,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -409,7 +405,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -430,7 +426,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -446,7 +442,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -463,7 +459,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -477,7 +473,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -498,7 +494,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: InkWell(
@@ -536,7 +532,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   10.0),
                                                           child:
                                                               SingleChildScrollView(
@@ -552,7 +548,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -573,7 +569,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Inter',
-                                                                                color: Color(0xFF12151C),
+                                                                                color: const Color(0xFF12151C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -598,7 +594,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             color:
-                                                                                Color(0xFF12151C),
+                                                                                const Color(0xFF12151C),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -620,7 +616,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -636,7 +632,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -653,7 +649,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -667,7 +663,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -705,7 +701,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                       if ((_model.apiResult25e
                                                               ?.succeeded ??
                                                           true)) {
-                                                        if (widget!
+                                                        if (widget
                                                                 .navigateTo ==
                                                             'newClient01') {
                                                           logFirebaseEvent(
@@ -713,7 +709,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .meusClientes(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'loyalt01') {
                                                           logFirebaseEvent(
@@ -721,7 +717,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .fidelidade(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'Solicitacoes') {
                                                           logFirebaseEvent(
@@ -729,7 +725,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .assistente(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'listAllClient') {
                                                           logFirebaseEvent(
@@ -737,7 +733,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .meusClientes(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'Services01') {
                                                           logFirebaseEvent(
@@ -745,7 +741,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
 
                                                           context.pushNamed(
                                                               'Services01');
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'firstAccessReminder') {
                                                           logFirebaseEvent(
@@ -753,14 +749,14 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .meusLembretes(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'firstAccessSchedule') {
                                                           logFirebaseEvent(
                                                               'Button_action_block');
                                                           await action_blocks
                                                               .agenda(context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'firstAccessInsights') {
                                                           logFirebaseEvent(
@@ -768,14 +764,14 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .resumoSemanal(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'seuSite') {
                                                           logFirebaseEvent(
                                                               'Button_action_block');
                                                           await action_blocks
                                                               .seuSite(context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'assistente') {
                                                           logFirebaseEvent(
@@ -783,7 +779,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .assistente(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'fidelidade') {
                                                           logFirebaseEvent(
@@ -791,7 +787,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           await action_blocks
                                                               .fidelidade(
                                                                   context);
-                                                        } else if (widget!
+                                                        } else if (widget
                                                                 .navigateTo ==
                                                             'calculadora') {
                                                           logFirebaseEvent(
@@ -818,14 +814,14 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                           0.8,
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -849,7 +845,7 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -881,11 +877,11 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

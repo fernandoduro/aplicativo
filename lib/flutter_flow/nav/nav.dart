@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
@@ -10,12 +8,7 @@ import '/backend/schema/structs/index.dart';
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -83,18 +76,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomeWidget() : HomeBalaoWidget(),
+          appStateNotifier.loggedIn ? const HomeWidget() : const HomeBalaoWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomeWidget() : HomeBalaoWidget(),
+              appStateNotifier.loggedIn ? const HomeWidget() : const HomeBalaoWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
-          builder: (context, params) => HomeWidget(),
+          builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
           name: 'Login',
@@ -109,152 +102,152 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Register',
           path: '/register',
-          builder: (context, params) => RegisterWidget(),
+          builder: (context, params) => const RegisterWidget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa1',
           path: '/createSiteEtapa1',
-          builder: (context, params) => CreateSiteEtapa1Widget(),
+          builder: (context, params) => const CreateSiteEtapa1Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa7',
           path: '/createSiteEtapa7',
-          builder: (context, params) => CreateSiteEtapa7Widget(),
+          builder: (context, params) => const CreateSiteEtapa7Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa8',
           path: '/createSiteEtapa8',
-          builder: (context, params) => CreateSiteEtapa8Widget(),
+          builder: (context, params) => const CreateSiteEtapa8Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas12',
           path: '/createSiteEtapas12',
-          builder: (context, params) => CreateSiteEtapas12Widget(),
+          builder: (context, params) => const CreateSiteEtapas12Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas13',
           path: '/createSiteEtapas13',
-          builder: (context, params) => CreateSiteEtapas13Widget(),
+          builder: (context, params) => const CreateSiteEtapas13Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas14',
           path: '/createSiteEtapas14',
-          builder: (context, params) => CreateSiteEtapas14Widget(),
+          builder: (context, params) => const CreateSiteEtapas14Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas21',
           path: '/createSiteEtapas21',
-          builder: (context, params) => CreateSiteEtapas21Widget(),
+          builder: (context, params) => const CreateSiteEtapas21Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas22',
           path: '/createSiteEtapas22',
-          builder: (context, params) => CreateSiteEtapas22Widget(),
+          builder: (context, params) => const CreateSiteEtapas22Widget(),
         ),
         FFRoute(
           name: 'HomeBalao',
           path: '/homeBalao',
-          builder: (context, params) => HomeBalaoWidget(),
+          builder: (context, params) => const HomeBalaoWidget(),
         ),
         FFRoute(
           name: 'Calculadora',
           path: '/calculadora',
-          builder: (context, params) => CalculadoraWidget(),
+          builder: (context, params) => const CalculadoraWidget(),
         ),
         FFRoute(
           name: 'ForgotPassword',
           path: '/forgotPassword',
-          builder: (context, params) => ForgotPasswordWidget(),
+          builder: (context, params) => const ForgotPasswordWidget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas15',
           path: '/createSiteEtapas15',
-          builder: (context, params) => CreateSiteEtapas15Widget(),
+          builder: (context, params) => const CreateSiteEtapas15Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas17',
           path: '/createSiteEtapas17',
-          builder: (context, params) => CreateSiteEtapas17Widget(),
+          builder: (context, params) => const CreateSiteEtapas17Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas19',
           path: '/createSiteEtapas19',
-          builder: (context, params) => CreateSiteEtapas19Widget(),
+          builder: (context, params) => const CreateSiteEtapas19Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas20',
           path: '/createSiteEtapas20',
-          builder: (context, params) => CreateSiteEtapas20Widget(),
+          builder: (context, params) => const CreateSiteEtapas20Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas11',
           path: '/createSiteEtapas11',
-          builder: (context, params) => CreateSiteEtapas11Widget(),
+          builder: (context, params) => const CreateSiteEtapas11Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas16',
           path: '/createSiteEtapas16',
-          builder: (context, params) => CreateSiteEtapas16Widget(),
+          builder: (context, params) => const CreateSiteEtapas16Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa6',
           path: '/createSiteEtapa6',
-          builder: (context, params) => CreateSiteEtapa6Widget(),
+          builder: (context, params) => const CreateSiteEtapa6Widget(),
         ),
         FFRoute(
           name: 'EditarPerfil',
           path: '/editarPerfil',
-          builder: (context, params) => EditarPerfilWidget(),
+          builder: (context, params) => const EditarPerfilWidget(),
         ),
         FFRoute(
           name: 'EncerrarConta',
           path: '/encerrarConta',
-          builder: (context, params) => EncerrarContaWidget(),
+          builder: (context, params) => const EncerrarContaWidget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa9',
           path: '/createSiteEtapa9',
-          builder: (context, params) => CreateSiteEtapa9Widget(),
+          builder: (context, params) => const CreateSiteEtapa9Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas10',
           path: '/createSiteEtapas10',
-          builder: (context, params) => CreateSiteEtapas10Widget(),
+          builder: (context, params) => const CreateSiteEtapas10Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapas18',
           path: '/createSiteEtapas18',
-          builder: (context, params) => CreateSiteEtapas18Widget(),
+          builder: (context, params) => const CreateSiteEtapas18Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa2',
           path: '/createSiteEtapa2',
-          builder: (context, params) => CreateSiteEtapa2Widget(),
+          builder: (context, params) => const CreateSiteEtapa2Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa3',
           path: '/createSiteEtapa3',
-          builder: (context, params) => CreateSiteEtapa3Widget(),
+          builder: (context, params) => const CreateSiteEtapa3Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa4',
           path: '/createSiteEtapa4',
-          builder: (context, params) => CreateSiteEtapa4Widget(),
+          builder: (context, params) => const CreateSiteEtapa4Widget(),
         ),
         FFRoute(
           name: 'CreateSiteEtapa5',
           path: '/createSiteEtapa5',
-          builder: (context, params) => CreateSiteEtapa5Widget(),
+          builder: (context, params) => const CreateSiteEtapa5Widget(),
         ),
         FFRoute(
           name: 'Convites',
           path: '/convites',
-          builder: (context, params) => ConvitesWidget(),
+          builder: (context, params) => const ConvitesWidget(),
         ),
         FFRoute(
           name: 'ConvitesHistoricoConsumo',
           path: '/convitesHistoricoConsumo',
-          builder: (context, params) => ConvitesHistoricoConsumoWidget(),
+          builder: (context, params) => const ConvitesHistoricoConsumoWidget(),
         ),
         FFRoute(
           name: 'NewClient01',
@@ -335,7 +328,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'listAllClients',
           path: '/listAllClients',
-          builder: (context, params) => ListAllClientsWidget(),
+          builder: (context, params) => const ListAllClientsWidget(),
         ),
         FFRoute(
           name: 'NewClient02',
@@ -350,7 +343,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Services01',
           path: '/services01',
-          builder: (context, params) => Services01Widget(),
+          builder: (context, params) => const Services01Widget(),
         ),
         FFRoute(
           name: 'Services02',
@@ -417,7 +410,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Schedule01',
           path: '/schedule01',
-          builder: (context, params) => Schedule01Widget(),
+          builder: (context, params) => const Schedule01Widget(),
         ),
         FFRoute(
           name: 'Schedule02',
@@ -490,52 +483,52 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SolicitacoesADM',
           path: '/solicitacoesADM',
-          builder: (context, params) => SolicitacoesADMWidget(),
+          builder: (context, params) => const SolicitacoesADMWidget(),
         ),
         FFRoute(
           name: 'FirstAccessReminder',
           path: '/firstAccessReminder',
-          builder: (context, params) => FirstAccessReminderWidget(),
+          builder: (context, params) => const FirstAccessReminderWidget(),
         ),
         FFRoute(
           name: 'Reminders',
           path: '/reminders',
-          builder: (context, params) => RemindersWidget(),
+          builder: (context, params) => const RemindersWidget(),
         ),
         FFRoute(
           name: 'FirstAccessInsights',
           path: '/firstAccessInsights',
-          builder: (context, params) => FirstAccessInsightsWidget(),
+          builder: (context, params) => const FirstAccessInsightsWidget(),
         ),
         FFRoute(
           name: 'NotInsights',
           path: '/notInsights',
-          builder: (context, params) => NotInsightsWidget(),
+          builder: (context, params) => const NotInsightsWidget(),
         ),
         FFRoute(
           name: 'Insights',
           path: '/insights',
-          builder: (context, params) => InsightsWidget(),
+          builder: (context, params) => const InsightsWidget(),
         ),
         FFRoute(
           name: 'FirstAccessLoyalty',
           path: '/firstAccessLoyalty',
-          builder: (context, params) => FirstAccessLoyaltyWidget(),
+          builder: (context, params) => const FirstAccessLoyaltyWidget(),
         ),
         FFRoute(
           name: 'Loyalty01',
           path: '/loyalty01',
-          builder: (context, params) => Loyalty01Widget(),
+          builder: (context, params) => const Loyalty01Widget(),
         ),
         FFRoute(
           name: 'Loyalty02',
           path: '/loyalty02',
-          builder: (context, params) => Loyalty02Widget(),
+          builder: (context, params) => const Loyalty02Widget(),
         ),
         FFRoute(
           name: 'LoyaltyHistory',
           path: '/loyaltyHistory',
-          builder: (context, params) => LoyaltyHistoryWidget(),
+          builder: (context, params) => const LoyaltyHistoryWidget(),
         ),
         FFRoute(
           name: 'Comments',
@@ -564,42 +557,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'TrialFinished',
           path: '/trialFinished',
-          builder: (context, params) => TrialFinishedWidget(),
+          builder: (context, params) => const TrialFinishedWidget(),
         ),
         FFRoute(
           name: 'SubscriptionOptions',
           path: '/subscriptionOptions',
-          builder: (context, params) => SubscriptionOptionsWidget(),
+          builder: (context, params) => const SubscriptionOptionsWidget(),
         ),
         FFRoute(
           name: 'SubscriptionCancel',
           path: '/subscriptionCancel',
-          builder: (context, params) => SubscriptionCancelWidget(),
+          builder: (context, params) => const SubscriptionCancelWidget(),
         ),
         FFRoute(
           name: 'SubscriptionHistory',
           path: '/subscriptionHistory',
-          builder: (context, params) => SubscriptionHistoryWidget(),
+          builder: (context, params) => const SubscriptionHistoryWidget(),
         ),
         FFRoute(
           name: 'Help',
           path: '/help',
-          builder: (context, params) => HelpWidget(),
+          builder: (context, params) => const HelpWidget(),
         ),
         FFRoute(
           name: 'ForgotPassword2',
           path: '/forgotPassword2',
-          builder: (context, params) => ForgotPassword2Widget(),
+          builder: (context, params) => const ForgotPassword2Widget(),
         ),
         FFRoute(
           name: 'ForgotPassword3',
           path: '/forgotPassword3',
-          builder: (context, params) => ForgotPassword3Widget(),
+          builder: (context, params) => const ForgotPassword3Widget(),
         ),
         FFRoute(
           name: 'conversaAssistente',
           path: '/conversaAssistente',
-          builder: (context, params) => ConversaAssistenteWidget(),
+          builder: (context, params) => const ConversaAssistenteWidget(),
         ),
         FFRoute(
           name: 'FirstAccessConfig',
@@ -624,12 +617,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomeBalao2',
           path: '/homeBalao2',
-          builder: (context, params) => HomeBalao2Widget(),
+          builder: (context, params) => const HomeBalao2Widget(),
         ),
         FFRoute(
           name: 'Request',
           path: '/request',
-          builder: (context, params) => RequestWidget(),
+          builder: (context, params) => const RequestWidget(),
         ),
         FFRoute(
           name: 'FirstService',
@@ -662,7 +655,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ForceUpgrade',
           path: '/forceUpgrade',
-          builder: (context, params) => ForceUpgradeWidget(),
+          builder: (context, params) => const ForceUpgradeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -897,7 +890,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

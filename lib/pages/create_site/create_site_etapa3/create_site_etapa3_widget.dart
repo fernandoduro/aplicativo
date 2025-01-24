@@ -6,13 +6,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapa3_model.dart';
 export 'create_site_etapa3_model.dart';
@@ -92,21 +90,21 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerHelpModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: HeaderHelpWidget(),
+                  child: const HeaderHelpWidget(),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.85,
                           decoration: BoxDecoration(
@@ -125,16 +123,16 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
                                         'Digite o código de convite para seu site gratuito:',
@@ -160,7 +158,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         7.0, 0.0, 7.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -168,7 +166,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -177,7 +175,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.codigoTextController',
-                                                Duration(milliseconds: 30),
+                                                const Duration(milliseconds: 30),
                                                 () async {
                                                   logFirebaseEvent(
                                                       'CREATE_SITE_ETAPA3_codigo_ON_TEXTFIELD_C');
@@ -273,7 +271,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 40.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -286,9 +284,6 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                     children: [
                                       FFButtonWidget(
                                         onPressed: (_model.codigoTextController
-                                                        .text ==
-                                                    null ||
-                                                _model.codigoTextController
                                                         .text ==
                                                     '')
                                             ? null
@@ -339,10 +334,10 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                                   0.8,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -356,14 +351,14 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          disabledColor: Color(0xFFACACAC),
-                                          disabledTextColor: Color(0xFFD9D9D9),
+                                          disabledColor: const Color(0xFFACACAC),
+                                          disabledTextColor: const Color(0xFFD9D9D9),
                                         ),
                                       ),
                                     ],
@@ -372,7 +367,7 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 15.0, 0.0, 0.0),
                               child: Container(
                                 width: 100.0,
@@ -400,11 +395,11 @@ class _CreateSiteEtapa3WidgetState extends State<CreateSiteEtapa3Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: FooterWidget(),
+                      child: const FooterWidget(),
                     ),
                   ),
                 ],

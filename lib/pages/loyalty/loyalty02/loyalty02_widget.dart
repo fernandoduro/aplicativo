@@ -6,13 +6,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'loyalty02_model.dart';
 export 'loyalty02_model.dart';
@@ -171,18 +168,18 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                       wrapWithModel(
                         model: _model.headerBalaoModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: HeaderBalaoWidget(),
+                        child: const HeaderBalaoWidget(),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.85,
@@ -200,7 +197,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                         .primaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -209,7 +206,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -223,7 +220,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                 shape: BoxShape.rectangle,
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsets.all(20.0),
+                                                padding: const EdgeInsets.all(20.0),
                                                 child: SingleChildScrollView(
                                                   child: Column(
                                                     mainAxisSize:
@@ -237,7 +234,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -256,7 +253,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     10.0),
                                                             child: Column(
                                                               mainAxisSize:
@@ -267,7 +264,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -282,7 +279,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                           fontFamily:
                                                                               'Inter',
                                                                           color:
-                                                                              Color(0xFF12151C),
+                                                                              const Color(0xFF12151C),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -301,7 +298,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -322,7 +319,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     10.0),
                                                             child:
                                                                 SingleChildScrollView(
@@ -338,7 +335,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                         .start,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -353,7 +350,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             color:
-                                                                                Color(0xFF12151C),
+                                                                                const Color(0xFF12151C),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -373,7 +370,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -394,7 +391,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     10.0),
                                                             child:
                                                                 SingleChildScrollView(
@@ -410,7 +407,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                         .start,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -425,7 +422,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             color:
-                                                                                Color(0xFF12151C),
+                                                                                const Color(0xFF12151C),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -445,7 +442,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -466,7 +463,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     10.0),
                                                             child:
                                                                 SingleChildScrollView(
@@ -482,7 +479,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                         .start,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -497,7 +494,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                             fontFamily:
                                                                                 'Inter',
                                                                             color:
-                                                                                Color(0xFF12151C),
+                                                                                const Color(0xFF12151C),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -517,7 +514,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     8.0,
@@ -559,8 +556,8 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                   (newValue) async {
                                                                 safeSetState(() =>
                                                                     _model.statusValue =
-                                                                        newValue!);
-                                                                if (newValue!) {
+                                                                        newValue);
+                                                                if (newValue) {
                                                                   logFirebaseEvent(
                                                                       'LOYALTY02_PAGE_status_ON_TOGGLE_ON');
                                                                   logFirebaseEvent(
@@ -662,14 +659,14 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                   0.8,
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -694,7 +691,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -728,11 +725,11 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.footerModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: FooterWidget(),
+                              child: const FooterWidget(),
                             ),
                           ),
                         ],

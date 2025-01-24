@@ -7,12 +7,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'schedule01_model.dart';
 export 'schedule01_model.dart';
@@ -110,23 +107,23 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerHelpModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: HeaderHelpWidget(),
+                      child: const HeaderHelpWidget(),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
@@ -140,10 +137,10 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                       children: [
                                         if (_model.isCalendarExpanded)
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 50.0, 0.0),
                                               child: FlutterFlowCalendar(
@@ -274,10 +271,10 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                           ),
                                         if (!_model.isCalendarExpanded)
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 50.0, 0.0),
                                               child: FlutterFlowCalendar(
@@ -406,9 +403,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                         if (_model.isCalendarExpanded)
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(1.0, -1.0),
+                                                const AlignmentDirectional(1.0, -1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 74.0, 10.0, 0.0),
                                               child: FlutterFlowIconButton(
@@ -440,9 +437,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                         if (!_model.isCalendarExpanded)
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(1.0, -1.0),
+                                                const AlignmentDirectional(1.0, -1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 74.0, 10.0, 0.0),
                                               child: FlutterFlowIconButton(
@@ -476,7 +473,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                     if ((_model.existHours == false) &&
                                         _model.isLoading)
                                       Padding(
-                                        padding: EdgeInsets.all(16.0),
+                                        padding: const EdgeInsets.all(16.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -486,7 +483,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                 Flexible(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 16.0,
                                                                 16.0,
@@ -511,7 +508,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 16.0, 0.0, 0.0),
                                               child: Row(
@@ -541,14 +538,14 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
                                                                   16.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -584,7 +581,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                       ),
                                     if (_model.existHours)
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Container(
                                           width:
@@ -598,7 +595,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 1.0, 0.0, 36.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -606,7 +603,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                 if (_model.existHours)
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 16.0,
                                                                 16.0,
@@ -621,7 +618,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       1.0,
@@ -658,7 +655,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                             FontWeight.w900,
                                                                       ),
                                                                 ),
-                                                                TextSpan(
+                                                                const TextSpan(
                                                                   text: 'de ',
                                                                   style:
                                                                       TextStyle(),
@@ -674,7 +671,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                         .languageCode,
                                                                   ),
                                                                   style:
-                                                                      TextStyle(),
+                                                                      const TextStyle(),
                                                                 )
                                                               ],
                                                               style: FlutterFlowTheme
@@ -726,7 +723,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                       scheduleIndex];
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             8.0,
@@ -735,7 +732,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                 child:
                                                                     Container(
                                                                   constraints:
-                                                                      BoxConstraints(
+                                                                      const BoxConstraints(
                                                                     maxHeight:
                                                                         double
                                                                             .infinity,
@@ -950,7 +947,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               8.0,
                                                                               0.0,
                                                                               8.0,
@@ -962,7 +959,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                               mainAxisSize: MainAxisSize.min,
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
-                                                                                Container(
+                                                                                SizedBox(
                                                                                   width: 65.0,
                                                                                   child: Stack(
                                                                                     children: [
@@ -1001,7 +998,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 8.0,
                                                                                 8.0,
                                                                                 0.0,
@@ -1031,7 +1028,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                             scheduleItem,
                                                                                             r'''$.schedule.service.name''',
                                                                                           ).toString(),
-                                                                                          style: TextStyle(),
+                                                                                          style: const TextStyle(),
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1090,9 +1087,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                     '0',
                                                                                                   )))
                                                                                               .toString(),
-                                                                                          style: TextStyle(),
+                                                                                          style: const TextStyle(),
                                                                                         ),
-                                                                                        TextSpan(
+                                                                                        const TextSpan(
                                                                                           text: ' de ',
                                                                                           style: TextStyle(),
                                                                                         ),
@@ -1101,7 +1098,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                             scheduleItem,
                                                                                             r'''$.schedule.service.max_clients''',
                                                                                           ).toString(),
-                                                                                          style: TextStyle(),
+                                                                                          style: const TextStyle(),
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1142,9 +1139,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                             scheduleItem,
                                                                                             r'''$.schedule.duration''',
                                                                                           ).toString(),
-                                                                                          style: TextStyle(),
+                                                                                          style: const TextStyle(),
                                                                                         ),
-                                                                                        TextSpan(
+                                                                                        const TextSpan(
                                                                                           text: ' minutos',
                                                                                           style: TextStyle(),
                                                                                         )
@@ -1192,7 +1189,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                             scheduleItem,
                                                                                             r'''$.schedule.description''',
                                                                                           ).toString(),
-                                                                                          style: TextStyle(),
+                                                                                          style: const TextStyle(),
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1250,7 +1247,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                               fontWeight: FontWeight.bold,
                                                                                                             ),
                                                                                                       ),
-                                                                                                      TextSpan(
+                                                                                                      const TextSpan(
                                                                                                         text: ' ( ',
                                                                                                         style: TextStyle(),
                                                                                                       ),
@@ -1278,9 +1275,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                             return 'Cancelado';
                                                                                                           }
                                                                                                         }(),
-                                                                                                        style: TextStyle(),
+                                                                                                        style: const TextStyle(),
                                                                                                       ),
-                                                                                                      TextSpan(
+                                                                                                      const TextSpan(
                                                                                                         text: ' )',
                                                                                                         style: TextStyle(),
                                                                                                       )
@@ -1364,7 +1361,7 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                 CrossAxisAlignment.end,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -1413,11 +1410,11 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

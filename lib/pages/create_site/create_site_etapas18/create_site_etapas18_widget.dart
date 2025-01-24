@@ -8,13 +8,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/services/text_field_hours/text_field_hours_widget.dart';
 import 'dart:async';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_site_etapas18_model.dart';
 export 'create_site_etapas18_model.dart';
@@ -96,16 +94,16 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: wrapWithModel(
                           model: _model.headerHelpModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: HeaderHelpWidget(),
+                          child: const HeaderHelpWidget(),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
@@ -121,7 +119,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 20.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -129,10 +127,10 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                               MainAxisAlignment.end,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Text(
@@ -169,7 +167,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(16.0, 16.0,
                                                           16.0, 16.0),
                                                   child: Builder(
@@ -198,7 +196,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -257,7 +255,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                         final hoursItem =
                                                                             hours[hoursIndex];
                                                                         return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               8.0,
                                                                               0.0,
@@ -298,7 +296,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                                   children: [
                                                                                     Flexible(
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -446,7 +444,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 40.0, 0.0, 36.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -479,7 +477,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                   .primaryBackground,
                                                             ),
                                                           ),
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   4000),
                                                           backgroundColor:
@@ -533,7 +531,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                                     .secondaryBackground,
                                                               ),
                                                             ),
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     4000),
                                                             backgroundColor:
@@ -555,11 +553,11 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                         0.8,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -575,7 +573,7 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -601,11 +599,11 @@ class _CreateSiteEtapas18WidgetState extends State<CreateSiteEtapas18Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.footerModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: FooterWidget(),
+                              child: const FooterWidget(),
                             ),
                           ),
                         ],

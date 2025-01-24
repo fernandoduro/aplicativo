@@ -4,14 +4,10 @@ import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'loyalty_history_model.dart';
 export 'loyalty_history_model.dart';
@@ -88,17 +84,17 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerHelpModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: HeaderHelpWidget(),
+                      child: const HeaderHelpWidget(),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -108,7 +104,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Histórico de pontos',
@@ -124,7 +120,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -204,8 +200,8 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                 }(),
                                                 onChanged: (newValue) async {
                                                   safeSetState(() => _model
-                                                      .statusValue = newValue!);
-                                                  if (newValue!) {
+                                                      .statusValue = newValue);
+                                                  if (newValue) {
                                                     logFirebaseEvent(
                                                         'LOYALTY_HISTORY_PAGE_status_ON_TOGGLE_ON');
                                                     logFirebaseEvent(
@@ -287,7 +283,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 1.0,
                                                                 0.0, 0.0),
                                                     child: Column(
@@ -299,7 +295,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -323,7 +319,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           16.0,
@@ -335,7 +331,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -357,7 +353,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                                   pontosItem,
                                                                                   r'''$.client.name''',
                                                                                 ).toString(),
-                                                                                style: TextStyle(),
+                                                                                style: const TextStyle(),
                                                                               )
                                                                             ],
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -372,7 +368,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -474,7 +470,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -546,7 +542,7 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 14.0, 0.0, 0.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -575,11 +571,11 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],
