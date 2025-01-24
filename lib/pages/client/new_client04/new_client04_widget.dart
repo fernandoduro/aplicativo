@@ -1347,6 +1347,11 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                     );
                                                                   }
 
+                                                                  logFirebaseEvent(
+                                                                      'Button_clear_query_cache');
+                                                                  FFAppState()
+                                                                      .clearClientsCacheCache();
+
                                                                   safeSetState(
                                                                       () {});
                                                                 },

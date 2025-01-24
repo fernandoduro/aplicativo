@@ -43,6 +43,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      logFirebaseEvent('listAllClients_clear_query_cache');
+      FFAppState().clearClientsCacheCache();
     });
 
     _model.textController ??= TextEditingController();
@@ -107,11 +109,14 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                     child: Padding(
                                       padding: EdgeInsets.all(16.0),
                                       child: FutureBuilder<ApiCallResponse>(
-                                        future: APIOficialGroup
-                                            .listAllClientsCall
-                                            .call(
-                                          authToken: currentAuthenticationToken,
-                                          filter: _model.textController.text,
+                                        future: FFAppState().clientsCache(
+                                          requestFn: () => APIOficialGroup
+                                              .listAllClientsCall
+                                              .call(
+                                            authToken:
+                                                currentAuthenticationToken,
+                                            filter: _model.textController.text,
+                                          ),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.

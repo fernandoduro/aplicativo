@@ -481,6 +481,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                 ),
                                               }.withoutNulls,
                                             );
+
+                                            logFirebaseEvent(
+                                                'Row_clear_query_cache');
+                                            FFAppState()
+                                                .clearClientsCacheCache();
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -572,6 +577,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                             logFirebaseEvent('Row_navigate_to');
 
                                             context.pushNamed('listAllClients');
+
+                                            logFirebaseEvent(
+                                                'Row_clear_query_cache');
+                                            FFAppState()
+                                                .clearClientsCacheCache();
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,

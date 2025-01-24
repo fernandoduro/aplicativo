@@ -1169,6 +1169,9 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                     );
                                                                                   }
 
+                                                                                  logFirebaseEvent('Button_clear_query_cache');
+                                                                                  FFAppState().clearClientsCacheCache();
+
                                                                                   safeSetState(() {});
                                                                                 },
                                                                           text:
