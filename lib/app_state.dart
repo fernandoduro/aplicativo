@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -368,6 +369,21 @@ class FFAppState extends ChangeNotifier {
   set userEditPerfil(dynamic value) {
     _userEditPerfil = value;
   }
+
+  final _serviceCacheGlobalManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> serviceCacheGlobal({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _serviceCacheGlobalManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearServiceCacheGlobalCache() => _serviceCacheGlobalManager.clear();
+  void clearServiceCacheGlobalCacheKey(String? uniqueKey) =>
+      _serviceCacheGlobalManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

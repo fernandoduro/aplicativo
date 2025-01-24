@@ -680,21 +680,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             _model.editService = 0;
                                                                                             safeSetState(() {});
                                                                                             if (widget!.adicionadoPeloMais!) {
-                                                                                              logFirebaseEvent('Button_navigate_to');
-
-                                                                                              context.pushNamed(
-                                                                                                'Services03',
-                                                                                                queryParameters: {
-                                                                                                  'adicionadoPeloMais': serializeParam(
-                                                                                                    false,
-                                                                                                    ParamType.bool,
-                                                                                                  ),
-                                                                                                  'originConfig': serializeParam(
-                                                                                                    widget!.originConfig,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                }.withoutNulls,
-                                                                                              );
+                                                                                              logFirebaseEvent('Button_navigate_back');
+                                                                                              context.safePop();
                                                                                             } else {
                                                                                               if ((widget!.originConfig == 'schedule') || (widget!.originConfig == 'client') || (widget!.originConfig == 'newClient')) {
                                                                                                 logFirebaseEvent('Button_action_block');
@@ -706,7 +693,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             }
 
                                                                                             logFirebaseEvent('Button_clear_query_cache');
-                                                                                            _model.clearServiceCacheCache();
+                                                                                            FFAppState().clearServiceCacheGlobalCache();
                                                                                           } else {
                                                                                             logFirebaseEvent('Button_show_snack_bar');
                                                                                             ScaffoldMessenger.of(context).showSnackBar(
@@ -750,7 +737,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               FutureBuilder<ApiCallResponse>(
-                                                                                future: _model.serviceCache(
+                                                                                future: FFAppState().serviceCacheGlobal(
                                                                                   requestFn: () => APIOficialGroup.getServicesCall.call(
                                                                                     authToken: currentAuthenticationToken,
                                                                                   ),
@@ -1091,7 +1078,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                         safeSetState(() {});
                                                                                                                       }
                                                                                                                       logFirebaseEvent('Icon_clear_query_cache');
-                                                                                                                      _model.clearServiceCacheCache();
+                                                                                                                      FFAppState().clearServiceCacheGlobalCache();
                                                                                                                     },
                                                                                                                     child: Icon(
                                                                                                                       Icons.delete_outline_outlined,

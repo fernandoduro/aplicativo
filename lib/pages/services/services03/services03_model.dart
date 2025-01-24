@@ -101,21 +101,6 @@ class Services03Model extends FlutterFlowModel<Services03Widget> {
   void clearPackageCacheCacheKey(String? uniqueKey) =>
       _packageCacheManager.clearRequest(uniqueKey);
 
-  final _serviceCacheManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> serviceCache({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _serviceCacheManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearServiceCacheCache() => _serviceCacheManager.clear();
-  void clearServiceCacheCacheKey(String? uniqueKey) =>
-      _serviceCacheManager.clearRequest(uniqueKey);
-
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
@@ -142,7 +127,5 @@ class Services03Model extends FlutterFlowModel<Services03Widget> {
     /// Dispose query cache managers for this widget.
 
     clearPackageCacheCache();
-
-    clearServiceCacheCache();
   }
 }

@@ -8,8 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/request_manager.dart';
-
 import 'services02_widget.dart' show Services02Widget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -69,23 +67,6 @@ class Services02Model extends FlutterFlowModel<Services02Widget> {
   // Model for FooterWhite component.
   late FooterWhiteModel footerWhiteModel;
 
-  /// Query cache managers for this widget.
-
-  final _serviceCacheManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> serviceCache({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _serviceCacheManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearServiceCacheCache() => _serviceCacheManager.clear();
-  void clearServiceCacheCacheKey(String? uniqueKey) =>
-      _serviceCacheManager.clearRequest(uniqueKey);
-
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
@@ -110,9 +91,5 @@ class Services02Model extends FlutterFlowModel<Services02Widget> {
     maxclientsTextController?.dispose();
 
     footerWhiteModel.dispose();
-
-    /// Dispose query cache managers for this widget.
-
-    clearServiceCacheCache();
   }
 }

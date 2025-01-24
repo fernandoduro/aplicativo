@@ -992,8 +992,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           if ((widget!.existAppointment == false) &&
                                                                               (_model.tipocompromissoValue != 'personal'))
                                                                             FutureBuilder<ApiCallResponse>(
-                                                                              future: APIOficialGroup.getServicesCall.call(
-                                                                                authToken: currentAuthenticationToken,
+                                                                              future: FFAppState().serviceCacheGlobal(
+                                                                                requestFn: () => APIOficialGroup.getServicesCall.call(
+                                                                                  authToken: currentAuthenticationToken,
+                                                                                ),
                                                                               ),
                                                                               builder: (context, snapshot) {
                                                                                 // Customize what your widget looks like when it's loading.

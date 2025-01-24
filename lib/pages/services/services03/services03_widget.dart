@@ -52,6 +52,8 @@ class _Services03WidgetState extends State<Services03Widget> {
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      logFirebaseEvent('Services03_clear_query_cache');
+      FFAppState().clearServiceCacheGlobalCache();
     });
 
     _model.nameTextController ??= TextEditingController();
@@ -380,8 +382,8 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                               ),
                                                               FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: _model
-                                                                    .serviceCache(
+                                                                future: FFAppState()
+                                                                    .serviceCacheGlobal(
                                                                   requestFn: () =>
                                                                       APIOficialGroup
                                                                           .getServicesCall

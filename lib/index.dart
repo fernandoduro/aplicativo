@@ -88,8 +88,6 @@ export '/pages/schedule/schedule02/schedule02_widget.dart'
     show Schedule02Widget;
 export '/pages/schedule/schedule03/schedule03_widget.dart'
     show Schedule03Widget;
-export '/franco/solicitacoes_a_d_m/solicitacoes_a_d_m_widget.dart'
-    show SolicitacoesADMWidget;
 export '/pages/reminders/first_access_reminder/first_access_reminder_widget.dart'
     show FirstAccessReminderWidget;
 export '/pages/reminders/reminders/reminders_widget.dart' show RemindersWidget;
@@ -116,7 +114,7 @@ export '/pages/subscription/subscription_cancel/subscription_cancel_widget.dart'
     show SubscriptionCancelWidget;
 export '/pages/subscription/subscription_history/subscription_history_widget.dart'
     show SubscriptionHistoryWidget;
-export '/pages/help/help_widget.dart' show HelpWidget;
+export '/pages/account/help/help_widget.dart' show HelpWidget;
 export '/pages/forgot_password/forgot_password2/forgot_password2_widget.dart'
     show ForgotPassword2Widget;
 export '/pages/forgot_password/forgot_password3/forgot_password3_widget.dart'

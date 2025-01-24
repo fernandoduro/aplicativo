@@ -488,11 +488,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'SolicitacoesADM',
-          path: '/solicitacoesADM',
-          builder: (context, params) => SolicitacoesADMWidget(),
-        ),
-        FFRoute(
           name: 'FirstAccessReminder',
           path: '/firstAccessReminder',
           builder: (context, params) => FirstAccessReminderWidget(),
