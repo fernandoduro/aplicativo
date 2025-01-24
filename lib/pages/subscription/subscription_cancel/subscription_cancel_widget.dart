@@ -5,9 +5,12 @@ import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'subscription_cancel_model.dart';
 export 'subscription_cancel_model.dart';
 
@@ -36,6 +39,10 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
       logFirebaseEvent('SUBSCRIPTION_CANCEL_SubscriptionCancel_O');
       logFirebaseEvent('SubscriptionCancel_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('SubscriptionCancel_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     _model.descricaoTextController ??= TextEditingController();
@@ -53,6 +60,8 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -67,21 +76,21 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerHelpModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const HeaderHelpWidget(),
+                  child: HeaderHelpWidget(),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.85,
                           decoration: BoxDecoration(
@@ -100,16 +109,16 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
                                         'Preencha o motivo pelo qual deseja cancelar?\n',
@@ -128,7 +137,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller:
@@ -207,7 +216,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 40.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -254,7 +263,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: const Duration(
+                                                duration: Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -275,7 +284,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: const Duration(
+                                                duration: Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -293,10 +302,10 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                                   0.8,
                                           height: 40.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -310,7 +319,7 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -334,11 +343,11 @@ class _SubscriptionCancelWidgetState extends State<SubscriptionCancelWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const FooterWidget(),
+                      child: FooterWidget(),
                     ),
                   ),
                 ],

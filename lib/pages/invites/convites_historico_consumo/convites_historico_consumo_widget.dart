@@ -3,10 +3,13 @@ import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'convites_historico_consumo_model.dart';
 export 'convites_historico_consumo_model.dart';
@@ -37,6 +40,10 @@ class _ConvitesHistoricoConsumoWidgetState
       logFirebaseEvent('CONVITES_HISTORICO_CONSUMO_ConvitesHisto');
       logFirebaseEvent('ConvitesHistoricoConsumo_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('ConvitesHistoricoConsumo_update_app_stat');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -67,21 +74,21 @@ class _ConvitesHistoricoConsumoWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerHelpModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const HeaderHelpWidget(),
+                  child: HeaderHelpWidget(),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.95,
                           decoration: BoxDecoration(
@@ -99,7 +106,7 @@ class _ConvitesHistoricoConsumoWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Text(
                                 'Histórico de consumo',
@@ -116,7 +123,7 @@ class _ConvitesHistoricoConsumoWidgetState
                             ),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 20.0, 10.0, 0.0),
                                 child: Builder(
                                   builder: (context) {
@@ -190,7 +197,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                               selected,
                                               onSelectChanged) =>
                                           DataRow(
-                                        color: WidgetStateProperty.all(
+                                        color: MaterialStateProperty.all(
                                           consumoIndex % 2 == 0
                                               ? FlutterFlowTheme.of(context)
                                                   .secondaryBackground
@@ -266,7 +273,7 @@ class _ConvitesHistoricoConsumoWidgetState
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 50.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -289,11 +296,11 @@ class _ConvitesHistoricoConsumoWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const FooterWidget(),
+                      child: FooterWidget(),
                     ),
                   ),
                 ],

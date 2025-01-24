@@ -4,10 +4,14 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'finish_access_config_model.dart';
 export 'finish_access_config_model.dart';
 
@@ -44,6 +48,10 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
       logFirebaseEvent('FINISH_ACCESS_CONFIG_FinishAccessConfig_');
       logFirebaseEvent('FinishAccessConfig_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('FinishAccessConfig_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -109,6 +117,8 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -127,12 +137,12 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                   wrapWithModel(
                     model: _model.headerBalaoModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const HeaderBalaoWidget(),
+                    child: HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -144,7 +154,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -152,7 +162,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -165,7 +175,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
+                                            padding: EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -176,7 +186,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -190,7 +200,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: const EdgeInsets.all(
+                                                        padding: EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -201,7 +211,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -215,7 +225,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -236,7 +246,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -252,7 +262,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: const EdgeInsets.all(
+                                                        padding: EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -269,7 +279,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -283,7 +293,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -306,7 +316,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                     onPressed: () async {
                                                       logFirebaseEvent(
                                                           'FINISH_ACCESS_CONFIG_AVANAR_BTN_ON_TAP');
-                                                      if (widget
+                                                      if (widget!
                                                               .originConfig ==
                                                           'schedule') {
                                                         logFirebaseEvent(
@@ -314,7 +324,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
 
                                                         context.pushNamed(
                                                             'Schedule01');
-                                                      } else if (widget
+                                                      } else if (widget!
                                                               .originConfig ==
                                                           'client') {
                                                         logFirebaseEvent(
@@ -322,7 +332,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
 
                                                         context.pushNamed(
                                                             'listAllClients');
-                                                      } else if (widget
+                                                      } else if (widget!
                                                               .originConfig ==
                                                           'newClient') {
                                                         logFirebaseEvent(
@@ -348,14 +358,14 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                           0.8,
                                                       height: 40.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -379,7 +389,7 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -411,11 +421,11 @@ class _FinishAccessConfigWidgetState extends State<FinishAccessConfigWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const FooterWidget(),
+                          child: FooterWidget(),
                         ),
                       ),
                     ],

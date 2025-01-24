@@ -12,24 +12,32 @@ import 'package:flutter/material.dart';
 import '/backend/api_requests/api_interceptor.dart';
 import 'package:universal_html/html.dart';
 
+bool isRequestInProgress = false;
+
 class SwitchApiInterceptor extends FFApiInterceptor {
   @override
   Future<ApiCallOptions> onRequest({required ApiCallOptions options}) async {
-    // var url = window.location.href;
-    // var currentUrl = Uri.base;
+    print('Interceptando chamada: ${options.callName}, URL: ${options.apiUrl}');
 
-    // ignore: unnecessary_null_comparison
+    // Verificar se a chamada já foi interceptada
+    if (options.headers.containsKey('Intercepted')) {
+      print('Requisição já interceptada: ${options.apiUrl}');
+      return options;
+    }
 
+    // Adicionar cabeçalhos e marcar como interceptada
     final updatedHeaders = Map<String, String>.from(options.headers)
       ..['appID'] = FFAppState().appId
-      ..['url'] = FFAppState().activePage; // Adiciona a URL atual ao cabeçalho
+      ..['url'] = FFAppState().activePage
+      ..['Intercepted'] = 'true';
 
-    // Cria novas opções com o cabeçalho atualizado.
+    print('Adicionando cabeçalhos: $updatedHeaders');
+
     var newOptions = ApiCallOptions(
       callName: options.callName,
       callType: options.callType,
       apiUrl: options.apiUrl,
-      headers: updatedHeaders, // Passa o cabeçalho atualizado.
+      headers: updatedHeaders,
       params: options.params,
       bodyType: options.bodyType,
       body: options.body,
@@ -39,6 +47,7 @@ class SwitchApiInterceptor extends FFApiInterceptor {
       alwaysAllowBody: options.alwaysAllowBody,
       cache: options.cache,
     );
+
     return newOptions;
   }
 }

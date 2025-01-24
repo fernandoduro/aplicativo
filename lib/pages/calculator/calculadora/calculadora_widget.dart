@@ -4,11 +4,16 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'calculadora_model.dart';
 export 'calculadora_model.dart';
 
@@ -38,6 +43,10 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
       logFirebaseEvent('CALCULADORA_Calculadora_ON_INIT_STATE');
       logFirebaseEvent('Calculadora_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Calculadora_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -67,6 +76,8 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -94,7 +105,7 @@ class _CalculadoraWidgetState extends State<CalculadoraWidget>
               wrapWithModel(
                 model: _model.footerModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const FooterWidget(),
+                child: FooterWidget(),
               ),
             ],
           ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'dart:convert';
@@ -359,6 +362,43 @@ class FFAppState extends ChangeNotifier {
     _activePage = value;
     prefs.setString('ff_activePage', value);
   }
+
+  dynamic _userEditPerfil = jsonDecode(
+      '{\"name\":\"\",\"cellphone\":\"\",\"gender\":\"\",\"category_id\":0,\"code\":\"\"}');
+  dynamic get userEditPerfil => _userEditPerfil;
+  set userEditPerfil(dynamic value) {
+    _userEditPerfil = value;
+  }
+
+  final _serviceCacheGlobalManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> serviceCacheGlobal({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _serviceCacheGlobalManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearServiceCacheGlobalCache() => _serviceCacheGlobalManager.clear();
+  void clearServiceCacheGlobalCacheKey(String? uniqueKey) =>
+      _serviceCacheGlobalManager.clearRequest(uniqueKey);
+
+  final _packagesCacheGlobalManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> packagesCacheGlobal({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _packagesCacheGlobalManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearPackagesCacheGlobalCache() => _packagesCacheGlobalManager.clear();
+  void clearPackagesCacheGlobalCacheKey(String? uniqueKey) =>
+      _packagesCacheGlobalManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

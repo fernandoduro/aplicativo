@@ -1,5 +1,8 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_manager.dart';
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
@@ -15,18 +18,22 @@ Future<bool?> checkSubscription(
   ApiCallResponse? apiResultMyFeature;
 
   if (currentAuthenticationToken != null && currentAuthenticationToken != '') {
+    logFirebaseEvent('CheckSubscription_clear_query_cache');
+    FFAppState().clearServiceCacheGlobalCache();
+    logFirebaseEvent('CheckSubscription_clear_query_cache');
+    FFAppState().clearPackagesCacheGlobalCache();
     logFirebaseEvent('CheckSubscription_update_app_state');
     FFAppState().featureIdSelected = featureID!;
     logFirebaseEvent('CheckSubscription_backend_call');
     apiResultMyFeature = await APIOficialGroup.myFeatureCall.call(
       authToken: currentAuthenticationToken,
-      id: featureID.toString(),
+      id: featureID?.toString(),
     );
 
-    if ((apiResultMyFeature.succeeded ?? true)) {
+    if ((apiResultMyFeature?.succeeded ?? true)) {
       if (functions
               .lengthElements(getJsonField(
-                (apiResultMyFeature.jsonBody ?? ''),
+                (apiResultMyFeature?.jsonBody ?? ''),
                 r'''$.data''',
                 true,
               ))
@@ -47,7 +54,7 @@ Future<bool?> checkSubscription(
         return false;
       } else {
         if (functions.convertString(getJsonField(
-              (apiResultMyFeature.jsonBody ?? ''),
+              (apiResultMyFeature?.jsonBody ?? ''),
               r'''$.data[0].active''',
             ).toString().toString()) ==
             'true') {
@@ -61,7 +68,7 @@ Future<bool?> checkSubscription(
         return false;
       }
     } else {
-      if ((apiResultMyFeature.statusCode ?? 200).toString() == '401') {
+      if ((apiResultMyFeature?.statusCode ?? 200).toString() == '401') {
         logFirebaseEvent('CheckSubscription_navigate_to');
 
         context.pushNamed('Login');
@@ -95,35 +102,49 @@ Future seuSite(BuildContext context) async {
       authToken: currentAuthenticationToken,
     );
 
-    if (getJsonField(
-          (siteResult2.jsonBody ?? ''),
-          r'''$.data.domain''',
-        ) !=
-        null) {
-      logFirebaseEvent('seuSite_update_app_state');
-      FFAppState().existSite = true;
-      FFAppState().dataSite = getJsonField(
-        (siteResult2.jsonBody ?? ''),
-        r'''$.data''',
-      );
-      logFirebaseEvent('seuSite_navigate_to');
-
-      context.pushNamed('CreateSiteEtapa6');
-    } else {
-      if (FFAppState().codigoSiteUsado == true) {
-        logFirebaseEvent('seuSite_navigate_to');
-
-        context.pushNamed('CreateSiteEtapa6');
-      } else {
+    if ((siteResult2?.succeeded ?? true)) {
+      if (getJsonField(
+            (siteResult2?.jsonBody ?? ''),
+            r'''$.data.domain''',
+          ) !=
+          null) {
         logFirebaseEvent('seuSite_update_app_state');
-        FFAppState().existSite = false;
+        FFAppState().existSite = true;
         FFAppState().dataSite = getJsonField(
-          (siteResult2.jsonBody ?? ''),
+          (siteResult2?.jsonBody ?? ''),
           r'''$.data''',
         );
         logFirebaseEvent('seuSite_navigate_to');
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
+        context.pushNamed('CreateSiteEtapa6');
+      } else {
+        if (FFAppState().codigoSiteUsado == true) {
+          logFirebaseEvent('seuSite_navigate_to');
+          if (Navigator.of(context).canPop()) {
+            context.pop();
+          }
+          context.pushNamed('CreateSiteEtapa6');
+        } else {
+          logFirebaseEvent('seuSite_update_app_state');
+          FFAppState().existSite = false;
+          FFAppState().dataSite = getJsonField(
+            (siteResult2?.jsonBody ?? ''),
+            r'''$.data''',
+          );
+          logFirebaseEvent('seuSite_navigate_to');
+          if (Navigator.of(context).canPop()) {
+            context.pop();
+          }
+          context.pushNamed('CreateSiteEtapa1');
+        }
+      }
+    } else {
+      if ((siteResult2?.statusCode ?? 200) == 401) {
+        logFirebaseEvent('seuSite_navigate_to');
 
-        context.pushNamed('CreateSiteEtapa1');
+        context.pushNamed('Login');
       }
     }
   }
@@ -140,7 +161,9 @@ Future calculadora(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('calculadora_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Calculadora');
   }
 }
@@ -154,7 +177,9 @@ Future meusConvites(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('meusConvites_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Convites');
   }
 }
@@ -193,13 +218,15 @@ Future seusServicos(BuildContext context) async {
   await actions.lockOrientation();
   if (currentAuthenticationToken == null || currentAuthenticationToken == '') {
     logFirebaseEvent('seusServicos_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Login');
-
-    return;
   } else {
     logFirebaseEvent('seusServicos_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('Services01');
   }
 }
@@ -244,7 +271,9 @@ Future assinatura(BuildContext context) async {
     return;
   } else {
     logFirebaseEvent('assinatura_navigate_to');
-
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
     context.pushNamed('SubscriptionOptions');
   }
 }
@@ -297,17 +326,17 @@ Future resumoSemanal(BuildContext context) async {
       );
 
       if ((getJsonField(
-                (apiResultu561.jsonBody ?? ''),
+                (apiResultu561?.jsonBody ?? ''),
                 r'''$.data[*].general_info[*]''',
               ) ==
               null) &&
           (getJsonField(
-                (apiResultu561.jsonBody ?? ''),
+                (apiResultu561?.jsonBody ?? ''),
                 r'''$.data[*].last_week_info[*]''',
               ) ==
               null) &&
           (getJsonField(
-                (apiResultu561.jsonBody ?? ''),
+                (apiResultu561?.jsonBody ?? ''),
                 r'''$.data[*].site_info[*]''',
               ) ==
               null)) {
@@ -344,11 +373,15 @@ Future assistente(BuildContext context) async {
     if (subscriptionResult43!) {
       if (FFAppState().firstRequest == true) {
         logFirebaseEvent('assistente_navigate_to');
-
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
         context.pushNamed('conversaAssistente');
       } else {
         logFirebaseEvent('assistente_navigate_to');
-
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
         context.pushNamed('Request');
       }
     }
@@ -429,7 +462,7 @@ Future firstConfigNavigation(
     );
 
     if (functions.convertJsonToString(getJsonField(
-          (listScheduleCode2.jsonBody ?? ''),
+          (listScheduleCode2?.jsonBody ?? ''),
           r'''$.error_code''',
         )) ==
         'no_schedule') {
@@ -451,7 +484,7 @@ Future firstConfigNavigation(
       );
 
       if (getJsonField(
-            (getServicesResultConfig.jsonBody ?? ''),
+            (getServicesResultConfig?.jsonBody ?? ''),
             r'''$.data[0].name''',
           ) ==
           null) {
@@ -495,7 +528,7 @@ Future firstConfigNavigation(
         );
 
         if (getJsonField(
-              (getpackagsResult.jsonBody ?? ''),
+              (getpackagsResult?.jsonBody ?? ''),
               r'''$.data[0].name''',
             ) ==
             null) {
@@ -539,12 +572,12 @@ Future firstConfigNavigation(
           );
 
           if (functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   null ||
               functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   '') {
@@ -634,7 +667,7 @@ Future firstConfigValidation(
     );
 
     if (functions.convertJsonToString(getJsonField(
-          (listScheduleCode2.jsonBody ?? ''),
+          (listScheduleCode2?.jsonBody ?? ''),
           r'''$.error_code''',
         )) ==
         'no_schedule') {
@@ -656,7 +689,7 @@ Future firstConfigValidation(
       );
 
       if (getJsonField(
-            (getServicesResultConfig.jsonBody ?? ''),
+            (getServicesResultConfig?.jsonBody ?? ''),
             r'''$.data[0].name''',
           ) ==
           null) {
@@ -678,7 +711,7 @@ Future firstConfigValidation(
         );
 
         if (getJsonField(
-              (getpackagsResult.jsonBody ?? ''),
+              (getpackagsResult?.jsonBody ?? ''),
               r'''$.data[0].name''',
             ) ==
             null) {
@@ -700,12 +733,12 @@ Future firstConfigValidation(
           );
 
           if (functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   null ||
               functions.convertJsonToString(getJsonField(
-                    (apiGetUserConfig.jsonBody ?? ''),
+                    (apiGetUserConfig?.jsonBody ?? ''),
                     r'''$.pay_method''',
                   )) ==
                   '') {
@@ -771,5 +804,21 @@ Future firstConfigValidation(
         }.withoutNulls,
       );
     }
+  }
+}
+
+Future perfil(BuildContext context) async {
+  logFirebaseEvent('Perfil_custom_action');
+  await actions.lockOrientation();
+  if (currentAuthenticationToken == null || currentAuthenticationToken == '') {
+    logFirebaseEvent('Perfil_navigate_to');
+
+    context.pushNamed('Login');
+  } else {
+    logFirebaseEvent('Perfil_navigate_to');
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+    }
+    context.pushNamed('EditarPerfil');
   }
 }

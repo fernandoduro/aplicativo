@@ -4,9 +4,12 @@ import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'services01_model.dart';
 export 'services01_model.dart';
@@ -34,6 +37,10 @@ class _Services01WidgetState extends State<Services01Widget> {
       logFirebaseEvent('SERVICES01_PAGE_Services01_ON_INIT_STATE');
       logFirebaseEvent('Services01_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Services01_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -64,21 +71,21 @@ class _Services01WidgetState extends State<Services01Widget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerHelpModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const HeaderHelpWidget(),
+                  child: HeaderHelpWidget(),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.85,
                           decoration: BoxDecoration(
@@ -97,16 +104,16 @@ class _Services01WidgetState extends State<Services01Widget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 15.0, 0.0),
                                       child: Text(
                                         'O que você gostaria de organizar agora?',
@@ -128,7 +135,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 40.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -139,7 +146,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -203,7 +210,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                                 size: 50.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -248,7 +255,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -268,7 +275,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -332,7 +339,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                                 size: 50.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -377,7 +384,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -397,7 +404,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -476,7 +483,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                                 size: 50.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -521,7 +528,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -541,7 +548,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -576,7 +583,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                                 size: 50.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -621,7 +628,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -641,7 +648,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -668,7 +675,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                                 size: 50.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -713,7 +720,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -733,7 +740,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -760,7 +767,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                                 size: 50.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -805,7 +812,7 @@ class _Services01WidgetState extends State<Services01Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             40.0, 0.0, 40.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -835,11 +842,11 @@ class _Services01WidgetState extends State<Services01Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const FooterWidget(),
+                      child: FooterWidget(),
                     ),
                   ),
                 ],

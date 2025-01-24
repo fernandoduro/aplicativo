@@ -7,10 +7,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'new_client02_model.dart';
@@ -42,10 +45,14 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('NEW_CLIENT02_NewClient02_ON_INIT_STATE');
+      logFirebaseEvent('NewClient02_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('NewClient02_backend_call');
       _model.apiResultEditClientPage3 =
           await APIOficialGroup.getClientByIDCall.call(
-        id: widget.idClient?.toString(),
+        id: widget!.idClient?.toString(),
         authToken: currentAuthenticationToken,
       );
 
@@ -98,7 +105,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                           wrapWithModel(
                             model: _model.headerHelpModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: const HeaderHelpWidget(),
+                            child: HeaderHelpWidget(),
                           ),
                           Expanded(
                             child: SingleChildScrollView(
@@ -116,7 +123,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                           FlutterFlowTheme.of(context).primary,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: SingleChildScrollView(
                                         child: Column(
@@ -125,7 +132,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -175,7 +182,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       35.0, 0.0, 35.0, 0.0),
                                               child: Container(
@@ -188,7 +195,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsets.all(16.0),
+                                                  padding: EdgeInsets.all(16.0),
                                                   child: SingleChildScrollView(
                                                     child: Column(
                                                       mainAxisSize:
@@ -212,7 +219,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -1.0,
                                                                         0.0),
                                                                 child: Text(
@@ -234,11 +241,15 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                               ),
                                                               FutureBuilder<
                                                                   ApiCallResponse>(
-                                                                future: APIOficialGroup
-                                                                    .getPackagesCall
-                                                                    .call(
-                                                                  authToken:
-                                                                      currentAuthenticationToken,
+                                                                future: FFAppState()
+                                                                    .packagesCacheGlobal(
+                                                                  requestFn: () =>
+                                                                      APIOficialGroup
+                                                                          .getPackagesCall
+                                                                          .call(
+                                                                    authToken:
+                                                                        currentAuthenticationToken,
+                                                                  ),
                                                                 ),
                                                                 builder: (context,
                                                                     snapshot) {
@@ -283,7 +294,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               MainAxisAlignment.spaceBetween,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: FlutterFlowDropDown<String>(
                                                                                 controller: _model.pacoteValueController1 ??= FormFieldController<String>(
                                                                                   _model.pacoteValue1 ??= '',
@@ -294,14 +305,14 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                   true,
                                                                                 ) as List)
                                                                                     .map<String>((s) => s.toString())
-                                                                                    .toList()),
+                                                                                    .toList()!),
                                                                                 optionLabels: (getJsonField(
                                                                                   columnGetPackagesResponse.jsonBody,
                                                                                   r'''$.data[*].services[0].description''',
                                                                                   true,
                                                                                 ) as List)
                                                                                     .map<String>((s) => s.toString())
-                                                                                    .toList(),
+                                                                                    .toList()!,
                                                                                 onChanged: (val) async {
                                                                                   safeSetState(() => _model.pacoteValue1 = val);
                                                                                   logFirebaseEvent('NEW_CLIENT02_Pacote_ON_FORM_WIDGET_SELEC');
@@ -355,7 +366,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                 borderColor: Colors.transparent,
                                                                                 borderWidth: 0.0,
                                                                                 borderRadius: 8.0,
-                                                                                margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                 hidesUnderline: true,
                                                                                 isOverButton: false,
                                                                                 isSearchable: false,
@@ -423,13 +434,13 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               MainAxisAlignment.spaceBetween,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: FlutterFlowDropDown<String>(
                                                                                 controller: _model.pacoteValueController2 ??= FormFieldController<String>(
                                                                                   _model.pacoteValue2 ??= '',
                                                                                 ),
                                                                                 options: List<String>.from(<String>[]),
-                                                                                optionLabels: const <String>[],
+                                                                                optionLabels: <String>[],
                                                                                 onChanged: (val) => safeSetState(() => _model.pacoteValue2 = val),
                                                                                 width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                 height: 40.0,
@@ -448,7 +459,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                 borderColor: Colors.transparent,
                                                                                 borderWidth: 0.0,
                                                                                 borderRadius: 8.0,
-                                                                                margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                 hidesUnderline: true,
                                                                                 isOverButton: false,
                                                                                 isSearchable: false,
@@ -510,7 +521,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -1.0,
                                                                         0.0),
                                                                 child: Text(
@@ -532,14 +543,14 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
                                                                             0.0,
                                                                             8.0),
                                                                 child:
-                                                                    SizedBox(
+                                                                    Container(
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
                                                                           .width *
@@ -556,7 +567,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                         EasyDebounce
                                                                             .debounce(
                                                                       '_model.valorCobrancaTextController',
-                                                                      const Duration(
+                                                                      Duration(
                                                                           milliseconds:
                                                                               2000),
                                                                       () async {
@@ -577,7 +588,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                     ),
                                                                     autofocus:
                                                                         true,
-                                                                    autofillHints: const [
+                                                                    autofillHints: [
                                                                       AutofillHints
                                                                           .email
                                                                     ],
@@ -670,7 +681,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             16.0,
@@ -685,7 +696,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                           .spaceEvenly,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -732,7 +743,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                 ),
                                                                               ),
-                                                                              duration: const Duration(milliseconds: 4000),
+                                                                              duration: Duration(milliseconds: 4000),
                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                             ),
                                                                           );
@@ -745,12 +756,12 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               MediaQuery.sizeOf(context).width * 0.7,
                                                                           height:
                                                                               44.0,
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
                                                                               0.0),
-                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -767,7 +778,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                           elevation:
                                                                               3.0,
                                                                           borderSide:
-                                                                              const BorderSide(
+                                                                              BorderSide(
                                                                             color:
                                                                                 Colors.transparent,
                                                                             width:
@@ -797,7 +808,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                       true)
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               -1.0,
                                                                               0.0),
                                                                       child:
@@ -833,10 +844,10 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               packs[packsIndex];
                                                                           return Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                                AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: Container(
                                                                                 width: MediaQuery.sizeOf(context).width * 0.7,
                                                                                 height: 100.0,
@@ -847,7 +858,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                     color: FlutterFlowTheme.of(context).alternate,
                                                                                   ),
                                                                                 ),
-                                                                                child: SizedBox(
+                                                                                child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   child: Stack(
                                                                                     children: [
@@ -856,9 +867,9 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                         mainAxisAlignment: MainAxisAlignment.center,
                                                                                         children: [
                                                                                           Align(
-                                                                                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                             child: Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                               child: Column(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -922,7 +933,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                                               return '';
                                                                                                             }
                                                                                                           }(),
-                                                                                                          style: const TextStyle(),
+                                                                                                          style: TextStyle(),
                                                                                                         )
                                                                                                       ],
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -942,9 +953,9 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                         mainAxisAlignment: MainAxisAlignment.center,
                                                                                         children: [
                                                                                           Align(
-                                                                                            alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
                                                                                             child: Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                               child: InkWell(
                                                                                                 splashColor: Colors.transparent,
                                                                                                 focusColor: Colors.transparent,
@@ -958,15 +969,15 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                                         builder: (alertDialogContext) {
                                                                                                           return WebViewAware(
                                                                                                             child: AlertDialog(
-                                                                                                              content: const Text('Deseja excluir o pacote?'),
+                                                                                                              content: Text('Deseja excluir o pacote?'),
                                                                                                               actions: [
                                                                                                                 TextButton(
                                                                                                                   onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                  child: const Text('Não'),
+                                                                                                                  child: Text('Não'),
                                                                                                                 ),
                                                                                                                 TextButton(
                                                                                                                   onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                  child: const Text('Sim'),
+                                                                                                                  child: Text('Sim'),
                                                                                                                 ),
                                                                                                               ],
                                                                                                             ),
@@ -993,7 +1004,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           ),
                                                                                                         ),
-                                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                                        duration: Duration(milliseconds: 4000),
                                                                                                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                       ),
                                                                                                     );
@@ -1023,7 +1034,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             16.0,
@@ -1046,7 +1057,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                         )) ??
                                                                         true)
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -1067,12 +1078,12 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                 MediaQuery.sizeOf(context).width * 0.34,
                                                                             height:
                                                                                 44.0,
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0),
-                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -1087,7 +1098,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                             elevation:
                                                                                 3.0,
                                                                             borderSide:
-                                                                                const BorderSide(
+                                                                                BorderSide(
                                                                               color: Colors.transparent,
                                                                               width: 1.0,
                                                                             ),
@@ -1105,7 +1116,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                         )) ??
                                                                         true)
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             16.0,
@@ -1123,7 +1134,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                   logFirebaseEvent('Button_backend_call');
                                                                                   _model.apiResult0sd = await APIOficialGroup.editClientPackagesCall.call(
                                                                                     authToken: currentAuthenticationToken,
-                                                                                    id: widget.idClient?.toString(),
+                                                                                    id: widget!.idClient?.toString(),
                                                                                     packagesJson: functions.filterPackages(getJsonField(
                                                                                       FFAppState().packagesList,
                                                                                       r'''$.packages''',
@@ -1137,7 +1148,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                       'NewClient03',
                                                                                       queryParameters: {
                                                                                         'idClient': serializeParam(
-                                                                                          widget.idClient,
+                                                                                          widget!.idClient,
                                                                                           ParamType.int,
                                                                                         ),
                                                                                       }.withoutNulls,
@@ -1152,7 +1163,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                           ),
                                                                                         ),
-                                                                                        duration: const Duration(milliseconds: 4000),
+                                                                                        duration: Duration(milliseconds: 4000),
                                                                                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                       ),
                                                                                     );
@@ -1168,12 +1179,12 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                 MediaQuery.sizeOf(context).width * 0.34,
                                                                             height:
                                                                                 44.0,
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0),
-                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -1188,16 +1199,16 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                             elevation:
                                                                                 3.0,
                                                                             borderSide:
-                                                                                const BorderSide(
+                                                                                BorderSide(
                                                                               color: Colors.transparent,
                                                                               width: 1.0,
                                                                             ),
                                                                             borderRadius:
                                                                                 BorderRadius.circular(12.0),
                                                                             disabledColor:
-                                                                                const Color(0xFFACACAC),
+                                                                                Color(0xFFACACAC),
                                                                             disabledTextColor:
-                                                                                const Color(0xFFD9D9D9),
+                                                                                Color(0xFFD9D9D9),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1228,7 +1239,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                               wrapWithModel(
                                 model: _model.footerWhiteModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const FooterWhiteWidget(),
+                                child: FooterWhiteWidget(),
                               ),
                             ],
                           ),

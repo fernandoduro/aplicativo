@@ -5,11 +5,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'register_model.dart';
 export 'register_model.dart';
@@ -35,6 +38,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('REGISTER_PAGE_Register_ON_INIT_STATE');
+      logFirebaseEvent('Register_custom_action');
+      await actions.lockOrientation();
+      logFirebaseEvent('Register_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
       logFirebaseEvent('Register_backend_call');
       _model.apiResultCategories = await APIOficialGroup.categoriesCall.call();
 
@@ -44,8 +53,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         r'''$.data''',
       );
       safeSetState(() {});
-      logFirebaseEvent('Register_custom_action');
-      await actions.lockOrientation();
     });
 
     _model.nomeTextController ??= TextEditingController();
@@ -88,7 +95,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -97,8 +104,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   child: Container(
                     width: 100.0,
                     height: double.infinity,
-                    decoration: const BoxDecoration(),
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    decoration: BoxDecoration(),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -109,16 +116,16 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             height: 140.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).primary,
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(0.0),
                                 bottomRight: Radius.circular(0.0),
                                 topLeft: Radius.circular(0.0),
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
@@ -129,16 +136,16 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 40.0, 0.0, 40.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 430.0,
                               ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).info,
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(15.0),
                                   bottomRight: Radius.circular(15.0),
                                   topLeft: Radius.circular(15.0),
@@ -150,7 +157,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(32.0),
+                                      padding: EdgeInsets.all(32.0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -181,10 +188,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 8.0),
-                                                    child: SizedBox(
+                                                    child: Container(
                                                       width: 370.0,
                                                       child: TextFormField(
                                                         controller: _model
@@ -192,7 +199,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         focusNode: _model
                                                             .nomeFocusNode,
                                                         autofocus: true,
-                                                        autofillHints: const [
+                                                        autofillHints: [
                                                           AutofillHints.email
                                                         ],
                                                         textCapitalization:
@@ -292,7 +299,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: TextFormField(
@@ -301,7 +308,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       focusNode: _model
                                                           .whatsappFocusNode,
                                                       autofocus: true,
-                                                      autofillHints: const [
+                                                      autofillHints: [
                                                         AutofillHints.email
                                                       ],
                                                       obscureText: false,
@@ -403,7 +410,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: FlutterFlowDropDown<
@@ -415,7 +422,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       options:
                                                           List<String>.from(
                                                               ['F', 'M', 'NB']),
-                                                      optionLabels: const [
+                                                      optionLabels: [
                                                         'Ela / Dela',
                                                         'Ele / Dele',
                                                         'Elu / Delu'
@@ -463,7 +470,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       borderWidth: 2.0,
                                                       borderRadius: 8.0,
                                                       margin:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   8.0,
@@ -477,7 +484,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: FlutterFlowDropDown<
@@ -496,7 +503,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()),
+                                                              .toList()!),
                                                       optionLabels:
                                                           (getJsonField(
                                                         FFAppState()
@@ -506,7 +513,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList(),
+                                                              .toList()!,
                                                       onChanged: (val) =>
                                                           safeSetState(() =>
                                                               _model.profissaoValue =
@@ -551,7 +558,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       borderWidth: 2.0,
                                                       borderRadius: 8.0,
                                                       margin:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   8.0,
@@ -569,7 +576,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           '')
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   8.0,
@@ -581,7 +588,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         focusNode: _model
                                                             .codigoFocusNode,
                                                         autofocus: true,
-                                                        autofillHints: const [
+                                                        autofillHints: [
                                                           AutofillHints.email
                                                         ],
                                                         textCapitalization:
@@ -692,7 +699,83 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 8.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
+                                                      multiSelectController: _model
+                                                              .desafiosValueController ??=
+                                                          FormListFieldController<
+                                                              String>(null),
+                                                      options: [
+                                                        'Atrair pacientes/clientes',
+                                                        'Manter pacientes/clientes',
+                                                        'Organizar minha agenda',
+                                                        'Gerenciar a parte financeira',
+                                                        'Responder muitas mensagens no WhatsApp',
+                                                        'Nenhum destes'
+                                                      ],
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 56.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Manrope',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.0,
+                                                              ),
+                                                      hintText:
+                                                          'Quais seus desafios?',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  8.0,
+                                                                  16.0,
+                                                                  8.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: true,
+                                                      onMultiSelectChanged:
+                                                          (val) => safeSetState(
+                                                              () => _model
+                                                                      .desafiosValue =
+                                                                  val),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: TextFormField(
@@ -701,7 +784,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       focusNode: _model
                                                           .passwordFocusNode,
                                                       autofocus: true,
-                                                      autofillHints: const [
+                                                      autofillHints: [
                                                         AutofillHints.password
                                                       ],
                                                       obscureText: !_model
@@ -800,7 +883,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     .visibility_outlined
                                                                 : Icons
                                                                     .visibility_off_outlined,
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF757575),
                                                             size: 22.0,
                                                           ),
@@ -821,7 +904,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: TextFormField(
@@ -830,7 +913,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                       focusNode: _model
                                                           .confirmPasswordFocusNode,
                                                       autofocus: true,
-                                                      autofillHints: const [
+                                                      autofillHints: [
                                                         AutofillHints.email
                                                       ],
                                                       obscureText: !_model
@@ -930,7 +1013,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     .visibility_outlined
                                                                 : Icons
                                                                     .visibility_off_outlined,
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF757575),
                                                             size: 22.0,
                                                           ),
@@ -951,7 +1034,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Row(
@@ -1095,15 +1178,15 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   logFirebaseEvent(
                                                       'REGISTER_PAGE_CRIAR_CONTA_BTN_ON_TAP');
-                                                  var shouldSetState = false;
-                                                  Function() navigate = () {};
+                                                  var _shouldSetState = false;
+                                                  Function() _navigate = () {};
                                                   logFirebaseEvent(
                                                       'Button_validate_form');
                                                   if (_model.formKey
@@ -1114,21 +1197,21 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           .validate()) {
                                                     return;
                                                   }
-                                                  if (_model.generoValue ==
+                                                  if (_model.desafiosValue ==
                                                       null) {
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
                                                       SnackBar(
                                                         content: Text(
-                                                          'Campo pronomes obrigatório',
+                                                          'Campo desafios obrigatório',
                                                           style: TextStyle(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
                                                           ),
                                                         ),
-                                                        duration: const Duration(
+                                                        duration: Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -1152,7 +1235,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                 .secondaryBackground,
                                                           ),
                                                         ),
-                                                        duration: const Duration(
+                                                        duration: Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -1178,7 +1261,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                 .primaryText,
                                                           ),
                                                         ),
-                                                        duration: const Duration(
+                                                        duration: Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -1186,9 +1269,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                 .secondary,
                                                       ),
                                                     );
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       safeSetState(() {});
-                                                    }
                                                     return;
                                                   }
                                                   logFirebaseEvent(
@@ -1218,9 +1300,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         .codigoTextController
                                                         .text,
                                                     gender: _model.generoValue,
+                                                    challangeList:
+                                                        _model.desafiosValue,
                                                   );
 
-                                                  shouldSetState = true;
+                                                  _shouldSetState = true;
                                                   if ((_model.apiResult
                                                           ?.succeeded ??
                                                       true)) {
@@ -1245,7 +1329,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                             .text,
                                                       );
 
-                                                      shouldSetState = true;
+                                                      _shouldSetState = true;
                                                       if ((_model
                                                               .apiResultLogin2
                                                               ?.succeeded ??
@@ -1274,7 +1358,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                             '\$.data.token',
                                                           ),
                                                         );
-                                                        navigate = () =>
+                                                        _navigate = () =>
                                                             context.goNamedAuth(
                                                                 'Home',
                                                                 context
@@ -1335,7 +1419,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                     .primaryText,
                                                               ),
                                                             ),
-                                                            duration: const Duration(
+                                                            duration: Duration(
                                                                 milliseconds:
                                                                     4000),
                                                             backgroundColor:
@@ -1365,7 +1449,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                   .primaryText,
                                                             ),
                                                           ),
-                                                          duration: const Duration(
+                                                          duration: Duration(
                                                               milliseconds:
                                                                   4000),
                                                           backgroundColor:
@@ -1395,7 +1479,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                 .primaryText,
                                                           ),
                                                         ),
-                                                        duration: const Duration(
+                                                        duration: Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -1405,20 +1489,19 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     );
                                                   }
 
-                                                  navigate();
-                                                  if (shouldSetState) {
+                                                  _navigate();
+                                                  if (_shouldSetState)
                                                     safeSetState(() {});
-                                                  }
                                                 },
                                                 text: 'Criar conta',
                                                 options: FFButtonOptions(
                                                   width: 370.0,
                                                   height: 44.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -1433,7 +1516,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -1446,7 +1529,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                                             // You will have to add an action on this rich text to go to your login page.
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 12.0),
                                               child: RichText(
@@ -1455,7 +1538,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         .textScaler,
                                                 text: TextSpan(
                                                   children: [
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text:
                                                           'Já possui uma conta?',
                                                       style: TextStyle(),
@@ -1511,7 +1594,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               ),
                             ),
                           ),
-                        ].addToEnd(const SizedBox(height: 40.0)),
+                        ].addToEnd(SizedBox(height: 40.0)),
                       ),
                     ),
                   ),

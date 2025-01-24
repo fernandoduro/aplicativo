@@ -5,9 +5,14 @@ import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'list_all_clients_model.dart';
 export 'list_all_clients_model.dart';
@@ -31,6 +36,15 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'listAllClients'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('LIST_ALL_CLIENTS_listAllClients_ON_INIT_');
+      logFirebaseEvent('listAllClients_update_app_state');
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+    });
+
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -46,6 +60,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -65,18 +81,18 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                       wrapWithModel(
                         model: _model.headerHelpModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: const HeaderHelpWidget(),
+                        child: HeaderHelpWidget(),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Flexible(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
                                     width:
@@ -89,7 +105,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(16.0),
+                                      padding: EdgeInsets.all(16.0),
                                       child: FutureBuilder<ApiCallResponse>(
                                         future: APIOficialGroup
                                             .listAllClientsCall
@@ -150,7 +166,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                             .spaceBetween,
                                                     children: [
                                                       Expanded(
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
                                                                           context)
@@ -165,7 +181,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                 EasyDebounce
                                                                     .debounce(
                                                               '_model.textController',
-                                                              const Duration(
+                                                              Duration(
                                                                   milliseconds:
                                                                       100),
                                                               () async {
@@ -217,7 +233,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
+                                                                    BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -230,7 +246,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
+                                                                    BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -272,7 +288,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                               fillColor: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryBackground,
-                                                              suffixIcon: const Icon(
+                                                              suffixIcon: Icon(
                                                                 Icons.search,
                                                                 size: 25.0,
                                                               ),
@@ -300,7 +316,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                     ],
                                                   ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
                                                           10.0, 0.0),
                                                   child: Row(
@@ -350,7 +366,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                           );
                                                         },
                                                         text: 'Adicionar',
-                                                        icon: const Icon(
+                                                        icon: Icon(
                                                           Icons.add,
                                                           size: 15.0,
                                                         ),
@@ -358,14 +374,14 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                             FFButtonOptions(
                                                           height: 40.0,
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
                                                                       12.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -427,7 +443,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                 clientsIndex];
                                                         return Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       10.0,
@@ -469,7 +485,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               16.0,
                                                                               16.0,
                                                                               16.0,
@@ -497,7 +513,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   )) ==
                                                                                   'inactive')
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     '(Inativo)',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -512,12 +528,12 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: const AlignmentDirectional(
+                                                                          alignment: AlignmentDirectional(
                                                                               -1.0,
                                                                               0.0),
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 16.0,
                                                                                 8.0,
                                                                                 16.0,
@@ -565,7 +581,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                 child: RichText(
                                                                                                   textScaler: MediaQuery.of(context).textScaler,
                                                                                                   text: TextSpan(
@@ -610,7 +626,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                                     children: List.generate(services.length, (servicesIndex) {
                                                                                                       final servicesItem = services[servicesIndex];
                                                                                                       return Padding(
-                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                                         child: RichText(
                                                                                                           textScaler: MediaQuery.of(context).textScaler,
                                                                                                           text: TextSpan(
@@ -651,7 +667,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               16.0,
                                                                               8.0,
                                                                               16.0,
@@ -664,7 +680,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                 MainAxisAlignment.start,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                 child: FFButtonWidget(
                                                                                   onPressed: () async {
                                                                                     logFirebaseEvent('LIST_ALL_CLIENTS_ATENDIMENTOS_BTN_ON_TAP');
@@ -686,8 +702,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   text: 'Atendimentos',
                                                                                   options: FFButtonOptions(
                                                                                     height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Manrope',
@@ -702,7 +718,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                 child: FFButtonWidget(
                                                                                   onPressed: () async {
                                                                                     logFirebaseEvent('LIST_ALL_CLIENTS_AVALIAES_BTN_ON_TAP');
@@ -731,8 +747,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   text: 'Avaliações',
                                                                                   options: FFButtonOptions(
                                                                                     height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Manrope',
@@ -752,7 +768,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   ) !=
                                                                                   null)
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                   child: FFButtonWidget(
                                                                                     onPressed: () async {
                                                                                       logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
@@ -765,15 +781,15 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                           ).toString()))!);
                                                                                     },
                                                                                     text: '',
-                                                                                    icon: const Icon(
+                                                                                    icon: Icon(
                                                                                       FFIcons.kwhatsapp,
                                                                                       size: 25.0,
                                                                                     ),
                                                                                     options: FFButtonOptions(
                                                                                       width: 40.0,
                                                                                       height: 40.0,
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Manrope',
@@ -786,7 +802,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                   ),
                                                                                 ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                 child: FFButtonWidget(
                                                                                   onPressed: () async {
                                                                                     logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
@@ -810,15 +826,15 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     );
                                                                                   },
                                                                                   text: '',
-                                                                                  icon: const Icon(
+                                                                                  icon: Icon(
                                                                                     Icons.edit,
                                                                                     size: 25.0,
                                                                                   ),
                                                                                   options: FFButtonOptions(
                                                                                     width: 40.0,
                                                                                     height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Manrope',
@@ -831,7 +847,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                                                                                 child: FFButtonWidget(
                                                                                   onPressed: () async {
                                                                                     logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
@@ -841,15 +857,15 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                           builder: (alertDialogContext) {
                                                                                             return WebViewAware(
                                                                                               child: AlertDialog(
-                                                                                                content: const Text('Tem certeza que deseja excluir o cliente?'),
+                                                                                                content: Text('Tem certeza que deseja excluir o cliente?'),
                                                                                                 actions: [
                                                                                                   TextButton(
                                                                                                     onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                    child: const Text('Cancelar'),
+                                                                                                    child: Text('Cancelar'),
                                                                                                   ),
                                                                                                   TextButton(
                                                                                                     onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                    child: const Text('Confirmar'),
+                                                                                                    child: Text('Confirmar'),
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
@@ -876,7 +892,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                             ),
                                                                                           ),
-                                                                                          duration: const Duration(milliseconds: 4000),
+                                                                                          duration: Duration(milliseconds: 4000),
                                                                                           backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                         ),
                                                                                       );
@@ -885,15 +901,15 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                     safeSetState(() {});
                                                                                   },
                                                                                   text: '',
-                                                                                  icon: const Icon(
+                                                                                  icon: Icon(
                                                                                     Icons.delete_outline,
                                                                                     size: 25.0,
                                                                                   ),
                                                                                   options: FFButtonOptions(
                                                                                     width: 40.0,
                                                                                     height: 40.0,
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Manrope',
@@ -936,7 +952,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     50.0,
@@ -961,7 +977,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     14.0,
@@ -1002,7 +1018,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     50.0,
@@ -1027,7 +1043,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     14.0,
@@ -1069,11 +1085,11 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.footerModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: const FooterWidget(),
+                              child: FooterWidget(),
                             ),
                           ),
                         ],
