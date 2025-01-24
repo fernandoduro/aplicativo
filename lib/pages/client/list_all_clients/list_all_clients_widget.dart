@@ -206,6 +206,10 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                     true;
                                                                 safeSetState(
                                                                     () {});
+                                                                logFirebaseEvent(
+                                                                    'TextField_clear_query_cache');
+                                                                FFAppState()
+                                                                    .clearClientsCacheCache();
                                                               },
                                                             ),
                                                             autofocus: false,
