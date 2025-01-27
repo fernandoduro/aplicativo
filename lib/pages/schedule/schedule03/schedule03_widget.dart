@@ -772,11 +772,20 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           },
                                                                                           width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                           height: 40.0,
+                                                                                          searchHintTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                fontFamily: 'Manrope',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                          searchTextStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Manrope',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
                                                                                           textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           hintText: 'Selecione uma opção',
+                                                                                          searchHintText: 'Buscar cliente',
                                                                                           icon: Icon(
                                                                                             Icons.keyboard_arrow_down_rounded,
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -796,7 +805,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   null) &&
                                                                                               !widget!.isAddNewClient!,
                                                                                           isOverButton: false,
-                                                                                          isSearchable: false,
+                                                                                          isSearchable: true,
                                                                                           isMultiSelect: false,
                                                                                         ),
                                                                                       ),

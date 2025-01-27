@@ -224,16 +224,15 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: Text(
-                                            'Cadastro',
+                                            'Dados complementares',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      'Gloria Hallelujah',
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondary,
-                                                  fontSize: 16.0,
+                                                      .primaryBackground,
+                                                  fontSize: 24.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -307,111 +306,121 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                         .bold,
                                                               ),
                                                         ),
-                                                        RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'WhatsApp: ',
-                                                                style: FlutterFlowTheme.of(
+                                                        if (getJsonField(
+                                                              _model.dataClient,
+                                                              r'''$.professional_clients[0].cellphone[0]''',
+                                                            ) !=
+                                                            null)
+                                                          RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
                                                                         context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    getJsonField(
-                                                                  _model
-                                                                      .dataClient,
-                                                                  r'''$.professional_clients[0].cellphone[0]''',
-                                                                ).toString(),
-                                                                style:
-                                                                    TextStyle(),
-                                                              )
-                                                            ],
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'WhatsApp: ',
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Manrope',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
+                                                                TextSpan(
+                                                                  text: functions
+                                                                      .removeNullString(
+                                                                          getJsonField(
+                                                                    _model
+                                                                        .dataClient,
+                                                                    r'''$.professional_clients[0].cellphone[0]''',
+                                                                  ).toString())!,
+                                                                  style:
+                                                                      TextStyle(),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
                                                           ),
-                                                        ),
-                                                        RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text: 'CPF: ',
-                                                                style: FlutterFlowTheme.of(
+                                                        if (getJsonField(
+                                                              _model.dataClient,
+                                                              r'''$.professional_clients[0].cpf''',
+                                                            ) !=
+                                                            null)
+                                                          RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
                                                                         context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Manrope',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    getJsonField(
-                                                                  _model
-                                                                      .dataClient,
-                                                                  r'''$.professional_clients[0].cpf''',
-                                                                ).toString(),
-                                                                style:
-                                                                    TextStyle(),
-                                                              )
-                                                            ],
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text: 'CPF: ',
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Manrope',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
+                                                                TextSpan(
+                                                                  text: functions
+                                                                      .removeNullString(
+                                                                          getJsonField(
+                                                                    _model
+                                                                        .dataClient,
+                                                                    r'''$.professional_clients[0].cpf''',
+                                                                  ).toString())!,
+                                                                  style:
+                                                                      TextStyle(),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
                                                           ),
-                                                        ),
                                                         Container(
                                                           width: 200.0,
                                                         ),
@@ -507,51 +516,6 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 10.0, 16.0, 0.0),
-                                      child: RichText(
-                                        textScaler:
-                                            MediaQuery.of(context).textScaler,
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Dados complementares do ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        fontSize: 30.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            TextSpan(
-                                              text: 'seu paciente',
-                                              style: GoogleFonts.getFont(
-                                                'Gloria Hallelujah',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            )
-                                          ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .displaySmall
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                fontSize: 26.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
                                       padding: EdgeInsets.all(16.0),
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -583,7 +547,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Text(
-                                                          'Data do primeiro atendimento',
+                                                          'Data da contratação',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -616,17 +580,14 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                 .dataPrimeiroAtendTextController,
                                                             focusNode: _model
                                                                 .dataPrimeiroAtendFocusNode,
-                                                            autofocus: true,
-                                                            autofillHints: [
-                                                              AutofillHints
-                                                                  .email
-                                                            ],
+                                                            autofocus: false,
                                                             textCapitalization:
                                                                 TextCapitalization
                                                                     .none,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
+                                                              isDense: false,
                                                               labelStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -707,9 +668,6 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .datetime,
                                                             validator: _model
                                                                 .dataPrimeiroAtendTextControllerValidator
                                                                 .asValidator(
@@ -850,9 +808,15 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
+                                                            maxLength: 2,
+                                                            buildCounter: (context,
+                                                                    {required currentLength,
+                                                                    required isFocused,
+                                                                    maxLength}) =>
+                                                                null,
                                                             keyboardType:
                                                                 TextInputType
-                                                                    .datetime,
+                                                                    .number,
                                                             validator: _model
                                                                 .vencimentoTextControllerValidator
                                                                 .asValidator(
@@ -989,9 +953,15 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
+                                                            maxLength: 10,
+                                                            buildCounter: (context,
+                                                                    {required currentLength,
+                                                                    required isFocused,
+                                                                    maxLength}) =>
+                                                                null,
                                                             keyboardType:
                                                                 TextInputType
-                                                                    .datetime,
+                                                                    .number,
                                                             validator: _model
                                                                 .nascimentoTextControllerValidator
                                                                 .asValidator(

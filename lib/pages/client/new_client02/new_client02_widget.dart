@@ -296,8 +296,8 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: FlutterFlowDropDown<String>(
-                                                                                controller: _model.pacoteValueController1 ??= FormFieldController<String>(
-                                                                                  _model.pacoteValue1 ??= '',
+                                                                                controller: _model.pacoteValueController ??= FormFieldController<String>(
+                                                                                  _model.pacoteValue ??= '',
                                                                                 ),
                                                                                 options: List<String>.from((getJsonField(
                                                                                   columnGetPackagesResponse.jsonBody,
@@ -314,12 +314,12 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                     .map<String>((s) => s.toString())
                                                                                     .toList()!,
                                                                                 onChanged: (val) async {
-                                                                                  safeSetState(() => _model.pacoteValue1 = val);
+                                                                                  safeSetState(() => _model.pacoteValue = val);
                                                                                   logFirebaseEvent('NEW_CLIENT02_Pacote_ON_FORM_WIDGET_SELEC');
                                                                                   logFirebaseEvent('Pacote_backend_call');
                                                                                   _model.apiResultbn2 = await APIOficialGroup.packagesByIdCall.call(
                                                                                     authToken: currentAuthenticationToken,
-                                                                                    id: _model.pacoteValue1,
+                                                                                    id: _model.pacoteValue,
                                                                                   );
 
                                                                                   if ((_model.apiResultbn2?.succeeded ?? true)) {
@@ -436,12 +436,12 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: FlutterFlowDropDown<String>(
-                                                                                controller: _model.pacoteValueController2 ??= FormFieldController<String>(
-                                                                                  _model.pacoteValue2 ??= '',
+                                                                                controller: _model.pacoteEmptyValueController ??= FormFieldController<String>(
+                                                                                  _model.pacoteEmptyValue ??= '',
                                                                                 ),
                                                                                 options: List<String>.from(<String>[]),
                                                                                 optionLabels: <String>[],
-                                                                                onChanged: (val) => safeSetState(() => _model.pacoteValue2 = val),
+                                                                                onChanged: (val) => safeSetState(() => _model.pacoteEmptyValue = val),
                                                                                 width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                 height: 40.0,
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -708,45 +708,88 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                           logFirebaseEvent(
                                                                               'NEW_CLIENT02_ADICIONAR__LISTA_BTN_ON_TAP');
                                                                           logFirebaseEvent(
-                                                                              'Button_update_page_state');
-                                                                          _model.packagesAdd = functions.updateValueToJson(
-                                                                              getJsonField(
-                                                                                _model.packagesAdd,
-                                                                                r'''$''',
-                                                                              ),
-                                                                              'monthly_value',
-                                                                              _model.valorCobrancaTextController.text);
-                                                                          safeSetState(
-                                                                              () {});
-                                                                          logFirebaseEvent(
-                                                                              'Button_update_app_state');
-                                                                          FFAppState().packagesList = functions.addJsonToJson(
-                                                                              getJsonField(
-                                                                                FFAppState().packagesList,
-                                                                                r'''$''',
-                                                                              ),
-                                                                              getJsonField(
-                                                                                _model.packagesAdd,
-                                                                                r'''$''',
-                                                                              ),
-                                                                              'packages');
-                                                                          safeSetState(
-                                                                              () {});
-                                                                          logFirebaseEvent(
-                                                                              'Button_show_snack_bar');
-                                                                          ScaffoldMessenger.of(context)
-                                                                              .showSnackBar(
-                                                                            SnackBar(
-                                                                              content: Text(
-                                                                                'Tudo certo! Registramos estas informações.',
-                                                                                style: TextStyle(
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                              'Button_validate_form');
+                                                                          _model.validation =
+                                                                              true;
+                                                                          if (_model.formKey.currentState == null ||
+                                                                              !_model.formKey.currentState!.validate()) {
+                                                                            safeSetState(() =>
+                                                                                _model.validation = false);
+                                                                            return;
+                                                                          }
+                                                                          if (_model.pacoteValue ==
+                                                                              null) {
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              SnackBar(
+                                                                                content: Text(
+                                                                                  'Campo pacote obrigatório.',
+                                                                                  style: TextStyle(
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                  ),
                                                                                 ),
+                                                                                duration: Duration(milliseconds: 4000),
+                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                               ),
-                                                                              duration: Duration(milliseconds: 4000),
-                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                            ),
-                                                                          );
+                                                                            );
+                                                                            _model.validation =
+                                                                                false;
+                                                                            safeSetState(() {});
+                                                                            return;
+                                                                          }
+                                                                          if ((_model.validation == true) &&
+                                                                              (_model.pacoteValue != null && _model.pacoteValue != '')) {
+                                                                            logFirebaseEvent('Button_update_page_state');
+                                                                            _model.packagesAdd = functions.updateValueToJson(
+                                                                                getJsonField(
+                                                                                  _model.packagesAdd,
+                                                                                  r'''$''',
+                                                                                ),
+                                                                                'monthly_value',
+                                                                                _model.valorCobrancaTextController.text);
+                                                                            safeSetState(() {});
+                                                                            logFirebaseEvent('Button_update_app_state');
+                                                                            FFAppState().packagesList = functions.addJsonToJson(
+                                                                                getJsonField(
+                                                                                  FFAppState().packagesList,
+                                                                                  r'''$''',
+                                                                                ),
+                                                                                getJsonField(
+                                                                                  _model.packagesAdd,
+                                                                                  r'''$''',
+                                                                                ),
+                                                                                'packages');
+                                                                            safeSetState(() {});
+                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              SnackBar(
+                                                                                content: Text(
+                                                                                  'Tudo certo! Registramos estas informações.',
+                                                                                  style: TextStyle(
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  ),
+                                                                                ),
+                                                                                duration: Duration(milliseconds: 4000),
+                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                              ),
+                                                                            );
+                                                                          } else {
+                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              SnackBar(
+                                                                                content: Text(
+                                                                                  'Campo pacote obrigatório.',
+                                                                                  style: TextStyle(
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                  ),
+                                                                                ),
+                                                                                duration: Duration(milliseconds: 4000),
+                                                                                backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                              ),
+                                                                            );
+                                                                          }
+
+                                                                          safeSetState(
+                                                                              () {});
                                                                         },
                                                                         text:
                                                                             'Adicionar à lista',

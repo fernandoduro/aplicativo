@@ -329,17 +329,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                             children: [
                                                                               Row(
                                                                                 mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                mainAxisAlignment: MainAxisAlignment.end,
                                                                                 children: [
-                                                                                  Text(
-                                                                                    'Cliente',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w800,
-                                                                                        ),
-                                                                                  ),
                                                                                   InkWell(
                                                                                     splashColor: Colors.transparent,
                                                                                     focusColor: Colors.transparent,
@@ -365,6 +356,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                     },
                                                                                     child: Text(
                                                                                       'Editar',
+                                                                                      textAlign: TextAlign.end,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Manrope',
                                                                                             color: FlutterFlowTheme.of(context).primary,

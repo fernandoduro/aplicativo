@@ -385,7 +385,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                         hintText:
-                                                                            'Nos diga o que precisa, que faremos por você.',
+                                                                            'Nos diga o que precisa que faremos por você.',
                                                                         hintStyle: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(

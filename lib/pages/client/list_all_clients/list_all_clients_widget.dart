@@ -906,6 +906,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                         ),
                                                                                       );
                                                                                     }
+                                                                                    logFirebaseEvent('Button_clear_query_cache');
+                                                                                    FFAppState().clearClientsCacheCache();
 
                                                                                     safeSetState(() {});
                                                                                   },

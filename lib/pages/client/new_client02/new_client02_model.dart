@@ -33,13 +33,13 @@ class NewClient02Model extends FlutterFlowModel<NewClient02Widget> {
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
   // State field(s) for Pacote widget.
-  String? pacoteValue1;
-  FormFieldController<String>? pacoteValueController1;
+  String? pacoteValue;
+  FormFieldController<String>? pacoteValueController;
   // Stores action output result for [Backend Call - API (PackagesById)] action in Pacote widget.
   ApiCallResponse? apiResultbn2;
-  // State field(s) for Pacote widget.
-  String? pacoteValue2;
-  FormFieldController<String>? pacoteValueController2;
+  // State field(s) for PacoteEmpty widget.
+  String? pacoteEmptyValue;
+  FormFieldController<String>? pacoteEmptyValueController;
   // State field(s) for valorCobranca widget.
   FocusNode? valorCobrancaFocusNode;
   TextEditingController? valorCobrancaTextController;
@@ -53,6 +53,8 @@ class NewClient02Model extends FlutterFlowModel<NewClient02Widget> {
     return null;
   }
 
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? validation;
   // Stores action output result for [Backend Call - API (editClientPackages)] action in Button widget.
   ApiCallResponse? apiResult0sd;
   // Model for FooterWhite component.
