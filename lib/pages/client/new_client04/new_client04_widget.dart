@@ -113,11 +113,10 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
         Future(() async {
           logFirebaseEvent('NewClient04_set_form_field');
           safeSetState(() {
-            _model.nascimentoTextController?.text = functions
-                .removeNullString(functions.formatDateYYYY(getJsonField(
+            _model.nascimentoTextController?.text = getJsonField(
               _model.dataClient,
-              r'''$..professional_clients[0].birthday''',
-            ).toString().toString()))!;
+              r'''$.professional_clients[0].birthday''',
+            ).toString().toString();
             _model.nascimentoMask.updateMask(
               newValue: TextEditingValue(
                 text: _model.nascimentoTextController!.text,
