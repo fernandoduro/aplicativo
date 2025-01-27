@@ -45,83 +45,90 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
       logFirebaseEvent('EditarPerfil_update_app_state');
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
-      logFirebaseEvent('EditarPerfil_backend_call');
-      _model.apiResultCategories = await APIOficialGroup.categoriesCall.call();
+      await Future.wait([
+        Future(() async {
+          logFirebaseEvent('EditarPerfil_backend_call');
+          _model.apiResultCategories =
+              await APIOficialGroup.categoriesCall.call();
 
-      if ((_model.apiResultCategories?.succeeded ?? true)) {
-        logFirebaseEvent('EditarPerfil_update_app_state');
-        FFAppState().CategoriesJson = getJsonField(
-          (_model.apiResultCategories?.jsonBody ?? ''),
-          r'''$.data''',
-        );
-        logFirebaseEvent('EditarPerfil_backend_call');
-        _model.apiResultUserEdit = await APIOficialGroup.getUserCall.call(
-          authToken: currentAuthenticationToken,
-        );
-
-        if ((_model.apiResultUserEdit?.succeeded ?? true)) {
-          logFirebaseEvent('EditarPerfil_update_app_state');
-          FFAppState().userEditPerfil = getJsonField(
-            (_model.apiResultUserEdit?.jsonBody ?? ''),
-            r'''$''',
-          );
-          safeSetState(() {});
-          await Future.wait([
-            Future(() async {
-              logFirebaseEvent('EditarPerfil_set_form_field');
-              safeSetState(() {
-                _model.nomeTextController?.text = getJsonField(
-                  (_model.apiResultUserEdit?.jsonBody ?? ''),
-                  r'''$.name''',
-                ).toString().toString();
-              });
-            }),
-            Future(() async {
-              logFirebaseEvent('EditarPerfil_set_form_field');
-              safeSetState(() {
-                _model.whatsappTextController?.text =
-                    functions.formatMaskPhone(getJsonField(
-                  (_model.apiResultUserEdit?.jsonBody ?? ''),
-                  r'''$.cellphone''',
-                ).toString().toString())!;
-              });
-            }),
-            Future(() async {
-              logFirebaseEvent('EditarPerfil_set_form_field');
-              safeSetState(() {
-                _model.generoValueController?.value = getJsonField(
-                  (_model.apiResultUserEdit?.jsonBody ?? ''),
-                  r'''$.gender''',
-                ).toString().toString();
-              });
-            }),
-            Future(() async {
-              logFirebaseEvent('EditarPerfil_set_form_field');
-              safeSetState(() {
-                _model.profissaoValueController?.value = getJsonField(
-                  (_model.apiResultUserEdit?.jsonBody ?? ''),
-                  r'''$.category_id''',
-                ).toString().toString();
-              });
-            }),
-            Future(() async {
-              logFirebaseEvent('EditarPerfil_set_form_field');
-              safeSetState(() {
-                _model.codigoTextController?.text = getJsonField(
-                  (_model.apiResultUserEdit?.jsonBody ?? ''),
-                  r'''$.code''',
-                ).toString().toString();
-              });
-            }),
-          ]);
-        } else {
-          if ((_model.apiResultUserEdit?.statusCode ?? 200) == 401) {
-            logFirebaseEvent('EditarPerfil_navigate_to');
-
-            context.pushNamed('Login');
+          if ((_model.apiResultCategories?.succeeded ?? true)) {
+            logFirebaseEvent('EditarPerfil_update_app_state');
+            FFAppState().CategoriesJson = getJsonField(
+              (_model.apiResultCategories?.jsonBody ?? ''),
+              r'''$.data''',
+            );
           }
-        }
-      }
+        }),
+        Future(() async {
+          logFirebaseEvent('EditarPerfil_backend_call');
+          _model.apiResultUserEdit = await APIOficialGroup.getUserCall.call(
+            authToken: currentAuthenticationToken,
+          );
+
+          if ((_model.apiResultUserEdit?.succeeded ?? true)) {
+            logFirebaseEvent('EditarPerfil_update_app_state');
+            FFAppState().userEditPerfil = getJsonField(
+              (_model.apiResultUserEdit?.jsonBody ?? ''),
+              r'''$''',
+            );
+            safeSetState(() {});
+            await Future.wait([
+              Future(() async {
+                logFirebaseEvent('EditarPerfil_set_form_field');
+                safeSetState(() {
+                  _model.nomeTextController?.text = getJsonField(
+                    (_model.apiResultUserEdit?.jsonBody ?? ''),
+                    r'''$.name''',
+                  ).toString().toString();
+                });
+              }),
+              Future(() async {
+                logFirebaseEvent('EditarPerfil_set_form_field');
+                safeSetState(() {
+                  _model.whatsappTextController?.text =
+                      functions.formatMaskPhone(getJsonField(
+                    (_model.apiResultUserEdit?.jsonBody ?? ''),
+                    r'''$.cellphone''',
+                  ).toString().toString())!;
+                });
+              }),
+              Future(() async {
+                logFirebaseEvent('EditarPerfil_set_form_field');
+                safeSetState(() {
+                  _model.generoValueController?.value = getJsonField(
+                    (_model.apiResultUserEdit?.jsonBody ?? ''),
+                    r'''$.gender''',
+                  ).toString().toString();
+                });
+              }),
+              Future(() async {
+                logFirebaseEvent('EditarPerfil_set_form_field');
+                safeSetState(() {
+                  _model.profissaoValueController?.value = getJsonField(
+                    (_model.apiResultUserEdit?.jsonBody ?? ''),
+                    r'''$.category_id''',
+                  ).toString().toString();
+                });
+              }),
+              Future(() async {
+                logFirebaseEvent('EditarPerfil_set_form_field');
+                safeSetState(() {
+                  _model.codigoTextController?.text = getJsonField(
+                    (_model.apiResultUserEdit?.jsonBody ?? ''),
+                    r'''$.code''',
+                  ).toString().toString();
+                });
+              }),
+            ]);
+          } else {
+            if ((_model.apiResultUserEdit?.statusCode ?? 200) == 401) {
+              logFirebaseEvent('EditarPerfil_navigate_to');
+
+              context.pushNamed('Login');
+            }
+          }
+        }),
+      ]);
     });
 
     _model.nomeTextController ??= TextEditingController();
@@ -246,7 +253,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                   .nomeTextController,
                                                               focusNode: _model
                                                                   .nomeFocusNode,
-                                                              autofocus: true,
+                                                              autofocus: false,
                                                               autofillHints: [
                                                                 AutofillHints
                                                                     .email
@@ -362,7 +369,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                   .whatsappTextController,
                                                               focusNode: _model
                                                                   .whatsappFocusNode,
-                                                              autofocus: true,
+                                                              autofocus: false,
                                                               autofillHints: [
                                                                 AutofillHints
                                                                     .email
@@ -655,7 +662,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                   .codigoTextController,
                                                               focusNode: _model
                                                                   .codigoFocusNode,
-                                                              autofocus: true,
+                                                              autofocus: false,
                                                               autofillHints: [
                                                                 AutofillHints
                                                                     .email
@@ -788,11 +795,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                   .passwordTextController,
                                                               focusNode: _model
                                                                   .passwordFocusNode,
-                                                              autofocus: true,
-                                                              autofillHints: [
-                                                                AutofillHints
-                                                                    .password
-                                                              ],
+                                                              autofocus: false,
                                                               obscureText: !_model
                                                                   .passwordVisibility,
                                                               decoration:
@@ -927,11 +930,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                   .confirmPasswordTextController,
                                                               focusNode: _model
                                                                   .confirmPasswordFocusNode,
-                                                              autofocus: true,
-                                                              autofillHints: [
-                                                                AutofillHints
-                                                                    .email
-                                                              ],
+                                                              autofocus: false,
                                                               obscureText: !_model
                                                                   .confirmPasswordVisibility,
                                                               decoration:

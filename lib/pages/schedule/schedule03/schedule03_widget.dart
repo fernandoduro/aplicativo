@@ -1463,7 +1463,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             fontFamily: 'Manrope',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
-                                                                                      hintText: 'Repetição',
+                                                                                      hintText: 'Selecione uma opção',
                                                                                       icon: Icon(
                                                                                         Icons.keyboard_arrow_down_rounded,
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
