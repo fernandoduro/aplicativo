@@ -467,6 +467,8 @@ class _Services04WidgetState extends State<Services04Widget> {
                                                                                     fontFamily: 'Manrope',
                                                                                     letterSpacing: 0.0,
                                                                                   ),
+                                                                              maxLength: 2,
+                                                                              buildCounter: (context, {required currentLength, required isFocused, maxLength}) => null,
                                                                               keyboardType: TextInputType.number,
                                                                               cursorColor: FlutterFlowTheme.of(context).primaryText,
                                                                               validator: _model.dayTextControllerValidator.asValidator(context),

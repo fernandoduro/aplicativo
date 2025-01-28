@@ -1001,13 +1001,13 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
                                                                                   SnackBar(
                                                                                     content: Text(
-                                                                                      'Preencha o campo descrição ou grave um áudio para enviar a solicitaçã',
+                                                                                      'Preencha o campo descrição ou grave um áudio para enviar a solicitação',
                                                                                       style: TextStyle(
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       ),
                                                                                     ),
                                                                                     duration: Duration(milliseconds: 4000),
-                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                   ),
                                                                                 );
                                                                               } else {
@@ -1050,11 +1050,11 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         content: Text(
                                                                                           'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                           style: TextStyle(
-                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           ),
                                                                                         ),
                                                                                         duration: Duration(milliseconds: 4000),
-                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                       ),
                                                                                     );
                                                                                   }
@@ -1097,11 +1097,11 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           content: Text(
                                                                                             'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                             style: TextStyle(
-                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                             ),
                                                                                           ),
                                                                                           duration: Duration(milliseconds: 4000),
-                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                         ),
                                                                                       );
                                                                                     }
@@ -1143,11 +1143,11 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           content: Text(
                                                                                             'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
                                                                                             style: TextStyle(
-                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                             ),
                                                                                           ),
                                                                                           duration: Duration(milliseconds: 4000),
-                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                         ),
                                                                                       );
                                                                                     }

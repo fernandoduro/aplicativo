@@ -575,3 +575,12 @@ List<dynamic>? removeDuplicatesListJson(List<dynamic>? listElements) {
 
   return uniqueList;
 }
+
+String? transformArrayToString(dynamic campo) {
+  // transform "campo" to string
+  if (campo is List) {
+    return campo.join(' ');
+  } else {
+    return campo.toString();
+  }
+}

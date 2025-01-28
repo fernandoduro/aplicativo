@@ -866,7 +866,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                           builder: (alertDialogContext) {
                                                                                             return WebViewAware(
                                                                                               child: AlertDialog(
-                                                                                                content: Text('Tem certeza que deseja excluir o cliente?'),
+                                                                                                content: Text(' Excluiremos também todos seus agendamentos e informações relacionadas. Caso queira manter o histórico, edite este cliente e coloque como inativo.'),
                                                                                                 actions: [
                                                                                                   TextButton(
                                                                                                     onPressed: () => Navigator.pop(alertDialogContext, false),

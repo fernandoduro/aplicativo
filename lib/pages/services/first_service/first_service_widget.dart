@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_balao/header_balao_widget.dart';
+import '/components/header_balao_whats/header_balao_whats_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -172,9 +172,9 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   wrapWithModel(
-                    model: _model.headerBalaoModel,
+                    model: _model.headerBalaoWhatsModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderBalaoWidget(),
+                    child: HeaderBalaoWhatsWidget(),
                   ),
                   Expanded(
                     child: Padding(

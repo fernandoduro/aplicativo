@@ -54,36 +54,18 @@ class _InsightsWidgetState extends State<InsightsWidget>
 
       if ((_model.apiResulte71?.succeeded ?? true)) {
         logFirebaseEvent('Insights_update_page_state');
-        _model.generalinfo = functions.replaceAll(
-            functions.replaceAll(
-                getJsonField(
-                  (_model.apiResulte71?.jsonBody ?? ''),
-                  r'''$.data[*].general_info[*]''',
-                ).toString().toString(),
-                '[',
-                ''),
-            ']',
-            '');
-        _model.lastweekinfo = functions.replaceAll(
-            functions.replaceAll(
-                getJsonField(
-                  (_model.apiResulte71?.jsonBody ?? ''),
-                  r'''$.data[*].last_week_info[*]''',
-                ).toString().toString(),
-                '[',
-                ''),
-            ']',
-            '');
-        _model.siteinfo = functions.replaceAll(
-            functions.replaceAll(
-                getJsonField(
-                  (_model.apiResulte71?.jsonBody ?? ''),
-                  r'''$.data[*].site_info[*]''',
-                ).toString().toString(),
-                '[',
-                ''),
-            ']',
-            '');
+        _model.generalinfo = functions.transformArrayToString(getJsonField(
+          (_model.apiResulte71?.jsonBody ?? ''),
+          r'''$.data[*].general_info[*]''',
+        ));
+        _model.lastweekinfo = functions.transformArrayToString(getJsonField(
+          (_model.apiResulte71?.jsonBody ?? ''),
+          r'''$.data[*].last_week_info[*]''',
+        ));
+        _model.siteinfo = functions.transformArrayToString(getJsonField(
+          (_model.apiResulte71?.jsonBody ?? ''),
+          r'''$.data[*].site_info[*]''',
+        ));
         safeSetState(() {});
       }
     });

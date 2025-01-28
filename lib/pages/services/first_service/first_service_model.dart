@@ -1,5 +1,5 @@
 import '/components/footer/footer_widget.dart';
-import '/components/header_balao/header_balao_widget.dart';
+import '/components/header_balao_whats/header_balao_whats_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,20 +17,20 @@ import 'package:provider/provider.dart';
 class FirstServiceModel extends FlutterFlowModel<FirstServiceWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Model for HeaderBalao component.
-  late HeaderBalaoModel headerBalaoModel;
+  // Model for HeaderBalaoWhats component.
+  late HeaderBalaoWhatsModel headerBalaoWhatsModel;
   // Model for Footer component.
   late FooterModel footerModel;
 
   @override
   void initState(BuildContext context) {
-    headerBalaoModel = createModel(context, () => HeaderBalaoModel());
+    headerBalaoWhatsModel = createModel(context, () => HeaderBalaoWhatsModel());
     footerModel = createModel(context, () => FooterModel());
   }
 
   @override
   void dispose() {
-    headerBalaoModel.dispose();
+    headerBalaoWhatsModel.dispose();
     footerModel.dispose();
   }
 }

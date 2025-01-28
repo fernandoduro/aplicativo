@@ -330,11 +330,11 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Manrope',
+                                                                              'Poppins',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
                                                                           fontSize:
-                                                                              12.0,
+                                                                              14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
@@ -1325,6 +1325,15 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                               'confirmed',
                                                               ParamType.String,
                                                             ),
+                                                            'idAppointmentSelected':
+                                                                serializeParam(
+                                                              getJsonField(
+                                                                widget!
+                                                                    .scheduleJson,
+                                                                r'''$.id''',
+                                                              ),
+                                                              ParamType.int,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -1937,7 +1946,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                       'https://wa.me/55',
                                                                                       functions.clearMaskPhone(getJsonField(
                                                                                         scheduleItem,
-                                                                                        r'''$.client.cellphone[0]''',
+                                                                                        r'''$.cellphone[0]''',
                                                                                       ).toString()))!);
                                                                                 },
                                                                                 child: Row(
