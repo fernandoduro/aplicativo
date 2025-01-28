@@ -608,8 +608,11 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                                         currentAuthenticationToken,
                                                     bodyJson: <String,
                                                         List<dynamic>?>{
-                                                      'services': _model
-                                                          .checkboxCheckedItems,
+                                                      'services': functions
+                                                          .removeDuplicatesListJson(
+                                                              _model
+                                                                  .checkboxCheckedItems
+                                                                  .toList()),
                                                     },
                                                   );
 

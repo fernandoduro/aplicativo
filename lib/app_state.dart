@@ -370,6 +370,12 @@ class FFAppState extends ChangeNotifier {
     _userEditPerfil = value;
   }
 
+  dynamic _editUserSelected;
+  dynamic get editUserSelected => _editUserSelected;
+  set editUserSelected(dynamic value) {
+    _editUserSelected = value;
+  }
+
   final _serviceCacheGlobalManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> serviceCacheGlobal({
     String? uniqueQueryKey,

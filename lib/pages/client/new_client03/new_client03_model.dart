@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -14,6 +16,8 @@ import 'package:provider/provider.dart';
 class NewClient03Model extends FlutterFlowModel<NewClient03Widget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (getClientByID)] action in NewClient03 widget.
+  ApiCallResponse? apiResultEditClientPageEdit;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
   // Model for Footer component.

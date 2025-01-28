@@ -12,6 +12,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -61,102 +62,61 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
         r'''$.data''',
       );
       safeSetState(() {});
-      await Future.wait([
-        Future(() async {
-          logFirebaseEvent('NewClient04_set_form_field');
-          safeSetState(() {
-            _model.dataPrimeiroAtendTextController?.text = functions
-                .removeNullString(functions.formatDateYYYY(getJsonField(
-              _model.dataClient,
-              r'''$.professional_clients[*].first_appointment''',
-            ).toString().toString()))!;
-            _model.dataPrimeiroAtendMask.updateMask(
-              newValue: TextEditingValue(
-                text: _model.dataPrimeiroAtendTextController!.text,
-              ),
-            );
-          });
-        }),
-        Future(() async {
-          logFirebaseEvent('NewClient04_backend_call');
-          _model.getUserPadrao = await APIOficialGroup.getUserCall.call(
-            authToken: currentAuthenticationToken,
-          );
+      logFirebaseEvent('NewClient04_backend_call');
+      _model.getUserPadrao = await APIOficialGroup.getUserCall.call(
+        authToken: currentAuthenticationToken,
+      );
 
-          logFirebaseEvent('NewClient04_set_form_field');
-          safeSetState(() {
-            _model.vencimentoTextController?.text = () {
-              if (getJsonField(
-                    _model.dataClient,
-                    r'''$.professional_clients[*].payment_due_date''',
-                  ) !=
-                  null) {
-                return functions.removeNullString(getJsonField(
-                  _model.dataClient,
-                  r'''$.professional_clients[*].payment_due_date''',
-                ).toString().toString())!;
-              } else if (getJsonField(
-                    (_model.getUserPadrao?.jsonBody ?? ''),
-                    r'''$.payday''',
-                  ) !=
-                  null) {
-                return functions.removeNullString(getJsonField(
-                  (_model.getUserPadrao?.jsonBody ?? ''),
-                  r'''$.payday''',
-                ).toString().toString())!;
-              } else {
-                return '';
-              }
-            }();
-          });
-        }),
-        Future(() async {
-          logFirebaseEvent('NewClient04_set_form_field');
-          safeSetState(() {
-            _model.nascimentoTextController?.text = getJsonField(
+      logFirebaseEvent('NewClient04_set_form_field');
+      safeSetState(() {
+        _model.vencimentoTextController?.text = () {
+          if (getJsonField(
+                _model.dataClient,
+                r'''$.professional_clients[*].payment_due_date''',
+              ) !=
+              null) {
+            return functions.removeNullString(getJsonField(
               _model.dataClient,
-              r'''$.professional_clients[0].birthday''',
-            ).toString().toString();
-            _model.nascimentoMask.updateMask(
-              newValue: TextEditingValue(
-                text: _model.nascimentoTextController!.text,
-              ),
-            );
-          });
-        }),
-        Future(() async {
-          logFirebaseEvent('NewClient04_set_form_field');
-          safeSetState(() {
-            _model.generoValueController?.value =
-                functions.removeNullString(getJsonField(
-              _model.dataClient,
-              r'''$..professional_clients[0].gender''',
+              r'''$.professional_clients[*].payment_due_date''',
             ).toString().toString())!;
-          });
-        }),
-        Future(() async {
-          logFirebaseEvent('NewClient04_set_form_field');
-          safeSetState(() {
-            _model.emailTextController?.text =
-                functions.removeNullString(getJsonField(
-              _model.dataClient,
-              r'''$.professional_clients[0].email[0]''',
+          } else if (getJsonField(
+                (_model.getUserPadrao?.jsonBody ?? ''),
+                r'''$.payday''',
+              ) !=
+              null) {
+            return functions.removeNullString(getJsonField(
+              (_model.getUserPadrao?.jsonBody ?? ''),
+              r'''$.payday''',
             ).toString().toString())!;
-          });
-        }),
-      ]);
+          } else {
+            return '';
+          }
+        }();
+      });
     });
 
-    _model.dataPrimeiroAtendTextController ??= TextEditingController();
+    _model.dataPrimeiroAtendTextController ??= TextEditingController(
+        text: functions.removeNullString(functions.formatDateYYYY(getJsonField(
+      FFAppState().editUserSelected,
+      r'''$.professional_clients[*].first_appointment''',
+    ).toString().toString())));
     _model.dataPrimeiroAtendFocusNode ??= FocusNode();
 
     _model.vencimentoTextController ??= TextEditingController();
     _model.vencimentoFocusNode ??= FocusNode();
 
-    _model.nascimentoTextController ??= TextEditingController();
+    _model.nascimentoTextController ??= TextEditingController(
+        text: functions.removeNullString(functions.formatDateYYYY(getJsonField(
+      FFAppState().editUserSelected,
+      r'''$.professional_clients[0].birthday''',
+    ).toString().toString())));
     _model.nascimentoFocusNode ??= FocusNode();
 
-    _model.emailTextController ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController(
+        text: functions.removeNullString(getJsonField(
+      FFAppState().editUserSelected,
+      r'''$.professional_clients[0].email[0]''',
+    ).toString().toString()));
     _model.emailFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -667,6 +627,9 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .number,
                                                             validator: _model
                                                                 .dataPrimeiroAtendTextControllerValidator
                                                                 .asValidator(
@@ -717,10 +680,6 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                             focusNode: _model
                                                                 .vencimentoFocusNode,
                                                             autofocus: true,
-                                                            autofillHints: [
-                                                              AutofillHints
-                                                                  .email
-                                                            ],
                                                             textCapitalization:
                                                                 TextCapitalization
                                                                     .words,
@@ -820,6 +779,11 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                 .vencimentoTextControllerValidator
                                                                 .asValidator(
                                                                     context),
+                                                            inputFormatters: [
+                                                              FilteringTextInputFormatter
+                                                                  .allow(RegExp(
+                                                                      '[0-9]'))
+                                                            ],
                                                           ),
                                                         ),
                                                       ),
@@ -1011,7 +975,13 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                               FormFieldController<
                                                                   String>(
                                                             _model.generoValue ??=
-                                                                '',
+                                                                functions
+                                                                    .removeNullString(
+                                                                        getJsonField(
+                                                              FFAppState()
+                                                                  .editUserSelected,
+                                                              r'''$..professional_clients[0].gender''',
+                                                            ).toString()),
                                                           ),
                                                           options: List<
                                                                   String>.from(

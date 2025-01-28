@@ -871,7 +871,15 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           );
                                                                                         }
                                                                                       },
-                                                                                text: _model.isRecording ? 'Gravando' : 'Iniciar',
+                                                                                text: () {
+                                                                                  if (_model.isRecording) {
+                                                                                    return 'Gravando';
+                                                                                  } else if (_model.isShowPlayer) {
+                                                                                    return 'Regravar';
+                                                                                  } else {
+                                                                                    return 'Iniciar';
+                                                                                  }
+                                                                                }(),
                                                                                 options: FFButtonOptions(
                                                                                   width: 100.0,
                                                                                   height: 50.0,
@@ -1012,7 +1020,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                     ),
-                                                                                    duration: Duration(milliseconds: 4000),
+                                                                                    duration: Duration(milliseconds: 8000),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );

@@ -347,14 +347,25 @@ String? dateHourStringToDateTimeIso8601(
   if (data == null || hora == null) {
     return null;
   }
+
+  // Expressão regular para validar o formato de hora (HH:mm)
+  final horaRegex = RegExp(r'^([01]\d|2[0-3]):[0-5]\d$');
+
+  if (!horaRegex.hasMatch(hora)) {
+    print('Hora inválida: $hora');
+    return null;
+  }
+
   try {
     DateTime date = DateFormat('dd/MM/yyyy').parse(data);
-    DateTime time = DateFormat('HH:mm').parse(hora);
-    DateTime start =
-        DateTime(date.year, date.month, date.day, time.hour, time.minute);
+    List<String> horaParts = hora.split(':');
+    int hour = int.parse(horaParts[0]);
+    int minute = int.parse(horaParts[1]);
+
+    DateTime start = DateTime(date.year, date.month, date.day, hour, minute);
     return start.toIso8601String();
   } catch (e) {
-    print('Error parsing date and time: $e');
+    print('Erro ao converter data e hora: $e');
     return null;
   }
 }
@@ -543,4 +554,24 @@ String? convertDescriptionToMarkdown(String? description) {
       .replaceAll('[align=left]', '')
       .replaceAll('[align=right]', '')
       .replaceAll('[/align]', '');
+}
+
+List<dynamic>? removeDuplicatesListJson(List<dynamic>? listElements) {
+  // remove duplicates to listElements
+  if (listElements == null) {
+    return null;
+  }
+
+  List<dynamic> uniqueList = [];
+  Set<String> uniqueSet = Set();
+
+  for (dynamic element in listElements) {
+    String jsonStr = jsonEncode(element);
+    if (!uniqueSet.contains(jsonStr)) {
+      uniqueList.add(element);
+      uniqueSet.add(jsonStr);
+    }
+  }
+
+  return uniqueList;
 }
