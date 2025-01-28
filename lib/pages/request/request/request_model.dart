@@ -81,8 +81,12 @@ class RequestModel extends FlutterFlowModel<RequestWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   // Stores action output result for [Custom Action - convertAudioPathToBase64] action in Button widget.
   String? base64Sound;
-  // Stores action output result for [Backend Call - API (Post Solicitacoes)] action in Button widget.
-  ApiCallResponse? resultPostSolicitacao;
+  // Stores action output result for [Backend Call - API (Post Solicitacoes Completo)] action in Button widget.
+  ApiCallResponse? resultPostSolicitacao2;
+  // Stores action output result for [Backend Call - API (POST solicitations  sem descricao)] action in Button widget.
+  ApiCallResponse? apiResult148;
+  // Stores action output result for [Backend Call - API (POST solicitations sem audio)] action in Button widget.
+  ApiCallResponse? apiResultlfg;
   // Stores action output result for [Backend Call - API (PUT Solicitacoes)] action in Icon widget.
   ApiCallResponse? apiResult2ogCopy2;
   // Model for FooterWhite component.

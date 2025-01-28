@@ -70,7 +70,8 @@ class APIOficialGroup {
   static GETSolicitacoesCall gETSolicitacoesCall = GETSolicitacoesCall();
   static SubscriptionCurrentCall subscriptionCurrentCall =
       SubscriptionCurrentCall();
-  static PostSolicitacoesCall postSolicitacoesCall = PostSolicitacoesCall();
+  static PostSolicitacoesCompletoCall postSolicitacoesCompletoCall =
+      PostSolicitacoesCompletoCall();
   static GetAppointmentsByDateCall getAppointmentsByDateCall =
       GetAppointmentsByDateCall();
   static CreateAppointmentCall createAppointmentCall = CreateAppointmentCall();
@@ -117,6 +118,10 @@ class APIOficialGroup {
   static PutAppointmentsProfessionalCall putAppointmentsProfessionalCall =
       PutAppointmentsProfessionalCall();
   static DELETEClientCall dELETEClientCall = DELETEClientCall();
+  static POSTSolicitationsSemDescricaoCall pOSTSolicitationsSemDescricaoCall =
+      POSTSolicitationsSemDescricaoCall();
+  static POSTSolicitationsSemAudioCall pOSTSolicitationsSemAudioCall =
+      POSTSolicitationsSemAudioCall();
 
   static final interceptors = [
     SwitchApiInterceptor(),
@@ -2195,7 +2200,7 @@ class SubscriptionCurrentCall {
   }
 }
 
-class PostSolicitacoesCall {
+class PostSolicitacoesCompletoCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? title = '',
@@ -2224,7 +2229,7 @@ class PostSolicitacoesCall {
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
-        callName: 'Post Solicitacoes',
+        callName: 'Post Solicitacoes Completo',
         apiUrl: '${baseUrl}/solicitations',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
@@ -3663,6 +3668,108 @@ class DELETEClientCall {
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
 
+        returnBody: true,
+        encodeBodyUtf8: false,
+        decodeUtf8: false,
+        cache: false,
+        isStreamingApi: false,
+        alwaysAllowBody: false,
+      ),
+
+      APIOficialGroup.interceptors,
+    );
+  }
+}
+
+class POSTSolicitationsSemDescricaoCall {
+  Future<ApiCallResponse> call({
+    String? title = '',
+    String? audioFile = '',
+    List<String>? imagesList,
+    String? status = '',
+    String? area = '',
+    String? authToken = '',
+    String? apiURL,
+  }) async {
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
+    final images = _serializeList(imagesList);
+
+    final ffApiRequestBody = '''
+{
+  "title": "${escapeStringForJson(title)}",
+   "audio_file": "${escapeStringForJson(audioFile)}",
+  "images": ${images},
+  "status": "${escapeStringForJson(status)}",
+  "area": "${escapeStringForJson(area)}"
+}''';
+    return FFApiInterceptor.makeApiCall(
+      // ignore: prefer_const_constructors - can be mutated by interceptors
+      ApiCallOptions(
+        callName: 'POST solicitations  sem descricao',
+        apiUrl: '${baseUrl}/solicitations',
+        callType: ApiCallType.POST,
+        // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
+        headers: {
+          'Authorization': 'Bearer ${authToken}',
+        },
+        // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
+        params: {},
+        body: ffApiRequestBody,
+        bodyType: BodyType.JSON,
+        returnBody: true,
+        encodeBodyUtf8: false,
+        decodeUtf8: false,
+        cache: false,
+        isStreamingApi: false,
+        alwaysAllowBody: false,
+      ),
+
+      APIOficialGroup.interceptors,
+    );
+  }
+}
+
+class POSTSolicitationsSemAudioCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? title = '',
+    String? description = '',
+    List<String>? imagesList,
+    String? status = '',
+    String? area = '',
+    String? apiURL,
+  }) async {
+    apiURL ??= FFDevEnvironmentValues().apiURL;
+    final baseUrl = APIOficialGroup.getBaseUrl(
+      apiURL: apiURL,
+    );
+    final images = _serializeList(imagesList);
+
+    final ffApiRequestBody = '''
+{
+  "title": "${escapeStringForJson(title)}",
+  "description": "${escapeStringForJson(description)}",
+  "images": ${images},
+  "status": "${escapeStringForJson(status)}",
+  "area": "${escapeStringForJson(area)}"
+}''';
+    return FFApiInterceptor.makeApiCall(
+      // ignore: prefer_const_constructors - can be mutated by interceptors
+      ApiCallOptions(
+        callName: 'POST solicitations sem audio',
+        apiUrl: '${baseUrl}/solicitations',
+        callType: ApiCallType.POST,
+        // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
+        headers: {
+          'Authorization': 'Bearer ${authToken}',
+        },
+        // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
+        params: {},
+        body: ffApiRequestBody,
+        bodyType: BodyType.JSON,
         returnBody: true,
         encodeBodyUtf8: false,
         decodeUtf8: false,

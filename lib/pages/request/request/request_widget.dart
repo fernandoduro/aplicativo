@@ -996,43 +996,12 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 );
                                                                                 return;
                                                                               }
-                                                                              logFirebaseEvent('Button_backend_call');
-                                                                              _model.resultPostSolicitacao = await APIOficialGroup.postSolicitacoesCall.call(
-                                                                                authToken: currentAuthenticationToken,
-                                                                                title: 'Solicitação (${_model.areaValue})',
-                                                                                description: _model.descricaoTextController.text,
-                                                                                audioFile: _model.audioBase64,
-                                                                                imagesList: _model.images64,
-                                                                                status: 'pending',
-                                                                                area: _model.areaValue,
-                                                                              );
-
-                                                                              if ((_model.resultPostSolicitacao?.succeeded ?? true)) {
+                                                                              if ((_model.descricaoTextController.text == null || _model.descricaoTextController.text == '') && (_model.audioBase64 == null || _model.audioBase64 == '')) {
                                                                                 logFirebaseEvent('Button_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
                                                                                   SnackBar(
                                                                                     content: Text(
-                                                                                      getJsonField(
-                                                                                        (_model.resultPostSolicitacao?.jsonBody ?? ''),
-                                                                                        r'''$.message''',
-                                                                                      ).toString(),
-                                                                                      style: TextStyle(
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      ),
-                                                                                    ),
-                                                                                    duration: Duration(milliseconds: 8000),
-                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                  ),
-                                                                                );
-                                                                                logFirebaseEvent('Button_navigate_to');
-
-                                                                                context.pushNamed('Request');
-                                                                              } else {
-                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                  SnackBar(
-                                                                                    content: Text(
-                                                                                      'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                                      'Preencha o campo descrição ou grave um áudio para enviar a solicitaçã',
                                                                                       style: TextStyle(
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
@@ -1041,6 +1010,149 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
+                                                                              } else {
+                                                                                if ((_model.descricaoTextController.text != null && _model.descricaoTextController.text != '') && (_model.audioBase64 != null && _model.audioBase64 != '')) {
+                                                                                  logFirebaseEvent('Button_backend_call');
+                                                                                  _model.resultPostSolicitacao2 = await APIOficialGroup.postSolicitacoesCompletoCall.call(
+                                                                                    authToken: currentAuthenticationToken,
+                                                                                    title: 'Solicitação (${_model.areaValue})',
+                                                                                    description: _model.descricaoTextController.text,
+                                                                                    audioFile: _model.audioBase64,
+                                                                                    imagesList: _model.images64,
+                                                                                    status: 'pending',
+                                                                                    area: _model.areaValue,
+                                                                                  );
+
+                                                                                  if ((_model.resultPostSolicitacao2?.succeeded ?? true)) {
+                                                                                    logFirebaseEvent('Button_show_snack_bar');
+                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                      SnackBar(
+                                                                                        content: Text(
+                                                                                          getJsonField(
+                                                                                            (_model.resultPostSolicitacao2?.jsonBody ?? ''),
+                                                                                            r'''$.message''',
+                                                                                          ).toString(),
+                                                                                          style: TextStyle(
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          ),
+                                                                                        ),
+                                                                                        duration: Duration(milliseconds: 8000),
+                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                      ),
+                                                                                    );
+                                                                                    logFirebaseEvent('Button_navigate_to');
+
+                                                                                    context.pushNamed('Request');
+                                                                                  } else {
+                                                                                    logFirebaseEvent('Button_show_snack_bar');
+                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                      SnackBar(
+                                                                                        content: Text(
+                                                                                          'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                                          style: TextStyle(
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          ),
+                                                                                        ),
+                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                      ),
+                                                                                    );
+                                                                                  }
+                                                                                } else {
+                                                                                  if (_model.descricaoTextController.text == null || _model.descricaoTextController.text == '') {
+                                                                                    logFirebaseEvent('Button_backend_call');
+                                                                                    _model.apiResult148 = await APIOficialGroup.pOSTSolicitationsSemDescricaoCall.call(
+                                                                                      authToken: currentAuthenticationToken,
+                                                                                      status: 'pending',
+                                                                                      title: 'Solicitação (${_model.areaValue})',
+                                                                                      audioFile: _model.audioBase64,
+                                                                                      imagesList: _model.images64,
+                                                                                      area: _model.areaValue,
+                                                                                    );
+
+                                                                                    if ((_model.apiResult148?.succeeded ?? true)) {
+                                                                                      logFirebaseEvent('Button_show_snack_bar');
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            getJsonField(
+                                                                                              (_model.apiResult148?.jsonBody ?? ''),
+                                                                                              r'''$.message''',
+                                                                                            ).toString(),
+                                                                                            style: TextStyle(
+                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 8000),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                        ),
+                                                                                      );
+                                                                                      logFirebaseEvent('Button_navigate_to');
+
+                                                                                      context.pushNamed('Request');
+                                                                                    } else {
+                                                                                      logFirebaseEvent('Button_show_snack_bar');
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                                            style: TextStyle(
+                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 4000),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                        ),
+                                                                                      );
+                                                                                    }
+                                                                                  } else {
+                                                                                    logFirebaseEvent('Button_backend_call');
+                                                                                    _model.apiResultlfg = await APIOficialGroup.pOSTSolicitationsSemAudioCall.call(
+                                                                                      authToken: currentAuthenticationToken,
+                                                                                      status: 'pending',
+                                                                                      title: 'Solicitação (${_model.areaValue})',
+                                                                                      description: _model.descricaoTextController.text,
+                                                                                      imagesList: _model.images64,
+                                                                                      area: _model.areaValue,
+                                                                                    );
+
+                                                                                    if ((_model.apiResultlfg?.succeeded ?? true)) {
+                                                                                      logFirebaseEvent('Button_show_snack_bar');
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            getJsonField(
+                                                                                              (_model.apiResultlfg?.jsonBody ?? ''),
+                                                                                              r'''$.message''',
+                                                                                            ).toString(),
+                                                                                            style: TextStyle(
+                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 8000),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                        ),
+                                                                                      );
+                                                                                      logFirebaseEvent('Button_navigate_to');
+
+                                                                                      context.pushNamed('Request');
+                                                                                    } else {
+                                                                                      logFirebaseEvent('Button_show_snack_bar');
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                                            style: TextStyle(
+                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 4000),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                        ),
+                                                                                      );
+                                                                                    }
+                                                                                  }
+                                                                                }
                                                                               }
 
                                                                               safeSetState(() {});

@@ -744,7 +744,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   r'''$.professional_client[*].id''',
                                                                                                 );
                                                                                               } else {
-                                                                                                return 0;
+                                                                                                return null;
                                                                                               }
                                                                                             }(),
                                                                                           ),
@@ -1520,11 +1520,11 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             content: Text(
                                                                                               'Preencha o campo repetição.',
                                                                                               style: TextStyle(
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                               ),
                                                                                             ),
                                                                                             duration: Duration(milliseconds: 4000),
-                                                                                            backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                            backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                           ),
                                                                                         );
                                                                                       } else {
@@ -1535,196 +1535,35 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               content: Text(
                                                                                                 'Campo descrição e duração obrigatórios',
                                                                                                 style: TextStyle(
-                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                 ),
                                                                                               ),
                                                                                               duration: Duration(milliseconds: 4000),
-                                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                              backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                             ),
                                                                                           );
                                                                                         } else {
-                                                                                          if (getJsonField(
-                                                                                                widget!.scheduleCabecalho,
-                                                                                                r'''$.id''',
-                                                                                              ) !=
-                                                                                              null) {
-                                                                                            if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
-                                                                                              logFirebaseEvent('Button_backend_call');
-                                                                                              _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
-                                                                                                authToken: currentAuthenticationToken,
-                                                                                                type: getJsonField(
-                                                                                                  widget!.scheduleCabecalho,
-                                                                                                  r'''$.type''',
-                                                                                                ).toString(),
-                                                                                                description: _model.descricaoTextController.text,
-                                                                                                recurrent: _model.statusValue,
-                                                                                                scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                                serviceId: getJsonField(
-                                                                                                  widget!.scheduleCabecalho,
-                                                                                                  r'''$.service.id''',
+                                                                                          if ((_model.tipocompromissoValue == 'professional') && (_model.clientesValue == null)) {
+                                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                              SnackBar(
+                                                                                                content: Text(
+                                                                                                  'Campo cliente obrigatório.',
+                                                                                                  style: TextStyle(
+                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                  ),
                                                                                                 ),
-                                                                                                professionalClientIdList: _model.idsClientsSchedule,
-                                                                                                recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
-                                                                                                confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
-                                                                                                duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
-                                                                                              );
-
-                                                                                              if ((_model.apiResulttd2?.succeeded ?? true)) {
-                                                                                                logFirebaseEvent('Button_navigate_to');
-
-                                                                                                context.pushNamed('Schedule01');
-
-                                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                  SnackBar(
-                                                                                                    content: Text(
-                                                                                                      'Tudo certo! Registramos estas informações.',
-                                                                                                      style: TextStyle(
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    duration: Duration(milliseconds: 4000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                  ),
-                                                                                                );
-                                                                                              } else {
-                                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                  SnackBar(
-                                                                                                    content: Text(
-                                                                                                      getJsonField(
-                                                                                                        (_model.apiResulttd2?.jsonBody ?? ''),
-                                                                                                        r'''$.message''',
-                                                                                                      ).toString(),
-                                                                                                      style: TextStyle(
-                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    duration: Duration(milliseconds: 4000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
-                                                                                                  ),
-                                                                                                );
-                                                                                              }
-                                                                                            } else {
-                                                                                              logFirebaseEvent('Button_backend_call');
-                                                                                              _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
-                                                                                                authToken: currentAuthenticationToken,
-                                                                                                idAppointment: widget!.idAppointmentSelected?.toString(),
-                                                                                                type: () {
-                                                                                                  if (!widget!.isAddNewClient!) {
-                                                                                                    return getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
-                                                                                                      r'''$.type''',
-                                                                                                    ).toString();
-                                                                                                  } else if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
-                                                                                                    return getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
-                                                                                                      r'''$.type''',
-                                                                                                    ).toString();
-                                                                                                  } else {
-                                                                                                    return 'professional';
-                                                                                                  }
-                                                                                                }(),
-                                                                                                description: _model.descricaoTextController.text,
-                                                                                                recurrent: _model.statusValue,
-                                                                                                serviceId: getJsonField(
-                                                                                                  widget!.scheduleCabecalho,
-                                                                                                  r'''$.service_id''',
-                                                                                                ),
-                                                                                                professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), widget!.idProfessionalClientSelected),
-                                                                                                scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                                recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
-                                                                                                confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
-                                                                                                duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
-                                                                                              );
-
-                                                                                              if ((_model.apiResultvdr?.succeeded ?? true)) {
-                                                                                                logFirebaseEvent('Button_navigate_to');
-
-                                                                                                context.pushNamed('Schedule01');
-
-                                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                  SnackBar(
-                                                                                                    content: Text(
-                                                                                                      'Tudo certo! Atualizamos estas informações.',
-                                                                                                      style: TextStyle(
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    duration: Duration(milliseconds: 4000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                  ),
-                                                                                                );
-                                                                                              } else {
-                                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                  SnackBar(
-                                                                                                    content: Text(
-                                                                                                      getJsonField(
-                                                                                                        (_model.apiResultvdr?.jsonBody ?? ''),
-                                                                                                        r'''$.message''',
-                                                                                                      ).toString(),
-                                                                                                      style: TextStyle(
-                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    duration: Duration(milliseconds: 4000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).error,
-                                                                                                  ),
-                                                                                                );
-                                                                                              }
-                                                                                            }
-                                                                                          } else {
-                                                                                            logFirebaseEvent('Button_update_page_state');
-                                                                                            _model.idsClientsSchedule = [];
-                                                                                            safeSetState(() {});
-                                                                                            if (_model.tipocompromissoValue == 'professional') {
-                                                                                              logFirebaseEvent('Button_update_page_state');
-                                                                                              _model.addToIdsClientsSchedule(_model.clientesValue!);
-                                                                                              safeSetState(() {});
-                                                                                            }
-                                                                                            logFirebaseEvent('Button_backend_call');
-                                                                                            _model.apiResulttd1 = await APIOficialGroup.createAppointmentCall.call(
-                                                                                              authToken: currentAuthenticationToken,
-                                                                                              type: _model.tipocompromissoValue,
-                                                                                              description: _model.descricaoTextController.text,
-                                                                                              recurrent: _model.statusValue,
-                                                                                              scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
-                                                                                              serviceId: _model.servicosValue,
-                                                                                              professionalClientIdList: _model.idsClientsSchedule,
-                                                                                              recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
-                                                                                              confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
-                                                                                              duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
+                                                                                                duration: Duration(milliseconds: 4000),
+                                                                                                backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                              ),
                                                                                             );
-
-                                                                                            if ((_model.apiResulttd1?.succeeded ?? true)) {
-                                                                                              logFirebaseEvent('Button_navigate_to');
-
-                                                                                              context.pushNamed('Schedule01');
-
+                                                                                          } else {
+                                                                                            if ((_model.tipocompromissoValue == 'professional') && (_model.servicosValue == null)) {
                                                                                               logFirebaseEvent('Button_show_snack_bar');
                                                                                               ScaffoldMessenger.of(context).showSnackBar(
                                                                                                 SnackBar(
                                                                                                   content: Text(
-                                                                                                    'Tudo certo! Registramos estas informações.',
-                                                                                                    style: TextStyle(
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  duration: Duration(milliseconds: 4000),
-                                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                ),
-                                                                                              );
-                                                                                            } else {
-                                                                                              logFirebaseEvent('Button_show_snack_bar');
-                                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                SnackBar(
-                                                                                                  content: Text(
-                                                                                                    getJsonField(
-                                                                                                      (_model.apiResulttd1?.jsonBody ?? ''),
-                                                                                                      r'''$.message''',
-                                                                                                    ).toString(),
+                                                                                                    'Campo serviço obrigatório.',
                                                                                                     style: TextStyle(
                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                     ),
@@ -1733,6 +1572,199 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                                 ),
                                                                                               );
+                                                                                            } else {
+                                                                                              if (getJsonField(
+                                                                                                    widget!.scheduleCabecalho,
+                                                                                                    r'''$.id''',
+                                                                                                  ) !=
+                                                                                                  null) {
+                                                                                                if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                                  logFirebaseEvent('Button_backend_call');
+                                                                                                  _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
+                                                                                                    authToken: currentAuthenticationToken,
+                                                                                                    type: getJsonField(
+                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      r'''$.type''',
+                                                                                                    ).toString(),
+                                                                                                    description: _model.descricaoTextController.text,
+                                                                                                    recurrent: _model.statusValue,
+                                                                                                    scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
+                                                                                                    serviceId: getJsonField(
+                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      r'''$.service.id''',
+                                                                                                    ),
+                                                                                                    professionalClientIdList: _model.idsClientsSchedule,
+                                                                                                    recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
+                                                                                                    confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
+                                                                                                    duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResulttd2?.succeeded ?? true)) {
+                                                                                                    logFirebaseEvent('Button_navigate_to');
+
+                                                                                                    context.pushNamed('Schedule01');
+
+                                                                                                    logFirebaseEvent('Button_show_snack_bar');
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'Tudo certo! Registramos estas informações.',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  } else {
+                                                                                                    logFirebaseEvent('Button_show_snack_bar');
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          getJsonField(
+                                                                                                            (_model.apiResulttd2?.jsonBody ?? ''),
+                                                                                                            r'''$.message''',
+                                                                                                          ).toString(),
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+                                                                                                } else {
+                                                                                                  logFirebaseEvent('Button_backend_call');
+                                                                                                  _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
+                                                                                                    authToken: currentAuthenticationToken,
+                                                                                                    idAppointment: widget!.idAppointmentSelected?.toString(),
+                                                                                                    type: () {
+                                                                                                      if (!widget!.isAddNewClient!) {
+                                                                                                        return getJsonField(
+                                                                                                          widget!.scheduleCabecalho,
+                                                                                                          r'''$.type''',
+                                                                                                        ).toString();
+                                                                                                      } else if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                                        return getJsonField(
+                                                                                                          widget!.scheduleCabecalho,
+                                                                                                          r'''$.type''',
+                                                                                                        ).toString();
+                                                                                                      } else {
+                                                                                                        return 'professional';
+                                                                                                      }
+                                                                                                    }(),
+                                                                                                    description: _model.descricaoTextController.text,
+                                                                                                    recurrent: _model.statusValue,
+                                                                                                    serviceId: getJsonField(
+                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      r'''$.service_id''',
+                                                                                                    ),
+                                                                                                    professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), widget!.idProfessionalClientSelected),
+                                                                                                    scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
+                                                                                                    recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
+                                                                                                    confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
+                                                                                                    duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
+                                                                                                  );
+
+                                                                                                  if ((_model.apiResultvdr?.succeeded ?? true)) {
+                                                                                                    logFirebaseEvent('Button_navigate_to');
+
+                                                                                                    context.pushNamed('Schedule01');
+
+                                                                                                    logFirebaseEvent('Button_show_snack_bar');
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          'Tudo certo! Atualizamos estas informações.',
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  } else {
+                                                                                                    logFirebaseEvent('Button_show_snack_bar');
+                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                      SnackBar(
+                                                                                                        content: Text(
+                                                                                                          getJsonField(
+                                                                                                            (_model.apiResultvdr?.jsonBody ?? ''),
+                                                                                                            r'''$.message''',
+                                                                                                          ).toString(),
+                                                                                                          style: TextStyle(
+                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }
+                                                                                                }
+                                                                                              } else {
+                                                                                                logFirebaseEvent('Button_update_page_state');
+                                                                                                _model.idsClientsSchedule = [];
+                                                                                                safeSetState(() {});
+                                                                                                if (_model.tipocompromissoValue == 'professional') {
+                                                                                                  logFirebaseEvent('Button_update_page_state');
+                                                                                                  _model.addToIdsClientsSchedule(_model.clientesValue!);
+                                                                                                  safeSetState(() {});
+                                                                                                }
+                                                                                                logFirebaseEvent('Button_backend_call');
+                                                                                                _model.apiResulttd1 = await APIOficialGroup.createAppointmentCall.call(
+                                                                                                  authToken: currentAuthenticationToken,
+                                                                                                  type: _model.tipocompromissoValue,
+                                                                                                  description: _model.descricaoTextController.text,
+                                                                                                  recurrent: _model.statusValue,
+                                                                                                  scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
+                                                                                                  serviceId: _model.servicosValue,
+                                                                                                  professionalClientIdList: _model.idsClientsSchedule,
+                                                                                                  recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
+                                                                                                  confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
+                                                                                                  duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
+                                                                                                );
+
+                                                                                                if ((_model.apiResulttd1?.succeeded ?? true)) {
+                                                                                                  logFirebaseEvent('Button_navigate_to');
+
+                                                                                                  context.pushNamed('Schedule01');
+
+                                                                                                  logFirebaseEvent('Button_show_snack_bar');
+                                                                                                  ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                    SnackBar(
+                                                                                                      content: Text(
+                                                                                                        'Tudo certo! Registramos estas informações.',
+                                                                                                        style: TextStyle(
+                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                      duration: Duration(milliseconds: 4000),
+                                                                                                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                    ),
+                                                                                                  );
+                                                                                                } else {
+                                                                                                  logFirebaseEvent('Button_show_snack_bar');
+                                                                                                  ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                    SnackBar(
+                                                                                                      content: Text(
+                                                                                                        getJsonField(
+                                                                                                          (_model.apiResulttd1?.jsonBody ?? ''),
+                                                                                                          r'''$.message''',
+                                                                                                        ).toString(),
+                                                                                                        style: TextStyle(
+                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                      duration: Duration(milliseconds: 4000),
+                                                                                                      backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                                                    ),
+                                                                                                  );
+                                                                                                }
+                                                                                              }
                                                                                             }
                                                                                           }
                                                                                         }
