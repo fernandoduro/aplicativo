@@ -309,10 +309,12 @@ class _CreateSiteEtapa8WidgetState extends State<CreateSiteEtapa8Widget> {
                                               : () async {
                                                   logFirebaseEvent(
                                                       'CREATE_SITE_ETAPA8_PRXIMO_BTN_ON_TAP');
-                                                  if (FFAppState().base64 !=
-                                                          null &&
-                                                      FFAppState().base64 !=
-                                                          '') {
+                                                  if ((FFAppState().base64 !=
+                                                              null &&
+                                                          FFAppState().base64 !=
+                                                              '') &&
+                                                      (FFAppState().base64 !=
+                                                          'data:image/null;base64,')) {
                                                     logFirebaseEvent(
                                                         'Button_backend_call');
                                                     await APIOficialGroup
@@ -326,12 +328,36 @@ class _CreateSiteEtapa8WidgetState extends State<CreateSiteEtapa8Widget> {
                                                             FFAppState().base64,
                                                       },
                                                     );
-                                                  }
-                                                  logFirebaseEvent(
-                                                      'Button_navigate_to');
 
-                                                  context.pushNamed(
-                                                      'CreateSiteEtapa9');
+                                                    logFirebaseEvent(
+                                                        'Button_navigate_to');
+
+                                                    context.pushNamed(
+                                                        'CreateSiteEtapa9');
+                                                  } else {
+                                                    logFirebaseEvent(
+                                                        'Button_show_snack_bar');
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Erro ao enviar o logo, tente novamente!',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                      ),
+                                                    );
+                                                  }
                                                 },
                                           text: 'Próximo',
                                           options: FFButtonOptions(
