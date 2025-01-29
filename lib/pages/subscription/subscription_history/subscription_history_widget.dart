@@ -171,6 +171,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                       ),
                                                 ),
                                               ),
+                                              fixedWidth: 100.0,
                                             ),
                                             DataColumn2(
                                               label: DefaultTextStyle.merge(
@@ -252,8 +253,24 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                       ).toString()) ==
                                                       'active') {
                                                     return 'Pagamento realizado';
+                                                  } else if (functions
+                                                          .convertString(
+                                                              getJsonField(
+                                                        histItem,
+                                                        r'''$.status''',
+                                                      ).toString()) ==
+                                                      'inactive') {
+                                                    return 'Pagamento inativo';
+                                                  } else if (functions
+                                                          .convertString(
+                                                              getJsonField(
+                                                        histItem,
+                                                        r'''$.status''',
+                                                      ).toString()) ==
+                                                      'blocked') {
+                                                    return 'Aguardando pagamento';
                                                   } else {
-                                                    return ' Pagamento sendo processado';
+                                                    return '';
                                                   }
                                                 }(),
                                                 style:
@@ -342,7 +359,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                   .height *
                                               0.7,
                                           headingRowHeight: 56.0,
-                                          dataRowHeight: 48.0,
+                                          dataRowHeight: 60.0,
                                           columnSpacing: 20.0,
                                           headingRowColor:
                                               FlutterFlowTheme.of(context)

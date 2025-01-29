@@ -996,6 +996,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                 );
                                                                                 return;
                                                                               }
+                                                                              logFirebaseEvent('Button_clear_query_cache');
+                                                                              _model.clearSolicitationCacheCache();
                                                                               if ((_model.descricaoTextController.text == null || _model.descricaoTextController.text == '') && (_model.audioBase64 == null || _model.audioBase64 == '')) {
                                                                                 logFirebaseEvent('Button_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -1197,11 +1199,15 @@ class _RequestWidgetState extends State<RequestWidget>
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: FutureBuilder<
                                                   ApiCallResponse>(
-                                                future: APIOficialGroup
-                                                    .gETSolicitacoesCall
-                                                    .call(
-                                                  authToken:
-                                                      currentAuthenticationToken,
+                                                future:
+                                                    _model.solicitationCache(
+                                                  requestFn: () =>
+                                                      APIOficialGroup
+                                                          .gETSolicitacoesCall
+                                                          .call(
+                                                    authToken:
+                                                        currentAuthenticationToken,
+                                                  ),
                                                 ),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
@@ -1440,6 +1446,8 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                                       );
                                                                                                     }
                                                                                                   }
+                                                                                                  logFirebaseEvent('Icon_clear_query_cache');
+                                                                                                  _model.clearSolicitationCacheCache();
 
                                                                                                   safeSetState(() {});
                                                                                                 },
