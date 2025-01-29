@@ -417,7 +417,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Schedule01',
           path: '/schedule01',
-          builder: (context, params) => Schedule01Widget(),
+          builder: (context, params) => Schedule01Widget(
+            dateParametro: params.getParam(
+              'dateParametro',
+              ParamType.DateTime,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Schedule02',

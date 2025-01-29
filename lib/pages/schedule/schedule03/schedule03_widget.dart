@@ -1602,7 +1602,15 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   if ((_model.apiResulttd2?.succeeded ?? true)) {
                                                                                                     logFirebaseEvent('Button_navigate_to');
 
-                                                                                                    context.pushNamed('Schedule01');
+                                                                                                    context.pushNamed(
+                                                                                                      'Schedule01',
+                                                                                                      queryParameters: {
+                                                                                                        'dateParametro': serializeParam(
+                                                                                                          functions.convertDateStringToDatetime(functions.dateStringToDate(_model.dataTextController.text)),
+                                                                                                          ParamType.DateTime,
+                                                                                                        ),
+                                                                                                      }.withoutNulls,
+                                                                                                    );
 
                                                                                                     logFirebaseEvent('Button_show_snack_bar');
                                                                                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -1671,7 +1679,15 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   if ((_model.apiResultvdr?.succeeded ?? true)) {
                                                                                                     logFirebaseEvent('Button_navigate_to');
 
-                                                                                                    context.pushNamed('Schedule01');
+                                                                                                    context.pushNamed(
+                                                                                                      'Schedule01',
+                                                                                                      queryParameters: {
+                                                                                                        'dateParametro': serializeParam(
+                                                                                                          functions.convertDateStringToDatetime(functions.dateStringToDate(_model.dataTextController.text)),
+                                                                                                          ParamType.DateTime,
+                                                                                                        ),
+                                                                                                      }.withoutNulls,
+                                                                                                    );
 
                                                                                                     logFirebaseEvent('Button_show_snack_bar');
                                                                                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -1731,7 +1747,15 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 if ((_model.apiResulttd1?.succeeded ?? true)) {
                                                                                                   logFirebaseEvent('Button_navigate_to');
 
-                                                                                                  context.pushNamed('Schedule01');
+                                                                                                  context.pushNamed(
+                                                                                                    'Schedule01',
+                                                                                                    queryParameters: {
+                                                                                                      'dateParametro': serializeParam(
+                                                                                                        functions.convertDateStringToDatetime(functions.dateStringToDate(_model.dataTextController.text)),
+                                                                                                        ParamType.DateTime,
+                                                                                                      ),
+                                                                                                    }.withoutNulls,
+                                                                                                  );
 
                                                                                                   logFirebaseEvent('Button_show_snack_bar');
                                                                                                   ScaffoldMessenger.of(context).showSnackBar(

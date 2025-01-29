@@ -584,3 +584,46 @@ String? transformArrayToString(dynamic campo) {
     return campo.toString();
   }
 }
+
+String? dateStringToDate(String? data) {
+  if (data == null) {
+    return null;
+  }
+
+  // Expressão regular para validar o formato de hora (HH:mm)
+
+  try {
+    DateTime date = DateFormat('dd/MM/yyyy').parse(data);
+
+    return date.year.toString() +
+        "-" +
+        date.month.toString() +
+        "-" +
+        date.day.toString();
+  } catch (e) {
+    print('Erro ao converter data e hora: $e');
+    return null;
+  }
+}
+
+DateTime? convertDateStringToDatetime(String? data) {
+  if (data == null) {
+    return null;
+  }
+
+  try {
+    // Dividir a string em partes (ano, mês, dia)
+    List<String> parts = data.split('-');
+    int year = int.parse(parts[0]);
+    int month = int.parse(parts[1]);
+    int day = int.parse(parts[2]);
+
+    // Criar o DateTime manualmente
+    DateTime dateTime = DateTime(year, month, day);
+    print("dateTime >>> " + dateTime.toString());
+    return dateTime;
+  } catch (e) {
+    print('Erro ao converter data e hora: $e');
+    return null;
+  }
+}

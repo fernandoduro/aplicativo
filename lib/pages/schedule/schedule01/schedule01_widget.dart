@@ -18,7 +18,12 @@ import 'schedule01_model.dart';
 export 'schedule01_model.dart';
 
 class Schedule01Widget extends StatefulWidget {
-  const Schedule01Widget({super.key});
+  const Schedule01Widget({
+    super.key,
+    this.dateParametro,
+  });
+
+  final DateTime? dateParametro;
 
   @override
   State<Schedule01Widget> createState() => _Schedule01WidgetState();
@@ -46,16 +51,20 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
       FFAppState().loading = false;
       safeSetState(() {});
       logFirebaseEvent('Schedule01_update_page_state');
-      _model.dateSelected = _model.calendarSelectedDay?.start;
+      _model.dateSelected = widget!.dateParametro != null
+          ? widget!.dateParametro
+          : _model.calendarSelectedDay?.start;
       safeSetState(() {});
       logFirebaseEvent('Schedule01_backend_call');
       _model.apiResultrko = await APIOficialGroup.listScheduleCall.call(
         authToken: currentAuthenticationToken,
-        dataFiltro: dateTimeFormat(
-          "y-MM-d",
-          _model.dateSelected,
-          locale: FFLocalizations.of(context).languageCode,
-        ),
+        dataFiltro: widget!.dateParametro != null
+            ? widget!.dateParametro?.toString()
+            : dateTimeFormat(
+                "y-MM-d",
+                _model.dateSelected,
+                locale: FFLocalizations.of(context).languageCode,
+              ),
       );
 
       logFirebaseEvent('Schedule01_update_page_state');
@@ -161,9 +170,13 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                             .secondaryText,
                                                     weekFormat: false,
                                                     weekStartsMonday: false,
-                                                    initialDate: _model
-                                                        .calendarReduceSelectedDay
-                                                        ?.start,
+                                                    initialDate: widget!
+                                                                .dateParametro !=
+                                                            null
+                                                        ? widget!.dateParametro
+                                                        : _model
+                                                            .calendarReduceSelectedDay
+                                                            ?.start,
                                                     rowHeight: 36.0,
                                                     onChange: (DateTimeRange?
                                                         newSelectedDate) async {
@@ -318,9 +331,13 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                             .secondaryText,
                                                     weekFormat: true,
                                                     weekStartsMonday: false,
-                                                    initialDate: _model
-                                                        .calendarSelectedDay
-                                                        ?.start,
+                                                    initialDate: widget!
+                                                                .dateParametro !=
+                                                            null
+                                                        ? widget!.dateParametro
+                                                        : _model
+                                                            .calendarSelectedDay
+                                                            ?.start,
                                                     rowHeight: 36.0,
                                                     onChange: (DateTimeRange?
                                                         newSelectedDate) async {
