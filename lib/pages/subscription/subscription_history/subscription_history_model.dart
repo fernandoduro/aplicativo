@@ -1,6 +1,5 @@
 import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
-import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -20,9 +19,6 @@ class SubscriptionHistoryModel
 
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
-  // State field(s) for PaginatedDataTable widget.
-  final paginatedDataTableController =
-      FlutterFlowDataTableController<dynamic>();
   // Model for Footer component.
   late FooterModel footerModel;
 
@@ -35,7 +31,6 @@ class SubscriptionHistoryModel
   @override
   void dispose() {
     headerHelpModel.dispose();
-    paginatedDataTableController.dispose();
     footerModel.dispose();
   }
 }
