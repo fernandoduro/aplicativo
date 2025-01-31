@@ -98,6 +98,8 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   // State field(s) for clientes widget.
   int? clientesValue;
   FormFieldController<int>? clientesValueController;
+  // Stores action output result for [Backend Call - API (getClientByID)] action in clientes widget.
+  ApiCallResponse? getClientSelected;
   // State field(s) for clientesEmpty widget.
   String? clientesEmptyValue;
   FormFieldController<String>? clientesEmptyValueController;

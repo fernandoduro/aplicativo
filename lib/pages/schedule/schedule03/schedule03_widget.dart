@@ -769,6 +769,28 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             logFirebaseEvent('clientes_update_page_state');
                                                                                             _model.addToIdsClientsSchedule(_model.clientesValue!);
                                                                                             safeSetState(() {});
+                                                                                            logFirebaseEvent('clientes_backend_call');
+                                                                                            _model.getClientSelected = await APIOficialGroup.getClientByIDCall.call(
+                                                                                              authToken: currentAuthenticationToken,
+                                                                                              id: _model.clientesValue?.toString(),
+                                                                                            );
+
+                                                                                            if ((_model.getClientSelected?.succeeded ?? true) &&
+                                                                                                (getJsonField(
+                                                                                                      (_model.getClientSelected?.jsonBody ?? ''),
+                                                                                                      r'''$.data.professional_clients[0].packages[1]''',
+                                                                                                    ) ==
+                                                                                                    null)) {
+                                                                                              logFirebaseEvent('clientes_set_form_field');
+                                                                                              safeSetState(() {
+                                                                                                _model.servicosValueController?.value = getJsonField(
+                                                                                                  (_model.getClientSelected?.jsonBody ?? ''),
+                                                                                                  r'''$.data.professional_clients[0].packages[0].services[0].id''',
+                                                                                                );
+                                                                                              });
+                                                                                            }
+
+                                                                                            safeSetState(() {});
                                                                                           },
                                                                                           width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                           height: 40.0,

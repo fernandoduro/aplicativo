@@ -856,7 +856,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               0.0),
                                                                       child:
                                                                           Text(
-                                                                        'Seus pacotes',
+                                                                        'Pacotes contratados',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(

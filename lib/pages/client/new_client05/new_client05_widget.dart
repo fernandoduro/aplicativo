@@ -322,60 +322,6 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                     children: [
                                                                       if (getJsonField(
                                                                             contentTimelineClientResponse.jsonBody,
-                                                                            r'''$.data.client.birthday''',
-                                                                          ) !=
-                                                                          null)
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              contentTimelineClientResponse.jsonBody,
-                                                                              r'''$.data.client.birthday''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Manrope',
-                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                  fontSize: 12.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      if (getJsonField(
-                                                                            contentTimelineClientResponse.jsonBody,
                                                                             r'''$.data.client.cpf''',
                                                                           ) !=
                                                                           null)
@@ -773,6 +719,20 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                             'rating')
                                                                                           Text(
                                                                                             'Avaliação realizada',
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Manrope',
+                                                                                                  fontSize: 16.0,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.w800,
+                                                                                                ),
+                                                                                          ),
+                                                                                        if (functions.convertJsonToString(getJsonField(
+                                                                                              itensItem,
+                                                                                              r'''$.kind''',
+                                                                                            )) ==
+                                                                                            'contracted_date')
+                                                                                          Text(
+                                                                                            'Data de contratação',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Manrope',
                                                                                                   fontSize: 16.0,

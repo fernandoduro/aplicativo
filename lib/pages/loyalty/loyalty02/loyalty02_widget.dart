@@ -489,7 +489,7 @@ class _Loyalty02WidgetState extends State<Loyalty02Widget>
                                                                             5.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'Caso não queira que eu mesma envie, é só retirar a marcação abaixo. E caso mude de ideia no futuro, a qualquer momento você pode ativar ou desativar acessando a área \"Lembretes\" também.',
+                                                                      'Caso queira que eu mesma envie, é só ativar a marcação abaixo. E caso mude de ideia no futuro, a qualquer momento você pode ativar ou desativar acessando a área \"Lembretes\" também.',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
