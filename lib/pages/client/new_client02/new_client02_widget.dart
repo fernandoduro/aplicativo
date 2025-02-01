@@ -65,6 +65,15 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
         ),
       };
       safeSetState(() {});
+      logFirebaseEvent('NewClient02_update_page_state');
+      _model.packageListAuxExists = <String, List<dynamic>?>{
+        'packages': getJsonField(
+          (_model.apiResultEditClientPage3?.jsonBody ?? ''),
+          r'''$.data.professional_clients[*].packages''',
+          true,
+        ),
+      };
+      safeSetState(() {});
     });
 
     _model.valorCobrancaTextController ??= TextEditingController();
@@ -746,9 +755,11 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                 ),
                                                                                 'monthly_value',
                                                                                 _model.valorCobrancaTextController.text);
-                                                                            safeSetState(() {});
-                                                                            logFirebaseEvent('Button_update_app_state');
-                                                                            FFAppState().packagesList = functions.addJsonToJson(
+                                                                            logFirebaseEvent('Button_update_page_state');
+                                                                            _model.packageListAuxExistFull =
+                                                                                _model.packageListAuxExists;
+                                                                            logFirebaseEvent('Button_update_page_state');
+                                                                            _model.packageListAuxExists = functions.addJsonToJson(
                                                                                 getJsonField(
                                                                                   FFAppState().packagesList,
                                                                                   r'''$''',
@@ -758,20 +769,90 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                   r'''$''',
                                                                                 ),
                                                                                 'packages');
-                                                                            safeSetState(() {});
-                                                                            logFirebaseEvent('Button_show_snack_bar');
-                                                                            ScaffoldMessenger.of(context).showSnackBar(
-                                                                              SnackBar(
-                                                                                content: Text(
-                                                                                  'Tudo certo! Registramos estas informações.',
-                                                                                  style: TextStyle(
-                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                            if (functions.existsPackagesDuplicateByID(functions.filterPackages(getJsonField(
+                                                                                  _model.packageListAuxExists,
+                                                                                  r'''$.packages''',
+                                                                                ))) ==
+                                                                                false) {
+                                                                              logFirebaseEvent('Button_update_app_state');
+                                                                              FFAppState().packagesList = functions.addJsonToJson(
+                                                                                  getJsonField(
+                                                                                    FFAppState().packagesList,
+                                                                                    r'''$''',
                                                                                   ),
+                                                                                  getJsonField(
+                                                                                    _model.packagesAdd,
+                                                                                    r'''$''',
+                                                                                  ),
+                                                                                  'packages');
+                                                                              safeSetState(() {});
+                                                                              logFirebaseEvent('Button_backend_call');
+                                                                              _model.apiResult0sd2344 = await APIOficialGroup.editClientPackagesCall.call(
+                                                                                authToken: currentAuthenticationToken,
+                                                                                id: widget!.idClient?.toString(),
+                                                                                packagesJson: functions.filterPackages(getJsonField(
+                                                                                  FFAppState().packagesList,
+                                                                                  r'''$.packages''',
+                                                                                )),
+                                                                              );
+
+                                                                              if ((_model.apiResult0sd2344?.succeeded ?? true)) {
+                                                                                logFirebaseEvent('Button_reset_form_fields');
+                                                                                safeSetState(() {
+                                                                                  _model.valorCobrancaTextController?.clear();
+                                                                                });
+                                                                                logFirebaseEvent('Button_reset_form_fields');
+                                                                                safeSetState(() {
+                                                                                  _model.pacoteValueController?.reset();
+                                                                                });
+                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                  SnackBar(
+                                                                                    content: Text(
+                                                                                      'Tudo certo! Registramos estas informações.',
+                                                                                      style: TextStyle(
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      ),
+                                                                                    ),
+                                                                                    duration: Duration(milliseconds: 4000),
+                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                  ),
+                                                                                );
+                                                                                logFirebaseEvent('Button_clear_query_cache');
+                                                                                FFAppState().clearClientsCacheCache();
+                                                                              } else {
+                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                  SnackBar(
+                                                                                    content: Text(
+                                                                                      'Erro ao adicionar o pacote. Tente novamente!',
+                                                                                      style: TextStyle(
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      ),
+                                                                                    ),
+                                                                                    duration: Duration(milliseconds: 4000),
+                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                  ),
+                                                                                );
+                                                                              }
+                                                                            } else {
+                                                                              logFirebaseEvent('Button_update_page_state');
+                                                                              _model.packageListAuxExists = _model.packageListAuxExistFull;
+                                                                              safeSetState(() {});
+                                                                              logFirebaseEvent('Button_show_snack_bar');
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: Text(
+                                                                                    'O pacote já foi adicionado nesse cliente. ',
+                                                                                    style: TextStyle(
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    ),
+                                                                                  ),
+                                                                                  duration: Duration(milliseconds: 4000),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                 ),
-                                                                                duration: Duration(milliseconds: 4000),
-                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                              ),
-                                                                            );
+                                                                              );
+                                                                            }
                                                                           } else {
                                                                             logFirebaseEvent('Button_show_snack_bar');
                                                                             ScaffoldMessenger.of(context).showSnackBar(
@@ -870,12 +951,13 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                   Builder(
                                                                     builder:
                                                                         (context) {
-                                                                      final packs =
-                                                                          getJsonField(
-                                                                        FFAppState()
-                                                                            .packagesList,
-                                                                        r'''$.packages''',
-                                                                      ).toList();
+                                                                      final packs = functions
+                                                                              .removePackagesDuplicateByID(getJsonField(
+                                                                                FFAppState().packagesList,
+                                                                                r'''$.packages''',
+                                                                              ))
+                                                                              ?.toList() ??
+                                                                          [];
 
                                                                       return Column(
                                                                         mainAxisSize:
@@ -1038,20 +1120,50 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                                         packsIndex,
                                                                                                         'packages');
                                                                                                     safeSetState(() {});
-                                                                                                    logFirebaseEvent('Icon_show_snack_bar');
-                                                                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                      SnackBar(
-                                                                                                        content: Text(
-                                                                                                          'Tudo certo! Removemos estas informações.',
-                                                                                                          style: TextStyle(
-                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        duration: Duration(milliseconds: 4000),
-                                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                      ),
+                                                                                                    logFirebaseEvent('Icon_backend_call');
+                                                                                                    _model.apiResult0sd44 = await APIOficialGroup.editClientPackagesCall.call(
+                                                                                                      authToken: currentAuthenticationToken,
+                                                                                                      id: widget!.idClient?.toString(),
+                                                                                                      packagesJson: functions.filterPackages(getJsonField(
+                                                                                                        FFAppState().packagesList,
+                                                                                                        r'''$.packages''',
+                                                                                                      )),
                                                                                                     );
+
+                                                                                                    if ((_model.apiResult0sd44?.succeeded ?? true)) {
+                                                                                                      logFirebaseEvent('Icon_clear_query_cache');
+                                                                                                      FFAppState().clearClientsCacheCache();
+                                                                                                      logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                        SnackBar(
+                                                                                                          content: Text(
+                                                                                                            'Tudo certo! Removemos estas informações.',
+                                                                                                            style: TextStyle(
+                                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          duration: Duration(milliseconds: 4000),
+                                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                        ),
+                                                                                                      );
+                                                                                                    } else {
+                                                                                                      logFirebaseEvent('Icon_show_snack_bar');
+                                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                        SnackBar(
+                                                                                                          content: Text(
+                                                                                                            'Erro ao excluir o pacote. Tente novamente!',
+                                                                                                            style: TextStyle(
+                                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          duration: Duration(milliseconds: 4000),
+                                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                        ),
+                                                                                                      );
+                                                                                                    }
                                                                                                   }
+
+                                                                                                  safeSetState(() {});
                                                                                                 },
                                                                                                 child: Icon(
                                                                                                   Icons.delete_outline_outlined,
@@ -1075,30 +1187,30 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                   ),
                                                                 ],
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            16.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceEvenly,
-                                                                  children: [
-                                                                    if (functions
-                                                                            .existElementList(getJsonField(
-                                                                          FFAppState()
-                                                                              .packagesList,
-                                                                          r'''$.packages''',
-                                                                          true,
-                                                                        )) ??
-                                                                        true)
+                                                              if (functions
+                                                                      .existElementList(
+                                                                          getJsonField(
+                                                                    FFAppState()
+                                                                        .packagesList,
+                                                                    r'''$.packages''',
+                                                                    true,
+                                                                  )) ??
+                                                                  true)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceEvenly,
+                                                                    children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
@@ -1150,14 +1262,6 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    if (functions
-                                                                            .existElementList(getJsonField(
-                                                                          FFAppState()
-                                                                              .packagesList,
-                                                                          r'''$.packages''',
-                                                                          true,
-                                                                        )) ??
-                                                                        true)
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
@@ -1166,57 +1270,53 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                             16.0),
                                                                         child:
                                                                             FFButtonWidget(
-                                                                          onPressed: !functions.existElementList(getJsonField(
-                                                                            FFAppState().packagesList,
-                                                                            r'''$.packages''',
-                                                                            true,
-                                                                          ))!
-                                                                              ? null
-                                                                              : () async {
-                                                                                  logFirebaseEvent('NEW_CLIENT02_PAGE_AVANAR_BTN_ON_TAP');
-                                                                                  logFirebaseEvent('Button_backend_call');
-                                                                                  _model.apiResult0sd = await APIOficialGroup.editClientPackagesCall.call(
-                                                                                    authToken: currentAuthenticationToken,
-                                                                                    id: widget!.idClient?.toString(),
-                                                                                    packagesJson: functions.filterPackages(getJsonField(
-                                                                                      FFAppState().packagesList,
-                                                                                      r'''$.packages''',
-                                                                                    )),
-                                                                                  );
+                                                                          onPressed:
+                                                                              () async {
+                                                                            logFirebaseEvent('NEW_CLIENT02_PAGE_AVANAR_BTN_ON_TAP');
+                                                                            logFirebaseEvent('Button_backend_call');
+                                                                            _model.apiResult0sd441 =
+                                                                                await APIOficialGroup.editClientPackagesCall.call(
+                                                                              authToken: currentAuthenticationToken,
+                                                                              id: widget!.idClient?.toString(),
+                                                                              packagesJson: functions.filterPackages(getJsonField(
+                                                                                FFAppState().packagesList,
+                                                                                r'''$.packages''',
+                                                                              )),
+                                                                            );
 
-                                                                                  if ((_model.apiResult0sd?.succeeded ?? true)) {
-                                                                                    logFirebaseEvent('Button_navigate_to');
+                                                                            if ((_model.apiResult0sd441?.succeeded ??
+                                                                                true)) {
+                                                                              logFirebaseEvent('Button_clear_query_cache');
+                                                                              FFAppState().clearClientsCacheCache();
+                                                                              logFirebaseEvent('Button_navigate_to');
 
-                                                                                    context.pushNamed(
-                                                                                      'NewClient03',
-                                                                                      queryParameters: {
-                                                                                        'idClient': serializeParam(
-                                                                                          widget!.idClient,
-                                                                                          ParamType.int,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-                                                                                  } else {
-                                                                                    logFirebaseEvent('Button_show_snack_bar');
-                                                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                                                      SnackBar(
-                                                                                        content: Text(
-                                                                                          'Erro ao adicionar o pacote. Tente novamente!',
-                                                                                          style: TextStyle(
-                                                                                            color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          ),
-                                                                                        ),
-                                                                                        duration: Duration(milliseconds: 4000),
-                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                      ),
-                                                                                    );
-                                                                                  }
+                                                                              context.pushNamed(
+                                                                                'NewClient03',
+                                                                                queryParameters: {
+                                                                                  'idClient': serializeParam(
+                                                                                    widget!.idClient,
+                                                                                    ParamType.int,
+                                                                                  ),
+                                                                                }.withoutNulls,
+                                                                              );
+                                                                            } else {
+                                                                              logFirebaseEvent('Button_show_snack_bar');
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: Text(
+                                                                                    'Erro ao excluir o pacote. Tente novamente!',
+                                                                                    style: TextStyle(
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    ),
+                                                                                  ),
+                                                                                  duration: Duration(milliseconds: 4000),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                ),
+                                                                              );
+                                                                            }
 
-                                                                                  logFirebaseEvent('Button_clear_query_cache');
-                                                                                  FFAppState().clearClientsCacheCache();
-
-                                                                                  safeSetState(() {});
-                                                                                },
+                                                                            safeSetState(() {});
+                                                                          },
                                                                           text:
                                                                               'Avançar',
                                                                           options:
@@ -1251,16 +1351,12 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                             ),
                                                                             borderRadius:
                                                                                 BorderRadius.circular(12.0),
-                                                                            disabledColor:
-                                                                                Color(0xFFACACAC),
-                                                                            disabledTextColor:
-                                                                                Color(0xFFD9D9D9),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                  ],
+                                                                    ],
+                                                                  ),
                                                                 ),
-                                                              ),
                                                             ],
                                                           ),
                                                         ),

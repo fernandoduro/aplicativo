@@ -188,7 +188,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                               '_model.textController',
                                                               Duration(
                                                                   milliseconds:
-                                                                      100),
+                                                                      300),
                                                               () async {
                                                                 logFirebaseEvent(
                                                                     'LIST_ALL_CLIENTS_TextField_iz2yoj5l_ON_T');

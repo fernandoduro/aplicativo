@@ -627,3 +627,41 @@ DateTime? convertDateStringToDatetime(String? data) {
     return null;
   }
 }
+
+bool? existsPackagesDuplicateByID(List<dynamic>? lista) {
+  // check if list json exist duplicate
+  if (lista == null) {
+    return null;
+  }
+
+  Set<dynamic> set = {};
+  for (var item in lista) {
+    if (set.contains(item["id"])) {
+      return true;
+    } else {
+      set.add(item["id"]);
+    }
+  }
+  return false;
+}
+
+dynamic removePackagesDuplicateByID(dynamic lista) {
+  print("INCIO removePackagesDuplicateByID");
+  if (lista == null) {
+    return null;
+  }
+
+  Set<dynamic> set = {};
+  List<int> ids = [];
+
+  for (var item in lista) {
+    print(item);
+    print(item["id"]);
+    if (!ids.contains(item["id"])) {
+      ids.add(item["id"]);
+      set.add(item);
+    }
+  }
+  print("FIMMMM removePackagesDuplicateByID" + set.toString());
+  return set;
+}

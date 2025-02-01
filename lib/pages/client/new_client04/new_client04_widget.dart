@@ -244,10 +244,12 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          getJsonField(
+                                                          functions
+                                                              .removeNullString(
+                                                                  getJsonField(
                                                             _model.dataClient,
                                                             r'''$.professional_clients[0].name''',
-                                                          ).toString(),
+                                                          ).toString())!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

@@ -697,6 +697,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         fontFamily: 'Manrope',
                                                                                         letterSpacing: 0.0,
                                                                                       ),
+                                                                                  maxLength: 3,
+                                                                                  buildCounter: (context, {required currentLength, required isFocused, maxLength}) => null,
                                                                                   keyboardType: TextInputType.number,
                                                                                   cursorColor: FlutterFlowTheme.of(context).primaryText,
                                                                                   validator: _model.durationTextControllerValidator.asValidator(context),
@@ -1363,6 +1365,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       controller: _model.descricaoTextController,
                                                                                       focusNode: _model.descricaoFocusNode,
                                                                                       autofocus: false,
+                                                                                      textCapitalization: TextCapitalization.sentences,
                                                                                       obscureText: false,
                                                                                       decoration: InputDecoration(
                                                                                         isDense: true,
@@ -1601,6 +1604,9 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   ) !=
                                                                                                   null) {
                                                                                                 if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                                  logFirebaseEvent('Button_update_page_state');
+                                                                                                  _model.listProfessionalClients = [];
+                                                                                                  safeSetState(() {});
                                                                                                   logFirebaseEvent('Button_backend_call');
                                                                                                   _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
                                                                                                     authToken: currentAuthenticationToken,
@@ -1615,7 +1621,18 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                       widget!.scheduleCabecalho,
                                                                                                       r'''$.service.id''',
                                                                                                     ),
-                                                                                                    professionalClientIdList: _model.idsClientsSchedule,
+                                                                                                    professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), () {
+                                                                                                      if (widget!.idClientSelected != null) {
+                                                                                                        return widget!.idClientSelected;
+                                                                                                      } else if (!widget!.isAddNewClient!) {
+                                                                                                        return getJsonField(
+                                                                                                          widget!.scheduleCabecalho,
+                                                                                                          r'''$.professional_client[*].id''',
+                                                                                                        );
+                                                                                                      } else {
+                                                                                                        return null;
+                                                                                                      }
+                                                                                                    }()),
                                                                                                     recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
                                                                                                     confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
                                                                                                     duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
@@ -1666,6 +1683,9 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                     );
                                                                                                   }
                                                                                                 } else {
+                                                                                                  logFirebaseEvent('Button_update_page_state');
+                                                                                                  _model.listProfessionalClients = [];
+                                                                                                  safeSetState(() {});
                                                                                                   logFirebaseEvent('Button_backend_call');
                                                                                                   _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
                                                                                                     authToken: currentAuthenticationToken,
@@ -1691,7 +1711,18 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                       widget!.scheduleCabecalho,
                                                                                                       r'''$.service_id''',
                                                                                                     ),
-                                                                                                    professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), widget!.idProfessionalClientSelected),
+                                                                                                    professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), () {
+                                                                                                      if (widget!.idClientSelected != null) {
+                                                                                                        return widget!.idClientSelected;
+                                                                                                      } else if (!widget!.isAddNewClient!) {
+                                                                                                        return getJsonField(
+                                                                                                          widget!.scheduleCabecalho,
+                                                                                                          r'''$.professional_client[*].id''',
+                                                                                                        );
+                                                                                                      } else {
+                                                                                                        return null;
+                                                                                                      }
+                                                                                                    }()),
                                                                                                     scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                     recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
                                                                                                     confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,

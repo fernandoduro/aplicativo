@@ -370,6 +370,9 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               .descricaoFocusNode,
                                                                       autofocus:
                                                                           false,
+                                                                      textCapitalization:
+                                                                          TextCapitalization
+                                                                              .sentences,
                                                                       obscureText:
                                                                           false,
                                                                       decoration:

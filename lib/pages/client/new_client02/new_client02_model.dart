@@ -25,6 +25,10 @@ class NewClient02Model extends FlutterFlowModel<NewClient02Widget> {
 
   int? valorMascara;
 
+  dynamic packageListAuxExists;
+
+  dynamic packageListAuxExistFull;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -56,7 +60,11 @@ class NewClient02Model extends FlutterFlowModel<NewClient02Widget> {
   // Stores action output result for [Validate Form] action in Button widget.
   bool? validation;
   // Stores action output result for [Backend Call - API (editClientPackages)] action in Button widget.
-  ApiCallResponse? apiResult0sd;
+  ApiCallResponse? apiResult0sd2344;
+  // Stores action output result for [Backend Call - API (editClientPackages)] action in Icon widget.
+  ApiCallResponse? apiResult0sd44;
+  // Stores action output result for [Backend Call - API (editClientPackages)] action in Button widget.
+  ApiCallResponse? apiResult0sd441;
   // Model for FooterWhite component.
   late FooterWhiteModel footerWhiteModel;
 
