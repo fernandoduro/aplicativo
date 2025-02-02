@@ -870,6 +870,10 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                         ?.succeeded ??
                                                                     true)) {
                                                                   logFirebaseEvent(
+                                                                      'Button_clear_query_cache');
+                                                                  FFAppState()
+                                                                      .clearClientsCacheCache();
+                                                                  logFirebaseEvent(
                                                                       'Button_navigate_to');
 
                                                                   context
@@ -944,6 +948,10 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                     if (widget!
                                                                             .originConfig ==
                                                                         'schedule') {
+                                                                      logFirebaseEvent(
+                                                                          'Button_clear_query_cache');
+                                                                      FFAppState()
+                                                                          .clearClientsCacheCache();
                                                                       logFirebaseEvent(
                                                                           'Button_navigate_to');
 
@@ -1057,6 +1065,11 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                   );
                                                                 }
                                                               }
+
+                                                              logFirebaseEvent(
+                                                                  'Button_clear_query_cache');
+                                                              FFAppState()
+                                                                  .clearClientsCacheCache();
 
                                                               safeSetState(
                                                                   () {});

@@ -264,28 +264,8 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                        MainAxisAlignment.end,
                                                     children: [
-                                                      Text(
-                                                        'Cliente',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w800,
-                                                                ),
-                                                      ),
                                                       InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1518,7 +1498,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                           onPressed: _model.isRecording
                                                                               ? null
                                                                               : () async {
-                                                                                  logFirebaseEvent('RATINGS_PAGE_INICIAR_BTN_ON_TAP');
+                                                                                  logFirebaseEvent('RATINGS_PAGE_Button_mdiwss9f_ON_TAP');
                                                                                   logFirebaseEvent('Button_request_permissions');
                                                                                   await requestPermission(microphonePermission);
                                                                                   if (await getPermissionStatus(microphonePermission)) {
@@ -1552,9 +1532,16 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                     );
                                                                                   }
                                                                                 },
-                                                                          text: _model.isRecording
-                                                                              ? 'Gravando'
-                                                                              : 'Iniciar',
+                                                                          text:
+                                                                              () {
+                                                                            if (_model.isRecording) {
+                                                                              return 'Gravando';
+                                                                            } else if (_model.isShowPlayer) {
+                                                                              return 'Regravar';
+                                                                            } else {
+                                                                              return 'Iniciar';
+                                                                            }
+                                                                          }(),
                                                                           options:
                                                                               FFButtonOptions(
                                                                             width:

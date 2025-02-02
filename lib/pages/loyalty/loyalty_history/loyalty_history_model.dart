@@ -30,8 +30,12 @@ class LoyaltyHistoryModel extends FlutterFlowModel<LoyaltyHistoryWidget> {
   bool? statusValue;
   // Stores action output result for [Backend Call - API (Save config club activate)] action in status widget.
   ApiCallResponse? apiResultndw2;
+  // Stores action output result for [Backend Call - API (List clients club statement)] action in status widget.
+  ApiCallResponse? clientsStatement2;
   // Stores action output result for [Backend Call - API (Save config club activate)] action in status widget.
   ApiCallResponse? apiResultndw2Copy;
+  // Stores action output result for [Backend Call - API (List clients club statement)] action in status widget.
+  ApiCallResponse? clientsStatement3;
   // Model for Footer component.
   late FooterModel footerModel;
 

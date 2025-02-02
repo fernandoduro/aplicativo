@@ -43,6 +43,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      logFirebaseEvent('listAllClients_clear_query_cache');
+      FFAppState().clearClientsCacheCache();
     });
 
     _model.textController ??= TextEditingController();
@@ -107,11 +109,14 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                     child: Padding(
                                       padding: EdgeInsets.all(16.0),
                                       child: FutureBuilder<ApiCallResponse>(
-                                        future: APIOficialGroup
-                                            .listAllClientsCall
-                                            .call(
-                                          authToken: currentAuthenticationToken,
-                                          filter: _model.textController.text,
+                                        future: FFAppState().clientsCache(
+                                          requestFn: () => APIOficialGroup
+                                              .listAllClientsCall
+                                              .call(
+                                            authToken:
+                                                currentAuthenticationToken,
+                                            filter: _model.textController.text,
+                                          ),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -183,7 +188,7 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                               '_model.textController',
                                                               Duration(
                                                                   milliseconds:
-                                                                      100),
+                                                                      300),
                                                               () async {
                                                                 logFirebaseEvent(
                                                                     'LIST_ALL_CLIENTS_TextField_iz2yoj5l_ON_T');
@@ -201,6 +206,10 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                     true;
                                                                 safeSetState(
                                                                     () {});
+                                                                logFirebaseEvent(
+                                                                    'TextField_clear_query_cache');
+                                                                FFAppState()
+                                                                    .clearClientsCacheCache();
                                                               },
                                                             ),
                                                             autofocus: false,
@@ -857,7 +866,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                           builder: (alertDialogContext) {
                                                                                             return WebViewAware(
                                                                                               child: AlertDialog(
-                                                                                                content: Text('Tem certeza que deseja excluir o cliente?'),
+                                                                                                title: Text('Tem certeza que deseja excluir?'),
+                                                                                                content: Text('Excluiremos também todos seus agendamentos e informações relacionadas. Caso queira manter o histórico, edite este cliente e coloque como inativo.'),
                                                                                                 actions: [
                                                                                                   TextButton(
                                                                                                     onPressed: () => Navigator.pop(alertDialogContext, false),
@@ -897,6 +907,8 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                         ),
                                                                                       );
                                                                                     }
+                                                                                    logFirebaseEvent('Button_clear_query_cache');
+                                                                                    FFAppState().clearClientsCacheCache();
 
                                                                                     safeSetState(() {});
                                                                                   },

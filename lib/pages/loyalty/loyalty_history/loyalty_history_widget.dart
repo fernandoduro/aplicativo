@@ -220,6 +220,28 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                           _model.statusValue,
                                                     );
 
+                                                    logFirebaseEvent(
+                                                        'status_backend_call');
+                                                    _model.clientsStatement3 =
+                                                        await APIOficialGroup
+                                                            .listClientsClubStatementCall
+                                                            .call(
+                                                      authToken:
+                                                          currentAuthenticationToken,
+                                                    );
+
+                                                    logFirebaseEvent(
+                                                        'status_update_page_state');
+                                                    _model.historys = functions
+                                                        .handleNullList(
+                                                            getJsonField(
+                                                      (_model.clientsStatement3
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                      r'''$.data''',
+                                                    ));
+                                                    safeSetState(() {});
+
                                                     safeSetState(() {});
                                                   } else {
                                                     logFirebaseEvent(
@@ -235,6 +257,28 @@ class _LoyaltyHistoryWidgetState extends State<LoyaltyHistoryWidget> {
                                                       active:
                                                           _model.statusValue,
                                                     );
+
+                                                    logFirebaseEvent(
+                                                        'status_backend_call');
+                                                    _model.clientsStatement2 =
+                                                        await APIOficialGroup
+                                                            .listClientsClubStatementCall
+                                                            .call(
+                                                      authToken:
+                                                          currentAuthenticationToken,
+                                                    );
+
+                                                    logFirebaseEvent(
+                                                        'status_update_page_state');
+                                                    _model.historys = functions
+                                                        .handleNullList(
+                                                            getJsonField(
+                                                      (_model.clientsStatement2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                      r'''$.data''',
+                                                    ));
+                                                    safeSetState(() {});
 
                                                     safeSetState(() {});
                                                   }

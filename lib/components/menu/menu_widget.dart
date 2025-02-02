@@ -992,6 +992,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     FFAppState().hoursWork = jsonDecode(
                                         '{\"days\":[{\"dayWeek\":\"Segunda-feira\",\"hours\":[]},{\"dayWeek\":\"Terça-feira\",\"hours\":[]},{\"dayWeek\":\"Quarta-feira\",\"hours\":[]},{\"dayWeek\":\"Quinta-feira\",\"hours\":[]},{\"dayWeek\":\"Sexta-feira\",\"hours\":[]},{\"dayWeek\":\"Sábado\",\"hours\":[]},{\"dayWeek\":\"Domingo\",\"hours\":[]}]}');
                                     FFAppState().nameProfessional = '';
+                                    FFAppState().firstLoyault = true;
+                                    FFAppState().loyalt01 = false;
+                                    FFAppState().loyalt02 = false;
                                     safeSetState(() {});
                                     logFirebaseEvent('Button_auth');
                                     GoRouter.of(context).prepareAuthEvent();

@@ -22,6 +22,8 @@ Future<bool?> checkSubscription(
     FFAppState().clearServiceCacheGlobalCache();
     logFirebaseEvent('CheckSubscription_clear_query_cache');
     FFAppState().clearPackagesCacheGlobalCache();
+    logFirebaseEvent('CheckSubscription_clear_query_cache');
+    FFAppState().clearClientsCacheCache();
     logFirebaseEvent('CheckSubscription_update_app_state');
     FFAppState().featureIdSelected = featureID!;
     logFirebaseEvent('CheckSubscription_backend_call');

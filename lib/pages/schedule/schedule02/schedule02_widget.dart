@@ -330,11 +330,11 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Manrope',
+                                                                              'Poppins',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
                                                                           fontSize:
-                                                                              12.0,
+                                                                              14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
@@ -1325,6 +1325,15 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                               'confirmed',
                                                               ParamType.String,
                                                             ),
+                                                            'idAppointmentSelected':
+                                                                serializeParam(
+                                                              getJsonField(
+                                                                widget!
+                                                                    .scheduleJson,
+                                                                r'''$.id''',
+                                                              ),
+                                                              ParamType.int,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -1937,7 +1946,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                       'https://wa.me/55',
                                                                                       functions.clearMaskPhone(getJsonField(
                                                                                         scheduleItem,
-                                                                                        r'''$.client.cellphone[0]''',
+                                                                                        r'''$.cellphone[0]''',
                                                                                       ).toString()))!);
                                                                                 },
                                                                                 child: Row(
@@ -1975,137 +1984,6 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                 ),
                                                               ],
                                                             ),
-                                                            if ((getJsonField(
-                                                                      scheduleItem,
-                                                                      r'''$.payment_due_date''',
-                                                                    ) !=
-                                                                    null) ||
-                                                                (getJsonField(
-                                                                      scheduleItem,
-                                                                      r'''$.monthly_value''',
-                                                                    ) !=
-                                                                    null))
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            16.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        if (getJsonField(
-                                                                              scheduleItem,
-                                                                              r'''$.payment_due_date''',
-                                                                            ) !=
-                                                                            null)
-                                                                          Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                'Vencimento:',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Manrope',
-                                                                                      fontSize: 12.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.w800,
-                                                                                    ),
-                                                                              ),
-                                                                              RichText(
-                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                text: TextSpan(
-                                                                                  children: [
-                                                                                    TextSpan(
-                                                                                      text: 'Dia ',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                          ),
-                                                                                    ),
-                                                                                    TextSpan(
-                                                                                      text: valueOrDefault<String>(
-                                                                                        functions.removeNullString(getJsonField(
-                                                                                          scheduleItem,
-                                                                                          r'''$.payment_due_date''',
-                                                                                        ).toString()),
-                                                                                        ' - ',
-                                                                                      ),
-                                                                                      style: TextStyle(),
-                                                                                    )
-                                                                                  ],
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        fontSize: 12.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        if (getJsonField(
-                                                                              scheduleItem,
-                                                                              r'''$.monthly_value''',
-                                                                            ) !=
-                                                                            null)
-                                                                          Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              RichText(
-                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                text: TextSpan(
-                                                                                  children: [
-                                                                                    TextSpan(
-                                                                                      text: 'R\$',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
-                                                                                            fontSize: 10.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.bold,
-                                                                                          ),
-                                                                                    ),
-                                                                                    TextSpan(
-                                                                                      text: functions.removeNullString(getJsonField(
-                                                                                        scheduleItem,
-                                                                                        r'''$.monthly_value''',
-                                                                                      ).toString())!,
-                                                                                      style: TextStyle(
-                                                                                        fontWeight: FontWeight.w900,
-                                                                                        fontSize: 22.0,
-                                                                                      ),
-                                                                                    )
-                                                                                  ],
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
                                                           ],
                                                         ),
                                                       ),

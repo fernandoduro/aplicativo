@@ -16,3 +16,4 @@ export 'onesignal_logout.dart' show onesignalLogout;
 export 'app_build.dart' show appBuild;
 export 'show_update_modal.dart' show showUpdateModal;
 export 'switch_api_interceptor.dart' show switchApiInterceptor;
+export 'one_signal_register.dart' show oneSignalRegister;

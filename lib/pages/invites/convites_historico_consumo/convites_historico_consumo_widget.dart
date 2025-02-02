@@ -159,7 +159,7 @@ class _ConvitesHistoricoConsumoWidgetState
                                           label: DefaultTextStyle.merge(
                                             softWrap: true,
                                             child: Text(
-                                              'Nome do profissional',
+                                              'Nome',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge

@@ -15,6 +15,8 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/flutter_flow/request_manager.dart';
+
 import 'request_widget.dart' show RequestWidget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -81,12 +83,33 @@ class RequestModel extends FlutterFlowModel<RequestWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   // Stores action output result for [Custom Action - convertAudioPathToBase64] action in Button widget.
   String? base64Sound;
-  // Stores action output result for [Backend Call - API (Post Solicitacoes)] action in Button widget.
-  ApiCallResponse? resultPostSolicitacao;
+  // Stores action output result for [Backend Call - API (Post Solicitacoes Completo)] action in Button widget.
+  ApiCallResponse? resultPostSolicitacao2;
+  // Stores action output result for [Backend Call - API (POST solicitations  sem descricao)] action in Button widget.
+  ApiCallResponse? apiResult148;
+  // Stores action output result for [Backend Call - API (POST solicitations sem audio)] action in Button widget.
+  ApiCallResponse? apiResultlfg;
   // Stores action output result for [Backend Call - API (PUT Solicitacoes)] action in Icon widget.
   ApiCallResponse? apiResult2ogCopy2;
   // Model for FooterWhite component.
   late FooterWhiteModel footerWhiteModel;
+
+  /// Query cache managers for this widget.
+
+  final _solicitationCacheManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> solicitationCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _solicitationCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearSolicitationCacheCache() => _solicitationCacheManager.clear();
+  void clearSolicitationCacheCacheKey(String? uniqueKey) =>
+      _solicitationCacheManager.clearRequest(uniqueKey);
 
   @override
   void initState(BuildContext context) {
@@ -101,5 +124,9 @@ class RequestModel extends FlutterFlowModel<RequestWidget> {
     descricaoTextController?.dispose();
 
     footerWhiteModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearSolicitationCacheCache();
   }
 }

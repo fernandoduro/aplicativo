@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -43,6 +45,19 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
       logFirebaseEvent('NewClient03_update_app_state');
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      safeSetState(() {});
+      logFirebaseEvent('NewClient03_backend_call');
+      _model.apiResultEditClientPageEdit =
+          await APIOficialGroup.getClientByIDCall.call(
+        id: widget!.idClient?.toString(),
+        authToken: currentAuthenticationToken,
+      );
+
+      logFirebaseEvent('NewClient03_update_app_state');
+      FFAppState().editUserSelected = getJsonField(
+        (_model.apiResultEditClientPageEdit?.jsonBody ?? ''),
+        r'''$.data''',
+      );
       safeSetState(() {});
     });
 
@@ -481,6 +496,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                 ),
                                               }.withoutNulls,
                                             );
+
+                                            logFirebaseEvent(
+                                                'Row_clear_query_cache');
+                                            FFAppState()
+                                                .clearClientsCacheCache();
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -572,6 +592,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                             logFirebaseEvent('Row_navigate_to');
 
                                             context.pushNamed('listAllClients');
+
+                                            logFirebaseEvent(
+                                                'Row_clear_query_cache');
+                                            FFAppState()
+                                                .clearClientsCacheCache();
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,

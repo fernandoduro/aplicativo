@@ -329,17 +329,8 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                             children: [
                                                                               Row(
                                                                                 mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                mainAxisAlignment: MainAxisAlignment.end,
                                                                                 children: [
-                                                                                  Text(
-                                                                                    'Cliente',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Manrope',
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w800,
-                                                                                        ),
-                                                                                  ),
                                                                                   InkWell(
                                                                                     splashColor: Colors.transparent,
                                                                                     focusColor: Colors.transparent,
@@ -365,6 +356,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                     },
                                                                                     child: Text(
                                                                                       'Editar',
+                                                                                      textAlign: TextAlign.end,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Manrope',
                                                                                             color: FlutterFlowTheme.of(context).primary,
@@ -858,7 +850,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                   onPressed: _model.isRecording
                                                                                                       ? null
                                                                                                       : () async {
-                                                                                                          logFirebaseEvent('COMMENTS_PAGE_INICIAR_BTN_ON_TAP');
+                                                                                                          logFirebaseEvent('COMMENTS_PAGE_Button_z2wz7sot_ON_TAP');
                                                                                                           logFirebaseEvent('Button_request_permissions');
                                                                                                           await requestPermission(microphonePermission);
                                                                                                           if (await getPermissionStatus(microphonePermission)) {
@@ -892,7 +884,15 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                             );
                                                                                                           }
                                                                                                         },
-                                                                                                  text: _model.isRecording ? 'Gravando' : 'Iniciar',
+                                                                                                  text: () {
+                                                                                                    if (_model.isRecording) {
+                                                                                                      return 'Gravando';
+                                                                                                    } else if (_model.isShowPlayer) {
+                                                                                                      return 'Regravar';
+                                                                                                    } else {
+                                                                                                      return 'Iniciar';
+                                                                                                    }
+                                                                                                  }(),
                                                                                                   options: FFButtonOptions(
                                                                                                     width: 100.0,
                                                                                                     height: 50.0,
@@ -1304,7 +1304,7 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                                                                 Text(
                                                                                                                                   functions.formatDateHour(getJsonField(
                                                                                                                                     commentsListItem,
-                                                                                                                                    r'''$.appointment.scheduled_at''',
+                                                                                                                                    r'''$.created_at''',
                                                                                                                                   ).toString())!,
                                                                                                                                   style: TextStyle(
                                                                                                                                     fontWeight: FontWeight.w800,

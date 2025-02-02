@@ -347,14 +347,25 @@ String? dateHourStringToDateTimeIso8601(
   if (data == null || hora == null) {
     return null;
   }
+
+  // Expressão regular para validar o formato de hora (HH:mm)
+  final horaRegex = RegExp(r'^([01]\d|2[0-3]):[0-5]\d$');
+
+  if (!horaRegex.hasMatch(hora)) {
+    print('Hora inválida: $hora');
+    return null;
+  }
+
   try {
     DateTime date = DateFormat('dd/MM/yyyy').parse(data);
-    DateTime time = DateFormat('HH:mm').parse(hora);
-    DateTime start =
-        DateTime(date.year, date.month, date.day, time.hour, time.minute);
+    List<String> horaParts = hora.split(':');
+    int hour = int.parse(horaParts[0]);
+    int minute = int.parse(horaParts[1]);
+
+    DateTime start = DateTime(date.year, date.month, date.day, hour, minute);
     return start.toIso8601String();
   } catch (e) {
-    print('Error parsing date and time: $e');
+    print('Erro ao converter data e hora: $e');
     return null;
   }
 }
@@ -543,4 +554,114 @@ String? convertDescriptionToMarkdown(String? description) {
       .replaceAll('[align=left]', '')
       .replaceAll('[align=right]', '')
       .replaceAll('[/align]', '');
+}
+
+List<dynamic>? removeDuplicatesListJson(List<dynamic>? listElements) {
+  // remove duplicates to listElements
+  if (listElements == null) {
+    return null;
+  }
+
+  List<dynamic> uniqueList = [];
+  Set<String> uniqueSet = Set();
+
+  for (dynamic element in listElements) {
+    String jsonStr = jsonEncode(element);
+    if (!uniqueSet.contains(jsonStr)) {
+      uniqueList.add(element);
+      uniqueSet.add(jsonStr);
+    }
+  }
+
+  return uniqueList;
+}
+
+String? transformArrayToString(dynamic campo) {
+  // transform "campo" to string
+  if (campo is List) {
+    return campo.join(' ');
+  } else {
+    return campo.toString();
+  }
+}
+
+String? dateStringToDate(String? data) {
+  if (data == null) {
+    return null;
+  }
+
+  // Expressão regular para validar o formato de hora (HH:mm)
+
+  try {
+    DateTime date = DateFormat('dd/MM/yyyy').parse(data);
+
+    return date.year.toString() +
+        "-" +
+        date.month.toString() +
+        "-" +
+        date.day.toString();
+  } catch (e) {
+    print('Erro ao converter data e hora: $e');
+    return null;
+  }
+}
+
+DateTime? convertDateStringToDatetime(String? data) {
+  if (data == null) {
+    return null;
+  }
+
+  try {
+    // Dividir a string em partes (ano, mês, dia)
+    List<String> parts = data.split('-');
+    int year = int.parse(parts[0]);
+    int month = int.parse(parts[1]);
+    int day = int.parse(parts[2]);
+
+    // Criar o DateTime manualmente
+    DateTime dateTime = DateTime(year, month, day);
+    print("dateTime >>> " + dateTime.toString());
+    return dateTime;
+  } catch (e) {
+    print('Erro ao converter data e hora: $e');
+    return null;
+  }
+}
+
+bool? existsPackagesDuplicateByID(List<dynamic>? lista) {
+  // check if list json exist duplicate
+  if (lista == null) {
+    return null;
+  }
+
+  Set<dynamic> set = {};
+  for (var item in lista) {
+    if (set.contains(item["id"])) {
+      return true;
+    } else {
+      set.add(item["id"]);
+    }
+  }
+  return false;
+}
+
+dynamic removePackagesDuplicateByID(dynamic lista) {
+  print("INCIO removePackagesDuplicateByID");
+  if (lista == null) {
+    return null;
+  }
+
+  Set<dynamic> set = {};
+  List<int> ids = [];
+
+  for (var item in lista) {
+    print(item);
+    print(item["id"]);
+    if (!ids.contains(item["id"])) {
+      ids.add(item["id"]);
+      set.add(item);
+    }
+  }
+  print("FIMMMM removePackagesDuplicateByID" + set.toString());
+  return set;
 }

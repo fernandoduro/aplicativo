@@ -473,25 +473,41 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                         () async {
                                                                       logFirebaseEvent(
                                                                           'SERVICES05_SALVAR_INFORMAES_BTN_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Button_backend_call');
-                                                                      _model.apiResultlsp = await APIOficialGroup
-                                                                          .addHoursWorkProfessionalsCall
-                                                                          .call(
-                                                                        authToken:
-                                                                            currentAuthenticationToken,
-                                                                        disponibilityJson:
-                                                                            getJsonField(
-                                                                          FFAppState()
-                                                                              .hoursWork,
-                                                                          r'''$''',
-                                                                        ),
-                                                                      );
-
-                                                                      if ((_model
-                                                                              .apiResultlsp
-                                                                              ?.succeeded ??
-                                                                          true)) {
+                                                                      if ((getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[0].hours[0]''',
+                                                                              ) ==
+                                                                              null) &&
+                                                                          (getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[1].hours[0]''',
+                                                                              ) ==
+                                                                              null) &&
+                                                                          (getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[2].hours[0]''',
+                                                                              ) ==
+                                                                              null) &&
+                                                                          (getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[3].hours[0]''',
+                                                                              ) ==
+                                                                              null) &&
+                                                                          (getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[4].hours[0]''',
+                                                                              ) ==
+                                                                              null) &&
+                                                                          (getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[5].hours[0]''',
+                                                                              ) ==
+                                                                              null) &&
+                                                                          (getJsonField(
+                                                                                FFAppState().hoursWork,
+                                                                                r'''$.days[6].hours[0]''',
+                                                                              ) ==
+                                                                              null)) {
                                                                         logFirebaseEvent(
                                                                             'Button_show_snack_bar');
                                                                         ScaffoldMessenger.of(context)
@@ -499,43 +515,7 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                           SnackBar(
                                                                             content:
                                                                                 Text(
-                                                                              'Tudo certo! Registramos estas informações.',
-                                                                              style: TextStyle(
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                              ),
-                                                                            ),
-                                                                            duration:
-                                                                                Duration(milliseconds: 4000),
-                                                                            backgroundColor:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                          ),
-                                                                        );
-                                                                        if ((widget!.originConfig == 'schedule') ||
-                                                                            (widget!.originConfig ==
-                                                                                'client') ||
-                                                                            (widget!.originConfig ==
-                                                                                'newClient')) {
-                                                                          logFirebaseEvent(
-                                                                              'Button_action_block');
-                                                                          await action_blocks
-                                                                              .firstConfigNavigation(
-                                                                            context,
-                                                                            originConfig:
-                                                                                widget!.originConfig,
-                                                                          );
-                                                                        }
-                                                                      } else {
-                                                                        logFirebaseEvent(
-                                                                            'Button_show_snack_bar');
-                                                                        ScaffoldMessenger.of(context)
-                                                                            .showSnackBar(
-                                                                          SnackBar(
-                                                                            content:
-                                                                                Text(
-                                                                              getJsonField(
-                                                                                (_model.apiResultlsp?.jsonBody ?? ''),
-                                                                                r'''$.message''',
-                                                                              ).toString(),
+                                                                              'Preencha pelo menos um horário.',
                                                                               style: TextStyle(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               ),
@@ -546,6 +526,67 @@ class _Services05WidgetState extends State<Services05Widget> {
                                                                                 FlutterFlowTheme.of(context).error,
                                                                           ),
                                                                         );
+                                                                      } else {
+                                                                        logFirebaseEvent(
+                                                                            'Button_backend_call');
+                                                                        _model.apiResultlsp = await APIOficialGroup
+                                                                            .addHoursWorkProfessionalsCall
+                                                                            .call(
+                                                                          authToken:
+                                                                              currentAuthenticationToken,
+                                                                          disponibilityJson:
+                                                                              getJsonField(
+                                                                            FFAppState().hoursWork,
+                                                                            r'''$''',
+                                                                          ),
+                                                                        );
+
+                                                                        if ((_model.apiResultlsp?.succeeded ??
+                                                                            true)) {
+                                                                          logFirebaseEvent(
+                                                                              'Button_show_snack_bar');
+                                                                          ScaffoldMessenger.of(context)
+                                                                              .showSnackBar(
+                                                                            SnackBar(
+                                                                              content: Text(
+                                                                                'Tudo certo! Registramos estas informações.',
+                                                                                style: TextStyle(
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                ),
+                                                                              ),
+                                                                              duration: Duration(milliseconds: 4000),
+                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                            ),
+                                                                          );
+                                                                          if ((widget!.originConfig == 'schedule') ||
+                                                                              (widget!.originConfig == 'client') ||
+                                                                              (widget!.originConfig == 'newClient')) {
+                                                                            logFirebaseEvent('Button_action_block');
+                                                                            await action_blocks.firstConfigNavigation(
+                                                                              context,
+                                                                              originConfig: widget!.originConfig,
+                                                                            );
+                                                                          }
+                                                                        } else {
+                                                                          logFirebaseEvent(
+                                                                              'Button_show_snack_bar');
+                                                                          ScaffoldMessenger.of(context)
+                                                                              .showSnackBar(
+                                                                            SnackBar(
+                                                                              content: Text(
+                                                                                getJsonField(
+                                                                                  (_model.apiResultlsp?.jsonBody ?? ''),
+                                                                                  r'''$.message''',
+                                                                                ).toString(),
+                                                                                style: TextStyle(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                ),
+                                                                              ),
+                                                                              duration: Duration(milliseconds: 4000),
+                                                                              backgroundColor: FlutterFlowTheme.of(context).error,
+                                                                            ),
+                                                                          );
+                                                                        }
                                                                       }
 
                                                                       safeSetState(
