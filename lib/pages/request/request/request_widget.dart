@@ -1022,7 +1022,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                     authToken: currentAuthenticationToken,
                                                                                     title: 'Solicitação (${_model.areaValue})',
                                                                                     description: _model.descricaoTextController.text,
-                                                                                    audioFile: _model.audioBase64,
+                                                                                    audioFile: functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                     imagesList: _model.images64,
                                                                                     status: 'pending',
                                                                                     area: _model.areaValue,
@@ -1070,7 +1070,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                       authToken: currentAuthenticationToken,
                                                                                       status: 'pending',
                                                                                       title: 'Solicitação (${_model.areaValue})',
-                                                                                      audioFile: _model.audioBase64,
+                                                                                      audioFile: functions.concateStrings('data:audio/mp3;', _model.audioBase64),
                                                                                       imagesList: _model.images64,
                                                                                       area: _model.areaValue,
                                                                                     );
