@@ -266,7 +266,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               decoration:
                                                                   InputDecoration(
                                                                 labelText:
-                                                                    'Nome',
+                                                                    'Nome completo',
                                                                 labelStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMedium

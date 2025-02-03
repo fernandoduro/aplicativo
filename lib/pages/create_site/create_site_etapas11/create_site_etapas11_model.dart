@@ -8,6 +8,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/request_manager.dart';
+
 import 'create_site_etapas11_widget.dart' show CreateSiteEtapas11Widget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -33,6 +35,23 @@ class CreateSiteEtapas11Model
   // Model for Footer component.
   late FooterModel footerModel;
 
+  /// Query cache managers for this widget.
+
+  final _imagesCacheManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> imagesCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _imagesCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearImagesCacheCache() => _imagesCacheManager.clear();
+  void clearImagesCacheCacheKey(String? uniqueKey) =>
+      _imagesCacheManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
@@ -43,5 +62,9 @@ class CreateSiteEtapas11Model
   void dispose() {
     headerHelpModel.dispose();
     footerModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearImagesCacheCache();
   }
 }

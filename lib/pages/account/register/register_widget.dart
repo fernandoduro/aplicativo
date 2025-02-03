@@ -208,7 +208,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
-                                                          labelText: 'Nome',
+                                                          labelText:
+                                                              'Nome completo',
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)

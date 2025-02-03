@@ -558,15 +558,17 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               }
                                                                             }
 
-                                                                            logFirebaseEvent('RichText_custom_action');
-                                                                            _model.updatedImage =
-                                                                                await actions.convertBase64(
-                                                                              _model.uploadedLocalFile,
-                                                                            );
-                                                                            logFirebaseEvent('RichText_update_page_state');
-                                                                            _model.addToImagesToUpload(_model.uploadedLocalFile);
-                                                                            _model.addToImages64(_model.updatedImage!);
-                                                                            safeSetState(() {});
+                                                                            if (_model.uploadedLocalFile != null &&
+                                                                                (_model.uploadedLocalFile.bytes?.isNotEmpty ?? false)) {
+                                                                              logFirebaseEvent('RichText_custom_action');
+                                                                              _model.updatedImage = await actions.convertBase64(
+                                                                                _model.uploadedLocalFile,
+                                                                              );
+                                                                              logFirebaseEvent('RichText_update_page_state');
+                                                                              _model.addToImagesToUpload(_model.uploadedLocalFile);
+                                                                              _model.addToImages64(_model.updatedImage!);
+                                                                              safeSetState(() {});
+                                                                            }
 
                                                                             safeSetState(() {});
                                                                           },
@@ -630,73 +632,82 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                               mainAxisAlignment: MainAxisAlignment.start,
                                                                               children: List.generate(images.length, (imagesIndex) {
                                                                                 final imagesItem = images[imagesIndex];
-                                                                                return Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      width: 100.0,
-                                                                                      height: 94.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).accent4,
-                                                                                        image: DecorationImage(
-                                                                                          fit: BoxFit.cover,
-                                                                                          image: Image.memory(
-                                                                                            imagesItem.bytes ?? Uint8List.fromList([]),
-                                                                                          ).image,
-                                                                                        ),
-                                                                                        borderRadius: BorderRadius.circular(8.0),
-                                                                                        border: Border.all(
+                                                                                return Visibility(
+                                                                                  visible: imagesItem != null && (imagesItem.bytes?.isNotEmpty ?? false),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: 100.0,
+                                                                                        height: 94.0,
+                                                                                        decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).accent4,
+                                                                                          image: DecorationImage(
+                                                                                            fit: BoxFit.cover,
+                                                                                            image: Image.memory(
+                                                                                              imagesItem.bytes ?? Uint8List.fromList([]),
+                                                                                            ).image,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                          border: Border.all(
+                                                                                            color: FlutterFlowTheme.of(context).accent4,
+                                                                                          ),
                                                                                         ),
-                                                                                      ),
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(1.0, -1.0),
-                                                                                        child: InkWell(
-                                                                                          splashColor: Colors.transparent,
-                                                                                          focusColor: Colors.transparent,
-                                                                                          hoverColor: Colors.transparent,
-                                                                                          highlightColor: Colors.transparent,
-                                                                                          onTap: () async {
-                                                                                            logFirebaseEvent('REQUEST_PAGE_Icon_klcpoa34_ON_TAP');
-                                                                                            logFirebaseEvent('Icon_alert_dialog');
-                                                                                            var confirmDialogResponse = await showDialog<bool>(
-                                                                                                  context: context,
-                                                                                                  builder: (alertDialogContext) {
-                                                                                                    return WebViewAware(
-                                                                                                      child: AlertDialog(
-                                                                                                        content: Text('Deseja realmente deletar essa imagem?'),
-                                                                                                        actions: [
-                                                                                                          TextButton(
-                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                            child: Text('Cancelar'),
-                                                                                                          ),
-                                                                                                          TextButton(
-                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                            child: Text('Confirmar'),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                    );
-                                                                                                  },
-                                                                                                ) ??
-                                                                                                false;
-                                                                                            if (confirmDialogResponse) {
-                                                                                              logFirebaseEvent('Icon_update_page_state');
-                                                                                              _model.removeFromImagesToUpload(imagesItem);
-                                                                                              safeSetState(() {});
-                                                                                            }
-                                                                                          },
-                                                                                          child: Icon(
-                                                                                            Icons.delete,
-                                                                                            color: FlutterFlowTheme.of(context).error,
-                                                                                            size: 24.0,
+                                                                                        child: Align(
+                                                                                          alignment: AlignmentDirectional(1.0, -1.0),
+                                                                                          child: InkWell(
+                                                                                            splashColor: Colors.transparent,
+                                                                                            focusColor: Colors.transparent,
+                                                                                            hoverColor: Colors.transparent,
+                                                                                            highlightColor: Colors.transparent,
+                                                                                            onTap: () async {
+                                                                                              logFirebaseEvent('REQUEST_PAGE_Icon_klcpoa34_ON_TAP');
+                                                                                              logFirebaseEvent('Icon_alert_dialog');
+                                                                                              var confirmDialogResponse = await showDialog<bool>(
+                                                                                                    context: context,
+                                                                                                    builder: (alertDialogContext) {
+                                                                                                      return WebViewAware(
+                                                                                                        child: AlertDialog(
+                                                                                                          content: Text('Deseja realmente deletar essa imagem?'),
+                                                                                                          actions: [
+                                                                                                            TextButton(
+                                                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                              child: Text('Cancelar'),
+                                                                                                            ),
+                                                                                                            TextButton(
+                                                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                              child: Text('Confirmar'),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      );
+                                                                                                    },
+                                                                                                  ) ??
+                                                                                                  false;
+                                                                                              if (confirmDialogResponse) {
+                                                                                                logFirebaseEvent('Icon_update_page_state');
+                                                                                                _model.removeFromImagesToUpload(imagesItem);
+                                                                                                safeSetState(() {});
+                                                                                              }
+                                                                                            },
+                                                                                            child: Icon(
+                                                                                              Icons.delete,
+                                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                                              size: 24.0,
+                                                                                            ),
                                                                                           ),
                                                                                         ),
                                                                                       ),
-                                                                                    ),
-                                                                                  ],
+                                                                                    ],
+                                                                                  ),
                                                                                 );
-                                                                              }).divide(SizedBox(width: 8.0)),
+                                                                              }).divide(
+                                                                                SizedBox(width: 8.0),
+                                                                                filterFn: (imagesIndex) {
+                                                                                  final imagesItem = images[imagesIndex];
+                                                                                  return imagesItem != null && (imagesItem.bytes?.isNotEmpty ?? false);
+                                                                                },
+                                                                              ),
                                                                             ),
                                                                           );
                                                                         },
@@ -844,6 +855,9 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                         logFirebaseEvent('Button_request_permissions');
                                                                                         await requestPermission(microphonePermission);
                                                                                         if (await getPermissionStatus(microphonePermission)) {
+                                                                                          logFirebaseEvent('Button_update_page_state');
+                                                                                          _model.isRecording = true;
+                                                                                          safeSetState(() {});
                                                                                           logFirebaseEvent('Button_start_audio_recording');
                                                                                           await startAudioRecording(
                                                                                             context,
@@ -851,7 +865,6 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           );
 
                                                                                           logFirebaseEvent('Button_update_page_state');
-                                                                                          _model.isRecording = true;
                                                                                           _model.audioBase64 = _model.audioBase64;
                                                                                           safeSetState(() {});
                                                                                           logFirebaseEvent('Button_widget_animation');
@@ -859,6 +872,9 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                             await animationsMap['rowOnActionTriggerAnimation']!.controller.repeat(reverse: true);
                                                                                           }
                                                                                         } else {
+                                                                                          logFirebaseEvent('Button_update_page_state');
+                                                                                          _model.audioBase64 = null;
+                                                                                          safeSetState(() {});
                                                                                           logFirebaseEvent('Button_show_snack_bar');
                                                                                           ScaffoldMessenger.of(context).showSnackBar(
                                                                                             SnackBar(
@@ -920,10 +936,10 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           _model.recorderStopedRequest,
                                                                                         );
                                                                                         logFirebaseEvent('Button_update_page_state');
-                                                                                        _model.isRecording = false;
+                                                                                        _model.audioBase64 = _model.base64SoundRequest;
                                                                                         safeSetState(() {});
                                                                                         logFirebaseEvent('Button_update_page_state');
-                                                                                        _model.audioBase64 = _model.base64SoundRequest;
+                                                                                        _model.isRecording = false;
                                                                                         safeSetState(() {});
                                                                                         logFirebaseEvent('Button_update_page_state');
                                                                                         _model.isShowPlayer = true;
