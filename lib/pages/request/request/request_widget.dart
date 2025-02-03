@@ -803,7 +803,7 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                             child:
                                                                                 FlutterFlowAudioPlayer(
                                                                               audio: Audio.network(
-                                                                                _model.recorderStoped!,
+                                                                                _model.recorderStopedRequest!,
                                                                                 metas: Metas(
                                                                                   title: 'Áudio',
                                                                                 ),
@@ -910,20 +910,20 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                           audioRecorder: _model.audioRecorder,
                                                                                           audioName: 'recordedFileBytes',
                                                                                           onRecordingComplete: (audioFilePath, audioBytes) {
-                                                                                            _model.recorderStoped = audioFilePath;
+                                                                                            _model.recorderStopedRequest = audioFilePath;
                                                                                             _model.recordedFileBytes = audioBytes;
                                                                                           },
                                                                                         );
 
                                                                                         logFirebaseEvent('Button_custom_action');
-                                                                                        _model.base64Sound = await actions.convertAudioPathToBase64(
-                                                                                          _model.recorderStoped,
+                                                                                        _model.base64SoundRequest = await actions.convertAudioPathToBase64(
+                                                                                          _model.recorderStopedRequest,
                                                                                         );
                                                                                         logFirebaseEvent('Button_update_page_state');
                                                                                         _model.isRecording = false;
                                                                                         safeSetState(() {});
                                                                                         logFirebaseEvent('Button_update_page_state');
-                                                                                        _model.audioBase64 = _model.base64Sound;
+                                                                                        _model.audioBase64 = _model.base64SoundRequest;
                                                                                         safeSetState(() {});
                                                                                         logFirebaseEvent('Button_update_page_state');
                                                                                         _model.isShowPlayer = true;
