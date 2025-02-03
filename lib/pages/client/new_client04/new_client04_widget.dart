@@ -1174,9 +1174,6 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .phone,
                                                             validator: _model
                                                                 .emailTextControllerValidator
                                                                 .asValidator(

@@ -1607,6 +1607,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   logFirebaseEvent('Button_update_page_state');
                                                                                                   _model.listProfessionalClients = [];
                                                                                                   safeSetState(() {});
+                                                                                                  logFirebaseEvent('Button_update_page_state');
+                                                                                                  _model.idsClientsSchedule = [];
+                                                                                                  safeSetState(() {});
+                                                                                                  if ((_model.tipocompromissoValue == 'professional') || (_model.tipocompromissoValue == null || _model.tipocompromissoValue == '')) {
+                                                                                                    logFirebaseEvent('Button_update_page_state');
+                                                                                                    _model.addToIdsClientsSchedule(_model.clientesValue!);
+                                                                                                    safeSetState(() {});
+                                                                                                  }
                                                                                                   logFirebaseEvent('Button_backend_call');
                                                                                                   _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
                                                                                                     authToken: currentAuthenticationToken,
@@ -1621,18 +1629,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                       widget!.scheduleCabecalho,
                                                                                                       r'''$.service.id''',
                                                                                                     ),
-                                                                                                    professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), () {
-                                                                                                      if (widget!.idClientSelected != null) {
-                                                                                                        return widget!.idClientSelected;
-                                                                                                      } else if (!widget!.isAddNewClient!) {
-                                                                                                        return getJsonField(
-                                                                                                          widget!.scheduleCabecalho,
-                                                                                                          r'''$.professional_client[*].id''',
-                                                                                                        );
-                                                                                                      } else {
-                                                                                                        return null;
-                                                                                                      }
-                                                                                                    }()),
+                                                                                                    professionalClientIdList: _model.idsClientsSchedule,
                                                                                                     recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
                                                                                                     confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
                                                                                                     duration: _model.tipocompromissoValue == 'personal' ? int.tryParse(_model.durationTextController.text) : null,
@@ -1686,6 +1683,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   logFirebaseEvent('Button_update_page_state');
                                                                                                   _model.listProfessionalClients = [];
                                                                                                   safeSetState(() {});
+                                                                                                  logFirebaseEvent('Button_update_page_state');
+                                                                                                  _model.idsClientsSchedule = [];
+                                                                                                  safeSetState(() {});
+                                                                                                  if ((_model.tipocompromissoValue == 'professional') || (_model.tipocompromissoValue == null || _model.tipocompromissoValue == '')) {
+                                                                                                    logFirebaseEvent('Button_update_page_state');
+                                                                                                    _model.addToIdsClientsSchedule(_model.clientesValue!);
+                                                                                                    safeSetState(() {});
+                                                                                                  }
                                                                                                   logFirebaseEvent('Button_backend_call');
                                                                                                   _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
                                                                                                     authToken: currentAuthenticationToken,
@@ -1711,18 +1716,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                       widget!.scheduleCabecalho,
                                                                                                       r'''$.service_id''',
                                                                                                     ),
-                                                                                                    professionalClientIdList: functions.addIntegerToListInteger(_model.listProfessionalClients.toList(), () {
-                                                                                                      if (widget!.idClientSelected != null) {
-                                                                                                        return widget!.idClientSelected;
-                                                                                                      } else if (!widget!.isAddNewClient!) {
-                                                                                                        return getJsonField(
-                                                                                                          widget!.scheduleCabecalho,
-                                                                                                          r'''$.professional_client[*].id''',
-                                                                                                        );
-                                                                                                      } else {
-                                                                                                        return null;
-                                                                                                      }
-                                                                                                    }()),
+                                                                                                    professionalClientIdList: _model.idsClientsSchedule,
                                                                                                     scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                     recurrentInterval: _model.prazoRecorrenteValue == 'null' ? null : _model.prazoRecorrenteValue,
                                                                                                     confirmation: _model.tipocompromissoValue == 'personal' ? 'confirmed' : _model.situacaoDropDownValue,
