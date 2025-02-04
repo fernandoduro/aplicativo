@@ -6,15 +6,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'encerrar_conta_model.dart';
 export 'encerrar_conta_model.dart';
@@ -96,23 +93,23 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: wrapWithModel(
                       model: _model.headerHelpModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: HeaderHelpWidget(),
+                      child: const HeaderHelpWidget(),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 decoration: BoxDecoration(
@@ -132,7 +129,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -140,10 +137,10 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 15.0, 0.0),
                                             child: RichText(
                                               textScaler: MediaQuery.of(context)
@@ -173,7 +170,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                       functions.setEmoji(15),
                                                       '15',
                                                     ),
-                                                    style: TextStyle(),
+                                                    style: const TextStyle(),
                                                   )
                                                 ],
                                                 style:
@@ -202,7 +199,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 8.0, 0.0),
                                           child: TextFormField(
                                             controller:
@@ -211,7 +208,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.motivoTextController',
-                                              Duration(milliseconds: 30),
+                                              const Duration(milliseconds: 30),
                                               () async {
                                                 logFirebaseEvent(
                                                     'ENCERRAR_CONTA_motivo_ON_TEXTFIELD_CHANG');
@@ -303,7 +300,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 40.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -316,11 +313,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                               MainAxisAlignment.end,
                                           children: [
                                             FFButtonWidget(
-                                              onPressed: (_model
-                                                              .motivoTextController
-                                                              .text ==
-                                                          null ||
-                                                      _model.motivoTextController
+                                              onPressed: (_model.motivoTextController
                                                               .text ==
                                                           '')
                                                   ? null
@@ -354,7 +347,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                                   .primaryText,
                                                             ),
                                                           ),
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   4000),
                                                           backgroundColor:
@@ -393,11 +386,11 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                             .width *
                                                         0.8,
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -413,16 +406,16 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 disabledColor:
-                                                    Color(0xFFACACAC),
+                                                    const Color(0xFFACACAC),
                                                 disabledTextColor:
-                                                    Color(0xFFD9D9D9),
+                                                    const Color(0xFFD9D9D9),
                                               ),
                                             ),
                                           ],
@@ -431,7 +424,7 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: Container(
                                       width: 100.0,
@@ -460,11 +453,11 @@ class _EncerrarContaWidgetState extends State<EncerrarContaWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

@@ -4,13 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'first_service_model.dart';
 export 'first_service_model.dart';
@@ -174,12 +171,12 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                   wrapWithModel(
                     model: _model.headerBalaoWhatsModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderBalaoWhatsWidget(),
+                    child: const HeaderBalaoWhatsWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -191,7 +188,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -199,7 +196,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -212,7 +209,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -223,7 +220,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -237,7 +234,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -248,7 +245,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -262,7 +259,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -283,7 +280,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -297,7 +294,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -308,7 +305,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -322,7 +319,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -343,7 +340,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -357,7 +354,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -368,7 +365,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -382,7 +379,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -403,7 +400,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -417,7 +414,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -428,7 +425,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -442,7 +439,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -463,7 +460,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -499,13 +496,13 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                         queryParameters: {
                                                           'adicionadoPeloMais':
                                                               serializeParam(
-                                                            widget!
+                                                            widget
                                                                 .adicionadoPeloMais,
                                                             ParamType.bool,
                                                           ),
                                                           'originConfig':
                                                               serializeParam(
-                                                            widget!
+                                                            widget
                                                                 .originConfig,
                                                             ParamType.String,
                                                           ),
@@ -520,14 +517,14 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                           0.8,
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -551,7 +548,7 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -583,11 +580,11 @@ class _FirstServiceWidgetState extends State<FirstServiceWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

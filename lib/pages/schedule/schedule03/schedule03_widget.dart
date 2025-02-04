@@ -7,14 +7,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'schedule03_model.dart';
 export 'schedule03_model.dart';
@@ -32,7 +28,7 @@ class Schedule03Widget extends StatefulWidget {
     this.idProfessionalClientSelected,
     this.idAppointmentSelected,
     this.duration,
-  }) : this.existAppointment = existAppointment ?? false;
+  }) : existAppointment = existAppointment ?? false;
 
   final DateTime? dateSelected;
   final String? hourSelected;
@@ -68,7 +64,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
       if (getJsonField(
-            widget!.scheduleCabecalho,
+            widget.scheduleCabecalho,
             r'''$.professional_client[*].client_id''',
           ) !=
           null) {
@@ -76,13 +72,13 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
         _model.getAppointmet1 =
             await APIOficialGroup.getAppointmentsByIDCall.call(
           authToken: currentAuthenticationToken,
-          id: widget!.idAppointmentSelected?.toString(),
+          id: widget.idAppointmentSelected?.toString(),
         );
 
         logFirebaseEvent('Schedule03_set_form_field');
         safeSetState(() {
           _model.statusValue = () {
-            if (!widget!.isAddNewClient!) {
+            if (!widget.isAddNewClient!) {
               return (functions
                       .convertStrintToInt(getJsonField(
                         (_model.getAppointmet1?.jsonBody ?? ''),
@@ -90,7 +86,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                       ).toString().toString())
                       .toString() ==
                   '1');
-            } else if (widget!.isAddNewClient!) {
+            } else if (widget.isAddNewClient!) {
               return false;
             } else {
               return false;
@@ -140,7 +136,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
         });
         logFirebaseEvent('Schedule03_update_page_state');
         _model.idsClientsSchedule = getJsonField(
-          widget!.scheduleCabecalho,
+          widget.scheduleCabecalho,
           r'''$.professional_client[*].pivot.professional_client_id''',
           true,
         )!
@@ -152,7 +148,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
           authToken: currentAuthenticationToken,
         );
 
-        if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+        if ((widget.isAddNewClient == true) && widget.existAppointment) {
           logFirebaseEvent('Schedule03_custom_action');
           _model.resultFilterAction = await actions.filterJsonNotINAction(
             getJsonField(
@@ -200,17 +196,17 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
     _model.dataFocusNode ??= FocusNode();
 
     _model.horaTextController ??=
-        TextEditingController(text: widget!.hourSelected);
+        TextEditingController(text: widget.hourSelected);
     _model.horaFocusNode ??= FocusNode();
 
     _model.durationTextController ??=
-        TextEditingController(text: widget!.duration?.toString());
+        TextEditingController(text: widget.duration?.toString());
     _model.durationFocusNode ??= FocusNode();
 
     _model.descricaoTextController ??= TextEditingController(
-        text: !widget!.isAddNewClient!
+        text: !widget.isAddNewClient!
             ? functions.removeNullString(getJsonField(
-                widget!.scheduleCabecalho,
+                widget.scheduleCabecalho,
                 r'''$.description''',
               ).toString().toString())
             : '');
@@ -220,7 +216,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.dataTextController?.text = dateTimeFormat(
             "d/M/y",
-            widget!.dateSelected,
+            widget.dateSelected,
             locale: FFLocalizations.of(context).languageCode,
           );
         }));
@@ -265,7 +261,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                         model: _model.headerHelpModel,
                                         updateCallback: () =>
                                             safeSetState(() {}),
-                                        child: HeaderHelpWidget(),
+                                        child: const HeaderHelpWidget(),
                                       ),
                                       Expanded(
                                         child: SingleChildScrollView(
@@ -285,7 +281,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                       .primary,
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: SingleChildScrollView(
@@ -298,7 +294,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       35.0,
                                                                       0.0,
@@ -348,7 +344,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       35.0,
                                                                       0.0,
@@ -367,7 +363,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(
                                                                           16.0),
                                                               child:
@@ -394,12 +390,12 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children: [
-                                                                          if (!widget!
+                                                                          if (!widget
                                                                               .existAppointment)
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                 child: Text(
                                                                                   'Data e hora',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -417,10 +413,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.spaceAround,
                                                                             children: [
-                                                                              if (!widget!.existAppointment)
+                                                                              if (!widget.existAppointment)
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 8.0),
-                                                                                  child: Container(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 8.0),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.5,
                                                                                     child: TextFormField(
                                                                                       controller: _model.dataTextController,
@@ -438,14 +434,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
-                                                                                          borderSide: BorderSide(
+                                                                                          borderSide: const BorderSide(
                                                                                             color: Color(0x00000000),
                                                                                             width: 1.0,
                                                                                           ),
                                                                                           borderRadius: BorderRadius.circular(8.0),
                                                                                         ),
                                                                                         focusedBorder: OutlineInputBorder(
-                                                                                          borderSide: BorderSide(
+                                                                                          borderSide: const BorderSide(
                                                                                             color: Color(0x00000000),
                                                                                             width: 1.0,
                                                                                           ),
@@ -481,11 +477,11 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              if (!widget!.existAppointment)
+                                                                              if (!widget.existAppointment)
                                                                                 Expanded(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                    child: Container(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                    child: SizedBox(
                                                                                       width: MediaQuery.sizeOf(context).width * 0.2,
                                                                                       child: TextFormField(
                                                                                         controller: _model.horaTextController,
@@ -503,14 +499,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           enabledBorder: OutlineInputBorder(
-                                                                                            borderSide: BorderSide(
+                                                                                            borderSide: const BorderSide(
                                                                                               color: Color(0x00000000),
                                                                                               width: 1.0,
                                                                                             ),
                                                                                             borderRadius: BorderRadius.circular(8.0),
                                                                                           ),
                                                                                           focusedBorder: OutlineInputBorder(
-                                                                                            borderSide: BorderSide(
+                                                                                            borderSide: const BorderSide(
                                                                                               color: Color(0x00000000),
                                                                                               width: 1.0,
                                                                                             ),
@@ -549,10 +545,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 ),
                                                                             ],
                                                                           ),
-                                                                          if (!widget!
+                                                                          if (!widget
                                                                               .existAppointment)
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Text(
                                                                                 'Tipo de compromisso',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -569,21 +565,21 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.spaceBetween,
                                                                             children: [
-                                                                              if (!widget!.existAppointment)
+                                                                              if (!widget.existAppointment)
                                                                                 Expanded(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                     child: FlutterFlowDropDown<String>(
                                                                                       controller: _model.tipocompromissoValueController ??= FormFieldController<String>(
                                                                                         _model.tipocompromissoValue ??= () {
-                                                                                          if (!widget!.isAddNewClient!) {
+                                                                                          if (!widget.isAddNewClient!) {
                                                                                             return getJsonField(
-                                                                                              widget!.scheduleCabecalho,
+                                                                                              widget.scheduleCabecalho,
                                                                                               r'''$.type''',
                                                                                             ).toString();
-                                                                                          } else if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                          } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                             return getJsonField(
-                                                                                              widget!.scheduleCabecalho,
+                                                                                              widget.scheduleCabecalho,
                                                                                               r'''$.type''',
                                                                                             ).toString();
                                                                                           } else {
@@ -595,7 +591,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         'professional',
                                                                                         'personal'
                                                                                       ]),
-                                                                                      optionLabels: [
+                                                                                      optionLabels: const [
                                                                                         'Profissional',
                                                                                         'Pessoal'
                                                                                       ],
@@ -617,7 +613,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       borderColor: Colors.transparent,
                                                                                       borderWidth: 0.0,
                                                                                       borderRadius: 8.0,
-                                                                                      margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                      margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                       hidesUnderline: true,
                                                                                       isOverButton: false,
                                                                                       isSearchable: false,
@@ -630,7 +626,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           if (_model.tipocompromissoValue ==
                                                                               'personal')
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Text(
                                                                                 'Duração (em minutos)',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -644,8 +640,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           if (_model.tipocompromissoValue ==
                                                                               'personal')
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                              child: Container(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                              child: SizedBox(
                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                 child: TextFormField(
                                                                                   controller: _model.durationTextController,
@@ -663,14 +659,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                     enabledBorder: OutlineInputBorder(
-                                                                                      borderSide: BorderSide(
+                                                                                      borderSide: const BorderSide(
                                                                                         color: Color(0x00000000),
                                                                                         width: 1.0,
                                                                                       ),
                                                                                       borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
                                                                                     focusedBorder: OutlineInputBorder(
-                                                                                      borderSide: BorderSide(
+                                                                                      borderSide: const BorderSide(
                                                                                         color: Color(0x00000000),
                                                                                         width: 1.0,
                                                                                       ),
@@ -708,7 +704,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           if (_model.tipocompromissoValue !=
                                                                               'personal')
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Text(
                                                                                 'Cliente',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -734,15 +730,15 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         ) !=
                                                                                         null)
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                         child: FlutterFlowDropDown<int>(
                                                                                           controller: _model.clientesValueController ??= FormFieldController<int>(
                                                                                             _model.clientesValue ??= () {
-                                                                                              if (widget!.idClientSelected != null) {
-                                                                                                return widget!.idClientSelected;
-                                                                                              } else if (!widget!.isAddNewClient!) {
+                                                                                              if (widget.idClientSelected != null) {
+                                                                                                return widget.idClientSelected;
+                                                                                              } else if (!widget.isAddNewClient!) {
                                                                                                 return getJsonField(
-                                                                                                  widget!.scheduleCabecalho,
+                                                                                                  widget.scheduleCabecalho,
                                                                                                   r'''$.professional_client[*].id''',
                                                                                                 );
                                                                                               } else {
@@ -761,7 +757,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             true,
                                                                                           ) as List)
                                                                                               .map<String>((s) => s.toString())
-                                                                                              .toList()!,
+                                                                                              .toList(),
                                                                                           onChanged: (val) async {
                                                                                             safeSetState(() => _model.clientesValue = val);
                                                                                             logFirebaseEvent('SCHEDULE03_clientes_ON_FORM_WIDGET_SELEC');
@@ -820,14 +816,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           borderColor: Colors.transparent,
                                                                                           borderWidth: 0.0,
                                                                                           borderRadius: 8.0,
-                                                                                          margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                          margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                           hidesUnderline: true,
                                                                                           disabled: (getJsonField(
-                                                                                                    widget!.scheduleCabecalho,
+                                                                                                    widget.scheduleCabecalho,
                                                                                                     r'''$.id''',
                                                                                                   ) !=
                                                                                                   null) &&
-                                                                                              !widget!.isAddNewClient!,
+                                                                                              !widget.isAddNewClient!,
                                                                                           isOverButton: false,
                                                                                           isSearchable: true,
                                                                                           isMultiSelect: false,
@@ -859,34 +855,34 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'dateSelected': serializeParam(
-                                                                                                widget!.dateSelected,
+                                                                                                widget.dateSelected,
                                                                                                 ParamType.DateTime,
                                                                                               ),
                                                                                               'hourSelected': serializeParam(
-                                                                                                widget!.hourSelected,
+                                                                                                widget.hourSelected,
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'existAppointment': serializeParam(
-                                                                                                widget!.existAppointment,
+                                                                                                widget.existAppointment,
                                                                                                 ParamType.bool,
                                                                                               ),
                                                                                               'scheduleJson': serializeParam(
                                                                                                 getJsonField(
-                                                                                                  widget!.scheduleCabecalho,
+                                                                                                  widget.scheduleCabecalho,
                                                                                                   r'''$''',
                                                                                                 ),
                                                                                                 ParamType.JSON,
                                                                                               ),
                                                                                               'isAddNewClient': serializeParam(
-                                                                                                widget!.isAddNewClient,
+                                                                                                widget.isAddNewClient,
                                                                                                 ParamType.bool,
                                                                                               ),
                                                                                               'idClientSelected': serializeParam(
-                                                                                                widget!.idClientSelected,
+                                                                                                widget.idClientSelected,
                                                                                                 ParamType.int,
                                                                                               ),
                                                                                               'situacao': serializeParam(
-                                                                                                widget!.situacao,
+                                                                                                widget.situacao,
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                             }.withoutNulls,
@@ -910,10 +906,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         ) ==
                                                                                         null)
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                         child: FlutterFlowDropDown<String>(
                                                                                           controller: _model.clientesEmptyValueController ??= FormFieldController<String>(null),
-                                                                                          options: <String>[],
+                                                                                          options: const <String>[],
                                                                                           onChanged: (val) => safeSetState(() => _model.clientesEmptyValue = val),
                                                                                           width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                           height: 40.0,
@@ -932,7 +928,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                           borderColor: Colors.transparent,
                                                                                           borderWidth: 0.0,
                                                                                           borderRadius: 8.0,
-                                                                                          margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                          margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                           hidesUnderline: true,
                                                                                           isOverButton: false,
                                                                                           isSearchable: false,
@@ -965,34 +961,34 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'dateSelected': serializeParam(
-                                                                                                widget!.dateSelected,
+                                                                                                widget.dateSelected,
                                                                                                 ParamType.DateTime,
                                                                                               ),
                                                                                               'hourSelected': serializeParam(
-                                                                                                widget!.hourSelected,
+                                                                                                widget.hourSelected,
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'existAppointment': serializeParam(
-                                                                                                widget!.existAppointment,
+                                                                                                widget.existAppointment,
                                                                                                 ParamType.bool,
                                                                                               ),
                                                                                               'scheduleJson': serializeParam(
                                                                                                 getJsonField(
-                                                                                                  widget!.scheduleCabecalho,
+                                                                                                  widget.scheduleCabecalho,
                                                                                                   r'''$''',
                                                                                                 ),
                                                                                                 ParamType.JSON,
                                                                                               ),
                                                                                               'isAddNewClient': serializeParam(
-                                                                                                widget!.isAddNewClient,
+                                                                                                widget.isAddNewClient,
                                                                                                 ParamType.bool,
                                                                                               ),
                                                                                               'idClientSelected': serializeParam(
-                                                                                                widget!.idClientSelected,
+                                                                                                widget.idClientSelected,
                                                                                                 ParamType.int,
                                                                                               ),
                                                                                               'situacao': serializeParam(
-                                                                                                widget!.situacao,
+                                                                                                widget.situacao,
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                             }.withoutNulls,
@@ -1008,10 +1004,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          if ((widget!.existAppointment == false) &&
+                                                                          if ((widget.existAppointment == false) &&
                                                                               (_model.tipocompromissoValue != 'personal'))
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Text(
                                                                                 'Serviços que ofereço',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1022,7 +1018,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                          if ((widget!.existAppointment == false) &&
+                                                                          if ((widget.existAppointment == false) &&
                                                                               (_model.tipocompromissoValue != 'personal'))
                                                                             FutureBuilder<ApiCallResponse>(
                                                                               future: FFAppState().serviceCacheGlobal(
@@ -1060,18 +1056,18 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             ) !=
                                                                                             null)
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                             child: FlutterFlowDropDown<int>(
                                                                                               controller: _model.servicosValueController ??= FormFieldController<int>(
                                                                                                 _model.servicosValue ??= () {
-                                                                                                  if (!widget!.isAddNewClient!) {
+                                                                                                  if (!widget.isAddNewClient!) {
                                                                                                     return getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      widget.scheduleCabecalho,
                                                                                                       r'''$.service_id''',
                                                                                                     );
-                                                                                                  } else if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                                  } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                                     return getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      widget.scheduleCabecalho,
                                                                                                       r'''$.service_id''',
                                                                                                     );
                                                                                                   } else {
@@ -1090,7 +1086,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 true,
                                                                                               ) as List)
                                                                                                   .map<String>((s) => s.toString())
-                                                                                                  .toList()!,
+                                                                                                  .toList(),
                                                                                               onChanged: (val) => safeSetState(() => _model.servicosValue = val),
                                                                                               width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                               height: 40.0,
@@ -1109,7 +1105,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               borderColor: Colors.transparent,
                                                                                               borderWidth: 0.0,
                                                                                               borderRadius: 8.0,
-                                                                                              margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                              margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                               hidesUnderline: true,
                                                                                               isOverButton: false,
                                                                                               isSearchable: false,
@@ -1180,10 +1176,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             ) ==
                                                                                             null)
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                             child: FlutterFlowDropDown<String>(
                                                                                               controller: _model.servicosEmptyValueController ??= FormFieldController<String>(null),
-                                                                                              options: <String>[],
+                                                                                              options: const <String>[],
                                                                                               onChanged: (val) => safeSetState(() => _model.servicosEmptyValue = val),
                                                                                               width: MediaQuery.sizeOf(context).width * 0.6,
                                                                                               height: 40.0,
@@ -1202,7 +1198,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               borderColor: Colors.transparent,
                                                                                               borderWidth: 0.0,
                                                                                               borderRadius: 8.0,
-                                                                                              margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                              margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                               hidesUnderline: true,
                                                                                               isOverButton: false,
                                                                                               isSearchable: false,
@@ -1270,9 +1266,9 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                           if (_model.tipocompromissoValue !=
                                                                               'personal')
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                 child: Text(
                                                                                   'Situação',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1292,7 +1288,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 Flexible(
                                                                                   child: FlutterFlowDropDown<String>(
                                                                                     controller: _model.situacaoDropDownValueController ??= FormFieldController<String>(
-                                                                                      _model.situacaoDropDownValue ??= widget!.isAddNewClient == true ? 'confirmed' : widget!.situacao,
+                                                                                      _model.situacaoDropDownValue ??= widget.isAddNewClient == true ? 'confirmed' : widget.situacao,
                                                                                     ),
                                                                                     options: List<String>.from([
                                                                                       'pending',
@@ -1300,7 +1296,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       'canceled',
                                                                                       'absent'
                                                                                     ]),
-                                                                                    optionLabels: [
+                                                                                    optionLabels: const [
                                                                                       'Pendente',
                                                                                       'Confirmado',
                                                                                       'Cancelado',
@@ -1324,7 +1320,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     borderColor: Colors.transparent,
                                                                                     borderWidth: 0.0,
                                                                                     borderRadius: 8.0,
-                                                                                    margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                    margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                     hidesUnderline: true,
                                                                                     isOverButton: false,
                                                                                     isSearchable: false,
@@ -1335,10 +1331,10 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             ),
                                                                           Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(-1.0, 0.0),
+                                                                                const AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: Text(
                                                                                 'Descrição',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1358,8 +1354,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             children: [
                                                                               Flexible(
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                  child: Container(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                     child: TextFormField(
                                                                                       controller: _model.descricaoTextController,
@@ -1378,14 +1374,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                               letterSpacing: 0.0,
                                                                                             ),
                                                                                         enabledBorder: OutlineInputBorder(
-                                                                                          borderSide: BorderSide(
+                                                                                          borderSide: const BorderSide(
                                                                                             color: Color(0x00000000),
                                                                                             width: 1.0,
                                                                                           ),
                                                                                           borderRadius: BorderRadius.circular(8.0),
                                                                                         ),
                                                                                         focusedBorder: OutlineInputBorder(
-                                                                                          borderSide: BorderSide(
+                                                                                          borderSide: const BorderSide(
                                                                                             color: Color(0x00000000),
                                                                                             width: 1.0,
                                                                                           ),
@@ -1422,7 +1418,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             ],
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 8.0,
                                                                                 0.0,
@@ -1445,9 +1441,9 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                 Switch.adaptive(
                                                                                   value: _model.statusValue!,
                                                                                   onChanged: (newValue) async {
-                                                                                    safeSetState(() => _model.statusValue = newValue!);
+                                                                                    safeSetState(() => _model.statusValue = newValue);
 
-                                                                                    if (!newValue!) {
+                                                                                    if (!newValue) {
                                                                                       logFirebaseEvent('SCHEDULE03_PAGE_status_ON_TOGGLE_OFF');
                                                                                       logFirebaseEvent('status_reset_form_fields');
                                                                                       safeSetState(() {
@@ -1464,7 +1460,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 8.0,
                                                                                 0.0,
@@ -1485,7 +1481,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                         'fortnightly',
                                                                                         'monthly'
                                                                                       ]),
-                                                                                      optionLabels: [
+                                                                                      optionLabels: const [
                                                                                         'Semanal',
                                                                                         'Quinzenal',
                                                                                         'Mensal'
@@ -1508,7 +1504,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                       borderColor: Colors.transparent,
                                                                                       borderWidth: 0.0,
                                                                                       borderRadius: 8.0,
-                                                                                      margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                      margin: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                       hidesUnderline: true,
                                                                                       isOverButton: false,
                                                                                       isSearchable: false,
@@ -1519,7 +1515,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 16.0,
                                                                                 0.0,
@@ -1530,7 +1526,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                   child: FFButtonWidget(
                                                                                     onPressed: () async {
                                                                                       logFirebaseEvent('SCHEDULE03_SALVAR_AGENDAMENTO_BTN_ON_TAP');
@@ -1548,12 +1544,12 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                               ),
                                                                                             ),
-                                                                                            duration: Duration(milliseconds: 4000),
+                                                                                            duration: const Duration(milliseconds: 4000),
                                                                                             backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                           ),
                                                                                         );
                                                                                       } else {
-                                                                                        if ((_model.tipocompromissoValue == 'personal') && (_model.descricaoTextController.text == null || _model.descricaoTextController.text == '') && (_model.durationTextController.text == null || _model.durationTextController.text == '')) {
+                                                                                        if ((_model.tipocompromissoValue == 'personal') && (_model.descricaoTextController.text == '') && (_model.durationTextController.text == '')) {
                                                                                           logFirebaseEvent('Button_show_snack_bar');
                                                                                           ScaffoldMessenger.of(context).showSnackBar(
                                                                                             SnackBar(
@@ -1563,7 +1559,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                 ),
                                                                                               ),
-                                                                                              duration: Duration(milliseconds: 4000),
+                                                                                              duration: const Duration(milliseconds: 4000),
                                                                                               backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                             ),
                                                                                           );
@@ -1578,7 +1574,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                     color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                   ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 4000),
+                                                                                                duration: const Duration(milliseconds: 4000),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                               ),
                                                                                             );
@@ -1593,17 +1589,17 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                     ),
                                                                                                   ),
-                                                                                                  duration: Duration(milliseconds: 4000),
+                                                                                                  duration: const Duration(milliseconds: 4000),
                                                                                                   backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                                 ),
                                                                                               );
                                                                                             } else {
                                                                                               if (getJsonField(
-                                                                                                    widget!.scheduleCabecalho,
+                                                                                                    widget.scheduleCabecalho,
                                                                                                     r'''$.id''',
                                                                                                   ) !=
                                                                                                   null) {
-                                                                                                if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                                if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                                   logFirebaseEvent('Button_update_page_state');
                                                                                                   _model.listProfessionalClients = [];
                                                                                                   safeSetState(() {});
@@ -1619,14 +1615,14 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   _model.apiResulttd2 = await APIOficialGroup.createAppointmentCall.call(
                                                                                                     authToken: currentAuthenticationToken,
                                                                                                     type: getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      widget.scheduleCabecalho,
                                                                                                       r'''$.type''',
                                                                                                     ).toString(),
                                                                                                     description: _model.descricaoTextController.text,
                                                                                                     recurrent: _model.statusValue,
                                                                                                     scheduledAt: functions.dateHourStringToDateTimeIso8601(_model.dataTextController.text, _model.horaTextController.text),
                                                                                                     serviceId: getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      widget.scheduleCabecalho,
                                                                                                       r'''$.service.id''',
                                                                                                     ),
                                                                                                     professionalClientIdList: _model.idsClientsSchedule,
@@ -1657,7 +1653,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           ),
                                                                                                         ),
-                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        duration: const Duration(milliseconds: 4000),
                                                                                                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                       ),
                                                                                                     );
@@ -1674,7 +1670,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                             color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                           ),
                                                                                                         ),
-                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        duration: const Duration(milliseconds: 4000),
                                                                                                         backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                                       ),
                                                                                                     );
@@ -1694,16 +1690,16 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                   logFirebaseEvent('Button_backend_call');
                                                                                                   _model.apiResultvdr = await APIOficialGroup.updateAppointmentCall.call(
                                                                                                     authToken: currentAuthenticationToken,
-                                                                                                    idAppointment: widget!.idAppointmentSelected?.toString(),
+                                                                                                    idAppointment: widget.idAppointmentSelected?.toString(),
                                                                                                     type: () {
-                                                                                                      if (!widget!.isAddNewClient!) {
+                                                                                                      if (!widget.isAddNewClient!) {
                                                                                                         return getJsonField(
-                                                                                                          widget!.scheduleCabecalho,
+                                                                                                          widget.scheduleCabecalho,
                                                                                                           r'''$.type''',
                                                                                                         ).toString();
-                                                                                                      } else if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
+                                                                                                      } else if ((widget.isAddNewClient == true) && widget.existAppointment) {
                                                                                                         return getJsonField(
-                                                                                                          widget!.scheduleCabecalho,
+                                                                                                          widget.scheduleCabecalho,
                                                                                                           r'''$.type''',
                                                                                                         ).toString();
                                                                                                       } else {
@@ -1713,7 +1709,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                     description: _model.descricaoTextController.text,
                                                                                                     recurrent: _model.statusValue,
                                                                                                     serviceId: getJsonField(
-                                                                                                      widget!.scheduleCabecalho,
+                                                                                                      widget.scheduleCabecalho,
                                                                                                       r'''$.service_id''',
                                                                                                     ),
                                                                                                     professionalClientIdList: _model.idsClientsSchedule,
@@ -1745,7 +1741,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           ),
                                                                                                         ),
-                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        duration: const Duration(milliseconds: 4000),
                                                                                                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                       ),
                                                                                                     );
@@ -1762,7 +1758,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                             color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                           ),
                                                                                                         ),
-                                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                                        duration: const Duration(milliseconds: 4000),
                                                                                                         backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                                       ),
                                                                                                     );
@@ -1813,7 +1809,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                         ),
                                                                                                       ),
-                                                                                                      duration: Duration(milliseconds: 4000),
+                                                                                                      duration: const Duration(milliseconds: 4000),
                                                                                                       backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                     ),
                                                                                                   );
@@ -1830,7 +1826,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                         ),
                                                                                                       ),
-                                                                                                      duration: Duration(milliseconds: 4000),
+                                                                                                      duration: const Duration(milliseconds: 4000),
                                                                                                       backgroundColor: FlutterFlowTheme.of(context).error,
                                                                                                     ),
                                                                                                   );
@@ -1847,8 +1843,8 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                     options: FFButtonOptions(
                                                                                       width: MediaQuery.sizeOf(context).width * 0.7,
                                                                                       height: 44.0,
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Manrope',
@@ -1856,7 +1852,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       elevation: 3.0,
-                                                                                      borderSide: BorderSide(
+                                                                                      borderSide: const BorderSide(
                                                                                         color: Colors.transparent,
                                                                                         width: 1.0,
                                                                                       ),
@@ -1892,7 +1888,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                             model: _model.footerWhiteModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: FooterWhiteWidget(),
+                                            child: const FooterWhiteWidget(),
                                           ),
                                         ],
                                       ),

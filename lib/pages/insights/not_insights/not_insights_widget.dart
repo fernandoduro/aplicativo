@@ -3,14 +3,10 @@ import '/components/header_balao_whats/header_balao_whats_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'not_insights_model.dart';
 export 'not_insights_model.dart';
@@ -142,18 +138,18 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                   wrapWithModel(
                     model: _model.headerBalaoWhatsModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderBalaoWhatsWidget(),
+                    child: const HeaderBalaoWhatsWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 decoration: BoxDecoration(
@@ -169,7 +165,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -177,7 +173,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -190,7 +186,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -201,7 +197,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -215,7 +211,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -226,7 +222,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -240,7 +236,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -261,7 +257,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -277,7 +273,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -294,7 +290,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -308,7 +304,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -329,7 +325,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -345,7 +341,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -362,7 +358,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -376,7 +372,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -397,7 +393,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -413,7 +409,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -430,7 +426,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -444,7 +440,7 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -484,11 +480,11 @@ class _NotInsightsWidgetState extends State<NotInsightsWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

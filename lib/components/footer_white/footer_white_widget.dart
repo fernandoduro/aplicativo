@@ -2,14 +2,9 @@ import '/components/menu/menu_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'footer_white_model.dart';
 export 'footer_white_model.dart';
@@ -48,8 +43,8 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.95, 0.9),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.95, 0.9),
+            end: const Offset(1.0, 1.0),
           ),
           TintEffect(
             curve: Curves.easeInOut,
@@ -63,8 +58,8 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 0.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -109,10 +104,10 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                       child: Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -134,7 +129,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 76.0,
@@ -148,7 +143,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -176,7 +171,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -185,9 +180,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsets.all(2.0),
+                                        padding: const EdgeInsets.all(2.0),
                                         child: Icon(
                                           Icons.home,
                                           color: FlutterFlowTheme.of(context)
@@ -199,9 +194,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
+                                  alignment: const AlignmentDirectional(0.0, 1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 3.0),
                                     child: Text(
                                       'Início',
@@ -245,7 +240,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -254,9 +249,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(2.0),
+                                      padding: const EdgeInsets.all(2.0),
                                       child: Icon(
                                         Icons.calendar_month_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -268,9 +263,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
+                                alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 3.0),
                                   child: Text(
                                     'Agenda',
@@ -303,12 +298,12 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                           await action_blocks.assistente(context);
                         },
                         child: Stack(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 17.0),
                                 child: Material(
                                   color: Colors.transparent,
@@ -325,9 +320,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                           FlutterFlowTheme.of(context).primary,
                                           FlutterFlowTheme.of(context).secondary
                                         ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(1.0, -0.98),
-                                        end: AlignmentDirectional(-1.0, 0.98),
+                                        stops: const [0.0, 1.0],
+                                        begin: const AlignmentDirectional(1.0, -0.98),
+                                        end: const AlignmentDirectional(-1.0, 0.98),
                                       ),
                                       borderRadius:
                                           BorderRadius.circular(100.0),
@@ -338,9 +333,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 15.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -355,9 +350,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 3.0),
                                 child: Text(
                                   'Chame a Blu',
@@ -399,7 +394,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -408,9 +403,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(2.0),
+                                      padding: const EdgeInsets.all(2.0),
                                       child: Icon(
                                         Icons.app_shortcut_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -422,9 +417,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
+                                alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 3.0),
                                   child: Text(
                                     'Resumo',
@@ -462,13 +457,13 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                   elevation: 0,
                                   insetPadding: EdgeInsets.zero,
                                   backgroundColor: Colors.transparent,
-                                  alignment: AlignmentDirectional(1.0, 0.0)
+                                  alignment: const AlignmentDirectional(1.0, 0.0)
                                       .resolve(Directionality.of(context)),
                                   child: WebViewAware(
-                                    child: Container(
+                                    child: SizedBox(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.8,
-                                      child: MenuWidget(),
+                                      child: const MenuWidget(),
                                     ),
                                   ),
                                 );
@@ -486,7 +481,7 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -495,9 +490,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsets.all(2.0),
+                                        padding: const EdgeInsets.all(2.0),
                                         child: Icon(
                                           Icons.menu,
                                           color: FlutterFlowTheme.of(context)
@@ -509,9 +504,9 @@ class _FooterWhiteWidgetState extends State<FooterWhiteWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
+                                  alignment: const AlignmentDirectional(0.0, 1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 3.0),
                                     child: Text(
                                       'Mais',

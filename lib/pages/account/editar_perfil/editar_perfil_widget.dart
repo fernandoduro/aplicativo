@@ -7,13 +7,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'editar_perfil_model.dart';
 export 'editar_perfil_model.dart';
@@ -180,7 +178,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                       wrapWithModel(
                         model: _model.headerHelpModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: HeaderHelpWidget(),
+                        child: const HeaderHelpWidget(),
                       ),
                       Expanded(
                         child: SingleChildScrollView(
@@ -210,7 +208,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(16.0),
+                                        padding: const EdgeInsets.all(16.0),
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
@@ -219,7 +217,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(16.0),
+                                            padding: const EdgeInsets.all(16.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -239,13 +237,13 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       16.0,
                                                                       0.0,
                                                                       0.0),
-                                                          child: Container(
+                                                          child: SizedBox(
                                                             width: 370.0,
                                                             child:
                                                                 TextFormField(
@@ -254,7 +252,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               focusNode: _model
                                                                   .nomeFocusNode,
                                                               autofocus: false,
-                                                              autofillHints: [
+                                                              autofillHints: const [
                                                                 AutofillHints
                                                                     .email
                                                               ],
@@ -355,13 +353,13 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
                                                                       0.0,
                                                                       8.0),
-                                                          child: Container(
+                                                          child: SizedBox(
                                                             width: 370.0,
                                                             child:
                                                                 TextFormField(
@@ -370,7 +368,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               focusNode: _model
                                                                   .whatsappFocusNode,
                                                               autofocus: false,
-                                                              autofillHints: [
+                                                              autofillHints: const [
                                                                 AutofillHints
                                                                     .email
                                                               ],
@@ -474,7 +472,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -494,7 +492,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               'M',
                                                               'NB'
                                                             ]),
-                                                            optionLabels: [
+                                                            optionLabels: const [
                                                               'Ela / Dela',
                                                               'Ele / Dele',
                                                               'Elu / Delu'
@@ -543,7 +541,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                             borderWidth: 2.0,
                                                             borderRadius: 8.0,
                                                             margin:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         8.0,
@@ -559,7 +557,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child:
                                                               FlutterFlowDropDown<
@@ -580,7 +578,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                     .map<String>(
                                                                         (s) => s
                                                                             .toString())
-                                                                    .toList()!),
+                                                                    .toList()),
                                                             optionLabels:
                                                                 (getJsonField(
                                                               FFAppState()
@@ -591,7 +589,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                     .map<String>(
                                                                         (s) => s
                                                                             .toString())
-                                                                    .toList()!,
+                                                                    .toList(),
                                                             onChanged: (val) =>
                                                                 safeSetState(() =>
                                                                     _model.profissaoValue =
@@ -632,7 +630,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                             borderWidth: 2.0,
                                                             borderRadius: 8.0,
                                                             margin:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         15.0,
                                                                         8.0,
@@ -648,13 +646,13 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
                                                                       0.0,
                                                                       8.0),
-                                                          child: Container(
+                                                          child: SizedBox(
                                                             width: 370.0,
                                                             child:
                                                                 TextFormField(
@@ -663,7 +661,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               focusNode: _model
                                                                   .codigoFocusNode,
                                                               autofocus: false,
-                                                              autofillHints: [
+                                                              autofillHints: const [
                                                                 AutofillHints
                                                                     .email
                                                               ],
@@ -781,13 +779,13 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       8.0),
-                                                          child: Container(
+                                                          child: SizedBox(
                                                             width: 370.0,
                                                             child:
                                                                 TextFormField(
@@ -892,7 +890,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             .visibility_outlined
                                                                         : Icons
                                                                             .visibility_off_outlined,
-                                                                    color: Color(
+                                                                    color: const Color(
                                                                         0xFF757575),
                                                                     size: 22.0,
                                                                   ),
@@ -916,13 +914,13 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       8.0),
-                                                          child: Container(
+                                                          child: SizedBox(
                                                             width: 370.0,
                                                             child:
                                                                 TextFormField(
@@ -1027,7 +1025,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             .visibility_outlined
                                                                         : Icons
                                                                             .visibility_off_outlined,
-                                                                    color: Color(
+                                                                    color: const Color(
                                                                         0xFF757575),
                                                                     size: 22.0,
                                                                   ),
@@ -1051,7 +1049,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   16.0),
                                                           child:
                                                               SingleChildScrollView(
@@ -1067,7 +1065,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                       .center,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -1079,7 +1077,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                         () async {
                                                                       logFirebaseEvent(
                                                                           'EDITAR_PERFIL_EDITAR_CONTA_BTN_ON_TAP');
-                                                                      var _shouldSetState =
+                                                                      var shouldSetState =
                                                                           false;
                                                                       logFirebaseEvent(
                                                                           'Button_validate_form');
@@ -1105,7 +1103,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).error,
                                                                           ),
@@ -1126,7 +1124,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).error,
                                                                           ),
@@ -1134,8 +1132,6 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                         return;
                                                                       }
                                                                       if (_model.passwordTextController.text !=
-                                                                              null &&
-                                                                          _model.passwordTextController.text !=
                                                                               '') {
                                                                         if (_model.passwordTextController.text ==
                                                                             _model.confirmPasswordTextController.text) {
@@ -1158,7 +1154,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                             },
                                                                           );
 
-                                                                          _shouldSetState =
+                                                                          shouldSetState =
                                                                               true;
                                                                           if ((_model.apiResult2?.succeeded ??
                                                                               true)) {
@@ -1175,7 +1171,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                   ),
                                                                                 ),
-                                                                                duration: Duration(milliseconds: 4000),
+                                                                                duration: const Duration(milliseconds: 4000),
                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                               ),
                                                                             );
@@ -1195,7 +1191,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                   ),
                                                                                 ),
-                                                                                duration: Duration(milliseconds: 4000),
+                                                                                duration: const Duration(milliseconds: 4000),
                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                               ),
                                                                             );
@@ -1212,12 +1208,13 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 ),
                                                                               ),
-                                                                              duration: Duration(milliseconds: 4000),
+                                                                              duration: const Duration(milliseconds: 4000),
                                                                               backgroundColor: FlutterFlowTheme.of(context).error,
                                                                             ),
                                                                           );
-                                                                          if (_shouldSetState)
+                                                                          if (shouldSetState) {
                                                                             safeSetState(() {});
+                                                                          }
                                                                           return;
                                                                         }
                                                                       } else {
@@ -1243,7 +1240,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           },
                                                                         );
 
-                                                                        _shouldSetState =
+                                                                        shouldSetState =
                                                                             true;
                                                                         if ((_model.apiResult?.succeeded ??
                                                                             true)) {
@@ -1265,7 +1262,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                 ),
                                                                               ),
-                                                                              duration: Duration(milliseconds: 4000),
+                                                                              duration: const Duration(milliseconds: 4000),
                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                             ),
                                                                           );
@@ -1289,16 +1286,17 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                 ),
                                                                               ),
-                                                                              duration: Duration(milliseconds: 4000),
+                                                                              duration: const Duration(milliseconds: 4000),
                                                                               backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                             ),
                                                                           );
                                                                         }
                                                                       }
 
-                                                                      if (_shouldSetState)
+                                                                      if (shouldSetState) {
                                                                         safeSetState(
                                                                             () {});
+                                                                      }
                                                                     },
                                                                     text:
                                                                         'Editar conta',
@@ -1308,12 +1306,12 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                           370.0,
                                                                       height:
                                                                           44.0,
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -1335,7 +1333,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                       elevation:
                                                                           3.0,
                                                                       borderSide:
-                                                                          BorderSide(
+                                                                          const BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
@@ -1350,7 +1348,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
 
                                                                 // You will have to add an action on this rich text to go to your login page.
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           12.0,
@@ -1364,7 +1362,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                                     text:
                                                                         TextSpan(
                                                                       children: [
-                                                                        TextSpan(
+                                                                        const TextSpan(
                                                                           text:
                                                                               'Encerrar sua conta?',
                                                                           style:
@@ -1432,11 +1430,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.footerModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: FooterWidget(),
+                              child: const FooterWidget(),
                             ),
                           ),
                         ],

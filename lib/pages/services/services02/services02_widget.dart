@@ -5,13 +5,10 @@ import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'services02_model.dart';
@@ -110,7 +107,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                             model: _model.headerHelpModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: HeaderHelpWidget(),
+                                            child: const HeaderHelpWidget(),
                                           ),
                                           Expanded(
                                             child: SingleChildScrollView(
@@ -133,7 +130,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   20.0,
@@ -150,7 +147,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(
                                                                           16.0),
                                                               child: Row(
@@ -163,7 +160,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child:
@@ -204,7 +201,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           35.0,
                                                                           0.0,
@@ -223,7 +220,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               16.0),
                                                                   child:
@@ -251,7 +248,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Align(
-                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                 child: Text(
                                                                                   'Serviços que ofereço',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -263,8 +260,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                child: Container(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                child: SizedBox(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   child: TextFormField(
                                                                                     controller: _model.nameTextController,
@@ -284,14 +281,14 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       enabledBorder: OutlineInputBorder(
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Color(0x00000000),
                                                                                           width: 1.0,
                                                                                         ),
                                                                                         borderRadius: BorderRadius.circular(8.0),
                                                                                       ),
                                                                                       focusedBorder: OutlineInputBorder(
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Color(0x00000000),
                                                                                           width: 1.0,
                                                                                         ),
@@ -324,9 +321,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Align(
-                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                   child: Text(
                                                                                     'Duração máxima (em minutos)',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -339,8 +336,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                child: Container(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                child: SizedBox(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   child: TextFormField(
                                                                                     controller: _model.durationTextController,
@@ -358,14 +355,14 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       enabledBorder: OutlineInputBorder(
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Color(0x00000000),
                                                                                           width: 1.0,
                                                                                         ),
                                                                                         borderRadius: BorderRadius.circular(8.0),
                                                                                       ),
                                                                                       focusedBorder: OutlineInputBorder(
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Color(0x00000000),
                                                                                           width: 1.0,
                                                                                         ),
@@ -401,9 +398,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Align(
-                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                   child: Text(
                                                                                     'Tempo de intervalo (em minutos)',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -416,8 +413,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                child: Container(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                child: SizedBox(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   child: TextFormField(
                                                                                     controller: _model.extraDurationTextController,
@@ -435,14 +432,14 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       enabledBorder: OutlineInputBorder(
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Color(0x00000000),
                                                                                           width: 1.0,
                                                                                         ),
                                                                                         borderRadius: BorderRadius.circular(8.0),
                                                                                       ),
                                                                                       focusedBorder: OutlineInputBorder(
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Color(0x00000000),
                                                                                           width: 1.0,
                                                                                         ),
@@ -478,7 +475,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   height: 50.0,
@@ -487,7 +484,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                     borderRadius: BorderRadius.circular(10.0),
                                                                                   ),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -505,7 +502,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                         Switch.adaptive(
                                                                                           value: _model.individualValue!,
                                                                                           onChanged: (newValue) async {
-                                                                                            safeSetState(() => _model.individualValue = newValue!);
+                                                                                            safeSetState(() => _model.individualValue = newValue);
                                                                                           },
                                                                                           activeColor: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -522,9 +519,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Align(
-                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                      alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                         child: Text(
                                                                                           'Máximo de pessoas por atendimento',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -537,8 +534,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                      child: Container(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                      child: SizedBox(
                                                                                         width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                         child: TextFormField(
                                                                                           controller: _model.maxclientsTextController,
@@ -556,14 +553,14 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                   letterSpacing: 0.0,
                                                                                                 ),
                                                                                             enabledBorder: OutlineInputBorder(
-                                                                                              borderSide: BorderSide(
+                                                                                              borderSide: const BorderSide(
                                                                                                 color: Color(0x00000000),
                                                                                                 width: 1.0,
                                                                                               ),
                                                                                               borderRadius: BorderRadius.circular(8.0),
                                                                                             ),
                                                                                             focusedBorder: OutlineInputBorder(
-                                                                                              borderSide: BorderSide(
+                                                                                              borderSide: const BorderSide(
                                                                                                 color: Color(0x00000000),
                                                                                                 width: 1.0,
                                                                                               ),
@@ -599,13 +596,13 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                   ],
                                                                                 ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                       child: FFButtonWidget(
                                                                                         onPressed: () async {
                                                                                           logFirebaseEvent('SERVICES02_PAGE_Button_kxunrw3s_ON_TAP');
@@ -613,7 +610,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                           if (_model.formKey.currentState == null || !_model.formKey.currentState!.validate()) {
                                                                                             return;
                                                                                           }
-                                                                                          if ((_model.nameTextController.text != null && _model.nameTextController.text != '') && (_model.durationTextController.text != null && _model.durationTextController.text != '')) {
+                                                                                          if ((_model.nameTextController.text != '') && (_model.durationTextController.text != '')) {
                                                                                             if (_model.individualValue == true) {
                                                                                               logFirebaseEvent('Button_set_form_field');
                                                                                               safeSetState(() {
@@ -640,7 +637,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
                                                                                                     ),
                                                                                                   ),
-                                                                                                  duration: Duration(milliseconds: 4000),
+                                                                                                  duration: const Duration(milliseconds: 4000),
                                                                                                   backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                 ),
                                                                                               );
@@ -665,7 +662,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
                                                                                                     ),
                                                                                                   ),
-                                                                                                  duration: Duration(milliseconds: 4000),
+                                                                                                  duration: const Duration(milliseconds: 4000),
                                                                                                   backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                 ),
                                                                                               );
@@ -685,15 +682,15 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             logFirebaseEvent('Button_update_page_state');
                                                                                             _model.editService = 0;
                                                                                             safeSetState(() {});
-                                                                                            if (widget!.adicionadoPeloMais!) {
+                                                                                            if (widget.adicionadoPeloMais!) {
                                                                                               logFirebaseEvent('Button_navigate_back');
                                                                                               context.safePop();
                                                                                             } else {
-                                                                                              if ((widget!.originConfig == 'schedule') || (widget!.originConfig == 'client') || (widget!.originConfig == 'newClient')) {
+                                                                                              if ((widget.originConfig == 'schedule') || (widget.originConfig == 'client') || (widget.originConfig == 'newClient')) {
                                                                                                 logFirebaseEvent('Button_action_block');
                                                                                                 await action_blocks.firstConfigNavigation(
                                                                                                   context,
-                                                                                                  originConfig: widget!.originConfig,
+                                                                                                  originConfig: widget.originConfig,
                                                                                                 );
                                                                                               }
                                                                                             }
@@ -710,7 +707,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                                   ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 4000),
+                                                                                                duration: const Duration(milliseconds: 4000),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                               ),
                                                                                             );
@@ -722,8 +719,8 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                         options: FFButtonOptions(
                                                                                           width: MediaQuery.sizeOf(context).width * 0.7,
                                                                                           height: 44.0,
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                 fontFamily: 'Manrope',
@@ -731,7 +728,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
                                                                                           elevation: 3.0,
-                                                                                          borderSide: BorderSide(
+                                                                                          borderSide: const BorderSide(
                                                                                             color: Colors.transparent,
                                                                                             width: 1.0,
                                                                                           ),
@@ -785,7 +782,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                             children: [
                                                                                               if (servicesListIndex.toString() == '0')
                                                                                                 Align(
-                                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                   child: Text(
                                                                                                     'Seus serviços',
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -797,9 +794,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                   ),
                                                                                                 ),
                                                                                               Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                                   child: Container(
                                                                                                     width: MediaQuery.sizeOf(context).width * 0.7,
                                                                                                     height: 100.0,
@@ -810,7 +807,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                         color: FlutterFlowTheme.of(context).alternate,
                                                                                                       ),
                                                                                                     ),
-                                                                                                    child: Container(
+                                                                                                    child: SizedBox(
                                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                                       child: Stack(
                                                                                                         children: [
@@ -819,9 +816,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                                                             children: [
                                                                                                               Align(
-                                                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                                                                                                 child: Padding(
-                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                                                   child: Column(
                                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -855,9 +852,9 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                                 servicesListItem,
                                                                                                                                 r'''$.duration''',
                                                                                                                               ).toString(),
-                                                                                                                              style: TextStyle(),
+                                                                                                                              style: const TextStyle(),
                                                                                                                             ),
-                                                                                                                            TextSpan(
+                                                                                                                            const TextSpan(
                                                                                                                               text: ' minutos',
                                                                                                                               style: TextStyle(),
                                                                                                                             )
@@ -928,7 +925,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                                   servicesListItem,
                                                                                                                                   r'''$.max_clients''',
                                                                                                                                 ).toString(),
-                                                                                                                                style: TextStyle(),
+                                                                                                                                style: const TextStyle(),
                                                                                                                               )
                                                                                                                             ],
                                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -945,7 +942,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                             ],
                                                                                                           ),
                                                                                                           Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                             child: Row(
                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                               mainAxisAlignment: MainAxisAlignment.end,
@@ -1026,7 +1023,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                   ),
                                                                                                                 ),
                                                                                                                 Align(
-                                                                                                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                                                                                                  alignment: const AlignmentDirectional(1.0, 0.0),
                                                                                                                   child: InkWell(
                                                                                                                     splashColor: Colors.transparent,
                                                                                                                     focusColor: Colors.transparent,
@@ -1040,15 +1037,15 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                             builder: (alertDialogContext) {
                                                                                                                               return WebViewAware(
                                                                                                                                 child: AlertDialog(
-                                                                                                                                  content: Text('Deseja excluir o serviço?'),
+                                                                                                                                  content: const Text('Deseja excluir o serviço?'),
                                                                                                                                   actions: [
                                                                                                                                     TextButton(
                                                                                                                                       onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                      child: Text('Não'),
+                                                                                                                                      child: const Text('Não'),
                                                                                                                                     ),
                                                                                                                                     TextButton(
                                                                                                                                       onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                      child: Text('Sim'),
+                                                                                                                                      child: const Text('Sim'),
                                                                                                                                     ),
                                                                                                                                   ],
                                                                                                                                 ),
@@ -1075,7 +1072,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                               ),
                                                                                                                             ),
-                                                                                                                            duration: Duration(milliseconds: 4000),
+                                                                                                                            duration: const Duration(milliseconds: 4000),
                                                                                                                             backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                                                           ),
                                                                                                                         );
@@ -1135,7 +1132,7 @@ class _Services02WidgetState extends State<Services02Widget> {
                                                 model: _model.footerWhiteModel,
                                                 updateCallback: () =>
                                                     safeSetState(() {}),
-                                                child: FooterWhiteWidget(),
+                                                child: const FooterWhiteWidget(),
                                               ),
                                             ],
                                           ),

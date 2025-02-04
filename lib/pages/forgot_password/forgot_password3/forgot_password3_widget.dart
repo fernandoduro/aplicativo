@@ -3,11 +3,9 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'forgot_password3_model.dart';
 export 'forgot_password3_model.dart';
@@ -79,7 +77,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primary,
                 ),
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -90,16 +88,16 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                         height: 200.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primary,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(16.0),
                             bottomRight: Radius.circular(16.0),
                             topLeft: Radius.circular(0.0),
                             topRight: Radius.circular(0.0),
                           ),
                         ),
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
@@ -110,16 +108,16 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             40.0, 0.0, 40.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 430.0,
                           ),
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).info,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(15.0),
                               bottomRight: Radius.circular(15.0),
                               topLeft: Radius.circular(15.0),
@@ -132,9 +130,9 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                 key: _model.formKey,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(24.0),
+                                    padding: const EdgeInsets.all(24.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -142,10 +140,10 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 10.0),
                                             child: Text(
                                               'Digite sua nova senha',
@@ -166,9 +164,9 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
@@ -176,7 +174,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                               focusNode:
                                                   _model.passwordFocusNode,
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText:
@@ -256,7 +254,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                             .visibility_outlined
                                                         : Icons
                                                             .visibility_off_outlined,
-                                                    color: Color(0xFF757575),
+                                                    color: const Color(0xFF757575),
                                                     size: 22.0,
                                                   ),
                                                 ),
@@ -276,9 +274,9 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
@@ -286,7 +284,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                               focusNode: _model
                                                   .confirmPasswordFocusNode,
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               obscureText: !_model
@@ -366,7 +364,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                             .visibility_outlined
                                                         : Icons
                                                             .visibility_off_outlined,
-                                                    color: Color(0xFF757575),
+                                                    color: const Color(0xFF757575),
                                                     size: 22.0,
                                                   ),
                                                 ),
@@ -386,13 +384,13 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               logFirebaseEvent(
                                                   'FORGOT_PASSWORD3_ALTERAR_SENHA_BTN_ON_TA');
-                                              Function() _navigate = () {};
+                                              Function() navigate = () {};
                                               logFirebaseEvent(
                                                   'Button_validate_form');
                                               if (_model.formKey.currentState ==
@@ -472,7 +470,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                         r'''$.data.token''',
                                                       ).toString(),
                                                     );
-                                                    _navigate = () =>
+                                                    navigate = () =>
                                                         context.goNamedAuth(
                                                             'Home',
                                                             context.mounted);
@@ -541,7 +539,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                                 .primaryText,
                                                           ),
                                                         ),
-                                                        duration: Duration(
+                                                        duration: const Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -564,7 +562,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                               .primaryText,
                                                         ),
                                                       ),
-                                                      duration: Duration(
+                                                      duration: const Duration(
                                                           milliseconds: 4000),
                                                       backgroundColor:
                                                           FlutterFlowTheme.of(
@@ -588,7 +586,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                                 .primaryText,
                                                       ),
                                                     ),
-                                                    duration: Duration(
+                                                    duration: const Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -598,7 +596,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                 );
                                               }
 
-                                              _navigate();
+                                              navigate();
 
                                               safeSetState(() {});
                                             },
@@ -606,9 +604,9 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                             options: FFButtonOptions(
                                               width: double.infinity,
                                               height: 44.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -622,7 +620,7 @@ class _ForgotPassword3WidgetState extends State<ForgotPassword3Widget> {
                                                         letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),

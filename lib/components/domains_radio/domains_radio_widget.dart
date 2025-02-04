@@ -2,10 +2,7 @@ import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'domains_radio_model.dart';
 export 'domains_radio_model.dart';
 
@@ -52,12 +49,12 @@ class _DomainsRadioWidgetState extends State<DomainsRadioWidget> {
       children: [
         FlutterFlowRadioButton(
           options: (getJsonField(
-            widget!.domainJson,
+            widget.domainJson,
             r'''$''',
             true,
           ) as List)
               .map<String>((s) => s.toString())
-              .toList()!
+              .toList()
               .toList(),
           onChanged: (val) async {
             safeSetState(() {});

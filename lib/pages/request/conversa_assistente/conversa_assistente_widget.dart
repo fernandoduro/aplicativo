@@ -4,14 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'conversa_assistente_model.dart';
 export 'conversa_assistente_model.dart';
@@ -193,12 +189,12 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                   wrapWithModel(
                     model: _model.headerBalaoModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderBalaoWidget(),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -209,7 +205,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -217,7 +213,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -230,7 +226,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -241,7 +237,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -255,7 +251,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -266,7 +262,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -280,7 +276,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -301,7 +297,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -317,7 +313,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -334,7 +330,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -348,7 +344,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -369,7 +365,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -385,7 +381,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -402,7 +398,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -416,7 +412,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -437,7 +433,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -453,7 +449,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -470,7 +466,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -484,7 +480,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -505,7 +501,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -521,7 +517,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -538,7 +534,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -558,7 +554,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Inter',
-                                                                              color: Color(0xFF12151C),
+                                                                              color: const Color(0xFF12151C),
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -572,7 +568,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                           fontFamily:
                                                                               'Inter',
                                                                           color:
-                                                                              Color(0xFF12151C),
+                                                                              const Color(0xFF12151C),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -593,7 +589,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -609,7 +605,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -626,7 +622,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -640,7 +636,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -661,7 +657,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -677,7 +673,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -694,7 +690,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -708,7 +704,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -750,14 +746,14 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                           0.8,
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -781,7 +777,7 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -813,11 +809,11 @@ class _ConversaAssistenteWidgetState extends State<ConversaAssistenteWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

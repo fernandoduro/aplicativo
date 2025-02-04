@@ -6,13 +6,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'first_access_insights_model.dart';
 export 'first_access_insights_model.dart';
@@ -185,18 +182,18 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                   wrapWithModel(
                     model: _model.headerBalaoModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderBalaoWidget(),
+                    child: const HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 decoration: BoxDecoration(
@@ -212,7 +209,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -220,7 +217,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -233,7 +230,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -244,7 +241,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -258,7 +255,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -269,7 +266,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -283,7 +280,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -304,7 +301,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -320,7 +317,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -337,7 +334,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -351,7 +348,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -372,7 +369,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -388,7 +385,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -405,7 +402,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -419,7 +416,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -440,7 +437,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -456,7 +453,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                             BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             10.0),
                                                         child:
                                                             SingleChildScrollView(
@@ -473,7 +470,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
@@ -487,7 +484,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Inter',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF12151C),
                                                                         fontSize:
                                                                             14.0,
@@ -508,7 +505,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: Row(
@@ -547,8 +544,8 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                               (newValue) async {
                                                             safeSetState(() =>
                                                                 _model.statusValue =
-                                                                    newValue!);
-                                                            if (newValue!) {
+                                                                    newValue);
+                                                            if (newValue) {
                                                               logFirebaseEvent(
                                                                   'FIRST_ACCESS_INSIGHTS_status_ON_TOGGLE_O');
                                                               logFirebaseEvent(
@@ -655,14 +652,14 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                           0.8,
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -686,7 +683,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -718,11 +715,11 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: FooterWidget(),
+                          child: const FooterWidget(),
                         ),
                       ),
                     ],

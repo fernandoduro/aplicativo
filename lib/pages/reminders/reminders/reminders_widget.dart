@@ -4,12 +4,9 @@ import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/reminders/switch_lembretes/switch_lembretes_widget.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'reminders_model.dart';
 export 'reminders_model.dart';
@@ -72,27 +69,27 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: wrapWithModel(
                           model: _model.headerHelpModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: HeaderHelpWidget(),
+                          child: const HeaderHelpWidget(),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -101,7 +98,7 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                         children: [
                                           Flexible(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Container(
@@ -118,7 +115,7 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(16.0),
+                                                  padding: const EdgeInsets.all(16.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -128,11 +125,11 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -162,7 +159,7 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     32.0,
@@ -241,7 +238,7 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                                                 final settingsItem = settings[settingsIndex];
                                                                                 return Container(
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                                                                                     child: wrapWithModel(
                                                                                       model: _model.switchLembretesModels.getModel(
                                                                                         getJsonField(
@@ -288,13 +285,13 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                        const SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(height: 8.0)),
+                                        ].divide(const SizedBox(height: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -310,7 +307,7 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                           wrapWithModel(
                             model: _model.footerModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: FooterWidget(),
+                            child: const FooterWidget(),
                           ),
                         ],
                       ),
