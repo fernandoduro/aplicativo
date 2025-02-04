@@ -335,28 +335,59 @@ class _CreateSiteEtapas10WidgetState extends State<CreateSiteEtapas10Widget> {
                                                     context.pushNamed(
                                                         'CreateSiteEtapas11');
                                                   } else {
-                                                    logFirebaseEvent(
-                                                        'Button_show_snack_bar');
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Erro ao enviar a foto, tente novamente!',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
+                                                    if ((FFAppState().base64 ==
+                                                                null ||
+                                                            FFAppState()
+                                                                    .base64 ==
+                                                                '') &&
+                                                        (FFAppState()
+                                                                .imageUploaded ==
+                                                            false)) {
+                                                      logFirebaseEvent(
+                                                          'Button_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Erro ao enviar a foto, tente novamente!',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                            ),
                                                           ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .error,
                                                         ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                      ),
-                                                    );
+                                                      );
+                                                    } else {
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+                                                      await APIOficialGroup
+                                                          .updateSiteCall
+                                                          .call(
+                                                        authToken:
+                                                            currentAuthenticationToken,
+                                                        bodyJson: <String,
+                                                            String?>{
+                                                          'professional_photo':
+                                                              FFAppState()
+                                                                  .base64,
+                                                        },
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
+
+                                                      context.pushNamed(
+                                                          'CreateSiteEtapas11');
+                                                    }
                                                   }
                                                 },
                                           text: 'Próximo',

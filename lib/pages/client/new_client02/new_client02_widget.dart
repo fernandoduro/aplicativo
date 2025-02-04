@@ -1291,7 +1291,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                               logFirebaseEvent('Button_navigate_to');
 
                                                                               context.pushNamed(
-                                                                                'NewClient03',
+                                                                                'NewClient04',
                                                                                 queryParameters: {
                                                                                   'idClient': serializeParam(
                                                                                     widget!.idClient,

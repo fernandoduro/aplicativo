@@ -168,7 +168,7 @@ class _CreateSiteEtapa6WidgetState extends State<CreateSiteEtapa6Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             15.0, 0.0, 15.0, 0.0),
                                         child: Text(
-                                          'Digite a forma que gostaria que seu nome apareça no site?',
+                                          'Digite como você quer que seu nome apareça no site.',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

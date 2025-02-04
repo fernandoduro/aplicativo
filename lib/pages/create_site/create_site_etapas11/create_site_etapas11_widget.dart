@@ -40,6 +40,8 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_SITE_ETAPAS11_CreateSiteEtapas11_');
+      logFirebaseEvent('CreateSiteEtapas11_clear_query_cache');
+      _model.clearImagesCacheCache();
       logFirebaseEvent('CreateSiteEtapas11_custom_action');
       await actions.lockOrientation();
       logFirebaseEvent('CreateSiteEtapas11_update_app_state');
@@ -73,8 +75,10 @@ class _CreateSiteEtapas11WidgetState extends State<CreateSiteEtapas11Widget> {
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
-      future: APIOficialGroup.layoutsCall.call(
-        authToken: currentAuthenticationToken,
+      future: _model.imagesCache(
+        requestFn: () => APIOficialGroup.layoutsCall.call(
+          authToken: currentAuthenticationToken,
+        ),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.

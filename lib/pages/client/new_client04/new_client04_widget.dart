@@ -183,7 +183,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: Text(
-                                            'Dados complementares',
+                                            'Dados não obrigatórios',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1174,9 +1174,6 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .phone,
                                                             validator: _model
                                                                 .emailTextControllerValidator
                                                                 .asValidator(
@@ -1204,6 +1201,92 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0),
+                                                              child:
+                                                                  FFButtonWidget(
+                                                                onPressed:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'NEW_CLIENT04_PAGE_PULAR_ETAPA_BTN_ON_TAP');
+                                                                  logFirebaseEvent(
+                                                                      'Button_clear_query_cache');
+                                                                  FFAppState()
+                                                                      .clearClientsCacheCache();
+                                                                  logFirebaseEvent(
+                                                                      'Button_navigate_to');
+
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'NewClient03',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'idClient':
+                                                                          serializeParam(
+                                                                        widget!
+                                                                            .idClient,
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                                text:
+                                                                    'Pular etapa',
+                                                                options:
+                                                                    FFButtonOptions(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      0.4,
+                                                                  height: 44.0,
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  iconPadding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  textStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Manrope',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                  elevation:
+                                                                      3.0,
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              12.0),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
                                                                           0.0,
                                                                           0.0,
                                                                           16.0),
@@ -1303,7 +1386,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
                                                                           .width *
-                                                                      0.8,
+                                                                      0.4,
                                                                   height: 44.0,
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(

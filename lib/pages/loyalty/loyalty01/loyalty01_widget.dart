@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/footer/footer_widget.dart';
 import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -706,10 +708,23 @@ class _Loyalty01WidgetState extends State<Loyalty01Widget>
                                                         true;
                                                     safeSetState(() {});
                                                     logFirebaseEvent(
+                                                        'Button_backend_call');
+                                                    _model.apiResultndw2Copy =
+                                                        await APIOficialGroup
+                                                            .saveConfigClubActivateCall
+                                                            .call(
+                                                      authToken:
+                                                          currentAuthenticationToken,
+                                                      active: true,
+                                                    );
+
+                                                    logFirebaseEvent(
                                                         'Button_navigate_to');
 
                                                     context
                                                         .pushNamed('Loyalty02');
+
+                                                    safeSetState(() {});
                                                   },
                                                   text: 'Ativar agora',
                                                   options: FFButtonOptions(

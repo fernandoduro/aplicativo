@@ -38,15 +38,6 @@ class NewClient04Model extends FlutterFlowModel<NewClient04Widget> {
   final dataPrimeiroAtendMask = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)?
       dataPrimeiroAtendTextControllerValidator;
-  String? _dataPrimeiroAtendTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Campo obrigatório';
-    }
-
-    return null;
-  }
-
   // State field(s) for vencimento widget.
   FocusNode? vencimentoFocusNode;
   TextEditingController? vencimentoTextController;
@@ -63,14 +54,6 @@ class NewClient04Model extends FlutterFlowModel<NewClient04Widget> {
   FocusNode? emailFocusNode;
   TextEditingController? emailTextController;
   String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Campo obrigatório';
-    }
-
-    return null;
-  }
-
   // Stores action output result for [Backend Call - API (editClientComplement)] action in Button widget.
   ApiCallResponse? apiResultEditClients;
   // Model for FooterWhite component.
@@ -79,9 +62,6 @@ class NewClient04Model extends FlutterFlowModel<NewClient04Widget> {
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
-    dataPrimeiroAtendTextControllerValidator =
-        _dataPrimeiroAtendTextControllerValidator;
-    emailTextControllerValidator = _emailTextControllerValidator;
     footerWhiteModel = createModel(context, () => FooterWhiteModel());
   }
 

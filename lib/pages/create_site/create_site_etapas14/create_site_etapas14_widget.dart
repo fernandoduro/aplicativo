@@ -288,7 +288,8 @@ class _CreateSiteEtapas14WidgetState extends State<CreateSiteEtapas14Widget> {
                                                         .sentences,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  labelText: 'Pesquisar',
+                                                  labelText:
+                                                      'Selecione abaixo ou escreva o nome do serviço.',
                                                   labelStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium
