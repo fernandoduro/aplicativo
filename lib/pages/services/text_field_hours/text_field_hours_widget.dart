@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'text_field_hours_model.dart';
 export 'text_field_hours_model.dart';
@@ -42,7 +44,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
     _model = createModel(context, () => TextFieldHoursModel());
 
     _model.textController ??=
-        TextEditingController(text: widget.valor?.toString());
+        TextEditingController(text: widget!.valor?.toString());
     _model.textFieldFocusNode ??= FocusNode();
     _model.textFieldFocusNode!.addListener(
       () async {
@@ -53,9 +55,9 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
             FFAppState().hoursWork,
             r'''$''',
           ),
-          widget.indexDayWeek,
-          widget.indexHour,
-          widget.typeHour,
+          widget!.indexDayWeek,
+          widget!.indexHour,
+          widget!.typeHour,
           _model.textController.text,
         );
       },
@@ -76,19 +78,19 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
 
     return Stack(
       children: [
-        SizedBox(
+        Container(
           width: 120.0,
           child: Form(
             key: _model.formKey,
             autovalidateMode: AutovalidateMode.always,
-            child: SizedBox(
+            child: Container(
               width: 80.0,
               child: TextFormField(
                 controller: _model.textController,
                 focusNode: _model.textFieldFocusNode,
                 onChanged: (_) => EasyDebounce.debounce(
                   '_model.textController',
-                  const Duration(milliseconds: 100),
+                  Duration(milliseconds: 100),
                   () async {
                     logFirebaseEvent(
                         'TEXT_FIELD_HOURS_TextField_t3z4rw3h_ON_T');
@@ -98,9 +100,9 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                         FFAppState().hoursWork,
                         r'''$''',
                       ),
-                      widget.indexDayWeek,
-                      widget.indexHour,
-                      widget.typeHour,
+                      widget!.indexDayWeek,
+                      widget!.indexHour,
+                      widget!.typeHour,
                       _model.textController.text,
                     );
                   },
@@ -108,7 +110,7 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                 autofocus: false,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: widget.hint,
+                  labelText: widget!.hint,
                   hintStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Manrope',
                         letterSpacing: 0.0,
@@ -121,21 +123,21 @@ class _TextFieldHoursWidgetState extends State<TextFieldHoursWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 2.0,
                     ),

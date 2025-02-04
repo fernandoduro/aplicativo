@@ -6,12 +6,16 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'convites_model.dart';
@@ -77,8 +81,8 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(30.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(30.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -118,11 +122,11 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.headerHelpModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const HeaderHelpWidget(),
+                  child: HeaderHelpWidget(),
                 ),
               ),
               Expanded(
@@ -135,7 +139,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
@@ -161,7 +165,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                     )) ==
                                     false)
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 50.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -170,7 +174,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Você ainda não possui convite disponível ',
@@ -188,7 +192,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 14.0, 0.0, 0.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -247,7 +251,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                               final invitesItem =
                                                   invites[invitesIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 10.0),
                                                 child: Container(
@@ -255,7 +259,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
-                                                    boxShadow: const [
+                                                    boxShadow: [
                                                       BoxShadow(
                                                         blurRadius: 4.0,
                                                         color:
@@ -280,7 +284,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -297,7 +301,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           20.0,
                                                                           0.0,
@@ -307,7 +311,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                         width: double
                                                                             .infinity,
                                                                         decoration:
-                                                                            const BoxDecoration(
+                                                                            BoxDecoration(
                                                                           borderRadius:
                                                                               BorderRadius.only(
                                                                             bottomLeft:
@@ -321,14 +325,14 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                           ),
                                                                         ),
                                                                         child:
-                                                                            SizedBox(
+                                                                            Container(
                                                                           height:
                                                                               25.0,
                                                                           child:
                                                                               Stack(
                                                                             children: [
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                                                                                 child: RichText(
                                                                                   textScaler: MediaQuery.of(context).textScaler,
                                                                                   text: TextSpan(
@@ -364,7 +368,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                   ],
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           15.0,
@@ -384,7 +388,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                 Stack(
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                                                                                   child: Text(
                                                                                     getJsonField(
                                                                                       invitesItem,
@@ -407,7 +411,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           15.0,
                                                                           15.0,
@@ -424,7 +428,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                         children: [
                                                                           Flexible(
                                                                             child:
-                                                                                SizedBox(
+                                                                                Container(
                                                                               width: MediaQuery.sizeOf(context).width * 0.4,
                                                                               child: Stack(
                                                                                 children: [
@@ -473,7 +477,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                           Flexible(
                                                                             child:
                                                                                 Align(
-                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
                                                                               child: Stack(
                                                                                 children: [
                                                                                   RichText(
@@ -518,7 +522,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           15.0,
                                                                           0.0,
@@ -530,7 +534,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                             .max,
                                                                     children: [
                                                                       Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                         child:
@@ -539,7 +543,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Flexible(
-                                                                              child: SizedBox(
+                                                                              child: Container(
                                                                                 width: MediaQuery.sizeOf(context).width * 0.4,
                                                                                 child: Stack(
                                                                                   children: [
@@ -578,7 +582,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                             ),
                                                                             Flexible(
                                                                               child: Align(
-                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                 child: Stack(
                                                                                   children: [
                                                                                     RichText(
@@ -621,7 +625,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           15.0,
@@ -661,15 +665,15 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                 );
                                                                               },
                                                                               text: 'Compartilhar',
-                                                                              icon: const Icon(
+                                                                              icon: Icon(
                                                                                 Icons.share,
                                                                                 size: 15.0,
                                                                               ),
                                                                               options: FFButtonOptions(
                                                                                 width: MediaQuery.sizeOf(context).width * 0.4,
                                                                                 height: 40.0,
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Manrope',
@@ -677,7 +681,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: const BorderSide(
+                                                                                borderSide: BorderSide(
                                                                                   color: Colors.transparent,
                                                                                   width: 1.0,
                                                                                 ),
@@ -687,10 +691,10 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                           ),
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(1.0, 0.0),
+                                                                                AlignmentDirectional(1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                                                                               child: FFButtonWidget(
                                                                                 onPressed: () async {
                                                                                   logFirebaseEvent('CONVITES_PAGE_COPIAR_CDIGO_BTN_ON_TAP');
@@ -709,21 +713,21 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                         ),
                                                                                       ),
-                                                                                      duration: const Duration(milliseconds: 4000),
+                                                                                      duration: Duration(milliseconds: 4000),
                                                                                       backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                     ),
                                                                                   );
                                                                                 },
                                                                                 text: 'Copiar código',
-                                                                                icon: const Icon(
+                                                                                icon: Icon(
                                                                                   Icons.content_copy_sharp,
                                                                                   size: 15.0,
                                                                                 ),
                                                                                 options: FFButtonOptions(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.4,
                                                                                   height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Manrope',
@@ -732,7 +736,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
+                                                                                  borderSide: BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -752,7 +756,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -768,7 +772,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                               ) !=
                                                                               null)
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                                                                               child: FFButtonWidget(
                                                                                 onPressed: () async {
                                                                                   logFirebaseEvent('CONVITES_HISTRICO_DE_CONSUMO_BTN_ON_TAP');
@@ -783,15 +787,15 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                   context.pushNamed('ConvitesHistoricoConsumo');
                                                                                 },
                                                                                 text: 'Histórico de consumo',
-                                                                                icon: const Icon(
+                                                                                icon: Icon(
                                                                                   Icons.history_sharp,
                                                                                   size: 15.0,
                                                                                 ),
                                                                                 options: FFButtonOptions(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.85,
                                                                                   height: 40.0,
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Manrope',
@@ -799,7 +803,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                   elevation: 3.0,
-                                                                                  borderSide: const BorderSide(
+                                                                                  borderSide: BorderSide(
                                                                                     color: Colors.transparent,
                                                                                     width: 1.0,
                                                                                   ),
@@ -844,7 +848,7 @@ class _ConvitesWidgetState extends State<ConvitesWidget>
                   wrapWithModel(
                     model: _model.footerModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const FooterWidget(),
+                    child: FooterWidget(),
                   ),
                 ],
               ),

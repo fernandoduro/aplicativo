@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_balao_whats_model.dart';
 export 'header_balao_whats_model.dart';
@@ -74,7 +76,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                 color: FlutterFlowTheme.of(context).primary,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +95,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: InkWell(
@@ -124,7 +126,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                               ],
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       19.0, 0.0, 0.0, 0.0),
                                               child: Column(
@@ -147,7 +149,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     7.0,
                                                                     0.0,
@@ -162,7 +164,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Row(
@@ -172,7 +174,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child: Text(
@@ -228,7 +230,7 @@ class _HeaderBalaoWhatsWidgetState extends State<HeaderBalaoWhatsWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 16.0, 0.0),
                                               child: InkWell(

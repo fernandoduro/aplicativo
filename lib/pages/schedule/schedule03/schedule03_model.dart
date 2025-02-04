@@ -1,11 +1,22 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/footer_white/footer_white_widget.dart';
 import '/components/header_help/header_help_widget.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'schedule03_widget.dart' show Schedule03Widget;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:provider/provider.dart';
 
 class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   ///  Local state fields for this page.
@@ -46,7 +57,7 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   // Stores action output result for [Backend Call - API (ListAllClients)] action in Schedule03 widget.
   ApiCallResponse? apiResultox6;
   // Stores action output result for [Custom Action - filterJsonNotINAction] action in Schedule03 widget.
-  dynamic resultFilterAction;
+  dynamic? resultFilterAction;
   // Stores action output result for [Backend Call - API (ListAllClients)] action in Schedule03 widget.
   ApiCallResponse? apiResultox6b;
   // Model for HeaderHelp component.

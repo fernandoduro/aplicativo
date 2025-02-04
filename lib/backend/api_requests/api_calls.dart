@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -17,7 +19,7 @@ class APIOficialGroup {
     String? apiURL,
   }) {
     apiURL ??= FFDevEnvironmentValues().apiURL;
-    return apiURL;
+    return '${apiURL}';
   }
 
   static Map<String, String> headers = {};
@@ -139,14 +141,14 @@ class LoginCall {
 
     final ffApiRequestBody = '''
 {
-  "cellphone": "$cellphone",
-  "password": "$password"
+  "cellphone": "${cellphone}",
+  "password": "${password}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Login',
-        apiUrl: '$baseUrl/login',
+        apiUrl: '${baseUrl}/login',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -166,7 +168,7 @@ class LoginCall {
     );
   }
 
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -200,20 +202,20 @@ class RegisterCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "password": "$password",
-  "c_password": "$cPassword",
-  "cellphone": "$cellphone",
-  "category_id": $categoryId,
-  "code": "$code",
-  "gender": "$gender",
-  "challange": $challange
+  "name": "${name}",
+  "password": "${password}",
+  "c_password": "${cPassword}",
+  "cellphone": "${cellphone}",
+  "category_id": ${categoryId},
+  "code": "${code}",
+  "gender": "${gender}",
+  "challange": ${challange}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Register',
-        apiUrl: '$baseUrl/register',
+        apiUrl: '${baseUrl}/register',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -233,7 +235,7 @@ class RegisterCall {
     );
   }
 
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -260,7 +262,7 @@ class CategoriesCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Categories',
-        apiUrl: '$baseUrl/categories',
+        apiUrl: '${baseUrl}/categories',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -308,11 +310,11 @@ class ColorsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Colors',
-        apiUrl: '$baseUrl/site/colors',
+        apiUrl: '${baseUrl}/site/colors',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -358,11 +360,11 @@ class LayoutsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Layouts',
-        apiUrl: '$baseUrl/site/layouts',
+        apiUrl: '${baseUrl}/site/layouts',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -408,11 +410,11 @@ class SpecializationsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Specializations',
-        apiUrl: '$baseUrl/site/specializations',
+        apiUrl: '${baseUrl}/site/specializations',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -458,11 +460,11 @@ class GetSiteCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'GetSite',
-        apiUrl: '$baseUrl/site',
+        apiUrl: '${baseUrl}/site',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -479,7 +481,7 @@ class GetSiteCall {
     );
   }
 
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -496,7 +498,7 @@ class GetSiteCall {
 class UpdateSiteCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic bodyJson,
+    dynamic? bodyJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -505,16 +507,17 @@ class UpdateSiteCall {
     );
 
     final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
+    final ffApiRequestBody = '''
+${body}''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdateSite',
-        apiUrl: '$baseUrl/site/update',
+        apiUrl: '${baseUrl}/site/update',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -532,7 +535,7 @@ class UpdateSiteCall {
     );
   }
 
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -560,11 +563,11 @@ class DomainsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Domains',
-        apiUrl: '$baseUrl/site/domains',
+        apiUrl: '${baseUrl}/site/domains',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -581,7 +584,7 @@ class DomainsCall {
     );
   }
 
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -619,11 +622,11 @@ class CepCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'CEP',
-        apiUrl: '$baseUrl/tools/cep/$cep',
+        apiUrl: '${baseUrl}/tools/cep/${cep}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -679,7 +682,7 @@ class StateCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'State',
-        apiUrl: '$baseUrl/state',
+        apiUrl: '${baseUrl}/state',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -727,7 +730,7 @@ class CityCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'City',
-        apiUrl: '$baseUrl/city?state=$idCity',
+        apiUrl: '${baseUrl}/city?state=${idCity}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -776,11 +779,11 @@ class DomainCheckCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DomainCheck',
-        apiUrl: '$baseUrl/site/domain-check?domain=$url',
+        apiUrl: '${baseUrl}/site/domain-check?domain=${url}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -801,7 +804,7 @@ class DomainCheckCall {
         response,
         r'''$.success''',
       ));
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -829,11 +832,11 @@ class GetUserCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'GetUser',
-        apiUrl: '$baseUrl/user',
+        apiUrl: '${baseUrl}/user',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -883,7 +886,7 @@ class GetUserCall {
 class UpdateProfessionalCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic bodyJson,
+    dynamic? bodyJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -892,16 +895,17 @@ class UpdateProfessionalCall {
     );
 
     final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
+    final ffApiRequestBody = '''
+${body}''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdateProfessional',
-        apiUrl: '$baseUrl/professionals',
+        apiUrl: '${baseUrl}/professionals',
         callType: ApiCallType.PATCH,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -935,11 +939,11 @@ class EncerrarContaCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'EncerrarConta',
-        apiUrl: '$baseUrl/professionals?motive=$motive',
+        apiUrl: '${baseUrl}/professionals?motive=${motive}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -972,11 +976,11 @@ class InvitesCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Invites',
-        apiUrl: '$baseUrl/invites/$invite/use',
+        apiUrl: '${baseUrl}/invites/${invite}/use',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1030,11 +1034,11 @@ class MyInvitesCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'MyInvites',
-        apiUrl: '$baseUrl/my-invites',
+        apiUrl: '${baseUrl}/my-invites',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1084,11 +1088,11 @@ class RequestInviteCustomWebsiteCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'RequestInviteCustomWebsite',
-        apiUrl: '$baseUrl/request-invite/custom-website',
+        apiUrl: '${baseUrl}/request-invite/custom-website',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1121,11 +1125,11 @@ class GetPackagesCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'getPackages',
-        apiUrl: '$baseUrl/packages',
+        apiUrl: '${baseUrl}/packages',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1176,11 +1180,11 @@ class ViewsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Views',
-        apiUrl: '$baseUrl/site/views',
+        apiUrl: '${baseUrl}/site/views',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1201,7 +1205,7 @@ class ViewsCall {
         response,
         r'''$.message''',
       ));
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -1227,22 +1231,22 @@ class CreateClientCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "cpf": "$cpf",
+  "name": "${name}",
+  "cpf": "${cpf}",
   "cellphone": [
-    "$cellphone"
+    "${cellphone}"
   ],
-  "status": "$status"
+  "status": "${status}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'CreateClient',
-        apiUrl: '$baseUrl/clients',
+        apiUrl: '${baseUrl}/clients',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1264,7 +1268,7 @@ class CreateClientCall {
         response,
         r'''$.success''',
       ));
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
       );
@@ -1289,11 +1293,11 @@ class ListAllClientsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'ListAllClients',
-        apiUrl: '$baseUrl/clients?q=$filter',
+        apiUrl: '${baseUrl}/clients?q=${filter}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1323,7 +1327,7 @@ class ListAllClientsCall {
         response,
         r'''$.message''',
       ));
-  dynamic allData(dynamic response) => getJsonField(
+  dynamic? allData(dynamic response) => getJsonField(
         response,
         r'''$.data[*]''',
       );
@@ -1344,11 +1348,11 @@ class GetClientByIDCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'getClientByID',
-        apiUrl: '$baseUrl/clients/$id',
+        apiUrl: '${baseUrl}/clients/${id}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1379,14 +1383,14 @@ class ConfirmCodeCall {
 
     final ffApiRequestBody = '''
 {
-  "cellphone": "$cellphone",
-  "code": "$code"
+  "cellphone": "${cellphone}",
+  "code": "${code}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'ConfirmCode',
-        apiUrl: '$baseUrl/confirm-code',
+        apiUrl: '${baseUrl}/confirm-code',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -1423,17 +1427,17 @@ class ResetpasswordCall {
 
     final ffApiRequestBody = '''
 {
-  "cellphone": "$cellphone",
-  "code": "$code",
-  "password": "$password",
-  "c_password": "$cPassword",
-  "id": $id
+  "cellphone": "${cellphone}",
+  "code": "${code}",
+  "password": "${password}",
+  "c_password": "${cPassword}",
+  "id": ${id}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Resetpassword',
-        apiUrl: '$baseUrl/reset-password',
+        apiUrl: '${baseUrl}/reset-password',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -1466,13 +1470,13 @@ class ForgotPasswordCall {
 
     final ffApiRequestBody = '''
 {
-  "cellphone": "$cellphone"
+  "cellphone": "${cellphone}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'ForgotPassword',
-        apiUrl: '$baseUrl/forgot-password',
+        apiUrl: '${baseUrl}/forgot-password',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {},
@@ -1512,23 +1516,23 @@ class EditClientCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "cpf": "$cpf",
+  "name": "${name}",
+  "cpf": "${cpf}",
   "cellphone": [
-    "$cellphone"
+    "${cellphone}"
   ],
-  "status": "$status"
+  "status": "${status}"
   
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'editClient',
-        apiUrl: '$baseUrl/clients/$id',
+        apiUrl: '${baseUrl}/clients/${id}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1565,23 +1569,23 @@ class EditClientComplementCall {
 
     final ffApiRequestBody = '''
 {
-  "payment_due_date": $paymentDueDate,
-  "first_appointment": "$firstAppointment",
-  "birthday": "$birthday",
-  "gender": "$gender",
+  "payment_due_date": ${paymentDueDate},
+  "first_appointment": "${firstAppointment}",
+  "birthday": "${birthday}",
+  "gender": "${gender}",
   "email": [
-    "$email"
+    "${email}"
   ]
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'editClientComplement',
-        apiUrl: '$baseUrl/clients/$id',
+        apiUrl: '${baseUrl}/clients/${id}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1615,11 +1619,11 @@ class PackagesByIdCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'PackagesById',
-        apiUrl: '$baseUrl/packages/$id',
+        apiUrl: '${baseUrl}/packages/${id}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1641,7 +1645,7 @@ class EditClientPackagesCall {
   Future<ApiCallResponse> call({
     String? id = '',
     String? authToken = '',
-    dynamic packagesJson,
+    dynamic? packagesJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -1652,17 +1656,17 @@ class EditClientPackagesCall {
     final packages = _serializeJson(packagesJson, true);
     final ffApiRequestBody = '''
 {
-  "packages":$packages
+  "packages":${packages}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'editClientPackages',
-        apiUrl: '$baseUrl/clients/$id',
+        apiUrl: '${baseUrl}/clients/${id}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1695,11 +1699,11 @@ class GetServicesCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'getServices',
-        apiUrl: '$baseUrl/services',
+        apiUrl: '${baseUrl}/services',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1724,7 +1728,7 @@ class GetServicesCall {
         response,
         r'''$.message''',
       ));
-  dynamic data(dynamic response) => getJsonField(
+  dynamic? data(dynamic response) => getJsonField(
         response,
         r'''$.data[*]''',
       );
@@ -1747,21 +1751,21 @@ class CreateServiceCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "duration": "$durantion",
-  "extra_duration": "$extraDuration",
-  "is_singular_client": $isSingularClient,
-  "max_clients": $maxClients
+  "name": "${name}",
+  "duration": "${durantion}",
+  "extra_duration": "${extraDuration}",
+  "is_singular_client": ${isSingularClient},
+  "max_clients": ${maxClients}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'CreateService',
-        apiUrl: '$baseUrl/services',
+        apiUrl: '${baseUrl}/services',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1795,11 +1799,11 @@ class DeleteServiceCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeleteService',
-        apiUrl: '$baseUrl/services/$id',
+        apiUrl: '${baseUrl}/services/${id}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1835,21 +1839,21 @@ class UpdateServiceCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "duration": $duration,
-  "extra_duration": "$extraDuration",
-  "is_singular_client": $isSingularClient,
-  "max_clients": $maxClients
+  "name": "${name}",
+  "duration": ${duration},
+  "extra_duration": "${extraDuration}",
+  "is_singular_client": ${isSingularClient},
+  "max_clients": ${maxClients}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdateService',
-        apiUrl: '$baseUrl/services/$id',
+        apiUrl: '${baseUrl}/services/${id}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1884,20 +1888,20 @@ class CreatePackageCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "recurrency": $recurrency,
-  "monthly_value": $monthlyValue,
-  "service_ids": [$serviceIds]
+  "name": "${name}",
+  "recurrency": ${recurrency},
+  "monthly_value": ${monthlyValue},
+  "service_ids": [${serviceIds}]
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'CreatePackage',
-        apiUrl: '$baseUrl/packages',
+        apiUrl: '${baseUrl}/packages',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1933,22 +1937,22 @@ class UpdatePackagesCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "$name",
-  "recurrency": $recurrency,
-  "monthly_value": $monthlyValue,
+  "name": "${name}",
+  "recurrency": ${recurrency},
+  "monthly_value": ${monthlyValue},
   "service_ids": [
-    $serviceIds
+    ${serviceIds}
   ]
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdatePackages',
-        apiUrl: '$baseUrl/packages/$id',
+        apiUrl: '${baseUrl}/packages/${id}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -1982,11 +1986,11 @@ class DeletePackageCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeletePackage',
-        apiUrl: '$baseUrl/packages/$id',
+        apiUrl: '${baseUrl}/packages/${id}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2019,11 +2023,11 @@ class GetAppointmentsByClientCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'GetAppointmentsByClient',
-        apiUrl: '$baseUrl/appointments?client=$idCliente',
+        apiUrl: '${baseUrl}/appointments?client=${idCliente}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2055,11 +2059,11 @@ class GETSolicitacoesCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'GET solicitacoes',
-        apiUrl: '$baseUrl/solicitations',
+        apiUrl: '${baseUrl}/solicitations',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2174,11 +2178,11 @@ class SubscriptionCurrentCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'SubscriptionCurrent',
-        apiUrl: '$baseUrl/subscription/current',
+        apiUrl: '${baseUrl}/subscription/current',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2215,22 +2219,22 @@ class PostSolicitacoesCompletoCall {
 
     final ffApiRequestBody = '''
 {
-  "title": "$title",
-  "description": "$description",
-  "audio_file": "$audioFile",
-  "images": $images,
-  "status": "$status",
-  "area": "$area"
+  "title": "${title}",
+  "description": "${description}",
+  "audio_file": "${audioFile}",
+  "images": ${images},
+  "status": "${status}",
+  "area": "${area}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Post Solicitacoes Completo',
-        apiUrl: '$baseUrl/solicitations',
+        apiUrl: '${baseUrl}/solicitations',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2266,11 +2270,11 @@ class GetAppointmentsByDateCall {
       ApiCallOptions(
         callName: 'getAppointmentsByDate',
         apiUrl:
-            '$baseUrl/appointments?date_from=$dateFrom&date_to=$dateTo',
+            '${baseUrl}/appointments?date_from=${dateFrom}&date_to=${dateTo}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2310,25 +2314,25 @@ class CreateAppointmentCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "$type",
-  "description": "$description",
-  "recurrent": $recurrent,
-  "recurrence_interval": "$recurrentInterval",
-  "scheduled_at": "$scheduledAt",
-  "confirmation": "$confirmation",
-  "professional_client_id": $professionalClientId,
-  "service_id": $serviceId,
-  "duration": $duration
+  "type": "${type}",
+  "description": "${description}",
+  "recurrent": ${recurrent},
+  "recurrence_interval": "${recurrentInterval}",
+  "scheduled_at": "${scheduledAt}",
+  "confirmation": "${confirmation}",
+  "professional_client_id": ${professionalClientId},
+  "service_id": ${serviceId},
+  "duration": ${duration}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'CreateAppointment',
-        apiUrl: '$baseUrl/appointments',
+        apiUrl: '${baseUrl}/appointments',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2350,7 +2354,7 @@ class CreateAppointmentCall {
 class AddHoursWorkProfessionalsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic disponibilityJson,
+    dynamic? disponibilityJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -2361,17 +2365,17 @@ class AddHoursWorkProfessionalsCall {
     final disponibility = _serializeJson(disponibilityJson);
     final ffApiRequestBody = '''
 {
-  "disponibility": $disponibility
+  "disponibility": ${disponibility}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'addHoursWorkProfessionals',
-        apiUrl: '$baseUrl/professionals',
+        apiUrl: '${baseUrl}/professionals',
         callType: ApiCallType.PATCH,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2404,18 +2408,18 @@ class DefaultDaysPaymentCall {
 
     final ffApiRequestBody = '''
 {
-  "pay_method": "$payMethod",
-  "payday": "$payday"
+  "pay_method": "${payMethod}",
+  "payday": "${payday}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DefaultDaysPayment',
-        apiUrl: '$baseUrl/professionals',
+        apiUrl: '${baseUrl}/professionals',
         callType: ApiCallType.PATCH,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2449,11 +2453,11 @@ class ListScheduleCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'ListSchedule',
-        apiUrl: '$baseUrl/schedule?date=$dataFiltro',
+        apiUrl: '${baseUrl}/schedule?date=${dataFiltro}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2484,17 +2488,17 @@ class SubscriptionActiveTrialCall {
 
     final ffApiRequestBody = '''
 {
-  "feature_id": $featureId
+  "feature_id": ${featureId}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'SubscriptionActiveTrial',
-        apiUrl: '$baseUrl/subscription/active-trial',
+        apiUrl: '${baseUrl}/subscription/active-trial',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2536,25 +2540,25 @@ class UpdateAppointmentCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "$type",
-  "description": "$description",
-  "recurrent": $recurrent,
-  "recurrence_interval": "$recurrentInterval",
-  "scheduled_at": "$scheduledAt",
-  "professional_client_id": $professionalClientId,
-  "service_id": $serviceId,
-  "confirmation": "$confirmation",
-  "duration": $duration
+  "type": "${type}",
+  "description": "${description}",
+  "recurrent": ${recurrent},
+  "recurrence_interval": "${recurrentInterval}",
+  "scheduled_at": "${scheduledAt}",
+  "professional_client_id": ${professionalClientId},
+  "service_id": ${serviceId},
+  "confirmation": "${confirmation}",
+  "duration": ${duration}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdateAppointment',
-        apiUrl: '$baseUrl/appointments/$idAppointment',
+        apiUrl: '${baseUrl}/appointments/${idAppointment}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2590,20 +2594,20 @@ class PUTSolicitacoesCall {
 
     final ffApiRequestBody = '''
 {
-  "title": "$title",
-  "status": "$status",
-  "area": "$area",
-  "description": "$description"
+  "title": "${title}",
+  "status": "${status}",
+  "area": "${area}",
+  "description": "${description}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'PUT Solicitacoes',
-        apiUrl: '$baseUrl/solicitations/$id',
+        apiUrl: '${baseUrl}/solicitations/${id}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2639,19 +2643,19 @@ class AddClientAppointmentCall {
 
     final ffApiRequestBody = '''
 {
-  "recurrent": $recurrent,
-  "recurrence_interval": "$recurrentInterval",
-  "professional_client_id": $professionalClientId
+  "recurrent": ${recurrent},
+  "recurrence_interval": "${recurrentInterval}",
+  "professional_client_id": ${professionalClientId}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'AddClientAppointment',
-        apiUrl: '$baseUrl/appointments/$idAppointment',
+        apiUrl: '${baseUrl}/appointments/${idAppointment}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2686,11 +2690,11 @@ class DeleteAppoitmentCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeleteAppoitment',
-        apiUrl: '$baseUrl/appointments/$idAppointment?date=$date',
+        apiUrl: '${baseUrl}/appointments/${idAppointment}?date=${date}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2723,11 +2727,11 @@ class TimelineClientCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'TimelineClient',
-        apiUrl: '$baseUrl/client/timeline/$idClient',
+        apiUrl: '${baseUrl}/client/timeline/${idClient}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2759,7 +2763,7 @@ class TimelineClientCall {
 class AddRatingsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic bodyJson,
+    dynamic? bodyJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -2768,16 +2772,17 @@ class AddRatingsCall {
     );
 
     final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
+    final ffApiRequestBody = '''
+${body}''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'AddRatings',
-        apiUrl: '$baseUrl/ratings',
+        apiUrl: '${baseUrl}/ratings',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2811,11 +2816,11 @@ class DeleteRatingsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeleteRatings',
-        apiUrl: '$baseUrl/ratings/$id',
+        apiUrl: '${baseUrl}/ratings/${id}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2849,11 +2854,11 @@ class ListRatingsCall {
       ApiCallOptions(
         callName: 'ListRatings',
         apiUrl:
-            '$baseUrl/ratings?professional_client_id=$professionalClientId',
+            '${baseUrl}/ratings?professional_client_id=${professionalClientId}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2874,7 +2879,7 @@ class ListRatingsCall {
 class UpdateRatingCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic bodyJson,
+    dynamic? bodyJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -2883,16 +2888,17 @@ class UpdateRatingCall {
     );
 
     final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
+    final ffApiRequestBody = '''
+${body}''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdateRating',
-        apiUrl: '$baseUrl/ratings',
+        apiUrl: '${baseUrl}/ratings',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2914,7 +2920,7 @@ class UpdateRatingCall {
 class AddCommentsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic bodyJson,
+    dynamic? bodyJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -2923,16 +2929,17 @@ class AddCommentsCall {
     );
 
     final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
+    final ffApiRequestBody = '''
+${body}''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'AddComments',
-        apiUrl: '$baseUrl/comments',
+        apiUrl: '${baseUrl}/comments',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -2966,11 +2973,11 @@ class DeleteCommentsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeleteComments',
-        apiUrl: '$baseUrl/comments/$id',
+        apiUrl: '${baseUrl}/comments/${id}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3003,11 +3010,11 @@ class ListCommentsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'ListComments',
-        apiUrl: '$baseUrl/comments?appointment_id=$appointmentId',
+        apiUrl: '${baseUrl}/comments?appointment_id=${appointmentId}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3028,7 +3035,7 @@ class ListCommentsCall {
 class UpdateCommentsCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
-    dynamic bodyJson,
+    dynamic? bodyJson,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -3037,16 +3044,17 @@ class UpdateCommentsCall {
     );
 
     final body = _serializeJson(bodyJson);
-    final ffApiRequestBody = body;
+    final ffApiRequestBody = '''
+${body}''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'UpdateComments',
-        apiUrl: '$baseUrl/comments',
+        apiUrl: '${baseUrl}/comments',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3080,11 +3088,11 @@ class GetPlanCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'GetPlan',
-        apiUrl: '$baseUrl/plan/$id',
+        apiUrl: '${baseUrl}/plan/${id}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3117,11 +3125,11 @@ class MyFeatureCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'MyFeature',
-        apiUrl: '$baseUrl/features/my?feature_id=$id',
+        apiUrl: '${baseUrl}/features/my?feature_id=${id}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3153,11 +3161,11 @@ class ListSubscriptionCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'ListSubscription',
-        apiUrl: '$baseUrl/subscription',
+        apiUrl: '${baseUrl}/subscription',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3190,11 +3198,11 @@ class DeleteSubscriptionCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeleteSubscription',
-        apiUrl: '$baseUrl/subscription?reason_cancel=$motive',
+        apiUrl: '${baseUrl}/subscription?reason_cancel=${motive}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3227,11 +3235,11 @@ class GetAppointmentsByIDCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'GetAppointmentsByID',
-        apiUrl: '$baseUrl/appointments/$id',
+        apiUrl: '${baseUrl}/appointments/${id}',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3263,11 +3271,11 @@ class GetSettingsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Get Settings',
-        apiUrl: '$baseUrl/settings',
+        apiUrl: '${baseUrl}/settings',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3298,17 +3306,17 @@ class EnableSettingCall {
 
     final ffApiRequestBody = '''
 {
-  "setting_id": $settingId
+  "setting_id": ${settingId}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Enable Setting',
-        apiUrl: '$baseUrl/settings',
+        apiUrl: '${baseUrl}/settings',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3342,11 +3350,11 @@ class DisableSettingCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Disable Setting',
-        apiUrl: '$baseUrl/settings/$id',
+        apiUrl: '${baseUrl}/settings/${id}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3378,11 +3386,11 @@ class InsightsCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'insights',
-        apiUrl: '$baseUrl/insights/weekly-summary',
+        apiUrl: '${baseUrl}/insights/weekly-summary',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3414,11 +3422,11 @@ class ListConfigClubeWhatsappCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'List Config Clube  Whatsapp',
-        apiUrl: '$baseUrl/club/config/whatsapp',
+        apiUrl: '${baseUrl}/club/config/whatsapp',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3450,11 +3458,11 @@ class ListClubActivateCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'List Club Activate',
-        apiUrl: '$baseUrl/club/config/activate',
+        apiUrl: '${baseUrl}/club/config/activate',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3485,17 +3493,17 @@ class SaveClubWhatsappCall {
 
     final ffApiRequestBody = '''
 {
-"active":  $active
+"active":  ${active}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Save club Whatsapp',
-        apiUrl: '$baseUrl/club/config/whatsapp',
+        apiUrl: '${baseUrl}/club/config/whatsapp',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3527,17 +3535,17 @@ class SaveConfigClubActivateCall {
 
     final ffApiRequestBody = '''
 {
-"active":  $active
+"active":  ${active}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'Save config club activate',
-        apiUrl: '$baseUrl/club/config/activate',
+        apiUrl: '${baseUrl}/club/config/activate',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3570,11 +3578,11 @@ class ListClientsClubStatementCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'List clients club statement',
-        apiUrl: '$baseUrl/club/clients-statement',
+        apiUrl: '${baseUrl}/club/clients-statement',
         callType: ApiCallType.GET,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3607,17 +3615,17 @@ class PutAppointmentsProfessionalCall {
 
     final ffApiRequestBody = '''
 {
-  "professional_client_id": $professionalClientId
+  "professional_client_id": ${professionalClientId}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'PutAppointmentsProfessional',
-        apiUrl: '$baseUrl/appointments/$idAppointment',
+        apiUrl: '${baseUrl}/appointments/${idAppointment}',
         callType: ApiCallType.PUT,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3651,11 +3659,11 @@ class DELETEClientCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DELETE Client',
-        apiUrl: '$baseUrl/clients/$id',
+        apiUrl: '${baseUrl}/clients/${id}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3693,7 +3701,7 @@ class POSTSolicitationsSemDescricaoCall {
 {
   "title": "${escapeStringForJson(title)}",
    "audio_file": "${escapeStringForJson(audioFile)}",
-  "images": $images,
+  "images": ${images},
   "status": "${escapeStringForJson(status)}",
   "area": "${escapeStringForJson(area)}"
 }''';
@@ -3701,11 +3709,11 @@ class POSTSolicitationsSemDescricaoCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'POST solicitations  sem descricao',
-        apiUrl: '$baseUrl/solicitations',
+        apiUrl: '${baseUrl}/solicitations',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},
@@ -3744,7 +3752,7 @@ class POSTSolicitationsSemAudioCall {
 {
   "title": "${escapeStringForJson(title)}",
   "description": "${escapeStringForJson(description)}",
-  "images": $images,
+  "images": ${images},
   "status": "${escapeStringForJson(status)}",
   "area": "${escapeStringForJson(area)}"
 }''';
@@ -3752,11 +3760,11 @@ class POSTSolicitationsSemAudioCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'POST solicitations sem audio',
-        apiUrl: '$baseUrl/solicitations',
+        apiUrl: '${baseUrl}/solicitations',
         callType: ApiCallType.POST,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
-          'Authorization': 'Bearer $authToken',
+          'Authorization': 'Bearer ${authToken}',
         },
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         params: {},

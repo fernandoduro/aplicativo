@@ -2,8 +2,11 @@ import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -76,16 +79,16 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: wrapWithModel(
                               model: _model.headerHelpModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: const HeaderHelpWidget(),
+                              child: HeaderHelpWidget(),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -96,14 +99,14 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                           .primaryBackground,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 1.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: Text(
                                               'Histórico de pagamentos',
@@ -129,7 +132,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                               )) ==
                                               true)
                                             Container(
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Builder(
                                                 builder: (context) {
                                                   final historico =
@@ -160,7 +163,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           1.0,
@@ -175,7 +178,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                         .center,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -195,7 +198,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             16.0,
                                                                             0.0,
@@ -206,7 +209,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
@@ -222,7 +225,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                                             ).toString()),
                                                                                             ' Data',
                                                                                           ),
-                                                                                          style: const TextStyle(),
+                                                                                          style: TextStyle(),
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -237,7 +240,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
@@ -317,7 +320,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -376,7 +379,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                               )) ==
                                               false)
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 50.0, 0.0, 0.0),
                                               child: Column(
@@ -386,7 +389,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 0.0),
                                                     child: Text(
@@ -409,7 +412,7 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 14.0,
                                                                 0.0, 0.0),
                                                     child: ClipRRect(
@@ -443,11 +446,11 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: wrapWithModel(
                                   model: _model.footerModel,
                                   updateCallback: () => safeSetState(() {}),
-                                  child: const FooterWidget(),
+                                  child: FooterWidget(),
                                 ),
                               ),
                             ],

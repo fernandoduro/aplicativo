@@ -2,9 +2,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'force_upgrade_model.dart';
 export 'force_upgrade_model.dart';
@@ -133,9 +136,9 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                       color: FlutterFlowTheme.of(context).primary,
                       borderRadius: BorderRadius.circular(0.0),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -147,7 +150,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.9,
                       constraints: BoxConstraints(
@@ -158,14 +161,14 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: EdgeInsets.all(20.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -175,7 +178,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -186,7 +189,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Olá! Temos uma nova versão do aplicativo com algumas atualizações importantes.',
@@ -196,7 +199,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            const Color(0xFF12151C),
+                                                            Color(0xFF12151C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -212,7 +215,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                     'containerOnPageLoadAnimation2']!),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -222,7 +225,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -233,7 +236,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               'Acesse por favor o botão abaixo para atualizar e continuar utilizando.',
@@ -243,7 +246,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            const Color(0xFF12151C),
+                                                            Color(0xFF12151C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -276,9 +279,9 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 44.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -289,7 +292,7 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -311,11 +314,11 @@ class _ForceUpgradeWidgetState extends State<ForceUpgradeWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
                   child: Stack(
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(1.06, 0.0),
+                        alignment: AlignmentDirectional(1.06, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(

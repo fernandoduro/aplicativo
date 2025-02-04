@@ -5,11 +5,16 @@ import '/components/header_balao/header_balao_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'insights_model.dart';
 export 'insights_model.dart';
@@ -160,18 +165,18 @@ class _InsightsWidgetState extends State<InsightsWidget>
                   wrapWithModel(
                     model: _model.headerBalaoModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const HeaderBalaoWidget(),
+                    child: HeaderBalaoWidget(),
                   ),
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.85,
                                 decoration: BoxDecoration(
@@ -187,7 +192,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                     .primaryBackground,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -195,7 +200,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -208,7 +213,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                             shape: BoxShape.rectangle,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
+                                            padding: EdgeInsets.all(20.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -219,7 +224,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -233,7 +238,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding: const EdgeInsets.all(
+                                                        padding: EdgeInsets.all(
                                                             10.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -259,7 +264,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                           fontFamily:
                                                                               'Inter',
                                                                           color:
-                                                                              const Color(0xFF12151C),
+                                                                              Color(0xFF12151C),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -275,7 +280,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Inter',
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF12151C),
                                                                       fontSize:
                                                                           14.0,
@@ -294,7 +299,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         animationsMap[
                                                             'containerOnPageLoadAnimation2']!),
                                                   ),
-                                                  if ((valueOrDefault<
+                                                  if ((valueOrDefault<String>(
+                                                                _model
+                                                                    .generalinfo,
+                                                                'general_info',
+                                                              ) !=
+                                                              null &&
+                                                          valueOrDefault<
                                                                   String>(
                                                                 _model
                                                                     .generalinfo,
@@ -311,7 +322,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                               ''))
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -333,7 +344,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         child: Container(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsets.all(
+                                                                EdgeInsets.all(
                                                                     10.0),
                                                             child: MarkdownBody(
                                                               data: _model
@@ -351,7 +362,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                           animationsMap[
                                                               'containerOnPageLoadAnimation3']!),
                                                     ),
-                                                  if ((valueOrDefault<
+                                                  if ((valueOrDefault<String>(
+                                                                _model
+                                                                    .lastweekinfo,
+                                                                ' last_week_info',
+                                                              ) !=
+                                                              null &&
+                                                          valueOrDefault<
                                                                   String>(
                                                                 _model
                                                                     .lastweekinfo,
@@ -368,7 +385,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                               ''))
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -390,7 +407,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         child: Container(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsets.all(
+                                                                EdgeInsets.all(
                                                                     10.0),
                                                             child: MarkdownBody(
                                                               data: _model
@@ -408,7 +425,12 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                           animationsMap[
                                                               'containerOnPageLoadAnimation4']!),
                                                     ),
-                                                  if ((valueOrDefault<
+                                                  if ((valueOrDefault<String>(
+                                                                _model.siteinfo,
+                                                                'site_info',
+                                                              ) !=
+                                                              null &&
+                                                          valueOrDefault<
                                                                   String>(
                                                                 _model.siteinfo,
                                                                 'site_info',
@@ -424,7 +446,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                               ''))
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -446,7 +468,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                                         child: Container(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsets.all(
+                                                                EdgeInsets.all(
                                                                     10.0),
                                                             child: MarkdownBody(
                                                               data: _model
@@ -485,11 +507,11 @@ class _InsightsWidgetState extends State<InsightsWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.footerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const FooterWidget(),
+                          child: FooterWidget(),
                         ),
                       ),
                     ],

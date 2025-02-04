@@ -4,9 +4,13 @@ import '/components/footer/footer_widget.dart';
 import '/components/header_help/header_help_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'new_client05_model.dart';
 export 'new_client05_model.dart';
@@ -79,16 +83,16 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: wrapWithModel(
                                   model: _model.headerHelpModel,
                                   updateCallback: () => safeSetState(() {}),
-                                  child: const HeaderHelpWidget(),
+                                  child: HeaderHelpWidget(),
                                 ),
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
                                   child: SingleChildScrollView(
                                     child: Column(
@@ -96,7 +100,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -110,7 +114,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 16.0, 0.0, 0.0),
                                           child: FutureBuilder<ApiCallResponse>(
                                             future: APIOficialGroup
@@ -119,7 +123,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                               authToken:
                                                   currentAuthenticationToken,
                                               idClient:
-                                                  widget.idClient?.toString(),
+                                                  widget!.idClient?.toString(),
                                             ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
@@ -156,7 +160,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -187,7 +191,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           16.0,
@@ -215,7 +219,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                             r'''$.data.client.name''',
                                                                           ).toString(),
                                                                           style:
-                                                                              const TextStyle(),
+                                                                              TextStyle(),
                                                                         )
                                                                       ],
                                                                       style: FlutterFlowTheme.of(
@@ -262,7 +266,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                             {
                                                                           'idClient':
                                                                               serializeParam(
-                                                                            widget.idClient,
+                                                                            widget!.idClient,
                                                                             ParamType.int,
                                                                           ),
                                                                           'adicionadoPeloMais':
@@ -299,7 +303,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -322,7 +326,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                           ) !=
                                                                           null)
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -349,7 +353,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -361,7 +365,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -385,7 +389,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                             ) !=
                                                                             null)
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 8.0,
@@ -417,7 +421,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -448,7 +452,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   8.0,
@@ -477,7 +481,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       1.0,
@@ -491,7 +495,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           16.0,
@@ -506,7 +510,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                             .spaceBetween,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             1.0,
                                                                             0.0,
@@ -553,7 +557,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                 ParamType.String,
                                                                               ),
                                                                               'idClientSelected': serializeParam(
-                                                                                widget.idClient,
+                                                                                widget!.idClient,
                                                                                 ParamType.int,
                                                                               ),
                                                                             }.withoutNulls,
@@ -596,7 +600,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                           final itensItem =
                                                                               itens[itensIndex];
                                                                           return Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 16.0,
                                                                                 8.0,
                                                                                 16.0,
@@ -616,7 +620,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                 mainAxisAlignment: MainAxisAlignment.start,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 16.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 16.0, 0.0),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.center,
@@ -660,7 +664,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                     ],
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.center,
@@ -761,7 +765,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                                     ParamType.int,
                                                                                                   ),
                                                                                                   'idClient': serializeParam(
-                                                                                                    widget.idClient,
+                                                                                                    widget!.idClient,
                                                                                                     ParamType.int,
                                                                                                   ),
                                                                                                 }.withoutNulls,
@@ -776,7 +780,7 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                                                   size: 24.0,
                                                                                                 ),
                                                                                                 Padding(
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                   child: Text(
                                                                                                     'Ver comentários',
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -823,11 +827,11 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: wrapWithModel(
                                       model: _model.footerModel,
                                       updateCallback: () => safeSetState(() {}),
-                                      child: const FooterWidget(),
+                                      child: FooterWidget(),
                                     ),
                                   ),
                                 ],
