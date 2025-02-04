@@ -520,7 +520,7 @@ class _FirstAccessInsightsWidgetState extends State<FirstAccessInsightsWidget>
                                                       children: [
                                                         Flexible(
                                                           child: Text(
-                                                            'Receber também no WhatsApp ',
+                                                            'Receber também no WhatsApp',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
