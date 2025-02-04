@@ -1390,11 +1390,16 @@ class _RequestWidgetState extends State<RequestWidget>
                                                                                                   fontWeight: FontWeight.bold,
                                                                                                 ),
                                                                                           ),
-                                                                                          if (functions.convertJsonToString(getJsonField(
-                                                                                                solicitacoesListItem,
-                                                                                                r'''$.status''',
-                                                                                              )) !=
-                                                                                              'canceled')
+                                                                                          if ((functions.convertJsonToString(getJsonField(
+                                                                                                    solicitacoesListItem,
+                                                                                                    r'''$.status''',
+                                                                                                  )) !=
+                                                                                                  'canceled') &&
+                                                                                              (functions.convertJsonToString(getJsonField(
+                                                                                                    solicitacoesListItem,
+                                                                                                    r'''$.status''',
+                                                                                                  )) !=
+                                                                                                  'finished'))
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                                                               child: InkWell(

@@ -665,3 +665,17 @@ dynamic removePackagesDuplicateByID(dynamic lista) {
   print("FIMMMM removePackagesDuplicateByID" + set.toString());
   return set;
 }
+
+String? formatStringToCPF(String? cpf) {
+  // format string to mask to format ###.###.###-##
+  if (cpf == null || cpf.isEmpty) {
+    return null;
+  }
+
+  final maskedCpf = cpf.replaceAllMapped(
+    RegExp(r'^(\d{3})(\d{3})(\d{3})(\d{2})$'),
+    (match) => '${match[1]}.${match[2]}.${match[3]}-${match[4]}',
+  );
+
+  return maskedCpf;
+}
