@@ -125,8 +125,8 @@ class _MyAppState extends State<MyApp> {
       builder: (_, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
           textScaler: MediaQuery.of(context).textScaler.clamp(
-                minScaleFactor: 1.0,
-                maxScaleFactor: 1.0,
+                minScaleFactor: 2.0,
+                maxScaleFactor: 2.0,
               ),
         ),
         child: child!,
