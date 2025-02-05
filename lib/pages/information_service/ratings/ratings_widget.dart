@@ -927,7 +927,7 @@ class _RatingsWidgetState extends State<RatingsWidget>
                                                                                       fontFamily: 'Manrope',
                                                                                       letterSpacing: 0.0,
                                                                                     ),
-                                                                                hintText: 'Meus serviços',
+                                                                                hintText: 'Clique no + para cadastrar',
                                                                                 icon: Icon(
                                                                                   Icons.keyboard_arrow_down_rounded,
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,

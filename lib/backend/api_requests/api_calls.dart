@@ -2219,12 +2219,12 @@ class PostSolicitacoesCompletoCall {
 
     final ffApiRequestBody = '''
 {
-  "title": "${title}",
-  "description": "${description}",
-  "audio_file": "${audioFile}",
+  "title": "${escapeStringForJson(title)}",
+  "description": "${escapeStringForJson(description)}",
+  "audio_file": "${escapeStringForJson(audioFile)}",
   "images": ${images},
-  "status": "${status}",
-  "area": "${area}"
+  "status": "${escapeStringForJson(status)}",
+  "area": "${escapeStringForJson(area)}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
@@ -2314,12 +2314,12 @@ class CreateAppointmentCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "${type}",
-  "description": "${description}",
+  "type": "${escapeStringForJson(type)}",
+  "description": "${escapeStringForJson(description)}",
   "recurrent": ${recurrent},
-  "recurrence_interval": "${recurrentInterval}",
-  "scheduled_at": "${scheduledAt}",
-  "confirmation": "${confirmation}",
+  "recurrence_interval": "${escapeStringForJson(recurrentInterval)}",
+  "scheduled_at": "${escapeStringForJson(scheduledAt)}",
+  "confirmation": "${escapeStringForJson(confirmation)}",
   "professional_client_id": ${professionalClientId},
   "service_id": ${serviceId},
   "duration": ${duration}

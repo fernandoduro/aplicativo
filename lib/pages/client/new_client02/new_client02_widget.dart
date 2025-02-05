@@ -457,7 +457,7 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                       fontFamily: 'Manrope',
                                                                                       letterSpacing: 0.0,
                                                                                     ),
-                                                                                hintText: 'Escolha um pacote',
+                                                                                hintText: 'Clique no + para cadastrar',
                                                                                 icon: Icon(
                                                                                   Icons.keyboard_arrow_down_rounded,
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
