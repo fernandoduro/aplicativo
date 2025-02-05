@@ -385,843 +385,852 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                     ],
                                                                   ),
                                                                 ),
-                                                                Builder(
-                                                                  builder:
-                                                                      (context) {
-                                                                    final clients =
-                                                                        functions
-                                                                            .handleNullList(getJsonField(
-                                                                              columnListAllClientsResponse.jsonBody,
-                                                                              r'''$.data''',
-                                                                            ))
-                                                                            .toList();
+                                                                Flexible(
+                                                                  child:
+                                                                      Builder(
+                                                                    builder:
+                                                                        (context) {
+                                                                      final clients = functions
+                                                                          .handleNullList(getJsonField(
+                                                                            columnListAllClientsResponse.jsonBody,
+                                                                            r'''$.data''',
+                                                                          ))
+                                                                          .toList();
 
-                                                                    return ListView
-                                                                        .builder(
-                                                                      padding:
-                                                                          EdgeInsets
-                                                                              .zero,
-                                                                      primary:
-                                                                          false,
-                                                                      shrinkWrap:
-                                                                          true,
-                                                                      scrollDirection:
-                                                                          Axis.vertical,
-                                                                      itemCount:
-                                                                          clients
-                                                                              .length,
-                                                                      itemBuilder:
-                                                                          (context,
-                                                                              clientsIndex) {
-                                                                        final clientsItem =
-                                                                            clients[clientsIndex];
-                                                                        return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    width: MediaQuery.sizeOf(context).width * 0.9,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                      borderRadius: BorderRadius.circular(16.0),
-                                                                                    ),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 8.0),
-                                                                                          child: Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            children: [
-                                                                                              Row(
+                                                                      return ListView
+                                                                          .builder(
+                                                                        padding:
+                                                                            EdgeInsets.zero,
+                                                                        primary:
+                                                                            false,
+                                                                        shrinkWrap:
+                                                                            true,
+                                                                        scrollDirection:
+                                                                            Axis.vertical,
+                                                                        itemCount:
+                                                                            clients.length,
+                                                                        itemBuilder:
+                                                                            (context,
+                                                                                clientsIndex) {
+                                                                          final clientsItem =
+                                                                              clients[clientsIndex];
+                                                                          return Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                10.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              children: [
+                                                                                Flexible(
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: MediaQuery.sizeOf(context).width * 0.9,
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                          borderRadius: BorderRadius.circular(16.0),
+                                                                                        ),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 8.0),
+                                                                                              child: Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                 children: [
-                                                                                                  Text(
-                                                                                                    getJsonField(
-                                                                                                      clientsItem,
-                                                                                                      r'''$.name''',
-                                                                                                    ).toString(),
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Poppins',
-                                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.bold,
+                                                                                                  Flexible(
+                                                                                                    child: Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      children: [
+                                                                                                        Text(
+                                                                                                          getJsonField(
+                                                                                                            clientsItem,
+                                                                                                            r'''$.name''',
+                                                                                                          ).toString(),
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Poppins',
+                                                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                                fontWeight: FontWeight.bold,
+                                                                                                              ),
                                                                                                         ),
-                                                                                                  ),
-                                                                                                  if (functions.convertJsonToString(getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.status''',
-                                                                                                      )) ==
-                                                                                                      'inactive')
-                                                                                                    Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        '(Inativo)',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Poppins',
-                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.bold,
+                                                                                                        if (functions.convertJsonToString(getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.status''',
+                                                                                                            )) ==
+                                                                                                            'inactive')
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              '(Inativo)',
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
                                                                                                             ),
-                                                                                                      ),
+                                                                                                          ),
+                                                                                                        if (functions.convertJsonToString(getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.status''',
+                                                                                                            )) !=
+                                                                                                            'inactive')
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              '(R\$ ${functions.formatCurrency(getJsonField(
+                                                                                                                clientsItem,
+                                                                                                                r'''$.total_monthly_value''',
+                                                                                                              ).toString())})',
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                      ],
                                                                                                     ),
-                                                                                                  if (functions.convertJsonToString(getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.status''',
-                                                                                                      )) !=
-                                                                                                      'inactive')
-                                                                                                    Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        '(R\$ ${functions.formatCurrency(getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.total_monthly_value''',
-                                                                                                        ).toString())})',
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Poppins',
-                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.bold,
+                                                                                                  ),
+                                                                                                  if ((getJsonField(
+                                                                                                            clientsItem,
+                                                                                                            r'''$.birthday''',
+                                                                                                          ) !=
+                                                                                                          null) ||
+                                                                                                      (getJsonField(
+                                                                                                            clientsItem,
+                                                                                                            r'''$.cellphone[0]''',
+                                                                                                          ) !=
+                                                                                                          null) ||
+                                                                                                      (getJsonField(
+                                                                                                            clientsItem,
+                                                                                                            r'''$.cpf''',
+                                                                                                          ) !=
+                                                                                                          null) ||
+                                                                                                      (getJsonField(
+                                                                                                            clientsItem,
+                                                                                                            r'''$.email''',
+                                                                                                          ) !=
+                                                                                                          null) ||
+                                                                                                      (getJsonField(
+                                                                                                            clientsItem,
+                                                                                                            r'''$.gender''',
+                                                                                                          ) !=
+                                                                                                          null))
+                                                                                                    Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      mainAxisAlignment: MainAxisAlignment.end,
+                                                                                                      children: [
+                                                                                                        if (_model.openDataClientRow != clientsIndex)
+                                                                                                          Align(
+                                                                                                            alignment: AlignmentDirectional(1.0, -1.0),
+                                                                                                            child: FlutterFlowIconButton(
+                                                                                                              borderColor: Colors.transparent,
+                                                                                                              borderRadius: 14.0,
+                                                                                                              buttonSize: 40.0,
+                                                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              icon: Icon(
+                                                                                                                Icons.expand_more,
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                size: 24.0,
+                                                                                                              ),
+                                                                                                              onPressed: () async {
+                                                                                                                logFirebaseEvent('LIST_ALL_CLIENTS_PAGE_reduce_ON_TAP');
+                                                                                                                logFirebaseEvent('reduce_update_page_state');
+                                                                                                                _model.openDataClientRow = clientsIndex;
+                                                                                                                safeSetState(() {});
+                                                                                                              },
                                                                                                             ),
-                                                                                                      ),
+                                                                                                          ),
+                                                                                                        if (_model.openDataClientRow == clientsIndex)
+                                                                                                          Align(
+                                                                                                            alignment: AlignmentDirectional(1.0, -1.0),
+                                                                                                            child: FlutterFlowIconButton(
+                                                                                                              borderColor: Colors.transparent,
+                                                                                                              borderRadius: 14.0,
+                                                                                                              buttonSize: 40.0,
+                                                                                                              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              icon: Icon(
+                                                                                                                Icons.expand_less_sharp,
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                size: 24.0,
+                                                                                                              ),
+                                                                                                              onPressed: () async {
+                                                                                                                logFirebaseEvent('LIST_ALL_CLIENTS_PAGE_expand_ON_TAP');
+                                                                                                                logFirebaseEvent('expand_update_page_state');
+                                                                                                                _model.openDataClientRow = null;
+                                                                                                                safeSetState(() {});
+                                                                                                              },
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                      ],
                                                                                                     ),
                                                                                                 ],
                                                                                               ),
-                                                                                              if ((getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.birthday''',
-                                                                                                      ) !=
-                                                                                                      null) ||
-                                                                                                  (getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.cellphone[0]''',
-                                                                                                      ) !=
-                                                                                                      null) ||
-                                                                                                  (getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.cpf''',
-                                                                                                      ) !=
-                                                                                                      null) ||
-                                                                                                  (getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.email''',
-                                                                                                      ) !=
-                                                                                                      null) ||
-                                                                                                  (getJsonField(
-                                                                                                        clientsItem,
-                                                                                                        r'''$.gender''',
-                                                                                                      ) !=
-                                                                                                      null))
-                                                                                                Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  mainAxisAlignment: MainAxisAlignment.end,
-                                                                                                  children: [
-                                                                                                    if (_model.openDataClientRow != clientsIndex)
-                                                                                                      Align(
-                                                                                                        alignment: AlignmentDirectional(1.0, -1.0),
-                                                                                                        child: FlutterFlowIconButton(
-                                                                                                          borderColor: Colors.transparent,
-                                                                                                          borderRadius: 14.0,
-                                                                                                          buttonSize: 40.0,
-                                                                                                          fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                          icon: Icon(
-                                                                                                            Icons.expand_more,
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            size: 24.0,
-                                                                                                          ),
-                                                                                                          onPressed: () async {
-                                                                                                            logFirebaseEvent('LIST_ALL_CLIENTS_PAGE_reduce_ON_TAP');
-                                                                                                            logFirebaseEvent('reduce_update_page_state');
-                                                                                                            _model.openDataClientRow = clientsIndex;
-                                                                                                            safeSetState(() {});
-                                                                                                          },
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    if (_model.openDataClientRow == clientsIndex)
-                                                                                                      Align(
-                                                                                                        alignment: AlignmentDirectional(1.0, -1.0),
-                                                                                                        child: FlutterFlowIconButton(
-                                                                                                          borderColor: Colors.transparent,
-                                                                                                          borderRadius: 14.0,
-                                                                                                          buttonSize: 40.0,
-                                                                                                          fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                          icon: Icon(
-                                                                                                            Icons.expand_less_sharp,
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            size: 24.0,
-                                                                                                          ),
-                                                                                                          onPressed: () async {
-                                                                                                            logFirebaseEvent('LIST_ALL_CLIENTS_PAGE_expand_ON_TAP');
-                                                                                                            logFirebaseEvent('expand_update_page_state');
-                                                                                                            _model.openDataClientRow = null;
-                                                                                                            safeSetState(() {});
-                                                                                                          },
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                        if (_model.openDataClientRow == clientsIndex)
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 10.0, 0.0),
-                                                                                            child: Column(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              children: [
-                                                                                                Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                  children: [
-                                                                                                    if (getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.cpf''',
-                                                                                                        ) !=
-                                                                                                        null)
-                                                                                                      Row(
-                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                        children: [
-                                                                                                          Container(
-                                                                                                            width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                                            child: Stack(
-                                                                                                              children: [
-                                                                                                                Row(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  children: [
-                                                                                                                    Text(
-                                                                                                                      'CPF: ',
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'Manrope',
-                                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                            letterSpacing: 0.0,
-                                                                                                                            fontWeight: FontWeight.w600,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                    Text(
-                                                                                                                      functions.formatStringToCPF(getJsonField(
-                                                                                                                        clientsItem,
-                                                                                                                        r'''$.cpf''',
-                                                                                                                      ).toString())!,
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'Manrope',
-                                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                            letterSpacing: 0.0,
-                                                                                                                            fontWeight: FontWeight.w500,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                  ],
-                                                                                                                ),
-                                                                                                              ],
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                    if (getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.cellphone[0]''',
-                                                                                                        ) !=
-                                                                                                        null)
-                                                                                                      Row(
-                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                        children: [
-                                                                                                          Stack(
-                                                                                                            children: [
-                                                                                                              Row(
-                                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                                children: [
-                                                                                                                  Text(
-                                                                                                                    'Tel: ',
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                                        ),
-                                                                                                                  ),
-                                                                                                                  Text(
-                                                                                                                    functions.formatMaskPhone(getJsonField(
-                                                                                                                      clientsItem,
-                                                                                                                      r'''$.cellphone[0]''',
-                                                                                                                    ).toString())!,
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                          fontWeight: FontWeight.w500,
-                                                                                                                        ),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                                Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                  children: [
-                                                                                                    if (getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.birthday''',
-                                                                                                        ) !=
-                                                                                                        null)
-                                                                                                      Row(
-                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                        children: [
-                                                                                                          Container(
-                                                                                                            width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                                            child: Stack(
-                                                                                                              children: [
-                                                                                                                Row(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  children: [
-                                                                                                                    Text(
-                                                                                                                      'Nascimento: ',
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'Manrope',
-                                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                            letterSpacing: 0.0,
-                                                                                                                            fontWeight: FontWeight.w600,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                    Text(
-                                                                                                                      functions.formatDate(getJsonField(
-                                                                                                                        clientsItem,
-                                                                                                                        r'''$.birthday''',
-                                                                                                                      ).toString())!,
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'Manrope',
-                                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                            letterSpacing: 0.0,
-                                                                                                                            fontWeight: FontWeight.w500,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                  ],
-                                                                                                                ),
-                                                                                                              ],
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                    if (getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.gender''',
-                                                                                                        ) !=
-                                                                                                        null)
-                                                                                                      Row(
-                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                        children: [
-                                                                                                          Stack(
-                                                                                                            children: [
-                                                                                                              Row(
-                                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                                children: [
-                                                                                                                  Text(
-                                                                                                                    'Gênero: ',
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                                        ),
-                                                                                                                  ),
-                                                                                                                  Text(
-                                                                                                                    () {
-                                                                                                                      if (functions.convertJsonToString(getJsonField(
-                                                                                                                            clientsItem,
-                                                                                                                            r'''$.gender''',
-                                                                                                                          )) ==
-                                                                                                                          'H') {
-                                                                                                                        return 'Masculino';
-                                                                                                                      } else if (functions.convertJsonToString(getJsonField(
-                                                                                                                            clientsItem,
-                                                                                                                            r'''$.gender''',
-                                                                                                                          )) ==
-                                                                                                                          'M') {
-                                                                                                                        return 'Feminino';
-                                                                                                                      } else if (functions.convertJsonToString(getJsonField(
-                                                                                                                            clientsItem,
-                                                                                                                            r'''$.gender''',
-                                                                                                                          )) ==
-                                                                                                                          'O') {
-                                                                                                                        return 'Outro';
-                                                                                                                      } else {
-                                                                                                                        return '';
-                                                                                                                      }
-                                                                                                                    }(),
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                          fontWeight: FontWeight.w500,
-                                                                                                                        ),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                                Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                  children: [
-                                                                                                    if (getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.email''',
-                                                                                                        ) !=
-                                                                                                        null)
-                                                                                                      Row(
-                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                        children: [
-                                                                                                          Text(
-                                                                                                            'E-mail: ',
-                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                  fontFamily: 'Manrope',
-                                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                  letterSpacing: 0.0,
-                                                                                                                  fontWeight: FontWeight.w600,
-                                                                                                                ),
-                                                                                                          ),
-                                                                                                          Text(
-                                                                                                            functions.replaceAll(
-                                                                                                                functions.replaceAll(
-                                                                                                                    getJsonField(
-                                                                                                                      clientsItem,
-                                                                                                                      r'''$.email''',
-                                                                                                                    ).toString(),
-                                                                                                                    '[',
-                                                                                                                    ''),
-                                                                                                                ']',
-                                                                                                                '')!,
-                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                  fontFamily: 'Manrope',
-                                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                  letterSpacing: 0.0,
-                                                                                                                  fontWeight: FontWeight.w500,
-                                                                                                                ),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              ],
                                                                                             ),
-                                                                                          ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                                              children: [
-                                                                                                if (getJsonField(
-                                                                                                      clientsItem,
-                                                                                                      r'''$.packages[*]''',
-                                                                                                    ) ==
-                                                                                                    null)
-                                                                                                  Text(
-                                                                                                    'Sem pacotes',
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.bold,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                Builder(
-                                                                                                  builder: (context) {
-                                                                                                    final packages = functions
-                                                                                                        .handleNullList(getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.packages''',
-                                                                                                        ))
-                                                                                                        .toList();
-
-                                                                                                    return Column(
+                                                                                            if (_model.openDataClientRow == clientsIndex)
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 10.0, 0.0),
+                                                                                                child: Column(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  children: [
+                                                                                                    Row(
                                                                                                       mainAxisSize: MainAxisSize.max,
-                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                      children: List.generate(packages.length, (packagesIndex) {
-                                                                                                        final packagesItem = packages[packagesIndex];
-                                                                                                        return Visibility(
-                                                                                                          visible: getJsonField(
-                                                                                                                clientsItem,
-                                                                                                                r'''$.packages[*]''',
-                                                                                                              ) !=
-                                                                                                              null,
-                                                                                                          child: Row(
+                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        if (getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.cpf''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Row(
                                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                                             children: [
-                                                                                                              Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                                child: RichText(
-                                                                                                                  textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                  text: TextSpan(
+                                                                                                              Container(
+                                                                                                                width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                                                child: Stack(
+                                                                                                                  children: [
+                                                                                                                    Row(
+                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                      children: [
+                                                                                                                        Text(
+                                                                                                                          'CPF: ',
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Manrope',
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                                fontWeight: FontWeight.w600,
+                                                                                                                              ),
+                                                                                                                        ),
+                                                                                                                        Text(
+                                                                                                                          functions.formatStringToCPF(getJsonField(
+                                                                                                                            clientsItem,
+                                                                                                                            r'''$.cpf''',
+                                                                                                                          ).toString())!,
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Manrope',
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                                fontWeight: FontWeight.w500,
+                                                                                                                              ),
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        if (getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.cellphone[0]''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Row(
+                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                            children: [
+                                                                                                              Stack(
+                                                                                                                children: [
+                                                                                                                  Row(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
                                                                                                                     children: [
-                                                                                                                      TextSpan(
-                                                                                                                        text: getJsonField(
-                                                                                                                          packagesItem,
-                                                                                                                          r'''$.name''',
-                                                                                                                        ).toString(),
+                                                                                                                      Text(
+                                                                                                                        'Tel: ',
                                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                               fontFamily: 'Manrope',
                                                                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                                               letterSpacing: 0.0,
+                                                                                                                              fontWeight: FontWeight.w600,
                                                                                                                             ),
-                                                                                                                      )
+                                                                                                                      ),
+                                                                                                                      Text(
+                                                                                                                        functions.formatMaskPhone(getJsonField(
+                                                                                                                          clientsItem,
+                                                                                                                          r'''$.cellphone[0]''',
+                                                                                                                        ).toString())!,
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                              fontFamily: 'Manrope',
+                                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                              letterSpacing: 0.0,
+                                                                                                                              fontWeight: FontWeight.w500,
+                                                                                                                            ),
+                                                                                                                      ),
                                                                                                                     ],
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                        ),
                                                                                                                   ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                    Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        if (getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.birthday''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Row(
+                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                            children: [
+                                                                                                              Container(
+                                                                                                                width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                                                child: Stack(
+                                                                                                                  children: [
+                                                                                                                    Row(
+                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                      children: [
+                                                                                                                        Text(
+                                                                                                                          'Nascimento: ',
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Manrope',
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                                fontWeight: FontWeight.w600,
+                                                                                                                              ),
+                                                                                                                        ),
+                                                                                                                        Text(
+                                                                                                                          functions.formatDate(getJsonField(
+                                                                                                                            clientsItem,
+                                                                                                                            r'''$.birthday''',
+                                                                                                                          ).toString())!,
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Manrope',
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                                fontWeight: FontWeight.w500,
+                                                                                                                              ),
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    ),
+                                                                                                                  ],
                                                                                                                 ),
                                                                                                               ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        if (getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.gender''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Row(
+                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                            children: [
+                                                                                                              Stack(
+                                                                                                                children: [
+                                                                                                                  Row(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        'Gênero: ',
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                              fontFamily: 'Manrope',
+                                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                              letterSpacing: 0.0,
+                                                                                                                              fontWeight: FontWeight.w600,
+                                                                                                                            ),
+                                                                                                                      ),
+                                                                                                                      Text(
+                                                                                                                        () {
+                                                                                                                          if (functions.convertJsonToString(getJsonField(
+                                                                                                                                clientsItem,
+                                                                                                                                r'''$.gender''',
+                                                                                                                              )) ==
+                                                                                                                              'H') {
+                                                                                                                            return 'Masculino';
+                                                                                                                          } else if (functions.convertJsonToString(getJsonField(
+                                                                                                                                clientsItem,
+                                                                                                                                r'''$.gender''',
+                                                                                                                              )) ==
+                                                                                                                              'M') {
+                                                                                                                            return 'Feminino';
+                                                                                                                          } else if (functions.convertJsonToString(getJsonField(
+                                                                                                                                clientsItem,
+                                                                                                                                r'''$.gender''',
+                                                                                                                              )) ==
+                                                                                                                              'O') {
+                                                                                                                            return 'Outro';
+                                                                                                                          } else {
+                                                                                                                            return '';
+                                                                                                                          }
+                                                                                                                        }(),
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                              fontFamily: 'Manrope',
+                                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                              letterSpacing: 0.0,
+                                                                                                                              fontWeight: FontWeight.w500,
+                                                                                                                            ),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                    Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        if (getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.email''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Row(
+                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                            children: [
                                                                                                               Text(
-                                                                                                                ' - ',
+                                                                                                                'E-mail: ',
                                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'Manrope',
                                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                                       letterSpacing: 0.0,
+                                                                                                                      fontWeight: FontWeight.w600,
                                                                                                                     ),
                                                                                                               ),
-                                                                                                              Builder(
-                                                                                                                builder: (context) {
-                                                                                                                  final services = getJsonField(
-                                                                                                                    packagesItem,
-                                                                                                                    r'''$.services''',
-                                                                                                                  ).toList();
+                                                                                                              Text(
+                                                                                                                functions.replaceAll(
+                                                                                                                    functions.replaceAll(
+                                                                                                                        getJsonField(
+                                                                                                                          clientsItem,
+                                                                                                                          r'''$.email''',
+                                                                                                                        ).toString(),
+                                                                                                                        '[',
+                                                                                                                        ''),
+                                                                                                                    ']',
+                                                                                                                    '')!,
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                                    ),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              ),
+                                                                                            Align(
+                                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                              child: Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                                                                                                child: Row(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                  children: [
+                                                                                                    if (getJsonField(
+                                                                                                          clientsItem,
+                                                                                                          r'''$.packages[*]''',
+                                                                                                        ) ==
+                                                                                                        null)
+                                                                                                      Text(
+                                                                                                        'Sem pacotes',
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              fontFamily: 'Manrope',
+                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              letterSpacing: 0.0,
+                                                                                                              fontWeight: FontWeight.bold,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                    Builder(
+                                                                                                      builder: (context) {
+                                                                                                        final packages = functions
+                                                                                                            .handleNullList(getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.packages''',
+                                                                                                            ))
+                                                                                                            .toList();
 
-                                                                                                                  return Row(
-                                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                                    children: List.generate(services.length, (servicesIndex) {
-                                                                                                                      final servicesItem = services[servicesIndex];
-                                                                                                                      return Padding(
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                                        child: RichText(
-                                                                                                                          textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                          text: TextSpan(
-                                                                                                                            children: [
-                                                                                                                              TextSpan(
-                                                                                                                                text: getJsonField(
-                                                                                                                                  servicesItem,
-                                                                                                                                  r'''$.name''',
-                                                                                                                                ).toString(),
-                                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                      fontFamily: 'Manrope',
-                                                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                                      letterSpacing: 0.0,
-                                                                                                                                    ),
-                                                                                                                              )
-                                                                                                                            ],
+                                                                                                        return Column(
+                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                          children: List.generate(packages.length, (packagesIndex) {
+                                                                                                            final packagesItem = packages[packagesIndex];
+                                                                                                            return Visibility(
+                                                                                                              visible: getJsonField(
+                                                                                                                    clientsItem,
+                                                                                                                    r'''$.packages[*]''',
+                                                                                                                  ) !=
+                                                                                                                  null,
+                                                                                                              child: Row(
+                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                children: [
+                                                                                                                  Padding(
+                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                                    child: RichText(
+                                                                                                                      textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                      text: TextSpan(
+                                                                                                                        children: [
+                                                                                                                          TextSpan(
+                                                                                                                            text: getJsonField(
+                                                                                                                              packagesItem,
+                                                                                                                              r'''$.name''',
+                                                                                                                            ).toString(),
                                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                   fontFamily: 'Manrope',
                                                                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                                                   letterSpacing: 0.0,
                                                                                                                                 ),
-                                                                                                                          ),
-                                                                                                                        ),
-                                                                                                                      );
-                                                                                                                    }),
-                                                                                                                  );
-                                                                                                                },
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ),
-                                                                                                        );
-                                                                                                      }),
-                                                                                                    );
-                                                                                                  },
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
-                                                                                          child: Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                child: FFButtonWidget(
-                                                                                                  onPressed: () async {
-                                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_ATENDIMENTOS_BTN_ON_TAP');
-                                                                                                    logFirebaseEvent('Button_navigate_to');
-
-                                                                                                    context.pushNamed(
-                                                                                                      'NewClient05',
-                                                                                                      queryParameters: {
-                                                                                                        'idClient': serializeParam(
-                                                                                                          getJsonField(
-                                                                                                            clientsItem,
-                                                                                                            r'''$.id''',
-                                                                                                          ),
-                                                                                                          ParamType.int,
-                                                                                                        ),
-                                                                                                      }.withoutNulls,
-                                                                                                    );
-                                                                                                  },
-                                                                                                  text: 'Atendimentos',
-                                                                                                  options: FFButtonOptions(
-                                                                                                    height: 40.0,
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
-                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                          fontSize: 12.0,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.bold,
-                                                                                                        ),
-                                                                                                    elevation: 0.0,
-                                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                child: FFButtonWidget(
-                                                                                                  onPressed: () async {
-                                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_AVALIAES_BTN_ON_TAP');
-                                                                                                    logFirebaseEvent('Button_navigate_to');
-
-                                                                                                    context.pushNamed(
-                                                                                                      'Ratings',
-                                                                                                      queryParameters: {
-                                                                                                        'professionalclientid': serializeParam(
-                                                                                                          getJsonField(
-                                                                                                            clientsItem,
-                                                                                                            r'''$.id''',
-                                                                                                          ),
-                                                                                                          ParamType.int,
-                                                                                                        ),
-                                                                                                        'idClient': serializeParam(
-                                                                                                          getJsonField(
-                                                                                                            clientsItem,
-                                                                                                            r'''$.id''',
-                                                                                                          ),
-                                                                                                          ParamType.int,
-                                                                                                        ),
-                                                                                                      }.withoutNulls,
-                                                                                                    );
-                                                                                                  },
-                                                                                                  text: 'Avaliações',
-                                                                                                  options: FFButtonOptions(
-                                                                                                    height: 40.0,
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
-                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                          fontSize: 12.0,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.bold,
-                                                                                                        ),
-                                                                                                    elevation: 0.0,
-                                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              if (getJsonField(
-                                                                                                    clientsItem,
-                                                                                                    r'''$.cellphone[0]''',
-                                                                                                  ) !=
-                                                                                                  null)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                  child: FFButtonWidget(
-                                                                                                    onPressed: () async {
-                                                                                                      logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
-                                                                                                      logFirebaseEvent('Button_launch_u_r_l');
-                                                                                                      await launchURL(functions.concateStrings(
-                                                                                                          'https://wa.me/55',
-                                                                                                          functions.clearMaskPhone(getJsonField(
-                                                                                                            clientsItem,
-                                                                                                            r'''$.cellphone[0]''',
-                                                                                                          ).toString()))!);
-                                                                                                    },
-                                                                                                    text: '',
-                                                                                                    icon: Icon(
-                                                                                                      FFIcons.kwhatsapp,
-                                                                                                      size: 25.0,
-                                                                                                    ),
-                                                                                                    options: FFButtonOptions(
-                                                                                                      width: 40.0,
-                                                                                                      height: 40.0,
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                            fontFamily: 'Manrope',
-                                                                                                            color: FlutterFlowTheme.of(context).success,
-                                                                                                            letterSpacing: 0.0,
-                                                                                                          ),
-                                                                                                      elevation: 0.0,
-                                                                                                      borderRadius: BorderRadius.circular(14.0),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                child: FFButtonWidget(
-                                                                                                  onPressed: () async {
-                                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
-                                                                                                    logFirebaseEvent('Button_navigate_to');
-
-                                                                                                    context.pushNamed(
-                                                                                                      'NewClient01',
-                                                                                                      queryParameters: {
-                                                                                                        'idClient': serializeParam(
-                                                                                                          getJsonField(
-                                                                                                            clientsItem,
-                                                                                                            r'''$.id''',
-                                                                                                          ),
-                                                                                                          ParamType.int,
-                                                                                                        ),
-                                                                                                        'adicionadoPeloMais': serializeParam(
-                                                                                                          false,
-                                                                                                          ParamType.bool,
-                                                                                                        ),
-                                                                                                      }.withoutNulls,
-                                                                                                    );
-                                                                                                  },
-                                                                                                  text: '',
-                                                                                                  icon: Icon(
-                                                                                                    Icons.edit,
-                                                                                                    size: 25.0,
-                                                                                                  ),
-                                                                                                  options: FFButtonOptions(
-                                                                                                    width: 40.0,
-                                                                                                    height: 40.0,
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                        ),
-                                                                                                    elevation: 0.0,
-                                                                                                    borderRadius: BorderRadius.circular(14.0),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                child: FFButtonWidget(
-                                                                                                  onPressed: () async {
-                                                                                                    logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
-                                                                                                    logFirebaseEvent('Button_alert_dialog');
-                                                                                                    var confirmDialogResponse = await showDialog<bool>(
-                                                                                                          context: context,
-                                                                                                          builder: (alertDialogContext) {
-                                                                                                            return WebViewAware(
-                                                                                                              child: AlertDialog(
-                                                                                                                title: Text('Tem certeza que deseja excluir?'),
-                                                                                                                content: Text('Excluiremos também todos seus agendamentos e informações relacionadas. Caso queira manter o histórico, edite este cliente e coloque como inativo.'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                    child: Text('Cancelar'),
+                                                                                                                          )
+                                                                                                                        ],
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                              fontFamily: 'Manrope',
+                                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                              letterSpacing: 0.0,
+                                                                                                                            ),
+                                                                                                                      ),
+                                                                                                                    ),
                                                                                                                   ),
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                    child: Text('Confirmar'),
+                                                                                                                  Text(
+                                                                                                                    ' - ',
+                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                          fontFamily: 'Manrope',
+                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                          letterSpacing: 0.0,
+                                                                                                                        ),
+                                                                                                                  ),
+                                                                                                                  Builder(
+                                                                                                                    builder: (context) {
+                                                                                                                      final services = getJsonField(
+                                                                                                                        packagesItem,
+                                                                                                                        r'''$.services''',
+                                                                                                                      ).toList();
+
+                                                                                                                      return Row(
+                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                        children: List.generate(services.length, (servicesIndex) {
+                                                                                                                          final servicesItem = services[servicesIndex];
+                                                                                                                          return Padding(
+                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                                            child: RichText(
+                                                                                                                              textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                              text: TextSpan(
+                                                                                                                                children: [
+                                                                                                                                  TextSpan(
+                                                                                                                                    text: getJsonField(
+                                                                                                                                      servicesItem,
+                                                                                                                                      r'''$.name''',
+                                                                                                                                    ).toString(),
+                                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                          fontFamily: 'Manrope',
+                                                                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                          letterSpacing: 0.0,
+                                                                                                                                        ),
+                                                                                                                                  )
+                                                                                                                                ],
+                                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                      letterSpacing: 0.0,
+                                                                                                                                    ),
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                          );
+                                                                                                                        }),
+                                                                                                                      );
+                                                                                                                    },
                                                                                                                   ),
                                                                                                                 ],
                                                                                                               ),
                                                                                                             );
-                                                                                                          },
-                                                                                                        ) ??
-                                                                                                        false;
-                                                                                                    if (confirmDialogResponse) {
-                                                                                                      logFirebaseEvent('Button_backend_call');
-                                                                                                      _model.apiResultc8y = await APIOficialGroup.dELETEClientCall.call(
-                                                                                                        authToken: currentAuthenticationToken,
-                                                                                                        id: getJsonField(
-                                                                                                          clientsItem,
-                                                                                                          r'''$.id''',
-                                                                                                        ).toString(),
-                                                                                                      );
-
-                                                                                                      logFirebaseEvent('Button_show_snack_bar');
-                                                                                                      ScaffoldMessenger.of(context).showSnackBar(
-                                                                                                        SnackBar(
-                                                                                                          content: Text(
-                                                                                                            'Tudo certo! Removemos estas informações.',
-                                                                                                            style: TextStyle(
-                                                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                          duration: Duration(milliseconds: 4000),
-                                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    }
-                                                                                                    logFirebaseEvent('Button_clear_query_cache');
-                                                                                                    FFAppState().clearClientsCacheCache();
-
-                                                                                                    safeSetState(() {});
-                                                                                                  },
-                                                                                                  text: '',
-                                                                                                  icon: Icon(
-                                                                                                    Icons.delete_outline,
-                                                                                                    size: 25.0,
-                                                                                                  ),
-                                                                                                  options: FFButtonOptions(
-                                                                                                    width: 40.0,
-                                                                                                    height: 40.0,
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          color: FlutterFlowTheme.of(context).error,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                        ),
-                                                                                                    elevation: 0.0,
-                                                                                                    borderRadius: BorderRadius.circular(14.0),
-                                                                                                  ),
+                                                                                                          }),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    ),
+                                                                                                  ],
                                                                                                 ),
                                                                                               ),
-                                                                                            ],
-                                                                                          ),
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                children: [
+                                                                                                  Flexible(
+                                                                                                    child: Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      children: [
+                                                                                                        Padding(
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                          child: FFButtonWidget(
+                                                                                                            onPressed: () async {
+                                                                                                              logFirebaseEvent('LIST_ALL_CLIENTS_ATENDIMENTOS_BTN_ON_TAP');
+                                                                                                              logFirebaseEvent('Button_navigate_to');
+
+                                                                                                              context.pushNamed(
+                                                                                                                'NewClient05',
+                                                                                                                queryParameters: {
+                                                                                                                  'idClient': serializeParam(
+                                                                                                                    getJsonField(
+                                                                                                                      clientsItem,
+                                                                                                                      r'''$.id''',
+                                                                                                                    ),
+                                                                                                                    ParamType.int,
+                                                                                                                  ),
+                                                                                                                }.withoutNulls,
+                                                                                                              );
+                                                                                                            },
+                                                                                                            text: 'Atendimentos',
+                                                                                                            options: FFButtonOptions(
+                                                                                                              height: 40.0,
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                                                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                                    fontSize: 12.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
+                                                                                                              elevation: 0.0,
+                                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        Padding(
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                          child: FFButtonWidget(
+                                                                                                            onPressed: () async {
+                                                                                                              logFirebaseEvent('LIST_ALL_CLIENTS_AVALIAES_BTN_ON_TAP');
+                                                                                                              logFirebaseEvent('Button_navigate_to');
+
+                                                                                                              context.pushNamed(
+                                                                                                                'Ratings',
+                                                                                                                queryParameters: {
+                                                                                                                  'professionalclientid': serializeParam(
+                                                                                                                    getJsonField(
+                                                                                                                      clientsItem,
+                                                                                                                      r'''$.id''',
+                                                                                                                    ),
+                                                                                                                    ParamType.int,
+                                                                                                                  ),
+                                                                                                                  'idClient': serializeParam(
+                                                                                                                    getJsonField(
+                                                                                                                      clientsItem,
+                                                                                                                      r'''$.id''',
+                                                                                                                    ),
+                                                                                                                    ParamType.int,
+                                                                                                                  ),
+                                                                                                                }.withoutNulls,
+                                                                                                              );
+                                                                                                            },
+                                                                                                            text: 'Avaliações',
+                                                                                                            options: FFButtonOptions(
+                                                                                                              height: 40.0,
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                                                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                                    fontSize: 12.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.bold,
+                                                                                                                  ),
+                                                                                                              elevation: 0.0,
+                                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        if (getJsonField(
+                                                                                                              clientsItem,
+                                                                                                              r'''$.cellphone[0]''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                            child: FFButtonWidget(
+                                                                                                              onPressed: () async {
+                                                                                                                logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
+                                                                                                                logFirebaseEvent('Button_launch_u_r_l');
+                                                                                                                await launchURL(functions.concateStrings(
+                                                                                                                    'https://wa.me/55',
+                                                                                                                    functions.clearMaskPhone(getJsonField(
+                                                                                                                      clientsItem,
+                                                                                                                      r'''$.cellphone[0]''',
+                                                                                                                    ).toString()))!);
+                                                                                                              },
+                                                                                                              text: '',
+                                                                                                              icon: Icon(
+                                                                                                                FFIcons.kwhatsapp,
+                                                                                                                size: 25.0,
+                                                                                                              ),
+                                                                                                              options: FFButtonOptions(
+                                                                                                                width: 40.0,
+                                                                                                                height: 40.0,
+                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      color: FlutterFlowTheme.of(context).success,
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
+                                                                                                                elevation: 0.0,
+                                                                                                                borderRadius: BorderRadius.circular(14.0),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        Padding(
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                          child: FFButtonWidget(
+                                                                                                            onPressed: () async {
+                                                                                                              logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
+                                                                                                              logFirebaseEvent('Button_navigate_to');
+
+                                                                                                              context.pushNamed(
+                                                                                                                'NewClient01',
+                                                                                                                queryParameters: {
+                                                                                                                  'idClient': serializeParam(
+                                                                                                                    getJsonField(
+                                                                                                                      clientsItem,
+                                                                                                                      r'''$.id''',
+                                                                                                                    ),
+                                                                                                                    ParamType.int,
+                                                                                                                  ),
+                                                                                                                  'adicionadoPeloMais': serializeParam(
+                                                                                                                    false,
+                                                                                                                    ParamType.bool,
+                                                                                                                  ),
+                                                                                                                }.withoutNulls,
+                                                                                                              );
+                                                                                                            },
+                                                                                                            text: '',
+                                                                                                            icon: Icon(
+                                                                                                              Icons.edit,
+                                                                                                              size: 25.0,
+                                                                                                            ),
+                                                                                                            options: FFButtonOptions(
+                                                                                                              width: 40.0,
+                                                                                                              height: 40.0,
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
+                                                                                                              elevation: 0.0,
+                                                                                                              borderRadius: BorderRadius.circular(14.0),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        Padding(
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                                          child: FFButtonWidget(
+                                                                                                            onPressed: () async {
+                                                                                                              logFirebaseEvent('LIST_ALL_CLIENTS_PAGE__BTN_ON_TAP');
+                                                                                                              logFirebaseEvent('Button_alert_dialog');
+                                                                                                              var confirmDialogResponse = await showDialog<bool>(
+                                                                                                                    context: context,
+                                                                                                                    builder: (alertDialogContext) {
+                                                                                                                      return WebViewAware(
+                                                                                                                        child: AlertDialog(
+                                                                                                                          title: Text('Tem certeza que deseja excluir?'),
+                                                                                                                          content: Text('Excluiremos também todos seus agendamentos e informações relacionadas. Caso queira manter o histórico, edite este cliente e coloque como inativo.'),
+                                                                                                                          actions: [
+                                                                                                                            TextButton(
+                                                                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                                              child: Text('Cancelar'),
+                                                                                                                            ),
+                                                                                                                            TextButton(
+                                                                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                                              child: Text('Confirmar'),
+                                                                                                                            ),
+                                                                                                                          ],
+                                                                                                                        ),
+                                                                                                                      );
+                                                                                                                    },
+                                                                                                                  ) ??
+                                                                                                                  false;
+                                                                                                              if (confirmDialogResponse) {
+                                                                                                                logFirebaseEvent('Button_backend_call');
+                                                                                                                _model.apiResultc8y = await APIOficialGroup.dELETEClientCall.call(
+                                                                                                                  authToken: currentAuthenticationToken,
+                                                                                                                  id: getJsonField(
+                                                                                                                    clientsItem,
+                                                                                                                    r'''$.id''',
+                                                                                                                  ).toString(),
+                                                                                                                );
+
+                                                                                                                logFirebaseEvent('Button_show_snack_bar');
+                                                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                                                  SnackBar(
+                                                                                                                    content: Text(
+                                                                                                                      'Tudo certo! Removemos estas informações.',
+                                                                                                                      style: TextStyle(
+                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                    duration: Duration(milliseconds: 4000),
+                                                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                              }
+                                                                                                              logFirebaseEvent('Button_clear_query_cache');
+                                                                                                              FFAppState().clearClientsCacheCache();
+
+                                                                                                              safeSetState(() {});
+                                                                                                            },
+                                                                                                            text: '',
+                                                                                                            icon: Icon(
+                                                                                                              Icons.delete_outline,
+                                                                                                              size: 25.0,
+                                                                                                            ),
+                                                                                                            options: FFButtonOptions(
+                                                                                                              width: 40.0,
+                                                                                                              height: 40.0,
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    color: FlutterFlowTheme.of(context).error,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
+                                                                                                              elevation: 0.0,
+                                                                                                              borderRadius: BorderRadius.circular(14.0),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
-                                                                                      ],
-                                                                                    ),
+                                                                                      ),
+                                                                                    ],
                                                                                   ),
-                                                                                ],
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                  ),
                                                                 ),
                                                                 if ((getJsonField(
                                                                           columnListAllClientsResponse

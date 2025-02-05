@@ -476,189 +476,282 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    logFirebaseEvent(
-                                                        'SCHEDULE02_PAGE_Column_kwfzerfe_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Row_update_page_state');
-                                                    _model.idsClientsSchedule =
-                                                        [];
-                                                    safeSetState(() {});
-                                                    logFirebaseEvent(
-                                                        'Row_alert_dialog');
-                                                    var confirmDialogResponse =
-                                                        await showDialog<bool>(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                    content: Text(
-                                                                        'Deseja excluir todos os clientes desse agendamento?'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            false),
-                                                                        child: Text(
-                                                                            'Cancelar'),
-                                                                      ),
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            true),
-                                                                        child: Text(
-                                                                            'Confirmar'),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ) ??
-                                                            false;
-                                                    if (confirmDialogResponse) {
-                                                      if (functions
-                                                              .convertStrintToInt(
+                                                Flexible(
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'SCHEDULE02_PAGE_Column_kwfzerfe_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Row_update_page_state');
+                                                      _model.idsClientsSchedule =
+                                                          [];
+                                                      safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'Row_alert_dialog');
+                                                      var confirmDialogResponse =
+                                                          await showDialog<
+                                                                  bool>(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'Deseja excluir todos os clientes desse agendamento?'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () => Navigator.pop(
+                                                                              alertDialogContext,
+                                                                              false),
+                                                                          child:
+                                                                              Text('Cancelar'),
+                                                                        ),
+                                                                        TextButton(
+                                                                          onPressed: () => Navigator.pop(
+                                                                              alertDialogContext,
+                                                                              true),
+                                                                          child:
+                                                                              Text('Confirmar'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              ) ??
+                                                              false;
+                                                      if (confirmDialogResponse) {
+                                                        if (functions
+                                                                .convertStrintToInt(
+                                                                    getJsonField(
+                                                                  widget!
+                                                                      .scheduleSelected,
+                                                                  r'''$.schedule.recurrent''',
+                                                                ).toString())
+                                                                .toString() ==
+                                                            '1') {
+                                                          logFirebaseEvent(
+                                                              'Row_alert_dialog');
+                                                          confirmDialogResponse =
+                                                              await showDialog<
+                                                                      bool>(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('Deseja excluir apenas o agendamento de hoje ou também os futuros deste cliente neste horário?'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: Text('Apenas hoje'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: Text('Também os futuros'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ) ??
+                                                                  false;
+                                                          if (confirmDialogResponse) {
+                                                            logFirebaseEvent(
+                                                                'Row_backend_call');
+                                                            _model.apiResult9co212 =
+                                                                await APIOficialGroup
+                                                                    .deleteAppoitmentCall
+                                                                    .call(
+                                                              authToken:
+                                                                  currentAuthenticationToken,
+                                                              idAppointment: functions.replaceAll(
+                                                                  functions.replaceAll(
+                                                                      getJsonField(
+                                                                        widget!
+                                                                            .scheduleSelected,
+                                                                        r'''$.schedule.professional_client[*].pivot.appointment_id''',
+                                                                      ).toString(),
+                                                                      '[',
+                                                                      ''),
+                                                                  ']',
+                                                                  ''),
+                                                              date:
                                                                   getJsonField(
                                                                 widget!
                                                                     .scheduleSelected,
-                                                                r'''$.schedule.recurrent''',
-                                                              ).toString())
-                                                              .toString() ==
-                                                          '1') {
-                                                        logFirebaseEvent(
-                                                            'Row_alert_dialog');
-                                                        confirmDialogResponse =
-                                                            await showDialog<
-                                                                    bool>(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (alertDialogContext) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                        content:
-                                                                            Text('Deseja excluir apenas o agendamento de hoje ou também os futuros deste cliente neste horário?'),
-                                                                        actions: [
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext, false),
-                                                                            child:
-                                                                                Text('Apenas hoje'),
-                                                                          ),
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext, true),
-                                                                            child:
-                                                                                Text('Também os futuros'),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ) ??
-                                                                false;
-                                                        if (confirmDialogResponse) {
-                                                          logFirebaseEvent(
-                                                              'Row_backend_call');
-                                                          _model.apiResult9co212 =
-                                                              await APIOficialGroup
-                                                                  .deleteAppoitmentCall
-                                                                  .call(
-                                                            authToken:
-                                                                currentAuthenticationToken,
-                                                            idAppointment: functions.replaceAll(
-                                                                functions.replaceAll(
-                                                                    getJsonField(
-                                                                      widget!
-                                                                          .scheduleSelected,
-                                                                      r'''$.schedule.professional_client[*].pivot.appointment_id''',
-                                                                    ).toString(),
-                                                                    '[',
-                                                                    ''),
-                                                                ']',
-                                                                ''),
-                                                            date: getJsonField(
-                                                              widget!
-                                                                  .scheduleSelected,
-                                                              r'''$.schedule.scheduled_at''',
-                                                            ).toString(),
-                                                          );
-
-                                                          if ((_model
-                                                                  .apiResult9co212
-                                                                  ?.succeeded ??
-                                                              true)) {
-                                                            logFirebaseEvent(
-                                                                'Row_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Tudo certo! Removemos estas informações.',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                              ),
+                                                                r'''$.schedule.scheduled_at''',
+                                                              ).toString(),
                                                             );
-                                                            logFirebaseEvent(
-                                                                'Row_navigate_to');
 
-                                                            context.pushNamed(
-                                                                'Schedule01');
+                                                            if ((_model
+                                                                    .apiResult9co212
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              logFirebaseEvent(
+                                                                  'Row_show_snack_bar');
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Tudo certo! Removemos estas informações.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                              logFirebaseEvent(
+                                                                  'Row_navigate_to');
+
+                                                              context.pushNamed(
+                                                                  'Schedule01');
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'Row_show_snack_bar');
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            }
                                                           } else {
                                                             logFirebaseEvent(
-                                                                'Row_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                              ),
+                                                                'Row_backend_call');
+                                                            _model.apiResult9co223 =
+                                                                await APIOficialGroup
+                                                                    .deleteAppoitmentCall
+                                                                    .call(
+                                                              authToken:
+                                                                  currentAuthenticationToken,
+                                                              idAppointment: functions.replaceAll(
+                                                                  functions.replaceAll(
+                                                                      getJsonField(
+                                                                        widget!
+                                                                            .scheduleSelected,
+                                                                        r'''$.schedule.professional_client[*].pivot.appointment_id''',
+                                                                      ).toString(),
+                                                                      '[',
+                                                                      ''),
+                                                                  ']',
+                                                                  ''),
+                                                              date: functions.concateStrings(
+                                                                  functions.concateStrings(
+                                                                      dateTimeFormat(
+                                                                        "y-M-d ",
+                                                                        widget!
+                                                                            .dateSelected,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      widget!.hourSelected),
+                                                                  ':00'),
                                                             );
+
+                                                            if ((_model
+                                                                    .apiResult9co223
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              logFirebaseEvent(
+                                                                  'Row_show_snack_bar');
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Tudo certo! Removemos estas informações.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                              logFirebaseEvent(
+                                                                  'Row_navigate_to');
+
+                                                              context.pushNamed(
+                                                                  'Schedule01');
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'Row_show_snack_bar');
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            }
                                                           }
                                                         } else {
                                                           logFirebaseEvent(
                                                               'Row_backend_call');
-                                                          _model.apiResult9co223 =
+                                                          _model.apiResult9co23232 =
                                                               await APIOficialGroup
                                                                   .deleteAppoitmentCall
                                                                   .call(
@@ -690,7 +783,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                           );
 
                                                           if ((_model
-                                                                  .apiResult9co223
+                                                                  .apiResult9co23232
                                                                   ?.succeeded ??
                                                               true)) {
                                                             logFirebaseEvent(
@@ -749,273 +842,257 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                             );
                                                           }
                                                         }
-                                                      } else {
-                                                        logFirebaseEvent(
-                                                            'Row_backend_call');
-                                                        _model.apiResult9co23232 =
-                                                            await APIOficialGroup
-                                                                .deleteAppoitmentCall
-                                                                .call(
-                                                          authToken:
-                                                              currentAuthenticationToken,
-                                                          idAppointment: functions
-                                                              .replaceAll(
-                                                                  functions.replaceAll(
-                                                                      getJsonField(
+                                                      }
+
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        FFButtonWidget(
+                                                          onPressed: () async {
+                                                            logFirebaseEvent(
+                                                                'SCHEDULE02_EXCLUIR_TODOS_OS_CLIENTES_BTN');
+                                                            logFirebaseEvent(
+                                                                'Button_update_page_state');
+                                                            _model.idsClientsSchedule =
+                                                                [];
+                                                            safeSetState(() {});
+                                                            logFirebaseEvent(
+                                                                'Button_alert_dialog');
+                                                            var confirmDialogResponse =
+                                                                await showDialog<
+                                                                        bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('Deseja excluir todos os clientes desse agendamento?'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('Cancelar'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('Confirmar'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ) ??
+                                                                    false;
+                                                            if (confirmDialogResponse) {
+                                                              if (functions
+                                                                      .convertStrintToInt(
+                                                                          getJsonField(
                                                                         widget!
                                                                             .scheduleSelected,
-                                                                        r'''$.schedule.professional_client[*].pivot.appointment_id''',
-                                                                      ).toString(),
-                                                                      '[',
-                                                                      ''),
-                                                                  ']',
-                                                                  ''),
-                                                          date: functions.concateStrings(
-                                                              functions.concateStrings(
-                                                                  dateTimeFormat(
-                                                                    "y-M-d ",
-                                                                    widget!
-                                                                        .dateSelected,
-                                                                    locale: FFLocalizations.of(
-                                                                            context)
-                                                                        .languageCode,
-                                                                  ),
-                                                                  widget!.hourSelected),
-                                                              ':00'),
-                                                        );
-
-                                                        if ((_model
-                                                                .apiResult9co23232
-                                                                ?.succeeded ??
-                                                            true)) {
-                                                          logFirebaseEvent(
-                                                              'Row_show_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Tudo certo! Removemos estas informações.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
-                                                          );
-                                                          logFirebaseEvent(
-                                                              'Row_navigate_to');
-
-                                                          context.pushNamed(
-                                                              'Schedule01');
-                                                        } else {
-                                                          logFirebaseEvent(
-                                                              'Row_show_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
-                                                          );
-                                                        }
-                                                      }
-                                                    }
-
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      FFButtonWidget(
-                                                        onPressed: () async {
-                                                          logFirebaseEvent(
-                                                              'SCHEDULE02_EXCLUIR_TODOS_OS_CLIENTES_BTN');
-                                                          logFirebaseEvent(
-                                                              'Button_update_page_state');
-                                                          _model.idsClientsSchedule =
-                                                              [];
-                                                          safeSetState(() {});
-                                                          logFirebaseEvent(
-                                                              'Button_alert_dialog');
-                                                          var confirmDialogResponse =
-                                                              await showDialog<
-                                                                      bool>(
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (alertDialogContext) {
-                                                                      return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                          content:
-                                                                              Text('Deseja excluir todos os clientes desse agendamento?'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('Cancelar'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('Confirmar'),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  ) ??
-                                                                  false;
-                                                          if (confirmDialogResponse) {
-                                                            if (functions
-                                                                    .convertStrintToInt(
+                                                                        r'''$.schedule.recurrent''',
+                                                                      ).toString())
+                                                                      .toString() ==
+                                                                  '1') {
+                                                                logFirebaseEvent(
+                                                                    'Button_alert_dialog');
+                                                                confirmDialogResponse =
+                                                                    await showDialog<
+                                                                            bool>(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('Deseja excluir apenas o agendamento de hoje ou também os futuros deste cliente neste horário?'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                    child: Text('Apenas hoje'),
+                                                                                  ),
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                    child: Text('Também os futuros'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ) ??
+                                                                        false;
+                                                                if (confirmDialogResponse) {
+                                                                  logFirebaseEvent(
+                                                                      'Button_backend_call');
+                                                                  _model.apiResult9co212Copy =
+                                                                      await APIOficialGroup
+                                                                          .deleteAppoitmentCall
+                                                                          .call(
+                                                                    authToken:
+                                                                        currentAuthenticationToken,
+                                                                    idAppointment: functions.replaceAll(
+                                                                        functions.replaceAll(
+                                                                            getJsonField(
+                                                                              widget!.scheduleSelected,
+                                                                              r'''$.schedule.professional_client[*].pivot.appointment_id''',
+                                                                            ).toString(),
+                                                                            '[',
+                                                                            ''),
+                                                                        ']',
+                                                                        ''),
+                                                                    date:
                                                                         getJsonField(
                                                                       widget!
                                                                           .scheduleSelected,
-                                                                      r'''$.schedule.recurrent''',
-                                                                    ).toString())
-                                                                    .toString() ==
-                                                                '1') {
-                                                              logFirebaseEvent(
-                                                                  'Button_alert_dialog');
-                                                              confirmDialogResponse =
-                                                                  await showDialog<
-                                                                          bool>(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                              content: Text('Deseja excluir apenas o agendamento de hoje ou também os futuros deste cliente neste horário?'),
-                                                                              actions: [
-                                                                                TextButton(
-                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                  child: Text('Apenas hoje'),
-                                                                                ),
-                                                                                TextButton(
-                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                  child: Text('Também os futuros'),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      ) ??
-                                                                      false;
-                                                              if (confirmDialogResponse) {
-                                                                logFirebaseEvent(
-                                                                    'Button_backend_call');
-                                                                _model.apiResult9co212Copy =
-                                                                    await APIOficialGroup
-                                                                        .deleteAppoitmentCall
-                                                                        .call(
-                                                                  authToken:
-                                                                      currentAuthenticationToken,
-                                                                  idAppointment: functions.replaceAll(
-                                                                      functions.replaceAll(
-                                                                          getJsonField(
-                                                                            widget!.scheduleSelected,
-                                                                            r'''$.schedule.professional_client[*].pivot.appointment_id''',
-                                                                          ).toString(),
-                                                                          '[',
-                                                                          ''),
-                                                                      ']',
-                                                                      ''),
-                                                                  date:
-                                                                      getJsonField(
-                                                                    widget!
-                                                                        .scheduleSelected,
-                                                                    r'''$.schedule.scheduled_at''',
-                                                                  ).toString(),
-                                                                );
-
-                                                                if ((_model
-                                                                        .apiResult9co212Copy
-                                                                        ?.succeeded ??
-                                                                    true)) {
-                                                                  logFirebaseEvent(
-                                                                      'Button_show_snack_bar');
-                                                                  ScaffoldMessenger.of(
-                                                                          context)
-                                                                      .showSnackBar(
-                                                                    SnackBar(
-                                                                      content:
-                                                                          Text(
-                                                                        'Tudo certo! Removemos estas informações.',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                        ),
-                                                                      ),
-                                                                      duration: Duration(
-                                                                          milliseconds:
-                                                                              4000),
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondary,
-                                                                    ),
+                                                                      r'''$.schedule.scheduled_at''',
+                                                                    ).toString(),
                                                                   );
-                                                                  logFirebaseEvent(
-                                                                      'Button_navigate_to');
 
-                                                                  context.pushNamed(
-                                                                      'Schedule01');
+                                                                  if ((_model
+                                                                          .apiResult9co212Copy
+                                                                          ?.succeeded ??
+                                                                      true)) {
+                                                                    logFirebaseEvent(
+                                                                        'Button_show_snack_bar');
+                                                                    ScaffoldMessenger.of(
+                                                                            context)
+                                                                        .showSnackBar(
+                                                                      SnackBar(
+                                                                        content:
+                                                                            Text(
+                                                                          'Tudo certo! Removemos estas informações.',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                          ),
+                                                                        ),
+                                                                        duration:
+                                                                            Duration(milliseconds: 4000),
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).secondary,
+                                                                      ),
+                                                                    );
+                                                                    logFirebaseEvent(
+                                                                        'Button_navigate_to');
+
+                                                                    context.pushNamed(
+                                                                        'Schedule01');
+                                                                  } else {
+                                                                    logFirebaseEvent(
+                                                                        'Button_show_snack_bar');
+                                                                    ScaffoldMessenger.of(
+                                                                            context)
+                                                                        .showSnackBar(
+                                                                      SnackBar(
+                                                                        content:
+                                                                            Text(
+                                                                          'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                          ),
+                                                                        ),
+                                                                        duration:
+                                                                            Duration(milliseconds: 4000),
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).secondary,
+                                                                      ),
+                                                                    );
+                                                                  }
                                                                 } else {
                                                                   logFirebaseEvent(
-                                                                      'Button_show_snack_bar');
-                                                                  ScaffoldMessenger.of(
-                                                                          context)
-                                                                      .showSnackBar(
-                                                                    SnackBar(
-                                                                      content:
-                                                                          Text(
-                                                                        'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                        ),
-                                                                      ),
-                                                                      duration: Duration(
-                                                                          milliseconds:
-                                                                              4000),
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondary,
-                                                                    ),
+                                                                      'Button_backend_call');
+                                                                  _model.apiResult9co223Copy =
+                                                                      await APIOficialGroup
+                                                                          .deleteAppoitmentCall
+                                                                          .call(
+                                                                    authToken:
+                                                                        currentAuthenticationToken,
+                                                                    idAppointment: functions.replaceAll(
+                                                                        functions.replaceAll(
+                                                                            getJsonField(
+                                                                              widget!.scheduleSelected,
+                                                                              r'''$.schedule.professional_client[*].pivot.appointment_id''',
+                                                                            ).toString(),
+                                                                            '[',
+                                                                            ''),
+                                                                        ']',
+                                                                        ''),
+                                                                    date: functions.concateStrings(
+                                                                        functions.concateStrings(
+                                                                            dateTimeFormat(
+                                                                              "y-M-d ",
+                                                                              widget!.dateSelected,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ),
+                                                                            widget!.hourSelected),
+                                                                        ':00'),
                                                                   );
+
+                                                                  if ((_model
+                                                                          .apiResult9co223Copy
+                                                                          ?.succeeded ??
+                                                                      true)) {
+                                                                    logFirebaseEvent(
+                                                                        'Button_show_snack_bar');
+                                                                    ScaffoldMessenger.of(
+                                                                            context)
+                                                                        .showSnackBar(
+                                                                      SnackBar(
+                                                                        content:
+                                                                            Text(
+                                                                          'Tudo certo! Removemos estas informações.',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                          ),
+                                                                        ),
+                                                                        duration:
+                                                                            Duration(milliseconds: 4000),
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).secondary,
+                                                                      ),
+                                                                    );
+                                                                    logFirebaseEvent(
+                                                                        'Button_navigate_to');
+
+                                                                    context.pushNamed(
+                                                                        'Schedule01');
+                                                                  } else {
+                                                                    logFirebaseEvent(
+                                                                        'Button_show_snack_bar');
+                                                                    ScaffoldMessenger.of(
+                                                                            context)
+                                                                        .showSnackBar(
+                                                                      SnackBar(
+                                                                        content:
+                                                                            Text(
+                                                                          'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                          ),
+                                                                        ),
+                                                                        duration:
+                                                                            Duration(milliseconds: 4000),
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).secondary,
+                                                                      ),
+                                                                    );
+                                                                  }
                                                                 }
                                                               } else {
                                                                 logFirebaseEvent(
                                                                     'Button_backend_call');
-                                                                _model.apiResult9co223Copy =
+                                                                _model.apiResult9co23232Copy =
                                                                     await APIOficialGroup
                                                                         .deleteAppoitmentCall
                                                                         .call(
@@ -1044,7 +1121,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                 );
 
                                                                 if ((_model
-                                                                        .apiResult9co223Copy
+                                                                        .apiResult9co23232Copy
                                                                         ?.succeeded ??
                                                                     true)) {
                                                                   logFirebaseEvent(
@@ -1101,292 +1178,212 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                   );
                                                                 }
                                                               }
-                                                            } else {
-                                                              logFirebaseEvent(
-                                                                  'Button_backend_call');
-                                                              _model.apiResult9co23232Copy =
-                                                                  await APIOficialGroup
-                                                                      .deleteAppoitmentCall
-                                                                      .call(
-                                                                authToken:
-                                                                    currentAuthenticationToken,
-                                                                idAppointment: functions.replaceAll(
-                                                                    functions.replaceAll(
-                                                                        getJsonField(
-                                                                          widget!
-                                                                              .scheduleSelected,
-                                                                          r'''$.schedule.professional_client[*].pivot.appointment_id''',
-                                                                        ).toString(),
-                                                                        '[',
-                                                                        ''),
-                                                                    ']',
-                                                                    ''),
-                                                                date: functions.concateStrings(
-                                                                    functions.concateStrings(
-                                                                        dateTimeFormat(
-                                                                          "y-M-d ",
-                                                                          widget!
-                                                                              .dateSelected,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        ),
-                                                                        widget!.hourSelected),
-                                                                    ':00'),
-                                                              );
+                                                            }
 
-                                                              if ((_model
-                                                                      .apiResult9co23232Copy
-                                                                      ?.succeeded ??
-                                                                  true)) {
-                                                                logFirebaseEvent(
-                                                                    'Button_show_snack_bar');
-                                                                ScaffoldMessenger.of(
+                                                            safeSetState(() {});
+                                                          },
+                                                          text:
+                                                              'Excluir todos os clientes ',
+                                                          icon: Icon(
+                                                            Icons.delete_sharp,
+                                                            size: 15.0,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
                                                                         context)
-                                                                    .showSnackBar(
-                                                                  SnackBar(
-                                                                    content:
-                                                                        Text(
-                                                                      'Tudo certo! Removemos estas informações.',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                      ),
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
                                                                     ),
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            4000),
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                  ),
-                                                                );
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                        ),
+                                                        if ((getJsonField(
+                                                                  widget!
+                                                                      .scheduleSelected,
+                                                                  r'''$.schedule.service.max_clients''',
+                                                                ) !=
+                                                                null) &&
+                                                            ((int.parse((getJsonField(
+                                                                                  widget!.scheduleSelected,
+                                                                                  r'''$.schedule.service.max_clients''',
+                                                                                ) ==
+                                                                                null
+                                                                            ? '0'
+                                                                            : getJsonField(
+                                                                                widget!.scheduleSelected,
+                                                                                r'''$.schedule.service.max_clients''',
+                                                                              ).toString())) -
+                                                                        int.parse(functions
+                                                                            .lengthElements(getJsonField(
+                                                                              widget!.scheduleSelected,
+                                                                              r'''$.schedule.professional_client[?(@.pivot.confirmation != 'canceled')]''',
+                                                                              true,
+                                                                            ))
+                                                                            .toString()))
+                                                                    .toString() !=
+                                                                '0'))
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        1.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                FFButtonWidget(
+                                                              onPressed:
+                                                                  () async {
+                                                                logFirebaseEvent(
+                                                                    'SCHEDULE02_PAGE_ADICIONAR_BTN_ON_TAP');
                                                                 logFirebaseEvent(
                                                                     'Button_navigate_to');
 
-                                                                context.pushNamed(
-                                                                    'Schedule01');
-                                                              } else {
-                                                                logFirebaseEvent(
-                                                                    'Button_show_snack_bar');
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
-                                                                  SnackBar(
-                                                                    content:
-                                                                        Text(
-                                                                      'Não deu certo! Tente novamente ou entre em contato conosco por favor.',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                      ),
-                                                                    ),
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            4000),
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                  ),
-                                                                );
-                                                              }
-                                                            }
-                                                          }
-
-                                                          safeSetState(() {});
-                                                        },
-                                                        text:
-                                                            'Excluir todos os clientes ',
-                                                        icon: Icon(
-                                                          Icons.delete_sharp,
-                                                          size: 15.0,
-                                                        ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          height: 40.0,
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      0.0,
-                                                                      16.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                  ),
-                                                          elevation: 0.0,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                if ((getJsonField(
-                                                          widget!
-                                                              .scheduleSelected,
-                                                          r'''$.schedule.service.max_clients''',
-                                                        ) !=
-                                                        null) &&
-                                                    ((int.parse((getJsonField(
-                                                                          widget!
-                                                                              .scheduleSelected,
-                                                                          r'''$.schedule.service.max_clients''',
-                                                                        ) ==
-                                                                        null
-                                                                    ? '0'
-                                                                    : getJsonField(
-                                                                        widget!
-                                                                            .scheduleSelected,
-                                                                        r'''$.schedule.service.max_clients''',
-                                                                      ).toString())) -
-                                                                int.parse(functions
-                                                                    .lengthElements(getJsonField(
-                                                                      widget!
-                                                                          .scheduleSelected,
-                                                                      r'''$.schedule.professional_client[?(@.pivot.confirmation != 'canceled')]''',
+                                                                context
+                                                                    .pushNamed(
+                                                                  'Schedule03',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'existAppointment':
+                                                                        serializeParam(
                                                                       true,
-                                                                    ))
-                                                                    .toString()))
-                                                            .toString() !=
-                                                        '0'))
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 1.0,
-                                                                0.0, 0.0),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () async {
-                                                        logFirebaseEvent(
-                                                            'SCHEDULE02_PAGE_ADICIONAR_BTN_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Button_navigate_to');
-
-                                                        context.pushNamed(
-                                                          'Schedule03',
-                                                          queryParameters: {
-                                                            'existAppointment':
-                                                                serializeParam(
-                                                              true,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'scheduleCabecalho':
-                                                                serializeParam(
-                                                              widget!
-                                                                  .scheduleJson,
-                                                              ParamType.JSON,
-                                                            ),
-                                                            'dateSelected':
-                                                                serializeParam(
-                                                              widget!
-                                                                  .dateSelected,
-                                                              ParamType
-                                                                  .DateTime,
-                                                            ),
-                                                            'hourSelected':
-                                                                serializeParam(
-                                                              widget!
-                                                                  .hourSelected,
-                                                              ParamType.String,
-                                                            ),
-                                                            'isAddNewClient':
-                                                                serializeParam(
-                                                              true,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'situacao':
-                                                                serializeParam(
-                                                              'confirmed',
-                                                              ParamType.String,
-                                                            ),
-                                                            'idAppointmentSelected':
-                                                                serializeParam(
-                                                              getJsonField(
-                                                                widget!
-                                                                    .scheduleJson,
-                                                                r'''$.id''',
+                                                                      ParamType
+                                                                          .bool,
+                                                                    ),
+                                                                    'scheduleCabecalho':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .scheduleJson,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'dateSelected':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .dateSelected,
+                                                                      ParamType
+                                                                          .DateTime,
+                                                                    ),
+                                                                    'hourSelected':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .hourSelected,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'isAddNewClient':
+                                                                        serializeParam(
+                                                                      true,
+                                                                      ParamType
+                                                                          .bool,
+                                                                    ),
+                                                                    'situacao':
+                                                                        serializeParam(
+                                                                      'confirmed',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'idAppointmentSelected':
+                                                                        serializeParam(
+                                                                      getJsonField(
+                                                                        widget!
+                                                                            .scheduleJson,
+                                                                        r'''$.id''',
+                                                                      ),
+                                                                      ParamType
+                                                                          .int,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              },
+                                                              text: 'Adicionar',
+                                                              icon: Icon(
+                                                                Icons.add,
+                                                                size: 15.0,
                                                               ),
-                                                              ParamType.int,
+                                                              options:
+                                                                  FFButtonOptions(
+                                                                height: 40.0,
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
+                                                                iconPadding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
                                                             ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      text: 'Adicionar',
-                                                      icon: Icon(
-                                                        Icons.add,
-                                                        size: 15.0,
-                                                      ),
-                                                      options: FFButtonOptions(
-                                                        height: 40.0,
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                        elevation: 0.0,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
+                                                          ),
+                                                      ],
                                                     ),
                                                   ),
+                                                ),
                                               ],
                                             ),
                                           ),
