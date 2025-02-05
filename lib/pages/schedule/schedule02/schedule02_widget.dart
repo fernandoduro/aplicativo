@@ -849,6 +849,9 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
                                                       children: [
                                                         FFButtonWidget(
                                                           onPressed: () async {
