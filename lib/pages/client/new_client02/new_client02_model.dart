@@ -65,6 +65,8 @@ class NewClient02Model extends FlutterFlowModel<NewClient02Widget> {
   ApiCallResponse? apiResult0sd44;
   // Stores action output result for [Backend Call - API (editClientPackages)] action in Button widget.
   ApiCallResponse? apiResult0sd441;
+  // Stores action output result for [Backend Call - API (getClientByID)] action in Button widget.
+  ApiCallResponse? apiResultEditClientPageEdit2;
   // Model for FooterWhite component.
   late FooterWhiteModel footerWhiteModel;
 

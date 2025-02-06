@@ -1288,6 +1288,18 @@ class _NewClient02WidgetState extends State<NewClient02Widget> {
                                                                                 true)) {
                                                                               logFirebaseEvent('Button_clear_query_cache');
                                                                               FFAppState().clearClientsCacheCache();
+                                                                              logFirebaseEvent('Button_backend_call');
+                                                                              _model.apiResultEditClientPageEdit2 = await APIOficialGroup.getClientByIDCall.call(
+                                                                                id: widget!.idClient?.toString(),
+                                                                                authToken: currentAuthenticationToken,
+                                                                              );
+
+                                                                              logFirebaseEvent('Button_update_app_state');
+                                                                              FFAppState().editUserSelected = getJsonField(
+                                                                                (_model.apiResultEditClientPageEdit2?.jsonBody ?? ''),
+                                                                                r'''$.data''',
+                                                                              );
+                                                                              safeSetState(() {});
                                                                               logFirebaseEvent('Button_navigate_to');
 
                                                                               context.pushNamed(

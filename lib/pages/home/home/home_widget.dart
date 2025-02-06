@@ -47,6 +47,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
       logFirebaseEvent('HOME_PAGE_Home_ON_INIT_STATE');
       logFirebaseEvent('Home_custom_action');
       await actions.lockOrientation();
+      logFirebaseEvent('Home_update_app_state');
+      FFAppState().loadingAgenda = true;
+      safeSetState(() {});
       logFirebaseEvent('Home_custom_action');
       await actions.oneSignalRegister();
       logFirebaseEvent('Home_update_app_state');

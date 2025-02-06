@@ -56,6 +56,12 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
         authToken: currentAuthenticationToken,
       );
 
+      logFirebaseEvent('NewClient04_update_app_state');
+      FFAppState().editUserSelected = getJsonField(
+        (_model.apiResultEditClientPage3?.jsonBody ?? ''),
+        r'''$.data''',
+      );
+      safeSetState(() {});
       logFirebaseEvent('NewClient04_update_page_state');
       _model.dataClient = getJsonField(
         (_model.apiResultEditClientPage3?.jsonBody ?? ''),

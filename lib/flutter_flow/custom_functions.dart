@@ -679,3 +679,20 @@ String? formatStringToCPF(String? cpf) {
 
   return maskedCpf;
 }
+
+dynamic removeInactiveUsers(List<dynamic>? jsonData) {
+  if (jsonData == null || jsonData.isEmpty)
+    return []; // Verifica se está nulo ou vazio
+
+  List<Map<String, dynamic>> filteredList = [];
+
+  for (var item in jsonData) {
+    if (item is Map<String, dynamic>) {
+      if (item["status"] != "inactive") {
+        filteredList.add(item);
+      }
+    }
+  }
+
+  return filteredList;
+}

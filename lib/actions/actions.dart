@@ -238,6 +238,9 @@ Future agenda(BuildContext context) async {
 
   logFirebaseEvent('agenda_custom_action');
   await actions.lockOrientation();
+  logFirebaseEvent('agenda_update_app_state');
+  FFAppState().loadingAgenda = true;
+  FFAppState().loading = true;
   logFirebaseEvent('agenda_action_block');
   subscriptionResult = await action_blocks.checkSubscription(
     context,
@@ -260,6 +263,9 @@ Future agenda(BuildContext context) async {
       );
     }
   }
+  logFirebaseEvent('agenda_update_app_state');
+  FFAppState().loadingAgenda = false;
+  FFAppState().loading = false;
 }
 
 Future assinatura(BuildContext context) async {

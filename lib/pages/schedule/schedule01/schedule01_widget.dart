@@ -44,11 +44,12 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SCHEDULE01_PAGE_Schedule01_ON_INIT_STATE');
       logFirebaseEvent('Schedule01_update_app_state');
-      FFAppState().activePage =
-          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
+      FFAppState().loading = true;
+      FFAppState().loadingAgenda = true;
       safeSetState(() {});
       logFirebaseEvent('Schedule01_update_app_state');
-      FFAppState().loading = false;
+      FFAppState().activePage =
+          'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
       logFirebaseEvent('Schedule01_update_page_state');
       _model.dateSelected = widget!.dateParametro != null
@@ -87,8 +88,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
         safeSetState(() {});
       }
 
-      logFirebaseEvent('Schedule01_update_page_state');
-      _model.isLoading = true;
+      logFirebaseEvent('Schedule01_update_app_state');
+      FFAppState().loading = false;
+      FFAppState().loadingAgenda = false;
       safeSetState(() {});
     });
 
@@ -191,6 +193,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                           'SCHEDULE01_Calendar_jn9quwe6_ON_DATE_SEL');
                                                       logFirebaseEvent(
                                                           'Calendar_update_app_state');
+                                                      FFAppState()
+                                                          .loadingAgenda = true;
                                                       FFAppState().loading =
                                                           true;
                                                       safeSetState(() {});
@@ -251,6 +255,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
 
                                                       logFirebaseEvent(
                                                           'Calendar_update_app_state');
+                                                      FFAppState()
+                                                              .loadingAgenda =
+                                                          false;
                                                       FFAppState().loading =
                                                           false;
                                                       safeSetState(() {});
@@ -352,6 +359,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                           'SCHEDULE01_calendarReduce_ON_DATE_SELECT');
                                                       logFirebaseEvent(
                                                           'calendarReduce_update_app_state');
+                                                      FFAppState()
+                                                          .loadingAgenda = true;
                                                       FFAppState().loading =
                                                           true;
                                                       safeSetState(() {});
@@ -412,6 +421,9 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
 
                                                       logFirebaseEvent(
                                                           'calendarReduce_update_app_state');
+                                                      FFAppState()
+                                                              .loadingAgenda =
+                                                          false;
                                                       FFAppState().loading =
                                                           false;
                                                       safeSetState(() {});
@@ -548,8 +560,32 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                               ),
                                           ],
                                         ),
+                                        if (FFAppState().loadingAgenda == true)
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 36.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.asset(
+                                                    'assets/images/circular_progress_indicator_small.gif',
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         if ((_model.existHours == false) &&
-                                            _model.isLoading)
+                                            !FFAppState().loading)
                                           Padding(
                                             padding: EdgeInsets.all(16.0),
                                             child: Column(
@@ -665,7 +701,8 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                               ],
                                             ),
                                           ),
-                                        if (_model.existHours)
+                                        if ((_model.existHours == true) &&
+                                            !FFAppState().loading)
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1438,43 +1475,6 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                   }),
                                                                 );
                                                               },
-                                                            ),
-                                                          if (FFAppState()
-                                                                  .loading ==
-                                                              true)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          36.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                    child: Image
-                                                                        .asset(
-                                                                      'assets/images/circular_progress_indicator_small.gif',
-                                                                      width:
-                                                                          50.0,
-                                                                      height:
-                                                                          50.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
                                                             ),
                                                         ],
                                                       ),

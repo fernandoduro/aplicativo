@@ -899,11 +899,15 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                     SnackBar(
                                                                       content:
                                                                           Text(
-                                                                        'Erro ao adicionar um novo cliente. Revise as informações e tente novamente.',
+                                                                        getJsonField(
+                                                                          (_model.apiResultEditClients?.jsonBody ??
+                                                                              ''),
+                                                                          r'''$.message''',
+                                                                        ).toString(),
                                                                         style:
                                                                             TextStyle(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
                                                                         ),
                                                                       ),
                                                                       duration: Duration(
@@ -911,7 +915,7 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                               4000),
                                                                       backgroundColor:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .secondary,
+                                                                              .error,
                                                                     ),
                                                                   );
                                                                 }
@@ -1019,6 +1023,10 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                     }
                                                                   } else {
                                                                     logFirebaseEvent(
+                                                                        'Button_clear_query_cache');
+                                                                    FFAppState()
+                                                                        .clearClientsCacheCache();
+                                                                    logFirebaseEvent(
                                                                         'Button_navigate_to');
 
                                                                     context
@@ -1048,11 +1056,15 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                     SnackBar(
                                                                       content:
                                                                           Text(
-                                                                        'Erro ao adicionar um novo cliente. Revise as informações e tente novamente.',
+                                                                        getJsonField(
+                                                                          (_model.apiResultuit?.jsonBody ??
+                                                                              ''),
+                                                                          r'''$.message''',
+                                                                        ).toString(),
                                                                         style:
                                                                             TextStyle(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
                                                                         ),
                                                                       ),
                                                                       duration: Duration(
@@ -1060,7 +1072,7 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                               4000),
                                                                       backgroundColor:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .secondary,
+                                                                              .error,
                                                                     ),
                                                                   );
                                                                 }

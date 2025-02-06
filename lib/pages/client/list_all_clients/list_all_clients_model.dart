@@ -34,6 +34,8 @@ class ListAllClientsModel extends FlutterFlowModel<ListAllClientsWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (DELETE Client)] action in Button widget.
   ApiCallResponse? apiResultc8y;
+  // Stores action output result for [Backend Call - API (DELETE Client)] action in Button widget.
+  ApiCallResponse? apiResultc8yCopy;
   // Model for Footer component.
   late FooterModel footerModel;
 

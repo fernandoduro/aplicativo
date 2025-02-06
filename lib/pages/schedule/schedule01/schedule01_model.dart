@@ -27,8 +27,6 @@ class Schedule01Model extends FlutterFlowModel<Schedule01Widget> {
 
   dynamic listSchedule;
 
-  bool isLoading = false;
-
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (ListSchedule)] action in Schedule01 widget.

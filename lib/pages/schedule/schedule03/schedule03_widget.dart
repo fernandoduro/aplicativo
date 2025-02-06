@@ -67,6 +67,9 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
       FFAppState().activePage =
           'blubem://blubem.com${GoRouterState.of(context).uri.toString()}';
       safeSetState(() {});
+      logFirebaseEvent('Schedule03_update_page_state');
+      _model.messageClientEmpty = 'Selecione uma opção';
+      safeSetState(() {});
       if (getJsonField(
             widget!.scheduleCabecalho,
             r'''$.professional_client[*].client_id''',
@@ -97,8 +100,20 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
             }
           }();
         });
-        logFirebaseEvent('Schedule03_wait__delay');
-        await Future.delayed(const Duration(milliseconds: 300));
+        logFirebaseEvent('Schedule03_update_page_state');
+        _model.idsClientsSchedule = getJsonField(
+          widget!.scheduleCabecalho,
+          r'''$.professional_client[*].pivot.professional_client_id''',
+          true,
+        )!
+            .toList()
+            .cast<int>();
+        safeSetState(() {});
+        logFirebaseEvent('Schedule03_backend_call');
+        _model.apiResultox6 = await APIOficialGroup.listAllClientsCall.call(
+          authToken: currentAuthenticationToken,
+        );
+
         logFirebaseEvent('Schedule03_set_form_field');
         safeSetState(() {
           _model.prazoRecorrenteValueController?.value = () {
@@ -138,20 +153,6 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
             }
           }();
         });
-        logFirebaseEvent('Schedule03_update_page_state');
-        _model.idsClientsSchedule = getJsonField(
-          widget!.scheduleCabecalho,
-          r'''$.professional_client[*].pivot.professional_client_id''',
-          true,
-        )!
-            .toList()
-            .cast<int>();
-        safeSetState(() {});
-        logFirebaseEvent('Schedule03_backend_call');
-        _model.apiResultox6 = await APIOficialGroup.listAllClientsCall.call(
-          authToken: currentAuthenticationToken,
-        );
-
         if ((widget!.isAddNewClient == true) && widget!.existAppointment) {
           logFirebaseEvent('Schedule03_custom_action');
           _model.resultFilterAction = await actions.filterJsonNotINAction(
@@ -167,16 +168,30 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
             r'''$''',
           );
           safeSetState(() {});
+          logFirebaseEvent('Schedule03_update_page_state');
+          _model.listClients = <String, dynamic>{
+            'data': functions.removeInactiveUsers(getJsonField(
+              _model.resultFilterAction,
+              r'''$.data''',
+              true,
+            )),
+          };
+          safeSetState(() {});
         } else {
           logFirebaseEvent('Schedule03_update_page_state');
           _model.listClients = <String, dynamic>{
-            'data': getJsonField(
+            'data': functions.removeInactiveUsers(getJsonField(
               (_model.apiResultox6?.jsonBody ?? ''),
               r'''$.data''',
-            ),
+              true,
+            )),
           };
           safeSetState(() {});
         }
+
+        logFirebaseEvent('Schedule03_update_page_state');
+        _model.messageClientEmpty = 'Clique no + para cadastrar';
+        safeSetState(() {});
       } else {
         logFirebaseEvent('Schedule03_backend_call');
         _model.apiResultox6b = await APIOficialGroup.listAllClientsCall.call(
@@ -186,12 +201,64 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
         if ((_model.apiResultox6b?.succeeded ?? true)) {
           logFirebaseEvent('Schedule03_update_page_state');
           _model.listClients = <String, dynamic>{
-            'data': getJsonField(
+            'data': functions.removeInactiveUsers(getJsonField(
               (_model.apiResultox6b?.jsonBody ?? ''),
               r'''$.data''',
-            ),
+              true,
+            )),
           };
           safeSetState(() {});
+        }
+        logFirebaseEvent('Schedule03_update_page_state');
+        _model.messageClientEmpty = 'Clique no + para cadastrar';
+        safeSetState(() {});
+      }
+
+      if (() {
+            if (widget!.idClientSelected != null) {
+              return widget!.idClientSelected!;
+            } else if (!widget!.isAddNewClient!) {
+              return getJsonField(
+                widget!.scheduleCabecalho,
+                r'''$.professional_client[*].id''',
+              );
+            } else {
+              return null!;
+            }
+          }() >
+          0) {
+        logFirebaseEvent('Schedule03_backend_call');
+        _model.getClientSelected2 =
+            await APIOficialGroup.getClientByIDCall.call(
+          authToken: currentAuthenticationToken,
+          id: () {
+            if (widget!.idClientSelected != null) {
+              return widget!.idClientSelected;
+            } else if (!widget!.isAddNewClient!) {
+              return getJsonField(
+                widget!.scheduleCabecalho,
+                r'''$.professional_client[*].id''',
+              );
+            } else {
+              return null;
+            }
+          }()
+              ?.toString(),
+        );
+
+        if ((_model.getClientSelected2?.succeeded ?? true) &&
+            (getJsonField(
+                  (_model.getClientSelected2?.jsonBody ?? ''),
+                  r'''$.data.professional_clients[0].packages[1]''',
+                ) ==
+                null)) {
+          logFirebaseEvent('Schedule03_set_form_field');
+          safeSetState(() {
+            _model.servicosValueController?.value = getJsonField(
+              (_model.getClientSelected2?.jsonBody ?? ''),
+              r'''$.data.professional_clients[0].packages[0].services[0].id''',
+            );
+          });
         }
       }
     });
@@ -921,7 +988,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                                 fontFamily: 'Manrope',
                                                                                                 letterSpacing: 0.0,
                                                                                               ),
-                                                                                          hintText: 'Clique no + para cadastrar',
+                                                                                          hintText: _model.messageClientEmpty,
                                                                                           icon: Icon(
                                                                                             Icons.keyboard_arrow_down_rounded,
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,

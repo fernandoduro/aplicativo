@@ -49,6 +49,8 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
           int index, Function(int) updateFn) =>
       listProfessionalClients[index] = updateFn(listProfessionalClients[index]);
 
+  String messageClientEmpty = 'Selecione uma opção';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -60,6 +62,8 @@ class Schedule03Model extends FlutterFlowModel<Schedule03Widget> {
   dynamic? resultFilterAction;
   // Stores action output result for [Backend Call - API (ListAllClients)] action in Schedule03 widget.
   ApiCallResponse? apiResultox6b;
+  // Stores action output result for [Backend Call - API (getClientByID)] action in Schedule03 widget.
+  ApiCallResponse? getClientSelected2;
   // Model for HeaderHelp component.
   late HeaderHelpModel headerHelpModel;
   // State field(s) for data widget.

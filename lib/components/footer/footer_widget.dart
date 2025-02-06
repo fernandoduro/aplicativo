@@ -333,7 +333,7 @@ class _FooterWidgetState extends State<FooterWidget>
               onTap: () async {
                 logFirebaseEvent('FOOTER_COMP_Container_6f8yvvuk_ON_TAP');
                 logFirebaseEvent('Container_action_block');
-                await action_blocks.resumoSemanal(context);
+                await action_blocks.meusClientes(context);
               },
               child: Container(
                 width: 60.0,
@@ -357,7 +357,7 @@ class _FooterWidgetState extends State<FooterWidget>
                           child: Padding(
                             padding: EdgeInsets.all(2.0),
                             child: Icon(
-                              Icons.app_shortcut_outlined,
+                              Icons.people_outline,
                               color: FlutterFlowTheme.of(context).primary,
                               size: 26.0,
                             ),
@@ -371,7 +371,7 @@ class _FooterWidgetState extends State<FooterWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                         child: Text(
-                          'Resumo',
+                          'Clientes',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Open Sans',

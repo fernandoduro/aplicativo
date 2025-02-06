@@ -376,6 +376,12 @@ class FFAppState extends ChangeNotifier {
     _editUserSelected = value;
   }
 
+  bool _loadingAgenda = true;
+  bool get loadingAgenda => _loadingAgenda;
+  set loadingAgenda(bool value) {
+    _loadingAgenda = value;
+  }
+
   final _serviceCacheGlobalManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> serviceCacheGlobal({
     String? uniqueQueryKey,
