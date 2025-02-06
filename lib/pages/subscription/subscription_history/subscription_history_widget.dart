@@ -160,96 +160,182 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Expanded(
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          1.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                          if (functions
+                                                                  .convertJsonToString(
+                                                                      getJsonField(
+                                                                historicoItem,
+                                                                r'''$.payment_status''',
+                                                              )) !=
+                                                              'confirmed_changeplan')
+                                                            Expanded(
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            16.0,
                                                                             0.0,
-                                                                            16.0,
-                                                                            8.0),
-                                                                    child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          1.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(16.0),
-                                                                      ),
+                                                                            1.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          8.0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            16.0,
-                                                                            0.0,
-                                                                            16.0),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            1.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(16.0),
+                                                                        ),
                                                                         child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  RichText(
-                                                                                    textScaler: MediaQuery.of(context).textScaler,
-                                                                                    text: TextSpan(
-                                                                                      children: [
-                                                                                        TextSpan(
-                                                                                          text: valueOrDefault<String>(
-                                                                                            functions.formatDateHour(getJsonField(
-                                                                                              historicoItem,
-                                                                                              r'''$.created_at''',
-                                                                                            ).toString()),
-                                                                                            ' Data',
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              16.0,
+                                                                              0.0,
+                                                                              16.0),
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    RichText(
+                                                                                      textScaler: MediaQuery.of(context).textScaler,
+                                                                                      text: TextSpan(
+                                                                                        children: [
+                                                                                          TextSpan(
+                                                                                            text: valueOrDefault<String>(
+                                                                                              functions.formatDateHour(getJsonField(
+                                                                                                historicoItem,
+                                                                                                r'''$.created_at''',
+                                                                                              ).toString()),
+                                                                                              ' Data',
+                                                                                            ),
+                                                                                            style: TextStyle(),
+                                                                                          )
+                                                                                        ],
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    RichText(
+                                                                                      textScaler: MediaQuery.of(context).textScaler,
+                                                                                      text: TextSpan(
+                                                                                        children: [
+                                                                                          TextSpan(
+                                                                                            text: 'R\$ ',
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.bold,
+                                                                                                ),
                                                                                           ),
-                                                                                          style: TextStyle(),
-                                                                                        )
-                                                                                      ],
+                                                                                          TextSpan(
+                                                                                            text: functions.replaceAll(
+                                                                                                getJsonField(
+                                                                                                  historicoItem,
+                                                                                                  r'''$.plan_value''',
+                                                                                                ).toString(),
+                                                                                                '.',
+                                                                                                ',')!,
+                                                                                            style: GoogleFonts.getFont(
+                                                                                              'Poppins',
+                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                              fontSize: 14.0,
+                                                                                            ),
+                                                                                          )
+                                                                                        ],
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                              fontSize: 14.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                    Text(
+                                                                                      ' - ',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
-                                                                                            color: FlutterFlowTheme.of(context).secondary,
+                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                          ),
+                                                                                    ),
+                                                                                    Text(
+                                                                                      () {
+                                                                                        if (functions.convertString(getJsonField(
+                                                                                              historicoItem,
+                                                                                              r'''$.method''',
+                                                                                            ).toString()) ==
+                                                                                            'CREDIT_CARD') {
+                                                                                          return 'Cartão de crédito';
+                                                                                        } else if (functions.convertString(getJsonField(
+                                                                                              historicoItem,
+                                                                                              r'''$.method''',
+                                                                                            ).toString()) ==
+                                                                                            'PIX') {
+                                                                                          return 'PIX';
+                                                                                        } else {
+                                                                                          return ' ';
+                                                                                        }
+                                                                                      }(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.bold,
                                                                                           ),
                                                                                     ),
-                                                                                  ),
-                                                                                ],
+                                                                                  ],
+                                                                                ),
                                                                               ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  RichText(
-                                                                                    textScaler: MediaQuery.of(context).textScaler,
-                                                                                    text: TextSpan(
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  children: [
+                                                                                    Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.start,
                                                                                       children: [
-                                                                                        TextSpan(
-                                                                                          text: 'R\$ ',
+                                                                                        Text(
+                                                                                          'Status: ',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Poppins',
                                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
@@ -257,113 +343,32 @@ class _SubscriptionHistoryWidgetState extends State<SubscriptionHistoryWidget> {
                                                                                                 fontWeight: FontWeight.bold,
                                                                                               ),
                                                                                         ),
-                                                                                        TextSpan(
-                                                                                          text: functions.replaceAll(
-                                                                                              getJsonField(
-                                                                                                historicoItem,
-                                                                                                r'''$.plan_value''',
-                                                                                              ).toString(),
-                                                                                              '.',
-                                                                                              ',')!,
-                                                                                          style: GoogleFonts.getFont(
-                                                                                            'Poppins',
-                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                            fontWeight: FontWeight.bold,
-                                                                                            fontSize: 14.0,
-                                                                                          ),
-                                                                                        )
+                                                                                        Text(
+                                                                                          getJsonField(
+                                                                                            historicoItem,
+                                                                                            r'''$.payment_info''',
+                                                                                          ).toString(),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.bold,
+                                                                                              ),
+                                                                                        ),
                                                                                       ],
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Poppins',
-                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                            fontSize: 14.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.bold,
-                                                                                          ),
                                                                                     ),
-                                                                                  ),
-                                                                                  Text(
-                                                                                    ' - ',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.normal,
-                                                                                        ),
-                                                                                  ),
-                                                                                  Text(
-                                                                                    () {
-                                                                                      if (functions.convertString(getJsonField(
-                                                                                            historicoItem,
-                                                                                            r'''$.method''',
-                                                                                          ).toString()) ==
-                                                                                          'CREDIT_CARD') {
-                                                                                        return 'Cartão de crédito';
-                                                                                      } else if (functions.convertString(getJsonField(
-                                                                                            historicoItem,
-                                                                                            r'''$.method''',
-                                                                                          ).toString()) ==
-                                                                                          'PIX') {
-                                                                                        return 'PIX';
-                                                                                      } else {
-                                                                                        return ' ';
-                                                                                      }
-                                                                                    }(),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                        ),
-                                                                                  ),
-                                                                                ],
+                                                                                  ],
+                                                                                ),
                                                                               ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                children: [
-                                                                                  Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                    children: [
-                                                                                      Text(
-                                                                                        'Status: ',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.bold,
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        getJsonField(
-                                                                                          historicoItem,
-                                                                                          r'''$.payment_info''',
-                                                                                        ).toString(),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.bold,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                          ],
+                                                                            ],
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                ],
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
                                                         ],
                                                       );
                                                     },
