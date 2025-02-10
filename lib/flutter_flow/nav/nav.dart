@@ -663,6 +663,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ForceUpgrade',
           path: '/forceUpgrade',
           builder: (context, params) => ForceUpgradeWidget(),
+        ),
+        FFRoute(
+          name: 'FirstAccessLoyalty2',
+          path: '/firstAccessLoyalty2',
+          builder: (context, params) => FirstAccessLoyalty2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

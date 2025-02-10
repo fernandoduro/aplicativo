@@ -7,15 +7,16 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
-import 'first_access_loyalty_widget.dart' show FirstAccessLoyaltyWidget;
+import 'first_access_loyalty2_widget.dart' show FirstAccessLoyalty2Widget;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FirstAccessLoyaltyModel
-    extends FlutterFlowModel<FirstAccessLoyaltyWidget> {
+class FirstAccessLoyalty2Model
+    extends FlutterFlowModel<FirstAccessLoyalty2Widget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for HeaderBalao component.

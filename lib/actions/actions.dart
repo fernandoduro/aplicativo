@@ -422,26 +422,37 @@ Future fidelidade(BuildContext context) async {
 
         context.pushNamed('FirstAccessLoyalty');
       } else {
-        if (FFAppState().loyalt01 == true) {
+        if (FFAppState().firstLoyalt2 == true) {
           logFirebaseEvent('fidelidade_update_app_state');
           FFAppState().firstLoyault = false;
-          FFAppState().loyalt01 = false;
+          FFAppState().firstLoyalt2 = false;
           logFirebaseEvent('fidelidade_navigate_to');
 
-          context.pushNamed('Loyalty01');
+          context.pushNamed('FirstAccessLoyalty2');
         } else {
-          if (FFAppState().loyalt02 == true) {
+          if (FFAppState().loyalt01 == true) {
             logFirebaseEvent('fidelidade_update_app_state');
             FFAppState().firstLoyault = false;
             FFAppState().loyalt01 = false;
-            FFAppState().loyalt02 = false;
+            FFAppState().firstLoyalt2 = false;
             logFirebaseEvent('fidelidade_navigate_to');
 
-            context.pushNamed('Loyalty02');
+            context.pushNamed('Loyalty01');
           } else {
-            logFirebaseEvent('fidelidade_navigate_to');
+            if (FFAppState().loyalt02 == true) {
+              logFirebaseEvent('fidelidade_update_app_state');
+              FFAppState().firstLoyault = false;
+              FFAppState().loyalt01 = false;
+              FFAppState().loyalt02 = false;
+              FFAppState().firstLoyalt2 = false;
+              logFirebaseEvent('fidelidade_navigate_to');
 
-            context.pushNamed('LoyaltyHistory');
+              context.pushNamed('Loyalty02');
+            } else {
+              logFirebaseEvent('fidelidade_navigate_to');
+
+              context.pushNamed('LoyaltyHistory');
+            }
           }
         }
       }

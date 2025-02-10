@@ -81,6 +81,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _activePage = prefs.getString('ff_activePage') ?? _activePage;
     });
+    _safeInit(() {
+      _firstLoyalt2 = prefs.getBool('ff_firstLoyalt2') ?? _firstLoyalt2;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -380,6 +383,13 @@ class FFAppState extends ChangeNotifier {
   bool get loadingAgenda => _loadingAgenda;
   set loadingAgenda(bool value) {
     _loadingAgenda = value;
+  }
+
+  bool _firstLoyalt2 = true;
+  bool get firstLoyalt2 => _firstLoyalt2;
+  set firstLoyalt2(bool value) {
+    _firstLoyalt2 = value;
+    prefs.setBool('ff_firstLoyalt2', value);
   }
 
   final _serviceCacheGlobalManager = FutureRequestManager<ApiCallResponse>();

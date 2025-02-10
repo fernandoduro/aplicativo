@@ -133,3 +133,5 @@ export '/pages/services/first_package/first_package_widget.dart'
     show FirstPackageWidget;
 export '/pages/account/force_upgrade/force_upgrade_widget.dart'
     show ForceUpgradeWidget;
+export '/pages/loyalty/first_access_loyalty2/first_access_loyalty2_widget.dart'
+    show FirstAccessLoyalty2Widget;

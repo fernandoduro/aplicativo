@@ -995,6 +995,14 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     FFAppState().firstLoyault = true;
                                     FFAppState().loyalt01 = false;
                                     FFAppState().loyalt02 = false;
+                                    FFAppState().firstLoyalt2 = true;
+                                    FFAppState().firsSchedule = true;
+                                    FFAppState().firstAccess = true;
+                                    FFAppState().firstReminder = true;
+                                    FFAppState().firstRequest = true;
+                                    FFAppState().FirstInsights = true;
+                                    FFAppState().FirstService = true;
+                                    FFAppState().FirstPackage = true;
                                     safeSetState(() {});
                                     logFirebaseEvent('Button_auth');
                                     GoRouter.of(context).prepareAuthEvent();
