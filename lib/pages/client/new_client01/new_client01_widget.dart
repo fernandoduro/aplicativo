@@ -313,8 +313,7 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                 .nomeFocusNode,
                                                             autofocus: true,
                                                             autofillHints: [
-                                                              AutofillHints
-                                                                  .email
+                                                              AutofillHints.name
                                                             ],
                                                             textCapitalization:
                                                                 TextCapitalization
@@ -454,7 +453,7 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                             autofocus: true,
                                                             autofillHints: [
                                                               AutofillHints
-                                                                  .email
+                                                                  .telephoneNumber
                                                             ],
                                                             obscureText: false,
                                                             decoration:
@@ -607,10 +606,6 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                             focusNode: _model
                                                                 .cpfFocusNode,
                                                             autofocus: true,
-                                                            autofillHints: [
-                                                              AutofillHints
-                                                                  .email
-                                                            ],
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(

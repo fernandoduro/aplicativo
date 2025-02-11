@@ -1361,114 +1361,119 @@ class _Schedule01WidgetState extends State<Schedule01Widget> {
                                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                   children: List.generate(clientes.length, (clientesIndex) {
                                                                                                     final clientesItem = clientes[clientesIndex];
-                                                                                                    return Stack(
-                                                                                                      children: [
-                                                                                                        Row(
-                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                          children: [
-                                                                                                            if (functions.convertJsonToString(getJsonField(
-                                                                                                                  clientesItem,
-                                                                                                                  r'''$.pivot.confirmation''',
-                                                                                                                )) !=
-                                                                                                                'confirmed')
-                                                                                                              Flexible(
-                                                                                                                child: RichText(
-                                                                                                                  textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                  text: TextSpan(
-                                                                                                                    children: [
-                                                                                                                      TextSpan(
-                                                                                                                        text: getJsonField(
-                                                                                                                          clientesItem,
-                                                                                                                          r'''$.name''',
-                                                                                                                        ).toString(),
-                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                              fontFamily: 'Manrope',
-                                                                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                              fontSize: 12.0,
-                                                                                                                              letterSpacing: 0.0,
-                                                                                                                              fontWeight: FontWeight.bold,
-                                                                                                                            ),
-                                                                                                                      ),
-                                                                                                                      TextSpan(
-                                                                                                                        text: ' ( ',
-                                                                                                                        style: TextStyle(),
-                                                                                                                      ),
-                                                                                                                      TextSpan(
-                                                                                                                        text: () {
-                                                                                                                          if (functions.convertJsonToString(getJsonField(
-                                                                                                                                clientesItem,
-                                                                                                                                r'''$.pivot.confirmation''',
-                                                                                                                              )) ==
-                                                                                                                              'pending') {
-                                                                                                                            return 'Pendente';
-                                                                                                                          } else if (functions.convertJsonToString(getJsonField(
-                                                                                                                                clientesItem,
-                                                                                                                                r'''$.pivot.confirmation''',
-                                                                                                                              )) ==
-                                                                                                                              'confirmed') {
-                                                                                                                            return 'Confirmado';
-                                                                                                                          } else if (functions.convertJsonToString(getJsonField(
-                                                                                                                                clientesItem,
-                                                                                                                                r'''$.pivot.confirmation''',
-                                                                                                                              )) ==
-                                                                                                                              'absent') {
-                                                                                                                            return 'Ausente';
-                                                                                                                          } else {
-                                                                                                                            return 'Cancelado';
-                                                                                                                          }
-                                                                                                                        }(),
-                                                                                                                        style: TextStyle(),
-                                                                                                                      ),
-                                                                                                                      TextSpan(
-                                                                                                                        text: ' )',
-                                                                                                                        style: TextStyle(),
-                                                                                                                      )
-                                                                                                                    ],
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                          fontFamily: 'Manrope',
-                                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                          fontSize: 12.0,
-                                                                                                                          letterSpacing: 0.0,
-                                                                                                                          fontWeight: FontWeight.w900,
+                                                                                                    return Container(
+                                                                                                      width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                                      child: Stack(
+                                                                                                        children: [
+                                                                                                          Row(
+                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                            children: [
+                                                                                                              if (functions.convertJsonToString(getJsonField(
+                                                                                                                    clientesItem,
+                                                                                                                    r'''$.pivot.confirmation''',
+                                                                                                                  )) !=
+                                                                                                                  'confirmed')
+                                                                                                                Flexible(
+                                                                                                                  child: RichText(
+                                                                                                                    textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                    text: TextSpan(
+                                                                                                                      children: [
+                                                                                                                        TextSpan(
+                                                                                                                          text: getJsonField(
+                                                                                                                            clientesItem,
+                                                                                                                            r'''$.name''',
+                                                                                                                          ).toString(),
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Manrope',
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                fontSize: 12.0,
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                                fontWeight: FontWeight.bold,
+                                                                                                                              ),
                                                                                                                         ),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                            if (functions.convertJsonToString(getJsonField(
-                                                                                                                  clientesItem,
-                                                                                                                  r'''$.pivot.confirmation''',
-                                                                                                                )) ==
-                                                                                                                'confirmed')
-                                                                                                              RichText(
-                                                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                text: TextSpan(
-                                                                                                                  children: [
-                                                                                                                    TextSpan(
-                                                                                                                      text: getJsonField(
-                                                                                                                        clientesItem,
-                                                                                                                        r'''$.name''',
-                                                                                                                      ).toString(),
+                                                                                                                        TextSpan(
+                                                                                                                          text: ' ( ',
+                                                                                                                          style: TextStyle(),
+                                                                                                                        ),
+                                                                                                                        TextSpan(
+                                                                                                                          text: () {
+                                                                                                                            if (functions.convertJsonToString(getJsonField(
+                                                                                                                                  clientesItem,
+                                                                                                                                  r'''$.pivot.confirmation''',
+                                                                                                                                )) ==
+                                                                                                                                'pending') {
+                                                                                                                              return 'Pendente';
+                                                                                                                            } else if (functions.convertJsonToString(getJsonField(
+                                                                                                                                  clientesItem,
+                                                                                                                                  r'''$.pivot.confirmation''',
+                                                                                                                                )) ==
+                                                                                                                                'confirmed') {
+                                                                                                                              return 'Confirmado';
+                                                                                                                            } else if (functions.convertJsonToString(getJsonField(
+                                                                                                                                  clientesItem,
+                                                                                                                                  r'''$.pivot.confirmation''',
+                                                                                                                                )) ==
+                                                                                                                                'absent') {
+                                                                                                                              return 'Ausente';
+                                                                                                                            } else {
+                                                                                                                              return 'Cancelado';
+                                                                                                                            }
+                                                                                                                          }(),
+                                                                                                                          style: TextStyle(),
+                                                                                                                        ),
+                                                                                                                        TextSpan(
+                                                                                                                          text: ' )',
+                                                                                                                          style: TextStyle(),
+                                                                                                                        )
+                                                                                                                      ],
                                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                             fontFamily: 'Manrope',
                                                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                                                             fontSize: 12.0,
                                                                                                                             letterSpacing: 0.0,
-                                                                                                                            fontWeight: FontWeight.bold,
+                                                                                                                            fontWeight: FontWeight.w900,
                                                                                                                           ),
-                                                                                                                    )
-                                                                                                                  ],
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                        fontFamily: 'Manrope',
-                                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                        fontSize: 12.0,
-                                                                                                                        letterSpacing: 0.0,
-                                                                                                                        fontWeight: FontWeight.w900,
-                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                  ),
                                                                                                                 ),
-                                                                                                              ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      ],
+                                                                                                              if (functions.convertJsonToString(getJsonField(
+                                                                                                                    clientesItem,
+                                                                                                                    r'''$.pivot.confirmation''',
+                                                                                                                  )) ==
+                                                                                                                  'confirmed')
+                                                                                                                Flexible(
+                                                                                                                  child: RichText(
+                                                                                                                    textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                    text: TextSpan(
+                                                                                                                      children: [
+                                                                                                                        TextSpan(
+                                                                                                                          text: getJsonField(
+                                                                                                                            clientesItem,
+                                                                                                                            r'''$.name''',
+                                                                                                                          ).toString(),
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Manrope',
+                                                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                fontSize: 12.0,
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                                fontWeight: FontWeight.bold,
+                                                                                                                              ),
+                                                                                                                        )
+                                                                                                                      ],
+                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                            fontFamily: 'Manrope',
+                                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                            fontSize: 12.0,
+                                                                                                                            letterSpacing: 0.0,
+                                                                                                                            fontWeight: FontWeight.w900,
+                                                                                                                          ),
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                      ),
                                                                                                     );
                                                                                                   }),
                                                                                                 );

@@ -254,10 +254,6 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               focusNode: _model
                                                                   .nomeFocusNode,
                                                               autofocus: false,
-                                                              autofillHints: [
-                                                                AutofillHints
-                                                                    .email
-                                                              ],
                                                               textCapitalization:
                                                                   TextCapitalization
                                                                       .words,
@@ -370,10 +366,6 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                                               focusNode: _model
                                                                   .whatsappFocusNode,
                                                               autofocus: false,
-                                                              autofillHints: [
-                                                                AutofillHints
-                                                                    .email
-                                                              ],
                                                               obscureText:
                                                                   false,
                                                               decoration:

@@ -200,7 +200,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                             .nomeFocusNode,
                                                         autofocus: true,
                                                         autofillHints: [
-                                                          AutofillHints.email
+                                                          AutofillHints.name
                                                         ],
                                                         textCapitalization:
                                                             TextCapitalization
@@ -310,7 +310,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                           .whatsappFocusNode,
                                                       autofocus: true,
                                                       autofillHints: [
-                                                        AutofillHints.email
+                                                        AutofillHints
+                                                            .telephoneNumber
                                                       ],
                                                       obscureText: false,
                                                       decoration:

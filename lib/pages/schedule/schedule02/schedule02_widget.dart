@@ -943,6 +943,8 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                           .scheduleSelected,
                                                                       r'''$.schedule.scheduled_at''',
                                                                     ).toString(),
+                                                                    beyond:
+                                                                        true,
                                                                   );
 
                                                                   if ((_model
@@ -1026,6 +1028,8 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                             ),
                                                                             widget!.hourSelected),
                                                                         ':00'),
+                                                                    beyond:
+                                                                        false,
                                                                   );
 
                                                                   if ((_model
@@ -1111,6 +1115,7 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                           ),
                                                                           widget!.hourSelected),
                                                                       ':00'),
+                                                                  beyond: false,
                                                                 );
 
                                                                 if ((_model
@@ -1669,6 +1674,8 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                     ),
                                                                                     widget!.hourSelected),
                                                                                 ':00'),
+                                                                            beyond:
+                                                                                false,
                                                                           );
 
                                                                           if ((_model.apiResult9co?.succeeded ??
@@ -1780,21 +1787,24 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                     mainAxisSize: MainAxisSize.min,
                                                                                     children: [
                                                                                       Flexible(
-                                                                                        child: Stack(
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              getJsonField(
-                                                                                                scheduleItem,
-                                                                                                r'''$.name''',
-                                                                                              ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Manrope',
-                                                                                                    fontSize: 17.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w900,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ],
+                                                                                        child: Container(
+                                                                                          width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                          child: Stack(
+                                                                                            children: [
+                                                                                              Text(
+                                                                                                getJsonField(
+                                                                                                  scheduleItem,
+                                                                                                  r'''$.name''',
+                                                                                                ).toString(),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Manrope',
+                                                                                                      fontSize: 17.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w900,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
                                                                                         ),
                                                                                       ),
                                                                                     ],

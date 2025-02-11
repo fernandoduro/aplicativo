@@ -2679,6 +2679,7 @@ class DeleteAppoitmentCall {
     String? idAppointment = '',
     String? authToken = '',
     String? date = '',
+    bool? beyond,
     String? apiURL,
   }) async {
     apiURL ??= FFDevEnvironmentValues().apiURL;
@@ -2690,7 +2691,8 @@ class DeleteAppoitmentCall {
       // ignore: prefer_const_constructors - can be mutated by interceptors
       ApiCallOptions(
         callName: 'DeleteAppoitment',
-        apiUrl: '${baseUrl}/appointments/${idAppointment}?date=${date}',
+        apiUrl:
+            '${baseUrl}/appointments/${idAppointment}?date=${date}&beyond=${beyond}',
         callType: ApiCallType.DELETE,
         // ignore: prefer_const_literals_to_create_immutables - can be mutated by interceptors
         headers: {
