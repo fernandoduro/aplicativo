@@ -605,7 +605,7 @@ class _CreateSiteEtapas20WidgetState extends State<CreateSiteEtapas20Widget> {
                                                       .bottom >
                                                   0
                                               : _isKeyboardVisible)
-                                          ? 300.0
+                                          ? 400.0
                                           : 0.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)

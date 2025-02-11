@@ -1480,6 +1480,7 @@ class _Schedule03WidgetState extends State<Schedule03Widget> {
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                       maxLines: 4,
+                                                                                      maxLength: 300,
                                                                                       cursorColor: FlutterFlowTheme.of(context).primaryText,
                                                                                       validator: _model.descricaoTextControllerValidator.asValidator(context),
                                                                                     ),

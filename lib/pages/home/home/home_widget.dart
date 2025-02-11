@@ -2347,7 +2347,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 20.0, 0.0, 10.0),
                                 child: Text(
-                                  'Meus lembretes',
+                                  'Lembretes automáticos',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

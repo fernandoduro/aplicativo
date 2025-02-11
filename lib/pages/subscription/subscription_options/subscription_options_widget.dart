@@ -534,10 +534,12 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Gloria Hallelujah',
+                                                                          'Poppins',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      fontSize:
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -649,10 +651,12 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Gloria Hallelujah',
+                                                                          'Poppins',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      fontSize:
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -771,9 +775,11 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Gloria Hallelujah',
+                                                                            'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        fontSize:
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -919,9 +925,11 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Gloria Hallelujah',
+                                                                            'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        fontSize:
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1039,7 +1047,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Gloria Hallelujah',
+                                                                          'Poppins',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1146,7 +1154,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Gloria Hallelujah',
+                                                                        'Poppins',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,

@@ -205,38 +205,35 @@ class _NewClient05WidgetState extends State<NewClient05Widget> {
                                                                     MainAxisAlignment
                                                                         .spaceBetween,
                                                                 children: [
-                                                                  RichText(
-                                                                    textScaler:
-                                                                        MediaQuery.of(context)
-                                                                            .textScaler,
-                                                                    text:
-                                                                        TextSpan(
-                                                                      children: [
-                                                                        TextSpan(
-                                                                          text:
-                                                                              getJsonField(
-                                                                            contentTimelineClientResponse.jsonBody,
-                                                                            r'''$.data.client.name''',
-                                                                          ).toString(),
-                                                                          style:
-                                                                              TextStyle(),
-                                                                        )
-                                                                      ],
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Manrope',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                          ),
+                                                                  Flexible(
+                                                                    child:
+                                                                        RichText(
+                                                                      textScaler:
+                                                                          MediaQuery.of(context)
+                                                                              .textScaler,
+                                                                      text:
+                                                                          TextSpan(
+                                                                        children: [
+                                                                          TextSpan(
+                                                                            text:
+                                                                                getJsonField(
+                                                                              contentTimelineClientResponse.jsonBody,
+                                                                              r'''$.data.client.name''',
+                                                                            ).toString(),
+                                                                            style:
+                                                                                TextStyle(),
+                                                                          )
+                                                                        ],
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Manrope',
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   InkWell(

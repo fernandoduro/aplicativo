@@ -7,6 +7,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/request_manager.dart';
+
 import 'new_client01_widget.dart' show NewClient01Widget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,10 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class NewClient01Model extends FlutterFlowModel<NewClient01Widget> {
+  ///  Local state fields for this page.
+
+  int? idClientUpdateBackNavig;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -54,6 +60,23 @@ class NewClient01Model extends FlutterFlowModel<NewClient01Widget> {
   // Model for FooterWhite component.
   late FooterWhiteModel footerWhiteModel;
 
+  /// Query cache managers for this widget.
+
+  final _cacheCPFManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> cacheCPF({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _cacheCPFManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearCacheCPFCache() => _cacheCPFManager.clear();
+  void clearCacheCPFCacheKey(String? uniqueKey) =>
+      _cacheCPFManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     headerHelpModel = createModel(context, () => HeaderHelpModel());
@@ -74,5 +97,9 @@ class NewClient01Model extends FlutterFlowModel<NewClient01Widget> {
     cpfTextController?.dispose();
 
     footerWhiteModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearCacheCPFCache();
   }
 }

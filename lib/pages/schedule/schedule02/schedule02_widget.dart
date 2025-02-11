@@ -288,73 +288,26 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                               ),
                                                             ],
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                RichText(
-                                                                  textScaler: MediaQuery.of(
-                                                                          context)
-                                                                      .textScaler,
-                                                                  text:
-                                                                      TextSpan(
-                                                                    children: [
-                                                                      TextSpan(
-                                                                        text:
-                                                                            getJsonField(
-                                                                          widget!
-                                                                              .scheduleSelected,
-                                                                          r'''$.schedule.service.name''',
-                                                                        ).toString(),
-                                                                        style:
-                                                                            TextStyle(),
-                                                                      )
-                                                                    ],
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                if ((getJsonField(
-                                                                          widget!
-                                                                              .scheduleSelected,
-                                                                          r'''$.schedule.id''',
-                                                                        ) !=
-                                                                        null) &&
-                                                                    (functions
-                                                                            .convertStrintToInt(getJsonField(
-                                                                              widget!.scheduleSelected,
-                                                                              r'''$.schedule.service.is_singular_client''',
-                                                                            ).toString())
-                                                                            .toString() ==
-                                                                        '0'))
+                                                          Flexible(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
                                                                   RichText(
                                                                     textScaler:
                                                                         MediaQuery.of(context)
@@ -364,53 +317,12 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                       children: [
                                                                         TextSpan(
                                                                           text:
-                                                                              'Disponíveis: ',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Manrope',
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                fontSize: 12.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                        ),
-                                                                        TextSpan(
-                                                                          text: (int.parse(getJsonField(
-                                                                                    widget!.scheduleSelected,
-                                                                                    r'''$.schedule.service.max_clients''',
-                                                                                  ).toString()) -
-                                                                                  int.parse(functions
-                                                                                      .lengthElements(getJsonField(
-                                                                                        widget!.scheduleSelected,
-                                                                                        r'''$.schedule.professional_client[?(@.pivot.confirmation != 'canceled')]''',
-                                                                                        true,
-                                                                                      ))
-                                                                                      .toString()))
-                                                                              .toString(),
-                                                                          style:
-                                                                              TextStyle(),
-                                                                        ),
-                                                                        TextSpan(
-                                                                          text:
-                                                                              ' de ',
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                          ),
-                                                                        ),
-                                                                        TextSpan(
-                                                                          text:
                                                                               getJsonField(
                                                                             widget!.scheduleSelected,
-                                                                            r'''$.schedule.service.max_clients''',
+                                                                            r'''$.schedule.service.name''',
                                                                           ).toString(),
                                                                           style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                          ),
+                                                                              TextStyle(),
                                                                         )
                                                                       ],
                                                                       style: FlutterFlowTheme.of(
@@ -418,11 +330,11 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Manrope',
+                                                                                'Poppins',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
                                                                             fontSize:
-                                                                                12.0,
+                                                                                14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
@@ -430,7 +342,85 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                           ),
                                                                     ),
                                                                   ),
-                                                              ],
+                                                                  if ((getJsonField(
+                                                                            widget!.scheduleSelected,
+                                                                            r'''$.schedule.id''',
+                                                                          ) !=
+                                                                          null) &&
+                                                                      (functions
+                                                                              .convertStrintToInt(getJsonField(
+                                                                                widget!.scheduleSelected,
+                                                                                r'''$.schedule.service.is_singular_client''',
+                                                                              ).toString())
+                                                                              .toString() ==
+                                                                          '0'))
+                                                                    RichText(
+                                                                      textScaler:
+                                                                          MediaQuery.of(context)
+                                                                              .textScaler,
+                                                                      text:
+                                                                          TextSpan(
+                                                                        children: [
+                                                                          TextSpan(
+                                                                            text:
+                                                                                'Disponíveis: ',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Manrope',
+                                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                                  fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                ),
+                                                                          ),
+                                                                          TextSpan(
+                                                                            text: (int.parse(getJsonField(
+                                                                                      widget!.scheduleSelected,
+                                                                                      r'''$.schedule.service.max_clients''',
+                                                                                    ).toString()) -
+                                                                                    int.parse(functions
+                                                                                        .lengthElements(getJsonField(
+                                                                                          widget!.scheduleSelected,
+                                                                                          r'''$.schedule.professional_client[?(@.pivot.confirmation != 'canceled')]''',
+                                                                                          true,
+                                                                                        ))
+                                                                                        .toString()))
+                                                                                .toString(),
+                                                                            style:
+                                                                                TextStyle(),
+                                                                          ),
+                                                                          TextSpan(
+                                                                            text:
+                                                                                ' de ',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                            ),
+                                                                          ),
+                                                                          TextSpan(
+                                                                            text:
+                                                                                getJsonField(
+                                                                              widget!.scheduleSelected,
+                                                                              r'''$.schedule.service.max_clients''',
+                                                                            ).toString(),
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                            ),
+                                                                          )
+                                                                        ],
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Manrope',
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ],
@@ -1745,238 +1735,262 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                       MainAxisSize
                                                                           .max,
                                                                   children: [
-                                                                    Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Container(
-                                                                          width:
-                                                                              5.0,
-                                                                          height:
-                                                                              71.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                    Container(
+                                                                      width:
+                                                                          8.0,
                                                                       child:
+                                                                          Stack(
+                                                                        children: [
                                                                           Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              Container(
+                                                                                width: 5.0,
+                                                                                height: 71.0,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Flexible(
+                                                                      child:
+                                                                          Stack(
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                16.0,
                                                                                 0.0,
-                                                                                3.0,
                                                                                 0.0,
                                                                                 0.0),
                                                                             child:
-                                                                                Row(
+                                                                                Column(
                                                                               mainAxisSize: MainAxisSize.max,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
-                                                                                Text(
-                                                                                  getJsonField(
-                                                                                    scheduleItem,
-                                                                                    r'''$.name''',
-                                                                                  ).toString(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        fontSize: 17.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w900,
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                    children: [
+                                                                                      Flexible(
+                                                                                        child: Stack(
+                                                                                          children: [
+                                                                                            Text(
+                                                                                              getJsonField(
+                                                                                                scheduleItem,
+                                                                                                r'''$.name''',
+                                                                                              ).toString(),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Manrope',
+                                                                                                    fontSize: 17.0,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.w900,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
                                                                                       ),
+                                                                                    ],
+                                                                                  ),
                                                                                 ),
+                                                                                if (functions.convertJsonToString(getJsonField(
+                                                                                      scheduleItem,
+                                                                                      r'''$.pivot.confirmation''',
+                                                                                    )) !=
+                                                                                    'confirmed')
+                                                                                  Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Text(
+                                                                                        'Situação: ',
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Manrope',
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                            ),
+                                                                                      ),
+                                                                                      Text(
+                                                                                        () {
+                                                                                          if (functions.convertJsonToString(getJsonField(
+                                                                                                scheduleItem,
+                                                                                                r'''$.pivot.confirmation''',
+                                                                                              )) ==
+                                                                                              'pending') {
+                                                                                            return 'Pendente';
+                                                                                          } else if (functions.convertJsonToString(getJsonField(
+                                                                                                scheduleItem,
+                                                                                                r'''$.pivot.confirmation''',
+                                                                                              )) ==
+                                                                                              'absent') {
+                                                                                            return 'Ausente';
+                                                                                          } else if (functions.convertJsonToString(getJsonField(
+                                                                                                scheduleItem,
+                                                                                                r'''$.pivot.confirmation''',
+                                                                                              )) ==
+                                                                                              'canceled') {
+                                                                                            return 'Cancelado';
+                                                                                          } else {
+                                                                                            return '';
+                                                                                          }
+                                                                                        }(),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Manrope',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                if (getJsonField(
+                                                                                      scheduleItem,
+                                                                                      r'''$.description''',
+                                                                                    ) !=
+                                                                                    null)
+                                                                                  Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Flexible(
+                                                                                        child: Stack(
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'Descrição: ',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Manrope',
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.bold,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                Flexible(
+                                                                                                  child: Text(
+                                                                                                    functions.limitCaracteres(
+                                                                                                        getJsonField(
+                                                                                                          scheduleItem,
+                                                                                                          r'''$.description''',
+                                                                                                        ).toString(),
+                                                                                                        300)!,
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Manrope',
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                if (getJsonField(
+                                                                                      scheduleItem,
+                                                                                      r'''$.birthday''',
+                                                                                    ) !=
+                                                                                    null)
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                      children: [
+                                                                                        Align(
+                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                          child: Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                            child: Container(
+                                                                                              width: 15.0,
+                                                                                              height: 15.0,
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                borderRadius: BorderRadius.circular(24.0),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                          child: Text(
+                                                                                            functions.formatDate(functions.removeNullString(getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.birthday''',
+                                                                                            ).toString()))!,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Manrope',
+                                                                                                  fontSize: 12.0,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.w600,
+                                                                                                ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                if (functions.removeNullString(getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.cellphone[0]''',
+                                                                                        ).toString()) !=
+                                                                                        null &&
+                                                                                    functions.removeNullString(getJsonField(
+                                                                                          scheduleItem,
+                                                                                          r'''$.cellphone[0]''',
+                                                                                        ).toString()) !=
+                                                                                        '')
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        logFirebaseEvent('SCHEDULE02_PAGE_Row_u1ex4x4x_ON_TAP');
+                                                                                        logFirebaseEvent('Row_launch_u_r_l');
+                                                                                        await launchURL(functions.concateStrings(
+                                                                                            'https://wa.me/55',
+                                                                                            functions.clearMaskPhone(getJsonField(
+                                                                                              scheduleItem,
+                                                                                              r'''$.cellphone[0]''',
+                                                                                            ).toString()))!);
+                                                                                      },
+                                                                                      child: Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.start,
+                                                                                        children: [
+                                                                                          FaIcon(
+                                                                                            FontAwesomeIcons.whatsapp,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            size: 19.0,
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
+                                                                                            child: Text(
+                                                                                              functions.removeNullString(getJsonField(
+                                                                                                scheduleItem,
+                                                                                                r'''$.cellphone[0]''',
+                                                                                              ).toString())!,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Manrope',
+                                                                                                    fontSize: 12.0,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
                                                                               ],
                                                                             ),
                                                                           ),
-                                                                          if (functions.convertJsonToString(getJsonField(
-                                                                                scheduleItem,
-                                                                                r'''$.pivot.confirmation''',
-                                                                              )) !=
-                                                                              'confirmed')
-                                                                            Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Situação: ',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                      ),
-                                                                                ),
-                                                                                Text(
-                                                                                  () {
-                                                                                    if (functions.convertJsonToString(getJsonField(
-                                                                                          scheduleItem,
-                                                                                          r'''$.pivot.confirmation''',
-                                                                                        )) ==
-                                                                                        'pending') {
-                                                                                      return 'Pendente';
-                                                                                    } else if (functions.convertJsonToString(getJsonField(
-                                                                                          scheduleItem,
-                                                                                          r'''$.pivot.confirmation''',
-                                                                                        )) ==
-                                                                                        'absent') {
-                                                                                      return 'Ausente';
-                                                                                    } else if (functions.convertJsonToString(getJsonField(
-                                                                                          scheduleItem,
-                                                                                          r'''$.pivot.confirmation''',
-                                                                                        )) ==
-                                                                                        'canceled') {
-                                                                                      return 'Cancelado';
-                                                                                    } else {
-                                                                                      return '';
-                                                                                    }
-                                                                                  }(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          if (getJsonField(
-                                                                                scheduleItem,
-                                                                                r'''$.description''',
-                                                                              ) !=
-                                                                              null)
-                                                                            Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Descrição: ',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                      ),
-                                                                                ),
-                                                                                Text(
-                                                                                  getJsonField(
-                                                                                    scheduleItem,
-                                                                                    r'''$.description''',
-                                                                                  ).toString(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Manrope',
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          if (getJsonField(
-                                                                                scheduleItem,
-                                                                                r'''$.birthday''',
-                                                                              ) !=
-                                                                              null)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                children: [
-                                                                                  Align(
-                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                      child: Container(
-                                                                                        width: 15.0,
-                                                                                        height: 15.0,
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          borderRadius: BorderRadius.circular(24.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                    child: Text(
-                                                                                      functions.formatDate(functions.removeNullString(getJsonField(
-                                                                                        scheduleItem,
-                                                                                        r'''$.birthday''',
-                                                                                      ).toString()))!,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Manrope',
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                          if (functions.removeNullString(getJsonField(
-                                                                                    scheduleItem,
-                                                                                    r'''$.cellphone[0]''',
-                                                                                  ).toString()) !=
-                                                                                  null &&
-                                                                              functions.removeNullString(getJsonField(
-                                                                                    scheduleItem,
-                                                                                    r'''$.cellphone[0]''',
-                                                                                  ).toString()) !=
-                                                                                  '')
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                              child: InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('SCHEDULE02_PAGE_Row_u1ex4x4x_ON_TAP');
-                                                                                  logFirebaseEvent('Row_launch_u_r_l');
-                                                                                  await launchURL(functions.concateStrings(
-                                                                                      'https://wa.me/55',
-                                                                                      functions.clearMaskPhone(getJsonField(
-                                                                                        scheduleItem,
-                                                                                        r'''$.cellphone[0]''',
-                                                                                      ).toString()))!);
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    FaIcon(
-                                                                                      FontAwesomeIcons.whatsapp,
-                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                      size: 19.0,
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
-                                                                                      child: Text(
-                                                                                        functions.removeNullString(getJsonField(
-                                                                                          scheduleItem,
-                                                                                          r'''$.cellphone[0]''',
-                                                                                        ).toString())!,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Manrope',
-                                                                                              fontSize: 12.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w600,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                            ),
                                                                         ],
                                                                       ),
                                                                     ),

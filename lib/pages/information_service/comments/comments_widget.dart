@@ -386,168 +386,188 @@ class _CommentsWidgetState extends State<CommentsWidget>
                                                                                           ),
                                                                                         ],
                                                                                       ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                                        child: Column(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                          children: [
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
-                                                                                              child: Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                      Flexible(
+                                                                                        child: Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                            children: [
+                                                                                              Stack(
                                                                                                 children: [
-                                                                                                  Text(
-                                                                                                    getJsonField(
-                                                                                                      containerGetClientByIDResponse.jsonBody,
-                                                                                                      r'''$.data.professional_clients[0].name''',
-                                                                                                    ).toString(),
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Manrope',
-                                                                                                          fontSize: 17.0,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.w900,
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                                                                                                    child: Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      children: [
+                                                                                                        Flexible(
+                                                                                                          child: Stack(
+                                                                                                            children: [
+                                                                                                              Text(
+                                                                                                                getJsonField(
+                                                                                                                  containerGetClientByIDResponse.jsonBody,
+                                                                                                                  r'''$.data.professional_clients[0].name''',
+                                                                                                                ).toString(),
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                      fontSize: 17.0,
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                      fontWeight: FontWeight.w900,
+                                                                                                                    ),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
                                                                                                         ),
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
-                                                                                            ),
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                                              child: Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                              Stack(
                                                                                                 children: [
-                                                                                                  if (getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.birthday''',
-                                                                                                      ) !=
-                                                                                                      null)
-                                                                                                    Align(
-                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                                      child: Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                        child: Container(
-                                                                                                          width: 15.0,
-                                                                                                          height: 15.0,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            borderRadius: BorderRadius.circular(24.0),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  if (getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.professional_clients[0].birthday''',
-                                                                                                      ) !=
-                                                                                                      null)
-                                                                                                    Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        getJsonField(
-                                                                                                          containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.professional_clients[0].birthday''',
-                                                                                                        ).toString(),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
-                                                                                                              fontSize: 12.0,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.w600,
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                                    child: Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        if (getJsonField(
+                                                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                                                              r'''$.data.birthday''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Align(
+                                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                            child: Padding(
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                              child: Container(
+                                                                                                                width: 15.0,
+                                                                                                                height: 15.0,
+                                                                                                                decoration: BoxDecoration(
+                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                  borderRadius: BorderRadius.circular(24.0),
+                                                                                                                ),
+                                                                                                              ),
                                                                                                             ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  if (getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.cpf''',
-                                                                                                      ) !=
-                                                                                                      null)
-                                                                                                    Align(
-                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                                      child: Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                        child: Container(
-                                                                                                          width: 15.0,
-                                                                                                          height: 15.0,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            borderRadius: BorderRadius.circular(24.0),
                                                                                                           ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  if (getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.professional_clients[0].cpf''',
-                                                                                                      ) !=
-                                                                                                      null)
-                                                                                                    Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        getJsonField(
-                                                                                                          containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.professional_clients[0].cpf''',
-                                                                                                        ).toString(),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
-                                                                                                              fontSize: 12.0,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.w600,
+                                                                                                        if (getJsonField(
+                                                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                                                              r'''$.data.professional_clients[0].birthday''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              getJsonField(
+                                                                                                                containerGetClientByIDResponse.jsonBody,
+                                                                                                                r'''$.data.professional_clients[0].birthday''',
+                                                                                                              ).toString(),
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    fontSize: 12.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                                  ),
                                                                                                             ),
-                                                                                                      ),
+                                                                                                          ),
+                                                                                                        if (getJsonField(
+                                                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                                                              r'''$.data.cpf''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Align(
+                                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                            child: Padding(
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                              child: Container(
+                                                                                                                width: 15.0,
+                                                                                                                height: 15.0,
+                                                                                                                decoration: BoxDecoration(
+                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                  borderRadius: BorderRadius.circular(24.0),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        if (getJsonField(
+                                                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                                                              r'''$.data.professional_clients[0].cpf''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              getJsonField(
+                                                                                                                containerGetClientByIDResponse.jsonBody,
+                                                                                                                r'''$.data.professional_clients[0].cpf''',
+                                                                                                              ).toString(),
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    fontSize: 12.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                      ],
                                                                                                     ),
+                                                                                                  ),
                                                                                                 ],
                                                                                               ),
-                                                                                            ),
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                              child: Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                              Stack(
                                                                                                 children: [
-                                                                                                  if (getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.cellphone[0]''',
-                                                                                                      ) !=
-                                                                                                      null)
-                                                                                                    Align(
-                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                                      child: Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                        child: Container(
-                                                                                                          width: 15.0,
-                                                                                                          height: 15.0,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            borderRadius: BorderRadius.circular(24.0),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  if (getJsonField(
-                                                                                                        containerGetClientByIDResponse.jsonBody,
-                                                                                                        r'''$.data.professional_clients[0].cellphone[0]''',
-                                                                                                      ) !=
-                                                                                                      null)
-                                                                                                    Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        getJsonField(
-                                                                                                          containerGetClientByIDResponse.jsonBody,
-                                                                                                          r'''$.data.professional_clients[0].cellphone[0]''',
-                                                                                                        ).toString(),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Manrope',
-                                                                                                              fontSize: 12.0,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.w600,
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                    child: Row(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        if (getJsonField(
+                                                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                                                              r'''$.data.cellphone[0]''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Align(
+                                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                            child: Padding(
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                              child: Container(
+                                                                                                                width: 15.0,
+                                                                                                                height: 15.0,
+                                                                                                                decoration: BoxDecoration(
+                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                  borderRadius: BorderRadius.circular(24.0),
+                                                                                                                ),
+                                                                                                              ),
                                                                                                             ),
-                                                                                                      ),
+                                                                                                          ),
+                                                                                                        if (getJsonField(
+                                                                                                              containerGetClientByIDResponse.jsonBody,
+                                                                                                              r'''$.data.professional_clients[0].cellphone[0]''',
+                                                                                                            ) !=
+                                                                                                            null)
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              getJsonField(
+                                                                                                                containerGetClientByIDResponse.jsonBody,
+                                                                                                                r'''$.data.professional_clients[0].cellphone[0]''',
+                                                                                                              ).toString(),
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Manrope',
+                                                                                                                    fontSize: 12.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                      ],
                                                                                                     ),
+                                                                                                  ),
                                                                                                 ],
                                                                                               ),
-                                                                                            ),
-                                                                                          ],
+                                                                                            ],
+                                                                                          ),
                                                                                         ),
                                                                                       ),
                                                                                     ],

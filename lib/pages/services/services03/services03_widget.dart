@@ -954,6 +954,13 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
+                                                                    maxLength:
+                                                                        7,
+                                                                    buildCounter: (context,
+                                                                            {required currentLength,
+                                                                            required isFocused,
+                                                                            maxLength}) =>
+                                                                        null,
                                                                     keyboardType:
                                                                         TextInputType
                                                                             .number,

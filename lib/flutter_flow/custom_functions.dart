@@ -311,7 +311,7 @@ String? formatCurrency(String? valor) {
   final format = NumberFormat.currency(locale: 'pt_BR', symbol: '');
   final doubleValue = double.tryParse(valor.replaceAll(',', '.'));
   if (doubleValue == null) return null;
-  return format.format(doubleValue);
+  return format.format(doubleValue).replaceAll('.', '');
 }
 
 dynamic filterPackages(dynamic json) {
@@ -695,4 +695,19 @@ dynamic removeInactiveUsers(List<dynamic>? jsonData) {
   }
 
   return filteredList;
+}
+
+String? limitCaracteres(
+  String texto,
+  int limite,
+) {
+  print("limitCaracteres ###########################");
+  texto = texto.replaceAll('\n', ' '); // Remove quebras de linha
+  print(texto);
+  if (texto.length <= limite) {
+    print(texto);
+    return texto;
+  }
+  print('${texto.substring(0, limite)}...');
+  return '${texto.substring(0, limite)}...';
 }

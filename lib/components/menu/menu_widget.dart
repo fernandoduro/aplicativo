@@ -604,7 +604,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Meus lembretes',
+                                          'Lembretes automáticos',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
