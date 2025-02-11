@@ -119,176 +119,176 @@ class _RemindersWidgetState extends State<RemindersWidget> {
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsets.all(16.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
+                                                  child: SingleChildScrollView(
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        20.0),
+                                                            child: Text(
+                                                              'Quais lembretes você gostaria de ativar?',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Manrope',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontSize:
+                                                                        30.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
+                                                                      32.0,
                                                                       0.0,
-                                                                      0.0,
-                                                                      20.0),
-                                                          child: Text(
-                                                            'Quais lembretes você gostaria de ativar?',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Manrope',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      30.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    32.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Form(
-                                                                key: _model
-                                                                    .formKey,
-                                                                autovalidateMode:
-                                                                    AutovalidateMode
-                                                                        .disabled,
-                                                                child: FutureBuilder<
-                                                                    ApiCallResponse>(
-                                                                  future: APIOficialGroup
-                                                                      .getSettingsCall
-                                                                      .call(
-                                                                    authToken:
-                                                                        currentAuthenticationToken,
-                                                                  ),
-                                                                  builder: (context,
-                                                                      snapshot) {
-                                                                    // Customize what your widget looks like when it's loading.
-                                                                    if (!snapshot
-                                                                        .hasData) {
-                                                                      return Center(
-                                                                        child:
-                                                                            SizedBox(
-                                                                          width:
-                                                                              50.0,
-                                                                          height:
-                                                                              50.0,
+                                                                      0.0),
+                                                          child:
+                                                              SingleChildScrollView(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Form(
+                                                                  key: _model
+                                                                      .formKey,
+                                                                  autovalidateMode:
+                                                                      AutovalidateMode
+                                                                          .disabled,
+                                                                  child: FutureBuilder<
+                                                                      ApiCallResponse>(
+                                                                    future: APIOficialGroup
+                                                                        .getSettingsCall
+                                                                        .call(
+                                                                      authToken:
+                                                                          currentAuthenticationToken,
+                                                                    ),
+                                                                    builder:
+                                                                        (context,
+                                                                            snapshot) {
+                                                                      // Customize what your widget looks like when it's loading.
+                                                                      if (!snapshot
+                                                                          .hasData) {
+                                                                        return Center(
                                                                           child:
-                                                                              CircularProgressIndicator(
-                                                                            valueColor:
-                                                                                AlwaysStoppedAnimation<Color>(
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                              SizedBox(
+                                                                            width:
+                                                                                50.0,
+                                                                            height:
+                                                                                50.0,
+                                                                            child:
+                                                                                CircularProgressIndicator(
+                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                              ),
                                                                             ),
                                                                           ),
-                                                                        ),
-                                                                      );
-                                                                    }
-                                                                    final columnGetSettingsResponse =
-                                                                        snapshot
-                                                                            .data!;
+                                                                        );
+                                                                      }
+                                                                      final columnGetSettingsResponse =
+                                                                          snapshot
+                                                                              .data!;
 
-                                                                    return Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Builder(
-                                                                          builder:
-                                                                              (context) {
-                                                                            final settings =
-                                                                                getJsonField(
-                                                                              columnGetSettingsResponse.jsonBody,
-                                                                              r'''$.data[*]''',
-                                                                            ).toList();
+                                                                      return Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Builder(
+                                                                            builder:
+                                                                                (context) {
+                                                                              final settings = getJsonField(
+                                                                                columnGetSettingsResponse.jsonBody,
+                                                                                r'''$.data[*]''',
+                                                                              ).toList();
 
-                                                                            return Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: List.generate(settings.length, (settingsIndex) {
-                                                                                final settingsItem = settings[settingsIndex];
-                                                                                return Container(
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                                                                                    child: wrapWithModel(
-                                                                                      model: _model.switchLembretesModels.getModel(
-                                                                                        getJsonField(
-                                                                                          settingsItem,
-                                                                                          r'''$.id''',
-                                                                                        ).toString(),
-                                                                                        settingsIndex,
-                                                                                      ),
-                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                      child: SwitchLembretesWidget(
-                                                                                        key: Key(
-                                                                                          'Keyg8j_${getJsonField(
+                                                                              return Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: List.generate(settings.length, (settingsIndex) {
+                                                                                  final settingsItem = settings[settingsIndex];
+                                                                                  return Container(
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                                                                                      child: wrapWithModel(
+                                                                                        model: _model.switchLembretesModels.getModel(
+                                                                                          getJsonField(
                                                                                             settingsItem,
                                                                                             r'''$.id''',
-                                                                                          ).toString()}',
+                                                                                          ).toString(),
+                                                                                          settingsIndex,
                                                                                         ),
-                                                                                        descricao: getJsonField(
-                                                                                          settingsItem,
-                                                                                          r'''$.description''',
-                                                                                        ).toString(),
-                                                                                        ativo: getJsonField(
-                                                                                          settingsItem,
-                                                                                          r'''$.active''',
-                                                                                        ),
-                                                                                        id: getJsonField(
-                                                                                          settingsItem,
-                                                                                          r'''$.id''',
+                                                                                        updateCallback: () => safeSetState(() {}),
+                                                                                        child: SwitchLembretesWidget(
+                                                                                          key: Key(
+                                                                                            'Keyg8j_${getJsonField(
+                                                                                              settingsItem,
+                                                                                              r'''$.id''',
+                                                                                            ).toString()}',
+                                                                                          ),
+                                                                                          descricao: getJsonField(
+                                                                                            settingsItem,
+                                                                                            r'''$.description''',
+                                                                                          ).toString(),
+                                                                                          ativo: getJsonField(
+                                                                                            settingsItem,
+                                                                                            r'''$.active''',
+                                                                                          ),
+                                                                                          id: getJsonField(
+                                                                                            settingsItem,
+                                                                                            r'''$.id''',
+                                                                                          ),
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                );
-                                                                              }),
-                                                                            );
-                                                                          },
-                                                                        ),
-                                                                      ],
-                                                                    );
-                                                                  },
+                                                                                  );
+                                                                                }),
+                                                                              );
+                                                                            },
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                      ].divide(SizedBox(
+                                                          height: 8.0)),
+                                                    ),
                                                   ),
                                                 ),
                                               ),

@@ -950,7 +950,9 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                             {
                                                                           'idClient':
                                                                               serializeParam(
-                                                                            widget!.idClient,
+                                                                            widget!.idClient != null
+                                                                                ? widget!.idClient
+                                                                                : _model.idClientUpdateBackNavig,
                                                                             ParamType.int,
                                                                           ),
                                                                         }.withoutNulls,

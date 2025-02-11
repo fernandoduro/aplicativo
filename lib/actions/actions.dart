@@ -304,7 +304,9 @@ Future meusLembretes(BuildContext context) async {
       context.pushNamed('FirstAccessReminder');
     } else {
       logFirebaseEvent('meusLembretes_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed('Reminders');
     }
   }
@@ -643,15 +645,21 @@ Future firstConfigNavigation(
   } else {
     if (originConfig == 'schedule') {
       logFirebaseEvent('firstConfigNavigation_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed('Schedule01');
     } else if (originConfig == 'client') {
       logFirebaseEvent('firstConfigNavigation_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed('listAllClients');
     } else if (originConfig == 'newClient') {
       logFirebaseEvent('firstConfigNavigation_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed(
         'NewClient01',
         queryParameters: {
@@ -804,15 +812,21 @@ Future firstConfigValidation(
   } else {
     if (originConfig == 'schedule') {
       logFirebaseEvent('firstConfigValidation_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed('Schedule01');
     } else if (originConfig == 'client') {
       logFirebaseEvent('firstConfigValidation_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed('listAllClients');
     } else if (originConfig == 'newClient') {
       logFirebaseEvent('firstConfigValidation_navigate_to');
-
+      if (Navigator.of(context).canPop()) {
+        context.pop();
+      }
       context.pushNamed(
         'NewClient01',
         queryParameters: {

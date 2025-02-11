@@ -702,110 +702,105 @@ class _FirstAccessWidgetState extends State<FirstAccessWidget>
                                                             .featureIdSelected,
                                                       );
 
-                                                      if ((_model.apiResult25e
-                                                              ?.succeeded ??
-                                                          true)) {
-                                                        if (widget!
-                                                                .navigateTo ==
-                                                            'newClient01') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .meusClientes(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'loyalt01') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .fidelidade(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'Solicitacoes') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .assistente(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'listAllClient') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .meusClientes(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'Services01') {
-                                                          logFirebaseEvent(
-                                                              'Button_navigate_to');
+                                                      if (widget!.navigateTo ==
+                                                          'newClient01') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .meusClientes(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'loyalt01') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .fidelidade(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'Solicitacoes') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .assistente(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'listAllClient') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .meusClientes(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'Services01') {
+                                                        logFirebaseEvent(
+                                                            'Button_navigate_to');
 
-                                                          context.pushNamed(
-                                                              'Services01');
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'firstAccessReminder') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .meusLembretes(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'firstAccessSchedule') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .agenda(context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'firstAccessInsights') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .resumoSemanal(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'seuSite') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .seuSite(context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'assistente') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .assistente(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'fidelidade') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .fidelidade(
-                                                                  context);
-                                                        } else if (widget!
-                                                                .navigateTo ==
-                                                            'calculadora') {
-                                                          logFirebaseEvent(
-                                                              'Button_action_block');
-                                                          await action_blocks
-                                                              .calculadora(
-                                                                  context);
-                                                        } else {
-                                                          logFirebaseEvent(
-                                                              'Button_navigate_to');
+                                                        context.pushNamed(
+                                                            'Services01');
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'firstAccessReminder') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .meusLembretes(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'firstAccessSchedule') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .agenda(context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'firstAccessInsights') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .resumoSemanal(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'seuSite') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .seuSite(context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'assistente') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .assistente(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'fidelidade') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .fidelidade(
+                                                                context);
+                                                      } else if (widget!
+                                                              .navigateTo ==
+                                                          'calculadora') {
+                                                        logFirebaseEvent(
+                                                            'Button_action_block');
+                                                        await action_blocks
+                                                            .calculadora(
+                                                                context);
+                                                      } else {
+                                                        logFirebaseEvent(
+                                                            'Button_navigate_to');
 
-                                                          context.pushNamed(
-                                                              'Home');
-                                                        }
+                                                        context
+                                                            .pushNamed('Home');
                                                       }
 
                                                       safeSetState(() {});

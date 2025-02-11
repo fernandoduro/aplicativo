@@ -539,7 +539,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                               context)
                                                                           .primary,
                                                                       fontSize:
-                                                                          16.0,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -656,7 +656,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                               context)
                                                                           .primary,
                                                                       fontSize:
-                                                                          16.0,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -779,7 +779,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         fontSize:
-                                                                            16.0,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -929,7 +929,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         fontSize:
-                                                                            16.0,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
