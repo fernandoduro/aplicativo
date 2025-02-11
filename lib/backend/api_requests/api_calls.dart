@@ -1231,12 +1231,12 @@ class CreateClientCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}",
-  "cpf": "${escapeStringForJson(cpf)}",
+  "name": "${name}",
+  "cpf": "${cpf}",
   "cellphone": [
-    "${escapeStringForJson(cellphone)}"
+    "${cellphone}"
   ],
-  "status": "${escapeStringForJson(status)}"
+  "status": "${status}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
@@ -1516,12 +1516,12 @@ class EditClientCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}",
-  "cpf": "${escapeStringForJson(cpf)}",
+  "name": "${name}",
+  "cpf": "${cpf}",
   "cellphone": [
-    "${escapeStringForJson(cellphone)}"
+    "${cellphone}"
   ],
-  "status": "${escapeStringForJson(status)}"
+  "status": "${status}"
   
 }''';
     return FFApiInterceptor.makeApiCall(
@@ -1570,11 +1570,11 @@ class EditClientComplementCall {
     final ffApiRequestBody = '''
 {
   "payment_due_date": ${paymentDueDate},
-  "first_appointment": "${escapeStringForJson(firstAppointment)}",
-  "birthday": "${escapeStringForJson(birthday)}",
-  "gender": "${escapeStringForJson(gender)}",
+  "first_appointment": "${firstAppointment}",
+  "birthday": "${birthday}",
+  "gender": "${gender}",
   "email": [
-    "${escapeStringForJson(email)}"
+    "${email}"
   ]
 }''';
     return FFApiInterceptor.makeApiCall(
@@ -1751,9 +1751,9 @@ class CreateServiceCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}",
+  "name": "${name}",
   "duration": "${durantion}",
-  "extra_duration": "${escapeStringForJson(extraDuration)}",
+  "extra_duration": "${extraDuration}",
   "is_singular_client": ${isSingularClient},
   "max_clients": ${maxClients}
 }''';
@@ -1839,9 +1839,9 @@ class UpdateServiceCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}",
+  "name": "${name}",
   "duration": ${duration},
-  "extra_duration": "${escapeStringForJson(extraDuration)}",
+  "extra_duration": "${extraDuration}",
   "is_singular_client": ${isSingularClient},
   "max_clients": ${maxClients}
 }''';
@@ -1888,7 +1888,7 @@ class CreatePackageCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}",
+  "name": "${name}",
   "recurrency": ${recurrency},
   "monthly_value": ${monthlyValue},
   "service_ids": [${serviceIds}]
@@ -1937,7 +1937,7 @@ class UpdatePackagesCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}",
+  "name": "${name}",
   "recurrency": ${recurrency},
   "monthly_value": ${monthlyValue},
   "service_ids": [
@@ -2540,14 +2540,14 @@ class UpdateAppointmentCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "${escapeStringForJson(type)}",
-  "description": "${escapeStringForJson(description)}",
+  "type": "${type}",
+  "description": "${description}",
   "recurrent": ${recurrent},
-  "recurrence_interval": "${escapeStringForJson(recurrentInterval)}",
-  "scheduled_at": "${escapeStringForJson(scheduledAt)}",
+  "recurrence_interval": "${recurrentInterval}",
+  "scheduled_at": "${scheduledAt}",
   "professional_client_id": ${professionalClientId},
   "service_id": ${serviceId},
-  "confirmation": "${escapeStringForJson(confirmation)}",
+  "confirmation": "${confirmation}",
   "duration": ${duration}
 }''';
     return FFApiInterceptor.makeApiCall(
@@ -2594,10 +2594,10 @@ class PUTSolicitacoesCall {
 
     final ffApiRequestBody = '''
 {
-  "title": "${escapeStringForJson(title)}",
-  "status": "${escapeStringForJson(status)}",
-  "area": "${escapeStringForJson(area)}",
-  "description": "${escapeStringForJson(description)}"
+  "title": "${title}",
+  "status": "${status}",
+  "area": "${area}",
+  "description": "${description}"
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
@@ -2644,7 +2644,7 @@ class AddClientAppointmentCall {
     final ffApiRequestBody = '''
 {
   "recurrent": ${recurrent},
-  "recurrence_interval": "${escapeStringForJson(recurrentInterval)}",
+  "recurrence_interval": "${recurrentInterval}",
   "professional_client_id": ${professionalClientId}
 }''';
     return FFApiInterceptor.makeApiCall(

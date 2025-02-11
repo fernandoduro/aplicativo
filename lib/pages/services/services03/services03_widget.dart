@@ -955,7 +955,7 @@ class _Services03WidgetState extends State<Services03Widget> {
                                                                               0.0,
                                                                         ),
                                                                     maxLength:
-                                                                        7,
+                                                                        8,
                                                                     buildCounter: (context,
                                                                             {required currentLength,
                                                                             required isFocused,
