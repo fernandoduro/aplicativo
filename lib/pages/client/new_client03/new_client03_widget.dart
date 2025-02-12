@@ -228,10 +228,12 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Gloria Hallelujah',
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -336,10 +338,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Gloria Hallelujah',
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -432,10 +435,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Gloria Hallelujah',
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -523,10 +527,11 @@ class _NewClient03WidgetState extends State<NewClient03Widget> {
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Gloria Hallelujah',
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),

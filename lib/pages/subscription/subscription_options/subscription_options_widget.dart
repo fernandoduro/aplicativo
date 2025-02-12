@@ -1047,7 +1047,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Gloria Hallelujah',
+                                                                          'Poppins',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1154,7 +1154,7 @@ class _SubscriptionOptionsWidgetState extends State<SubscriptionOptionsWidget> {
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Gloria Hallelujah',
+                                                                        'Poppins',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,

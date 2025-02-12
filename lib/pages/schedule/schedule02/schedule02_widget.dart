@@ -937,12 +937,15 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                             ''),
                                                                         ']',
                                                                         ''),
-                                                                    date:
-                                                                        getJsonField(
-                                                                      widget!
-                                                                          .scheduleSelected,
-                                                                      r'''$.schedule.scheduled_at''',
-                                                                    ).toString(),
+                                                                    date: functions.concateStrings(
+                                                                        functions.concateStrings(
+                                                                            dateTimeFormat(
+                                                                              "y-M-d ",
+                                                                              widget!.dateSelected,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ),
+                                                                            widget!.hourSelected),
+                                                                        ':00'),
                                                                     beyond:
                                                                         true,
                                                                   );

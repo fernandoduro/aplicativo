@@ -218,7 +218,9 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.92,
-                                              height: 103.0,
+                                              constraints: BoxConstraints(
+                                                minHeight: 103.0,
+                                              ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -227,9 +229,7 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                     BorderRadius.circular(16.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 1.0, 0.0, 0.0),
+                                                padding: EdgeInsets.all(16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -239,159 +239,170 @@ class _NewClient04WidgetState extends State<NewClient04Widget> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
                                                   children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          functions
-                                                              .removeNullString(
-                                                                  getJsonField(
-                                                            _model.dataClient,
-                                                            r'''$.professional_clients[0].name''',
-                                                          ).toString())!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Manrope',
-                                                                color: FlutterFlowTheme.of(
+                                                    Flexible(
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Stack(
+                                                            children: [
+                                                              Text(
+                                                                functions
+                                                                    .removeNullString(
+                                                                        getJsonField(
+                                                                  _model
+                                                                      .dataClient,
+                                                                  r'''$.professional_clients[0].name''',
+                                                                ).toString())!,
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primary,
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      fontSize:
+                                                                          18.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
                                                               ),
-                                                        ),
-                                                        if (getJsonField(
-                                                              _model.dataClient,
-                                                              r'''$.professional_clients[0].cellphone[0]''',
-                                                            ) !=
-                                                            null)
-                                                          RichText(
-                                                            textScaler:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                            text: TextSpan(
-                                                              children: [
-                                                                TextSpan(
-                                                                  text:
-                                                                      'WhatsApp: ',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                                TextSpan(
-                                                                  text: functions
-                                                                      .removeNullString(
-                                                                          getJsonField(
-                                                                    _model
-                                                                        .dataClient,
-                                                                    r'''$.professional_clients[0].cellphone[0]''',
-                                                                  ).toString())!,
-                                                                  style:
-                                                                      TextStyle(),
-                                                                )
-                                                              ],
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
-                                                            ),
+                                                            ],
                                                           ),
-                                                        if (getJsonField(
-                                                              _model.dataClient,
-                                                              r'''$.professional_clients[0].cpf''',
-                                                            ) !=
-                                                            null)
-                                                          RichText(
-                                                            textScaler:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                            text: TextSpan(
-                                                              children: [
-                                                                TextSpan(
-                                                                  text: 'CPF: ',
-                                                                  style: FlutterFlowTheme.of(
+                                                          if (getJsonField(
+                                                                _model
+                                                                    .dataClient,
+                                                                r'''$.professional_clients[0].cellphone[0]''',
+                                                              ) !=
+                                                              null)
+                                                            RichText(
+                                                              textScaler:
+                                                                  MediaQuery.of(
                                                                           context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Manrope',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                                TextSpan(
-                                                                  text: functions
-                                                                      .removeNullString(
-                                                                          getJsonField(
-                                                                    _model
-                                                                        .dataClient,
-                                                                    r'''$.professional_clients[0].cpf''',
-                                                                  ).toString())!,
-                                                                  style:
-                                                                      TextStyle(),
-                                                                )
-                                                              ],
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Manrope',
-                                                                    color: FlutterFlowTheme.of(
+                                                                      .textScaler,
+                                                              text: TextSpan(
+                                                                children: [
+                                                                  TextSpan(
+                                                                    text:
+                                                                        'WhatsApp: ',
+                                                                    style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Manrope',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
+                                                                  TextSpan(
+                                                                    text: functions
+                                                                        .removeNullString(
+                                                                            getJsonField(
+                                                                      _model
+                                                                          .dataClient,
+                                                                      r'''$.professional_clients[0].cellphone[0]''',
+                                                                    ).toString())!,
+                                                                    style:
+                                                                        TextStyle(),
+                                                                  )
+                                                                ],
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
                                                             ),
+                                                          if (getJsonField(
+                                                                _model
+                                                                    .dataClient,
+                                                                r'''$.professional_clients[0].cpf''',
+                                                              ) !=
+                                                              null)
+                                                            RichText(
+                                                              textScaler:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
+                                                              text: TextSpan(
+                                                                children: [
+                                                                  TextSpan(
+                                                                    text:
+                                                                        'CPF: ',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Manrope',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                  ),
+                                                                  TextSpan(
+                                                                    text: functions
+                                                                        .removeNullString(
+                                                                            getJsonField(
+                                                                      _model
+                                                                          .dataClient,
+                                                                      r'''$.professional_clients[0].cpf''',
+                                                                    ).toString())!,
+                                                                    style:
+                                                                        TextStyle(),
+                                                                  )
+                                                                ],
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Manrope',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          Container(
+                                                            width: 200.0,
                                                           ),
-                                                        Container(
-                                                          width: 200.0,
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
                                                     Column(
                                                       mainAxisSize:
