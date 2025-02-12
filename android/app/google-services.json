@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "692619462360",
-    "project_id": "blubem-hml",
-    "storage_bucket": "blubem-hml.firebasestorage.app"
+    "project_number": "362378516740",
+    "project_id": "blubem-c0a17",
+    "storage_bucket": "blubem-c0a17.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:692619462360:android:d9e7d1d01e66b50f93b9ad",
+        "mobilesdk_app_id": "1:362378516740:android:bbb1a7a750db987b195851",
         "android_client_info": {
           "package_name": "com.blubem.app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCXMDGBKBnLaXc4lc-Z0blioTnO6igfVvc"
+          "current_key": "AIzaSyD7mWLkvwevuFVVikqRmiCa8IWQYFeVN-Q"
         }
       ],
       "services": {
