@@ -14,7 +14,7 @@ import 'package:cross_file/cross_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'uploaded_file.dart';
-import 'dart:html' as html;
+// import 'dart:html' as html;
 
 import '../main.dart';
 
@@ -389,14 +389,14 @@ Future<void> startAudioRecording(
     final AudioEncoder encoder;
     if (kIsWeb) {
       path = '';
-      final userAgent = html.window.navigator.userAgent.toLowerCase();
+      // final userAgent = html.window.navigator.userAgent.toLowerCase();
       // Safari browsers don't support opus encoding, so we fall back to wav.
       // All other browsers use opus for smaller file sizes.
-      if (userAgent.contains('safari') && !userAgent.contains('chrome')) {
-        encoder = AudioEncoder.wav;
-      } else {
+      // if (userAgent.contains('safari') && !userAgent.contains('chrome')) {
+        // encoder = AudioEncoder.wav;
+      // } else {
         encoder = AudioEncoder.opus;
-      }
+      // }
     } else {
       final dir = await getApplicationDocumentsDirectory();
       path = '${dir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
