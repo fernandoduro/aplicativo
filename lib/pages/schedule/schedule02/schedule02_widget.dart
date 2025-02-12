@@ -1903,49 +1903,6 @@ class _Schedule02WidgetState extends State<Schedule02Widget> {
                                                                                       ),
                                                                                     ],
                                                                                   ),
-                                                                                if (getJsonField(
-                                                                                      scheduleItem,
-                                                                                      r'''$.birthday''',
-                                                                                    ) !=
-                                                                                    null)
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                            child: Container(
-                                                                                              width: 15.0,
-                                                                                              height: 15.0,
-                                                                                              decoration: BoxDecoration(
-                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                borderRadius: BorderRadius.circular(24.0),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                          child: Text(
-                                                                                            functions.formatDate(functions.removeNullString(getJsonField(
-                                                                                              scheduleItem,
-                                                                                              r'''$.birthday''',
-                                                                                            ).toString()))!,
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Manrope',
-                                                                                                  fontSize: 12.0,
-                                                                                                  letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.w600,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
                                                                                 if (functions.removeNullString(getJsonField(
                                                                                           scheduleItem,
                                                                                           r'''$.cellphone[0]''',

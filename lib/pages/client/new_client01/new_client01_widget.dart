@@ -83,19 +83,6 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
         });
         logFirebaseEvent('NewClient01_set_form_field');
         safeSetState(() {
-          _model.whatsappTextController?.text =
-              functions.removeNullString(getJsonField(
-            (_model.apiResultEditClient?.jsonBody ?? ''),
-            r'''$.data.professional_clients[0].cellphone[0]''',
-          ).toString().toString())!;
-          _model.whatsappMask.updateMask(
-            newValue: TextEditingValue(
-              text: _model.whatsappTextController!.text,
-            ),
-          );
-        });
-        logFirebaseEvent('NewClient01_set_form_field');
-        safeSetState(() {
           _model.statusValue = (functions.convertJsonToString(getJsonField(
                     (_model.apiResultEditClient?.jsonBody ?? ''),
                     r'''$.data.professional_clients[0].status''',
@@ -110,7 +97,6 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
     _model.nomeTextController ??= TextEditingController();
     _model.nomeFocusNode ??= FocusNode();
 
-    _model.whatsappTextController ??= TextEditingController();
     _model.whatsappFocusNode ??= FocusNode();
 
     _model.cpfFocusNode ??= FocusNode();
@@ -447,7 +433,16 @@ class _NewClient01WidgetState extends State<NewClient01Widget> {
                                                                   1.0,
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .whatsappTextController,
+                                                                    .whatsappTextController ??=
+                                                                TextEditingController(
+                                                              text: functions
+                                                                  .removeNullString(
+                                                                      getJsonField(
+                                                                columnGetClientByIDResponse
+                                                                    .jsonBody,
+                                                                r'''$.data.professional_clients[0].cellphone[0]''',
+                                                              ).toString()),
+                                                            ),
                                                             focusNode: _model
                                                                 .whatsappFocusNode,
                                                             autofocus: true,

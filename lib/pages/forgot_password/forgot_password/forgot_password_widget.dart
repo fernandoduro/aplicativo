@@ -147,7 +147,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 10.0),
                                             child: Text(
-                                              'Digite seu celular abaixo .',
+                                              'Digite seu celular abaixo.',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium

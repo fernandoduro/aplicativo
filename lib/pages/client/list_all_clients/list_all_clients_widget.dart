@@ -869,30 +869,27 @@ class _ListAllClientsWidgetState extends State<ListAllClientsWidget> {
                                                                                                                                     child: Row(
                                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                                       children: [
-                                                                                                                                        Padding(
-                                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                                                                          child: RichText(
-                                                                                                                                            textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                                            text: TextSpan(
-                                                                                                                                              children: [
-                                                                                                                                                TextSpan(
-                                                                                                                                                  text: getJsonField(
-                                                                                                                                                    packagesItem,
-                                                                                                                                                    r'''$.name''',
-                                                                                                                                                  ).toString(),
-                                                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                                        fontFamily: 'Manrope',
-                                                                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                                                        letterSpacing: 0.0,
-                                                                                                                                                      ),
-                                                                                                                                                )
-                                                                                                                                              ],
-                                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                                    fontFamily: 'Manrope',
-                                                                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                                                    letterSpacing: 0.0,
-                                                                                                                                                  ),
-                                                                                                                                            ),
+                                                                                                                                        RichText(
+                                                                                                                                          textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                                          text: TextSpan(
+                                                                                                                                            children: [
+                                                                                                                                              TextSpan(
+                                                                                                                                                text: getJsonField(
+                                                                                                                                                  packagesItem,
+                                                                                                                                                  r'''$.name''',
+                                                                                                                                                ).toString(),
+                                                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                      fontFamily: 'Manrope',
+                                                                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                                      letterSpacing: 0.0,
+                                                                                                                                                    ),
+                                                                                                                                              )
+                                                                                                                                            ],
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                  fontFamily: 'Manrope',
+                                                                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                                  letterSpacing: 0.0,
+                                                                                                                                                ),
                                                                                                                                           ),
                                                                                                                                         ),
                                                                                                                                         Text(
