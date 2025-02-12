@@ -431,6 +431,12 @@ class _CreateSiteEtapas17WidgetState extends State<CreateSiteEtapas17Widget> {
                                                                 'Manrope',
                                                             letterSpacing: 0.0,
                                                           ),
+                                                      maxLength: 8,
+                                                      buildCounter: (context,
+                                                              {required currentLength,
+                                                              required isFocused,
+                                                              maxLength}) =>
+                                                          null,
                                                       validator: _model
                                                           .cepTextControllerValidator
                                                           .asValidator(context),
