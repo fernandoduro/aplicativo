@@ -5,13 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyBH8qirpMrSS0Vh__2FbO6UYNGVUeCIaeg",
-            authDomain: "blubem-hml.firebaseapp.com",
-            projectId: "blubem-hml",
-            storageBucket: "blubem-hml.firebasestorage.app",
-            messagingSenderId: "692619462360",
-            appId: "1:692619462360:web:72850fb215103b0c93b9ad",
-            measurementId: "G-ZPQE1MMXF6"));
+            apiKey: "AIzaSyAV5tXlKhgsO4GryXyeiSOEvV6JO1FzT_Y",
+            authDomain: "blubem-c0a17.firebaseapp.com",
+            projectId: "blubem-c0a17",
+            storageBucket: "blubem-c0a17.appspot.com",
+            messagingSenderId: "362378516740",
+            appId: "1:362378516740:web:6abb41df03f40fe3195851",
+            measurementId: "G-K70B3Q8ZMR"));
   } else {
     await Firebase.initializeApp();
   }
